@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Crónicas de Santa Cultura Viva: relatos sobre cultura, memoria, territorio, comunidad y vida universitaria."
+  />
+
+  <title>Crónicas | Santa Cultura Viva</title>
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
+    .cronicas-page {
+      background: var(--bg);
+    }
+
+    .cronicas-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .cronicas-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .cronicas-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .cronicas-page .brand-subtitle {
+      display: none;
+    }
+
+    .cronicas-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .cronicas-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .cronicas-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(26, 46, 32, 0.97) 0%,
+          rgba(53, 79, 59, 0.88) 50%,
+          rgba(53, 79, 59, 0.5) 100%
+        ),
+        url("../../img/cronicas-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .cronicas-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.55),
+          transparent 62%
+        );
+    }
+
+    .cronicas-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .cronicas-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronicas-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .cronicas-hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .cronicas-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .cronicas-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .cronicas-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       SECCIONES
+    ========================================= */
+
+    .cronicas-section {
+      padding: 5rem 0;
+    }
+
+    .cronicas-section-white {
+      background: #ffffff;
+    }
+
+    .cronicas-section-soft {
+      background: var(--bg);
+    }
+
+    .cronicas-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .cronicas-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .cronicas-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       CRÓNICA DESTACADA
+    ========================================= */
+
+    .cronica-featured-editorial {
+      min-height: 600px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .cronica-featured-image-editorial {
+      min-height: 600px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.35),
+          rgba(20, 17, 15, 0.03)
+        ),
+        url("../../img/cronica-destacada.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #354f3b, #8c6d3f);
+    }
+
+    .cronica-featured-content-editorial {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cronica-featured-content-editorial .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronica-featured-content-editorial h2 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .cronica-featured-content-editorial > p {
+      margin: 0 0 1.4rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .cronica-tags {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .cronica-tags span {
+      padding: 0.4rem 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+    }
+
+    /* =========================================
+       FILTROS
+    ========================================= */
+
+    .cronica-filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .cronica-filter {
+      padding: 0.62rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .cronica-filter:hover,
+    .cronica-filter.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #ffffff;
+    }
+
+    /* =========================================
+       LISTADO DE CRÓNICAS
+    ========================================= */
+
+    .cronicas-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .cronica-feed-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 390px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronica-feed-date {
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cronica-feed-date time {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .cronica-feed-date span {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .cronica-feed-category {
+      margin: 0 0 0.6rem;
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cronica-feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .cronica-feed-content h3 a:hover {
+      color: var(--green);
+    }
+
+    .cronica-feed-content > p {
+      max-width: 660px;
+      margin: 0 0 1rem;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .cronica-feed-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .cronica-feed-tags span {
+      padding: 0.32rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .cronica-feed-image {
+      min-height: 245px;
+      display: block;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .cronica-image-primer-ciclo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.12)
+        ),
+        url("../../img/cronica-primer-ciclo.jpg");
+    }
+
+    .cronica-image-mochila {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(53, 79, 59, 0.1)
+        ),
+        url("../../img/cronica-mochila.jpg");
+    }
+
+    .cronica-image-ciudad {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.15),
+          rgba(53, 79, 59, 0.18)
+        ),
+        url("../../img/cronica-ciudad.jpg");
+    }
+
+    .cronica-image-sostenerse {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.19),
+          rgba(216, 200, 184, 0.16)
+        ),
+        url("../../img/cronica-sostenerse.jpg");
+    }
+
+    .cronica-image-acento {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.16),
+          rgba(140, 109, 63, 0.14)
+        ),
+        url("../../img/cronica-acento.jpg");
+    }
+
+    .cronica-image-cancion {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(94, 31, 31, 0.12)
+        ),
+        url("../../img/cronica-cancion.jpg");
+    }
+
+    /* =========================================
+       ENVÍO DE TEXTOS
+    ========================================= */
+
+    .cronicas-submit-editorial {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .cronicas-submit-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .cronicas-submit-copy > p:last-child {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .cronicas-submit-steps {
+      border-top: 1px solid var(--ink);
+    }
+
+    .cronicas-submit-step {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 70px 210px 1fr;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronicas-submit-step span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .cronicas-submit-step h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .cronicas-submit-step p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CTA FINAL
+    ========================================= */
+
+    .cronicas-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .cronicas-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .cronicas-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .cronicas-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .cronicas-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .cronica-feed-item {
+        grid-template-columns: 125px minmax(0, 1fr) 310px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .cronicas-hero-grid,
+      .cronica-featured-editorial,
+      .cronicas-section-header,
+      .cronicas-submit-editorial,
+      .cronicas-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-featured-image-editorial {
+        min-height: 420px;
+      }
+
+      .cronica-feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .cronica-feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cronicas-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .cronicas-hero {
+        min-height: auto;
+      }
+
+      .cronicas-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .cronicas-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .cronicas-section,
+      .cronicas-final {
+        padding: 3rem 0;
+      }
+
+      .cronica-featured-content-editorial {
+        padding: 1.6rem;
+      }
+
+      .cronica-featured-image-editorial {
+        min-height: 300px;
+      }
+
+      .cronica-feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .cronica-feed-date {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .cronica-feed-image {
+        min-height: 230px;
+      }
+
+      .cronicas-submit-step {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .cronicas-submit-step p {
+        grid-column: 2;
+      }
+
+      .cronicas-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="cronicas-page">
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a class="active" href="index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="cronicas-hero">
+      <div class="cronicas-hero-grid">
+        <div class="cronicas-hero-copy">
+          <p class="eyebrow">
+            Voces y relatos
+          </p>
+
+          <h1>Crónicas</h1>
+
+          <p>
+            Relatos, experiencias y reflexiones sobre cultura,
+            comunidad, memoria, territorio, identidad
+            y vida universitaria.
+          </p>
+        </div>
+
+        <div class="cronicas-hero-note">
+          <h2>Textos con mirada propia</h2>
+
+          <p>
+            Cada crónica parte de una experiencia situada
+            y pasa por revisión editorial antes de publicarse.
+          </p>
+
+          <a
+            href="../convocatorias/index.html"
+            class="btn btn-light"
+          >
+            Enviar texto
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-soft">
+      <div class="container">
+        <article class="cronica-featured-editorial">
+          <div
+            class="cronica-featured-image-editorial"
+            role="img"
+            aria-label="Imagen de la crónica Primer ciclo lejos de casa"
+          ></div>
+
+          <div class="cronica-featured-content-editorial">
+            <p class="eyebrow">
+              Crónica destacada · Foránexs
+            </p>
+
+            <h2>
+              Primer ciclo lejos de casa
+            </h2>
+
+            <p>
+              Una crónica sobre llegar a Lima, aprender a moverse
+              por una ciudad nueva, iniciar la universidad
+              y construir comunidad lejos del lugar de origen.
+            </p>
+
+            <div class="cronica-tags">
+              <span>Vida universitaria</span>
+              <span>Foránexs</span>
+              <span>Memoria</span>
+            </div>
+
+            <a href="detalle.html" class="btn btn-light">
+              Leer crónica
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-white">
+      <div class="container">
+        <header class="cronicas-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Explora por tema
+            </h2>
+          </div>
+
+          <p>
+            Las crónicas se organizan según la experiencia,
+            el territorio o la mirada editorial de cada texto.
+          </p>
+        </header>
+
+        <div class="cronica-filter-list">
+          <button class="cronica-filter active" type="button">
+            Todas
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Vida universitaria
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Foránexs
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Memoria
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Territorio
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Comunidad
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Cultura
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Opinión
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Identidad
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-white">
+      <div class="container">
+        <header class="cronicas-section-header">
+          <div>
+            <p class="eyebrow">Últimas crónicas</p>
+
+            <h2>
+              Relatos recientes
+            </h2>
+          </div>
+
+          <p>
+            Textos estudiantiles y comunitarios publicados
+            en la revista digital.
+          </p>
+        </header>
+
+        <div class="cronicas-feed">
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-12">
+                Junio 12, 2026
+              </time>
+
+              <span>Crónica 01</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Foránexs / Vida universitaria
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  Primer ciclo lejos de casa
+                </a>
+              </h3>
+
+              <p>
+                Relato sobre adaptación, universidad,
+                ciudad y búsqueda de redes de apoyo.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Foránexs</span>
+                <span>Comunidad</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-primer-ciclo"
+              aria-label="Leer Primer ciclo lejos de casa"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-09">
+                Junio 9, 2026
+              </time>
+
+              <span>Crónica 02</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Memoria / Territorio
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  Lo que traemos en la mochila
+                </a>
+              </h3>
+
+              <p>
+                Una reflexión sobre identidad, recuerdos familiares
+                y aquello que acompaña a quienes dejan su lugar de origen.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Memoria</span>
+                <span>Territorio</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-mochila"
+              aria-label="Leer Lo que traemos en la mochila"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-07">
+                Junio 7, 2026
+              </time>
+
+              <span>Crónica 03</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Cultura / Comunidad
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  La ciudad también se aprende caminando
+                </a>
+              </h3>
+
+              <p>
+                Un recorrido por espacios culturales,
+                calles y lugares que ayudan a reconocer
+                y habitar una nueva ciudad.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Cultura</span>
+                <span>Ciudad</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-ciudad"
+              aria-label="Leer La ciudad también se aprende caminando"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-05">
+                Junio 5, 2026
+              </time>
+
+              <span>Crónica 04</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Opinión / Universidad
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  Estudiar también es sostenerse
+                </a>
+              </h3>
+
+              <p>
+                Reflexión sobre exigencia académica,
+                bienestar y redes de cuidado dentro
+                de la vida universitaria.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Bienestar</span>
+                <span>Universidad</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-sostenerse"
+              aria-label="Leer Estudiar también es sostenerse"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-03">
+                Junio 3, 2026
+              </time>
+
+              <span>Crónica 05</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Identidad / Comunidad
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  Hablar con acento propio
+                </a>
+              </h3>
+
+              <p>
+                Texto sobre lenguaje, pertenencia
+                y experiencias dentro del espacio universitario.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Identidad</span>
+                <span>Lenguaje</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-acento"
+              aria-label="Leer Hablar con acento propio"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-01">
+                Junio 1, 2026
+              </time>
+
+              <span>Crónica 06</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Cultura / Memoria
+              </p>
+
+              <h3>
+                <a href="detalle.html">
+                  Una canción para volver
+                </a>
+              </h3>
+
+              <p>
+                Crónica sobre música, recuerdos
+                y el vínculo emocional con el lugar de origen.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Música</span>
+                <span>Memoria</span>
+              </div>
+            </div>
+
+            <a
+              href="detalle.html"
+              class="cronica-feed-image cronica-image-cancion"
+              aria-label="Leer Una canción para volver"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-soft">
+      <div class="container cronicas-submit-editorial">
+        <div class="cronicas-submit-copy">
+          <p class="eyebrow">
+            Publica en la revista
+          </p>
+
+          <h2>
+            ¿Quieres enviar una crónica?
+          </h2>
+
+          <p>
+            Lxs estudiantes pueden enviar crónicas,
+            relatos, artículos de opinión, reseñas culturales
+            o reflexiones territoriales mediante Convocatorias.
+          </p>
+        </div>
+
+        <div class="cronicas-submit-steps">
+          <article class="cronicas-submit-step">
+            <span>01</span>
+
+            <h3>Revisa la temática</h3>
+
+            <p>
+              Verifica que tu texto dialogue con la convocatoria vigente.
+            </p>
+          </article>
+
+          <article class="cronicas-submit-step">
+            <span>02</span>
+
+            <h3>Envía tu texto</h3>
+
+            <p>
+              Utiliza el correo y el asunto indicados en la convocatoria.
+            </p>
+          </article>
+
+          <article class="cronicas-submit-step">
+            <span>03</span>
+
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El equipo revisará tu propuesta y podrá sugerir ajustes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-final">
+      <div class="container">
+        <div class="cronicas-final-inner">
+          <div>
+            <p class="eyebrow">
+              Convocatoria abierta
+            </p>
+
+            <h2>
+              Tu historia también puede ser parte de Santa Cultura Viva
+            </h2>
+
+            <p>
+              Revisa la temática del mes y envía tu crónica,
+              relato o reflexión para ser considerada
+              dentro de la revista.
+            </p>
+          </div>
+
+          <a
+            href="../convocatorias/index.html"
+            class="btn btn-light"
+          >
+            Ver convocatoria
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>

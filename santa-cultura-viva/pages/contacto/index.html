@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Comunícate con Santa Cultura Viva para enviar consultas, propuestas editoriales, recursos, eventos o alianzas."
+  />
+
+  <title>Contacto | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/contacto/index.html -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
+    .contacto-page {
+      background: var(--bg);
+    }
+
+    .contacto-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .contacto-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .contacto-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .contacto-page .brand-subtitle {
+      display: none;
+    }
+
+    .contacto-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .contacto-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .contacto-hero {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(29, 47, 34, 0.98) 0%,
+          rgba(53, 79, 59, 0.9) 50%,
+          rgba(53, 79, 59, 0.62) 100%
+        ),
+        url("../../img/contacto-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .contacto-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.52),
+          transparent 60%
+        );
+    }
+
+    .contacto-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .contacto-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .contacto-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .contacto-hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .contacto-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .contacto-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .contacto-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       SECCIONES
+    ========================================= */
+
+    .contacto-section {
+      padding: 5rem 0;
+    }
+
+    .contacto-section-white {
+      background: #ffffff;
+    }
+
+    .contacto-section-soft {
+      background: var(--bg);
+    }
+
+    .contacto-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .contacto-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .contacto-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       CANALES
+    ========================================= */
+
+    .contact-channels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .contact-channel {
+      min-height: 280px;
+      padding: 1.7rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .contact-channel:hover {
+      background: var(--soft);
+    }
+
+    .contact-channel-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-channel h3 {
+      margin: 3.2rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.65rem;
+      line-height: 1.08;
+    }
+
+    .contact-channel p {
+      margin: 0 0 1.2rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    .contact-channel a {
+      color: var(--accent-dark);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .contact-channel a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================================
+       FORMULARIO
+    ========================================= */
+
+    .contact-form-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-form-intro {
+      position: sticky;
+      top: 175px;
+    }
+
+    .contact-form-intro h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .contact-form-intro > p:not(.eyebrow) {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .contact-form-note {
+      margin-top: 1.5rem;
+      padding: 1.3rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+    }
+
+    .contact-form-note h3 {
+      margin: 0 0 0.6rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .contact-form-note p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .contact-editorial-form {
+      padding: 2rem;
+      display: grid;
+      gap: 1.2rem;
+      background: #ffffff;
+      border: 1px solid var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .contact-field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .contact-field label {
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.025em;
+    }
+
+    .contact-field input,
+    .contact-field select,
+    .contact-field textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    .contact-field textarea {
+      min-height: 190px;
+      resize: vertical;
+    }
+
+    .contact-field input:focus,
+    .contact-field select:focus,
+    .contact-field textarea:focus {
+      outline: 3px solid rgba(139, 47, 47, 0.12);
+      border-color: var(--accent);
+    }
+
+    .contact-form-footer {
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-form-footer p {
+      max-width: 470px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.79rem;
+      line-height: 1.5;
+    }
+
+    /* =========================================
+       TIPOS DE PROPUESTAS
+    ========================================= */
+
+    .proposal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .proposal-card {
+      min-height: 255px;
+      padding: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--green);
+    }
+
+    .proposal-card:nth-child(2),
+    .proposal-card:nth-child(5) {
+      border-top-color: var(--accent);
+    }
+
+    .proposal-card:nth-child(3),
+    .proposal-card:nth-child(6) {
+      border-top-color: var(--purple);
+    }
+
+    .proposal-card span {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .proposal-card h3 {
+      margin: 2.8rem 0 0.8rem;
+      font-size: 1.45rem;
+      line-height: 1.12;
+    }
+
+    .proposal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CTA FINAL
+    ========================================= */
+
+    .contact-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .contact-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .contact-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .contact-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .contact-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER EDITORIAL
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .proposal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .contacto-hero-grid,
+      .contacto-section-header,
+      .contact-form-layout,
+      .contact-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-channels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-intro {
+        position: static;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .contacto-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .contacto-hero {
+        min-height: auto;
+      }
+
+      .contacto-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .contacto-hero h1 {
+        font-size: clamp(3.8rem, 21vw, 6rem);
+      }
+
+      .contacto-section,
+      .contact-final {
+        padding: 3rem 0;
+      }
+
+      .proposal-grid,
+      .footer-editorial-grid,
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-editorial-form,
+      .contact-final-inner {
+        padding: 1.5rem;
+      }
+
+      .contact-form-footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .contact-form-footer .btn {
+        width: 100%;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="contacto-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="contacto-hero">
+      <div class="contacto-hero-grid">
+        <div class="contacto-hero-copy">
+          <p class="eyebrow">Escríbenos</p>
+
+          <h1>Contacto</h1>
+
+          <p>
+            Envía consultas, propuestas editoriales, recursos,
+            eventos, alianzas o mensajes generales al equipo
+            de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="contacto-hero-note">
+          <h2>
+            También puedes proponer contenido
+          </h2>
+
+          <p>
+            Comparte una idea, recomienda un recurso,
+            propone una actividad o consulta sobre
+            nuestras convocatorias editoriales.
+          </p>
+
+          <a
+            href="#formulario-contacto"
+            class="btn btn-light"
+          >
+            Ir al formulario
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANALES -->
+    <section class="contacto-section contacto-section-white">
+      <div class="container">
+        <header class="contacto-section-header">
+          <div>
+            <p class="eyebrow">Canales</p>
+
+            <h2>
+              Formas de contacto
+            </h2>
+          </div>
+
+          <p>
+            Comunícate con el equipo según el tipo
+            de consulta o propuesta que desees enviar.
+          </p>
+        </header>
+
+        <div class="contact-channels-grid">
+          <article class="contact-channel">
+            <span class="contact-channel-number">01</span>
+
+            <h3>Correo editorial</h3>
+
+            <p>
+              Para consultas generales, propuestas de contenido
+              y coordinación con el equipo editorial.
+            </p>
+
+            <a href="mailto:santaculturaviva@gmail.com">
+              santaculturaviva@gmail.com
+            </a>
+          </article>
+
+          <article class="contact-channel">
+            <span class="contact-channel-number">02</span>
+
+            <h3>Instagram</h3>
+
+            <p>
+              Para consultar publicaciones, alertas visuales,
+              recursos recomendados y novedades de la revista.
+            </p>
+
+            <a href="#">
+              Ver Instagram
+            </a>
+          </article>
+
+          <article class="contact-channel">
+            <span class="contact-channel-number">03</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Para revisar temáticas mensuales, fechas,
+              formatos aceptados y condiciones de envío.
+            </p>
+
+            <a href="../convocatorias/index.html">
+              Ver convocatoria
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section
+      class="contacto-section contacto-section-soft"
+      id="formulario-contacto"
+    >
+      <div class="container contact-form-layout">
+        <div class="contact-form-intro">
+          <p class="eyebrow">Formulario</p>
+
+          <h2>
+            Envíanos un mensaje
+          </h2>
+
+          <p>
+            Selecciona el tipo de mensaje y completa tus datos.
+            La información será gestionada por el equipo editorial
+            cuando el formulario se conecte con Spring Boot.
+          </p>
+
+          <div class="contact-form-note">
+            <h3>Tipos de mensajes</h3>
+
+            <p>
+              Consultas, propuestas de crónica, recursos de curaduría,
+              eventos, alianzas, convocatorias o reportes técnicos.
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-editorial-form">
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contactNombreSocial">
+                Nombre social
+              </label>
+
+              <input
+                type="text"
+                id="contactNombreSocial"
+                name="nombreSocial"
+                placeholder="Escribe tu nombre social"
+              />
+            </div>
+
+            <div class="contact-field">
+              <label for="contactPronombre">
+                Pronombre
+              </label>
+
+              <input
+                type="text"
+                id="contactPronombre"
+                name="pronombre"
+                placeholder="Ejemplo: ella, él, elle"
+              />
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="contactCorreo">
+              Correo electrónico
+            </label>
+
+            <input
+              type="email"
+              id="contactCorreo"
+              name="correo"
+              placeholder="correo@ejemplo.com"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="asunto">
+              Asunto
+            </label>
+
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              placeholder="Escribe el asunto de tu mensaje"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="tipoMensaje">
+              Tipo de mensaje
+            </label>
+
+            <select
+              id="tipoMensaje"
+              name="tipoMensaje"
+            >
+              <option value="">
+                Selecciona una opción
+              </option>
+
+              <option value="consulta-general">
+                Consulta general
+              </option>
+
+              <option value="propuesta-cronica">
+                Propuesta de crónica
+              </option>
+
+              <option value="propuesta-curaduria">
+                Propuesta de curaduría
+              </option>
+
+              <option value="evento">
+                Evento
+              </option>
+
+              <option value="convocatoria">
+                Convocatoria
+              </option>
+
+              <option value="alianza">
+                Alianza
+              </option>
+
+              <option value="problema-tecnico">
+                Problema técnico
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+            </select>
+          </div>
+
+          <div class="contact-field">
+            <label for="mensaje">
+              Mensaje
+            </label>
+
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Escribe tu mensaje"
+            ></textarea>
+          </div>
+
+          <div class="contact-form-footer">
+            <p>
+              Esta versión es visual. El botón quedará conectado
+              a la base de datos cuando se implemente Spring Boot y MySQL.
+            </p>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+            >
+              Enviar mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- PROPUESTAS -->
+    <section class="contacto-section contacto-section-white">
+      <div class="container">
+        <header class="contacto-section-header">
+          <div>
+            <p class="eyebrow">Propuestas</p>
+
+            <h2>
+              ¿Qué puedes enviarnos?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva recibe distintos tipos
+            de propuestas para evaluación y revisión editorial.
+          </p>
+        </header>
+
+        <div class="proposal-grid">
+          <article class="proposal-card">
+            <span>01</span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Ideas o textos narrativos vinculados con cultura,
+              memoria, comunidad o vida universitaria.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>02</span>
+
+            <h3>Recursos</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas o recursos para Curaduría.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>03</span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Actividades académicas, culturales,
+              FEPUC, comunitarias o Foránexs.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>04</span>
+
+            <h3>Alianzas</h3>
+
+            <p>
+              Propuestas de colaboración con colectivos,
+              proyectos o espacios culturales.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>05</span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              o contactos de acompañamiento.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>06</span>
+
+            <h3>Problemas técnicos</h3>
+
+            <p>
+              Reportes sobre errores, enlaces rotos
+              o dificultades de navegación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="contact-final">
+      <div class="container">
+        <div class="contact-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Este proyecto también se construye escuchando
+            </h2>
+
+            <p>
+              El diálogo con la comunidad permite mejorar
+              la revista, sumar recursos y abrir nuevos
+              espacios editoriales y culturales.
+            </p>
+          </div>
+
+          <a
+            href="../suscripcion.html"
+            class="btn btn-light"
+          >
+            Suscribirme
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas de la comunidad universitaria.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="../cronicas/index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranex/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Ruta correcta desde pages/contacto/index.html -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

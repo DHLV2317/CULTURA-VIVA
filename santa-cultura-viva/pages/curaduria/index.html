@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Curaduría de Santa Cultura Viva: lecturas, audiovisuales, plataformas, convocatorias, becas y recursos digitales."
+  />
+
+  <title>Curaduría | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/curaduria/index.html -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
+    .curaduria-page {
+      background: var(--bg);
+    }
+
+    .curaduria-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .curaduria-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .curaduria-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .curaduria-page .brand-subtitle {
+      display: none;
+    }
+
+    .curaduria-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .curaduria-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .curaduria-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(77, 55, 27, 0.98) 0%,
+          rgba(140, 109, 63, 0.9) 48%,
+          rgba(140, 109, 63, 0.5) 100%
+        ),
+        url("../../img/curaduria-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .curaduria-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.56),
+          transparent 62%
+        );
+    }
+
+    .curaduria-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .curaduria-hero .eyebrow {
+      color: #f2e1bd;
+    }
+
+    .curaduria-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .curaduria-hero-copy > p:last-child {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .curaduria-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .curaduria-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .curaduria-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       ESTRUCTURA DE SECCIONES
+    ========================================= */
+
+    .curaduria-section {
+      padding: 5rem 0;
+    }
+
+    .curaduria-section-white {
+      background: #ffffff;
+    }
+
+    .curaduria-section-soft {
+      background: var(--bg);
+    }
+
+    .curaduria-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .curaduria-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .curaduria-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FILTROS
+    ========================================= */
+
+    .curaduria-filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .curaduria-filter {
+      padding: 0.62rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .curaduria-filter:hover,
+    .curaduria-filter.active {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #ffffff;
+    }
+
+    /* =========================================
+       RECURSO DESTACADO
+    ========================================= */
+
+    .curaduria-featured {
+      min-height: 600px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      background: #5a4528;
+      color: #ffffff;
+    }
+
+    .curaduria-featured-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .curaduria-featured-content .eyebrow {
+      color: #f2e1bd;
+    }
+
+    .curaduria-featured-content h2 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(2.5rem, 4vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .curaduria-featured-content > p {
+      margin: 0 0 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .curaduria-featured-tags {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .curaduria-featured-tags span {
+      padding: 0.4rem 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+    }
+
+    .curaduria-featured-image {
+      min-height: 600px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.22),
+          rgba(20, 17, 15, 0.03)
+        ),
+        url("../../img/curaduria-destacada.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #8c6d3f, #354f3b);
+    }
+
+    /* =========================================
+       LISTADO EDITORIAL DE RECURSOS
+    ========================================= */
+
+    .resources-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .resource-feed-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 390px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .resource-feed-number {
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .resource-feed-number strong {
+      display: block;
+      margin-bottom: 0.65rem;
+      color: var(--purple);
+      font-size: 1.1rem;
+    }
+
+    .resource-feed-number span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .resource-feed-category {
+      margin: 0 0 0.6rem;
+      color: var(--purple);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .resource-feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .resource-feed-content h3 a:hover {
+      color: var(--purple);
+    }
+
+    .resource-feed-content > p {
+      max-width: 660px;
+      margin: 0 0 1rem;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .resource-feed-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .resource-feed-footer span {
+      color: var(--muted);
+    }
+
+    .resource-feed-footer a {
+      color: var(--purple);
+      font-weight: 800;
+    }
+
+    .resource-feed-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .resource-feed-image {
+      min-height: 245px;
+      display: block;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .resource-image-lectura {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.19),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("../../img/curaduria-lectura.jpg");
+    }
+
+    .resource-image-audiovisual {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.16),
+          rgba(140, 109, 63, 0.16)
+        ),
+        url("../../img/curaduria-audiovisual.jpg");
+    }
+
+    .resource-image-plataforma {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(216, 200, 184, 0.15)
+        ),
+        url("../../img/curaduria-plataforma.jpg");
+    }
+
+    .resource-image-convocatoria {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(140, 109, 63, 0.14)
+        ),
+        url("../../img/curaduria-convocatoria.jpg");
+    }
+
+    .resource-image-beca {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(140, 109, 63, 0.17)
+        ),
+        url("../../img/curaduria-beca.jpg");
+    }
+
+    .resource-image-instagram {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.17),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("../../img/curaduria-instagram.jpg");
+    }
+
+    /* =========================================
+       DIRECTORIO DE CATEGORÍAS
+    ========================================= */
+
+    .curaduria-directory {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .curaduria-directory-card {
+      min-height: 270px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .curaduria-directory-card:hover {
+      background: var(--soft);
+    }
+
+    .curaduria-directory-card span {
+      color: var(--purple);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .curaduria-directory-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .curaduria-directory-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CRITERIOS DE SELECCIÓN
+    ========================================= */
+
+    .selection-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .selection-intro {
+      position: sticky;
+      top: 175px;
+    }
+
+    .selection-intro h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .selection-intro > p:last-child {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .selection-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .selection-item {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 70px 220px 1fr;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .selection-item span {
+      color: var(--purple);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .selection-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .selection-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CTA FINAL
+    ========================================= */
+
+    .curaduria-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .curaduria-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .curaduria-final-inner .eyebrow {
+      color: #d9eadc;
+    }
+
+    .curaduria-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .curaduria-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .resource-feed-item {
+        grid-template-columns: 125px minmax(0, 1fr) 310px;
+      }
+
+      .curaduria-directory {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .curaduria-hero-grid,
+      .curaduria-featured,
+      .curaduria-section-header,
+      .selection-layout,
+      .curaduria-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .curaduria-featured-image {
+        min-height: 420px;
+        order: -1;
+      }
+
+      .resource-feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .resource-feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .selection-intro {
+        position: static;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .curaduria-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .curaduria-hero {
+        min-height: auto;
+      }
+
+      .curaduria-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .curaduria-hero h1 {
+        font-size: clamp(3.8rem, 20vw, 6rem);
+      }
+
+      .curaduria-section,
+      .curaduria-final {
+        padding: 3rem 0;
+      }
+
+      .curaduria-featured-content {
+        padding: 1.6rem;
+      }
+
+      .curaduria-featured-image {
+        min-height: 300px;
+      }
+
+      .resource-feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .resource-feed-number {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .resource-feed-number strong {
+        margin-bottom: 0;
+      }
+
+      .resource-feed-image {
+        min-height: 230px;
+      }
+
+      .curaduria-directory,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .selection-item {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .selection-item p {
+        grid-column: 2;
+      }
+
+      .curaduria-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="curaduria-page">
+  <!-- FONDO DEL MENÚ -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a class="active" href="index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca lecturas, audiovisuales, becas o plataformas"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="curaduria-hero">
+      <div class="curaduria-hero-grid">
+        <div class="curaduria-hero-copy">
+          <p class="eyebrow">
+            Recomendaciones seleccionadas
+          </p>
+
+          <h1>Curaduría</h1>
+
+          <p>
+            Una biblioteca viva de lecturas, audiovisuales,
+            plataformas, convocatorias, becas y recursos digitales
+            para ampliar las conversaciones de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="curaduria-hero-note">
+          <h2>
+            Materiales para seguir explorando
+          </h2>
+
+          <p>
+            Los recursos complementan los artículos de la revista
+            y permiten profundizar en cultura, territorio,
+            derechos humanos, comunidad y vida universitaria.
+          </p>
+
+          <a href="#recursos" class="btn btn-light">
+            Ver recursos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="curaduria-section curaduria-section-white">
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Explora por tipo de recurso
+            </h2>
+          </div>
+
+          <p>
+            Las recomendaciones se organizan según su formato,
+            utilidad y forma de acceso.
+          </p>
+        </header>
+
+        <div class="curaduria-filter-list">
+          <button class="curaduria-filter active" type="button">
+            Todos
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Lecturas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Audiovisuales
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Plataformas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Convocatorias
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Becas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Recursos IG
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSO DESTACADO -->
+    <section class="curaduria-section curaduria-section-soft">
+      <div class="container">
+        <article class="curaduria-featured">
+          <div class="curaduria-featured-content">
+            <p class="eyebrow">
+              Recurso destacado · Lecturas
+            </p>
+
+            <h2>
+              Lecturas para pensar territorio, memoria y comunidad
+            </h2>
+
+            <p>
+              Una selección de textos para reflexionar sobre
+              centralismo, desigualdad territorial, identidad,
+              comunidades históricamente invisibilizadas
+              y experiencias universitarias.
+            </p>
+
+            <div class="curaduria-featured-tags">
+              <span>Lecturas</span>
+              <span>Territorio</span>
+              <span>Memoria</span>
+              <span>Comunidad</span>
+            </div>
+
+            <a href="#" class="btn btn-light">
+              Ver selección
+            </a>
+          </div>
+
+          <div
+            class="curaduria-featured-image"
+            role="img"
+            aria-label="Libros y documentos recomendados por Santa Cultura Viva"
+          ></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RECURSOS RECIENTES -->
+    <section
+      class="curaduria-section curaduria-section-white"
+      id="recursos"
+    >
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">
+              Recursos recientes
+            </p>
+
+            <h2>
+              Recomendaciones de la semana
+            </h2>
+          </div>
+
+          <p>
+            Cada ficha presenta el tipo de recurso,
+            una descripción breve, la fuente y su enlace externo.
+          </p>
+        </header>
+
+        <div class="resources-feed">
+          <!-- RECURSO 1 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>01</strong>
+              <span>Lectura</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Lecturas / Memoria
+              </p>
+
+              <h3>
+                <a href="#">
+                  Archivo, memoria y territorio
+                </a>
+              </h3>
+
+              <p>
+                Una selección de textos para comprender cómo
+                las memorias territoriales dialogan con la identidad,
+                la cultura y la construcción de comunidad.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Fuente externa</span>
+                <a href="#">Ver lectura →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-lectura"
+              aria-label="Abrir recurso Archivo, memoria y territorio"
+            ></a>
+          </article>
+
+          <!-- RECURSO 2 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>02</strong>
+              <span>Audiovisual</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Audiovisuales / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Documentales para pensar comunidad
+                </a>
+              </h3>
+
+              <p>
+                Documentales, entrevistas y materiales audiovisuales
+                para ampliar la reflexión sobre territorio,
+                organización comunitaria y derechos humanos.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Video y documental</span>
+                <a href="#">Ver selección →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-audiovisual"
+              aria-label="Abrir selección de documentales"
+            ></a>
+          </article>
+
+          <!-- RECURSO 3 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>03</strong>
+              <span>Plataforma</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Plataformas / Archivos
+              </p>
+
+              <h3>
+                <a href="#">
+                  Mapas y archivos comunitarios
+                </a>
+              </h3>
+
+              <p>
+                Plataformas digitales para consultar mapas,
+                archivos, investigaciones, reportes y materiales
+                producidos por organizaciones sociales.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Plataforma digital</span>
+                <a href="#">Abrir plataforma →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-plataforma"
+              aria-label="Abrir mapas y archivos comunitarios"
+            ></a>
+          </article>
+
+          <!-- RECURSO 4 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>04</strong>
+              <span>Convocatoria</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Convocatorias / Cultura
+              </p>
+
+              <h3>
+                <a href="../convocatorias/index.html">
+                  Llamados para proyectos culturales
+                </a>
+              </h3>
+
+              <p>
+                Oportunidades para participar en publicaciones,
+                proyectos culturales, iniciativas comunitarias,
+                concursos y espacios de formación.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Oportunidad externa</span>
+
+                <a href="../convocatorias/index.html">
+                  Ver convocatorias →
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="../convocatorias/index.html"
+              class="resource-feed-image resource-image-convocatoria"
+              aria-label="Ver llamados para proyectos culturales"
+            ></a>
+          </article>
+
+          <!-- RECURSO 5 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>05</strong>
+              <span>Beca</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Becas / Formación
+              </p>
+
+              <h3>
+                <a href="#">
+                  Becas y fondos para estudiantes
+                </a>
+              </h3>
+
+              <p>
+                Recursos para encontrar becas, fondos,
+                apoyos económicos y programas de formación
+                vinculados con cultura, investigación y comunidad.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Apoyo estudiantil</span>
+                <a href="#">Ver oportunidades →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-beca"
+              aria-label="Ver becas y fondos para estudiantes"
+            ></a>
+          </article>
+
+          <!-- RECURSO 6 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>06</strong>
+              <span>Instagram</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Recursos IG / Guías
+              </p>
+
+              <h3>
+                <a href="#">
+                  Publicaciones para guardar y compartir
+                </a>
+              </h3>
+
+              <p>
+                Guías, datos, recomendaciones, infografías
+                y materiales visuales útiles para estudiantes
+                y comunidades universitarias.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Instagram</span>
+                <a href="#">Ver publicaciones →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-instagram"
+              aria-label="Ver recursos de Instagram"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="curaduria-section curaduria-section-soft">
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">
+              Selección editorial
+            </p>
+
+            <h2>
+              ¿Qué encontrarás en Curaduría?
+            </h2>
+          </div>
+
+          <p>
+            Seis tipos de recursos para explorar,
+            aprender, participar y compartir.
+          </p>
+        </header>
+
+        <div class="curaduria-directory">
+          <article class="curaduria-directory-card">
+            <span>01</span>
+
+            <h3>Lecturas</h3>
+
+            <p>
+              Artículos, ensayos, informes, libros
+              y documentos recomendados por el equipo editorial.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>02</span>
+
+            <h3>Audiovisuales</h3>
+
+            <p>
+              Documentales, entrevistas, cortometrajes,
+              podcasts, charlas y registros audiovisuales.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>03</span>
+
+            <h3>Plataformas</h3>
+
+            <p>
+              Archivos digitales, mapas, observatorios,
+              bibliotecas y herramientas de consulta.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>04</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Oportunidades externas para proyectos,
+              publicaciones, formación y participación cultural.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>05</span>
+
+            <h3>Becas</h3>
+
+            <p>
+              Programas de apoyo, fondos,
+              intercambios y oportunidades para estudiantes.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>06</span>
+
+            <h3>Recursos IG</h3>
+
+            <p>
+              Publicaciones visuales, guías,
+              infografías y materiales para guardar o compartir.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRITERIOS -->
+    <section class="curaduria-section curaduria-section-white">
+      <div class="container selection-layout">
+        <div class="selection-intro">
+          <p class="eyebrow">
+            Criterios editoriales
+          </p>
+
+          <h2>
+            ¿Cómo elegimos los recursos?
+          </h2>
+
+          <p>
+            La selección busca ofrecer materiales útiles,
+            accesibles, confiables y relacionados con
+            los temas de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="selection-list">
+          <article class="selection-item">
+            <span>01</span>
+
+            <h3>Pertinencia</h3>
+
+            <p>
+              El recurso debe dialogar con cultura,
+              territorio, derechos humanos, comunidad
+              o vida universitaria.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>02</span>
+
+            <h3>Utilidad</h3>
+
+            <p>
+              Debe ofrecer información, herramientas
+              u oportunidades relevantes para la comunidad.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>03</span>
+
+            <h3>Fuente</h3>
+
+            <p>
+              Se revisa quién produce el contenido,
+              su propósito y la claridad de la información.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>04</span>
+
+            <h3>Accesibilidad</h3>
+
+            <p>
+              Se priorizan materiales de acceso libre
+              o que puedan consultarse sin barreras innecesarias.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>05</span>
+
+            <h3>Diversidad</h3>
+
+            <p>
+              Se buscan formatos, perspectivas,
+              territorios y voces distintas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="curaduria-final">
+      <div class="container">
+        <div class="curaduria-final-inner">
+          <div>
+            <p class="eyebrow">
+              Recomienda un recurso
+            </p>
+
+            <h2>
+              Ayúdanos a ampliar esta biblioteca viva
+            </h2>
+
+            <p>
+              Comparte una lectura, audiovisual, plataforma,
+              convocatoria, beca o publicación que pueda
+              ser útil para la comunidad.
+            </p>
+          </div>
+
+          <a
+            href="../contacto/index.html"
+            class="btn btn-light"
+          >
+            Enviar recomendación
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="../cronicas/index.html">Crónicas</a>
+        <a href="index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Ruta correcta desde pages/curaduria/index.html -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

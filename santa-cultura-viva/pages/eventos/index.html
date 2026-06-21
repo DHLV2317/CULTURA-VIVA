@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Agenda de eventos académicos, culturales, comunitarios, FEPUC, asambleas y actividades para estudiantes foránexs."
+  />
+
+  <title>Eventos | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/eventos/index.html -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .eventos-page {
+      background: var(--bg);
+    }
+
+    .eventos-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .eventos-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .eventos-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .eventos-page .brand-subtitle {
+      display: none;
+    }
+
+    .eventos-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .eventos-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .eventos-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(57, 26, 17, 0.97) 0%,
+          rgba(139, 47, 47, 0.87) 50%,
+          rgba(139, 47, 47, 0.5) 100%
+        ),
+        url("../../img/eventos-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .eventos-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .eventos-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .eventos-hero .eyebrow {
+      color: #f2cccc;
+    }
+
+    .eventos-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .eventos-hero-copy > p:last-child {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .eventos-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .eventos-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .eventos-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .eventos-section {
+      padding: 5rem 0;
+    }
+
+    .eventos-section-white {
+      background: #ffffff;
+    }
+
+    .eventos-section-soft {
+      background: var(--bg);
+    }
+
+    .eventos-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .eventos-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .eventos-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FILTROS
+    ================================================== */
+
+    .event-filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .event-filter {
+      padding: 0.62rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .event-filter:hover,
+    .event-filter.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* ==================================================
+       EVENTO DESTACADO
+    ================================================== */
+
+    .event-featured-editorial {
+      min-height: 610px;
+      display: grid;
+      grid-template-columns: 190px 1fr 0.95fr;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .event-featured-date-editorial {
+      padding: 2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .event-featured-date-editorial strong {
+      display: block;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: clamp(5rem, 9vw, 8rem);
+      font-weight: 800;
+      line-height: 0.85;
+    }
+
+    .event-featured-date-editorial span {
+      margin-top: 1rem;
+      color: #f2cccc;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .event-featured-content-editorial {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .event-featured-content-editorial .eyebrow {
+      color: #f2cccc;
+    }
+
+    .event-featured-content-editorial h2 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .event-featured-content-editorial > p {
+      margin: 0 0 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .event-featured-details {
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .event-featured-details span {
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.82);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .event-featured-image-editorial {
+      min-height: 610px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.25),
+          rgba(20, 17, 15, 0.04)
+        ),
+        url("../../img/evento-destacado.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #8b2f2f, #354f3b);
+    }
+
+    /* ==================================================
+       LISTADO EDITORIAL
+    ================================================== */
+
+    .events-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .event-feed-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 390px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .event-feed-item[hidden] {
+      display: none;
+    }
+
+    .event-feed-date {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .event-feed-date strong {
+      display: block;
+      color: var(--accent);
+      font-size: 3.8rem;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .event-feed-date span {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--ink);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .event-feed-category {
+      margin: 0 0 0.6rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .event-feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .event-feed-content h3 a:hover {
+      color: var(--accent);
+    }
+
+    .event-feed-content > p {
+      max-width: 660px;
+      margin: 0 0 1rem;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .event-feed-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .event-feed-info span {
+      padding: 0.32rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .event-feed-image {
+      min-height: 245px;
+      display: block;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .event-image-cineforo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("../../img/evento-cineforo.jpg");
+    }
+
+    .event-image-foranexs {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.13)
+        ),
+        url("../../img/evento-foranexs.jpg");
+    }
+
+    .event-image-fepuc {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.18),
+          rgba(216, 200, 184, 0.14)
+        ),
+        url("../../img/evento-fepuc.jpg");
+    }
+
+    .event-image-asamblea {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(139, 47, 47, 0.14)
+        ),
+        url("../../img/evento-asamblea.jpg");
+    }
+
+    .event-image-academico {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.18),
+          rgba(53, 79, 59, 0.13)
+        ),
+        url("../../img/evento-academico.jpg");
+    }
+
+    .event-image-cultural {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.17),
+          rgba(140, 109, 63, 0.15)
+        ),
+        url("../../img/evento-cultural.jpg");
+    }
+
+    .events-empty {
+      display: none;
+      padding: 2rem 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    .events-empty.visible {
+      display: block;
+    }
+
+    /* ==================================================
+       CATEGORÍAS
+    ================================================== */
+
+    .event-types-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .event-type-card {
+      min-height: 270px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .event-type-card:hover {
+      background: var(--soft);
+    }
+
+    .event-type-card span {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .event-type-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .event-type-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       CALENDARIO
+    ================================================== */
+
+    .events-calendar {
+      background: #ffffff;
+      border: 1px solid var(--ink);
+    }
+
+    .events-calendar-header {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .events-calendar-header h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1.7rem;
+    }
+
+    .events-calendar-header span {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .events-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+
+    .calendar-weekday,
+    .calendar-day {
+      min-height: 110px;
+      padding: 0.8rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: Arial, sans-serif;
+    }
+
+    .calendar-weekday:nth-child(7n),
+    .calendar-day:nth-child(7n) {
+      border-right: 0;
+    }
+
+    .calendar-weekday {
+      min-height: auto;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .calendar-day {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .calendar-day.empty {
+      background: var(--paper);
+    }
+
+    .calendar-day.event-day {
+      background: var(--soft);
+      color: var(--ink);
+    }
+
+    .calendar-day strong {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .calendar-day a {
+      display: block;
+      margin-top: 0.35rem;
+      color: var(--accent-dark);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .events-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .events-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .events-final-inner .eyebrow {
+      color: #d9eadc;
+    }
+
+    .events-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .events-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .event-featured-editorial {
+        grid-template-columns: 150px 1fr;
+      }
+
+      .event-featured-image-editorial {
+        grid-column: 1 / -1;
+        min-height: 430px;
+      }
+
+      .event-feed-item {
+        grid-template-columns: 125px minmax(0, 1fr) 310px;
+      }
+
+      .event-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .eventos-hero-grid,
+      .eventos-section-header,
+      .events-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .event-feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .event-feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .calendar-weekday,
+      .calendar-day {
+        min-height: 85px;
+        padding: 0.5rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .eventos-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .eventos-hero {
+        min-height: auto;
+      }
+
+      .eventos-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .eventos-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .eventos-section,
+      .events-final {
+        padding: 3rem 0;
+      }
+
+      .event-featured-editorial {
+        grid-template-columns: 1fr;
+      }
+
+      .event-featured-date-editorial {
+        padding: 1.5rem;
+        align-items: flex-start;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .event-featured-date-editorial strong {
+        font-size: 4.5rem;
+      }
+
+      .event-featured-content-editorial {
+        padding: 1.6rem;
+      }
+
+      .event-featured-details {
+        grid-template-columns: 1fr;
+      }
+
+      .event-featured-image-editorial {
+        min-height: 300px;
+      }
+
+      .event-feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .event-feed-date {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .event-feed-date strong {
+        font-size: 3rem;
+      }
+
+      .event-feed-image {
+        min-height: 230px;
+      }
+
+      .event-types-grid,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .events-calendar {
+        overflow-x: auto;
+      }
+
+      .events-calendar-grid {
+        min-width: 760px;
+      }
+
+      .events-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="eventos-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a class="active" href="index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca eventos, actividades o encuentros"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="eventos-hero">
+      <div class="eventos-hero-grid">
+        <div class="eventos-hero-copy">
+          <p class="eyebrow">
+            Agenda comunitaria
+          </p>
+
+          <h1>Eventos</h1>
+
+          <p>
+            Una agenda viva de actividades académicas,
+            culturales, estudiantiles, comunitarias,
+            FEPUC, asambleas y encuentros Foránexs.
+          </p>
+        </div>
+
+        <div class="eventos-hero-note">
+          <h2>
+            Eventos y convocatorias son secciones distintas
+          </h2>
+
+          <p>
+            Aquí encontrarás actividades con fecha, hora,
+            ubicación y modalidad. Las convocatorias para
+            publicar textos están en su propio apartado.
+          </p>
+
+          <a href="#eventos-proximos" class="btn btn-light">
+            Ver agenda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="eventos-section eventos-section-white">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Filtros</p>
+
+            <h2>
+              Explora por tipo de evento
+            </h2>
+          </div>
+
+          <p>
+            Selecciona una categoría para mostrar únicamente
+            las actividades relacionadas con ese tema.
+          </p>
+        </header>
+
+        <div
+          class="event-filter-list"
+          aria-label="Filtros de eventos"
+        >
+          <button
+            class="event-filter active"
+            type="button"
+            data-filter="todos"
+            aria-pressed="true"
+          >
+            Todos
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="academico"
+            aria-pressed="false"
+          >
+            Académico
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="cultural"
+            aria-pressed="false"
+          >
+            Cultural
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="fepuc"
+            aria-pressed="false"
+          >
+            FEPUC
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="asamblea"
+            aria-pressed="false"
+          >
+            Asamblea
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="comunidad"
+            aria-pressed="false"
+          >
+            Comunidad
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="foranexs"
+            aria-pressed="false"
+          >
+            Foránexs
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTO DESTACADO -->
+    <section class="eventos-section eventos-section-soft">
+      <div class="container">
+        <article class="event-featured-editorial">
+          <div class="event-featured-date-editorial">
+            <strong>19</strong>
+            <span>Junio 2026</span>
+          </div>
+
+          <div class="event-featured-content-editorial">
+            <p class="eyebrow">
+              Evento destacado · Foránexs
+            </p>
+
+            <h2>
+              Encuentro Foránexs: construir comunidad lejos de casa
+            </h2>
+
+            <p>
+              Espacio de conversación, integración y acompañamiento
+              para estudiantes que vienen de otras regiones o del
+              extranjero. El encuentro busca compartir experiencias,
+              rutas útiles y redes de apoyo.
+            </p>
+
+            <div class="event-featured-details">
+              <span>
+                <strong>Hora:</strong>
+                5:00 p. m.
+              </span>
+
+              <span>
+                <strong>Lugar:</strong>
+                Campus PUCP
+              </span>
+
+              <span>
+                <strong>Modalidad:</strong>
+                Presencial
+              </span>
+
+              <span>
+                <strong>Organiza:</strong>
+                Santa Cultura Viva
+              </span>
+            </div>
+
+            <a href="#" class="btn btn-light">
+              Ver inscripción
+            </a>
+          </div>
+
+          <div
+            class="event-featured-image-editorial"
+            role="img"
+            aria-label="Encuentro de estudiantes foránexs"
+          ></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EVENTOS PRÓXIMOS -->
+    <section
+      class="eventos-section eventos-section-white"
+      id="eventos-proximos"
+    >
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Agenda</p>
+
+            <h2>
+              Eventos próximos
+            </h2>
+          </div>
+
+          <p>
+            Actividades académicas, culturales y comunitarias
+            organizadas cronológicamente.
+          </p>
+        </header>
+
+        <div class="events-feed">
+          <!-- EVENTO 1 -->
+          <article
+            class="event-feed-item"
+            data-category="cultural comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>12</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Cultural / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Cine-foro comunitario
+                </a>
+              </h3>
+
+              <p>
+                Proyección y conversación abierta sobre cultura,
+                territorio, memoria y experiencias universitarias.
+              </p>
+
+              <div class="event-feed-info">
+                <span>6:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Auditorio por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-cineforo"
+              aria-label="Ver información del cine-foro comunitario"
+            ></a>
+          </article>
+
+          <!-- EVENTO 2 -->
+          <article
+            class="event-feed-item"
+            data-category="foranexs comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>19</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Foránexs / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Encuentro Foránexs
+                </a>
+              </h3>
+
+              <p>
+                Espacio de integración, conversación y acompañamiento
+                para estudiantes de otras regiones y del extranjero.
+              </p>
+
+              <div class="event-feed-info">
+                <span>5:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Campus PUCP</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-foranexs"
+              aria-label="Ver información del Encuentro Foránexs"
+            ></a>
+          </article>
+
+          <!-- EVENTO 3 -->
+          <article
+            class="event-feed-item"
+            data-category="fepuc comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>24</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                FEPUC / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Espacio abierto con la Mesa
+                </a>
+              </h3>
+
+              <p>
+                Conversatorio para compartir inquietudes,
+                propuestas y necesidades estudiantiles
+                con representantes de la FEPUC.
+              </p>
+
+              <div class="event-feed-info">
+                <span>4:00 p. m.</span>
+                <span>Híbrido</span>
+                <span>Ubicación por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-fepuc"
+              aria-label="Ver información del espacio abierto con FEPUC"
+            ></a>
+          </article>
+
+          <!-- EVENTO 4 -->
+          <article
+            class="event-feed-item"
+            data-category="asamblea comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>28</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Asamblea / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Asamblea estudiantil abierta
+                </a>
+              </h3>
+
+              <p>
+                Espacio de diálogo sobre problemáticas,
+                organización estudiantil y propuestas
+                de participación colectiva.
+              </p>
+
+              <div class="event-feed-info">
+                <span>3:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Lugar por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-asamblea"
+              aria-label="Ver información de la asamblea estudiantil"
+            ></a>
+          </article>
+
+          <!-- EVENTO 5 -->
+          <article
+            class="event-feed-item"
+            data-category="academico comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>03</strong>
+              <span>Julio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Académico / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Conversatorio sobre territorio y universidad
+                </a>
+              </h3>
+
+              <p>
+                Diálogo sobre desigualdad territorial,
+                centralismo y experiencias universitarias
+                desde distintas regiones del país.
+              </p>
+
+              <div class="event-feed-info">
+                <span>5:30 p. m.</span>
+                <span>Híbrido</span>
+                <span>Auditorio y transmisión</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-academico"
+              aria-label="Ver conversatorio sobre territorio y universidad"
+            ></a>
+          </article>
+
+          <!-- EVENTO 6 -->
+          <article
+            class="event-feed-item"
+            data-category="cultural comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>10</strong>
+              <span>Julio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Cultural / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Feria de proyectos culturales estudiantiles
+                </a>
+              </h3>
+
+              <p>
+                Encuentro para conocer publicaciones,
+                colectivos, intervenciones artísticas
+                y proyectos culturales de estudiantes.
+              </p>
+
+              <div class="event-feed-info">
+                <span>12:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Jardines del campus</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-cultural"
+              aria-label="Ver feria de proyectos culturales"
+            ></a>
+          </article>
+        </div>
+
+        <p class="events-empty" id="eventsEmpty">
+          No se encontraron eventos para esta categoría.
+        </p>
+      </div>
+    </section>
+
+    <!-- TIPOS DE EVENTOS -->
+    <section class="eventos-section eventos-section-soft">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Tipos de eventos
+            </h2>
+          </div>
+
+          <p>
+            Cada categoría responde a una necesidad distinta
+            dentro de la comunidad universitaria.
+          </p>
+        </header>
+
+        <div class="event-types-grid">
+          <article class="event-type-card">
+            <span>01</span>
+
+            <h3>Académico</h3>
+
+            <p>
+              Charlas, conversatorios, mesas de diálogo
+              y actividades vinculadas con la formación universitaria.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>02</span>
+
+            <h3>Cultural</h3>
+
+            <p>
+              Cine-foros, ferias, exposiciones,
+              presentaciones, lecturas y actividades artísticas.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>03</span>
+
+            <h3>FEPUC</h3>
+
+            <p>
+              Actividades, espacios de escucha y encuentros
+              organizados o vinculados con la federación.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>04</span>
+
+            <h3>Asamblea</h3>
+
+            <p>
+              Espacios de deliberación, organización
+              y participación estudiantil.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>05</span>
+
+            <h3>Comunidad</h3>
+
+            <p>
+              Encuentros abiertos para fortalecer redes,
+              conversación, colaboración y acompañamiento.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>06</span>
+
+            <h3>Foránexs</h3>
+
+            <p>
+              Actividades para estudiantes de otras regiones,
+              del extranjero o con experiencias migrantes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="eventos-section eventos-section-white">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Calendario</p>
+
+            <h2>
+              Junio de 2026
+            </h2>
+          </div>
+
+          <p>
+            Vista mensual de las actividades registradas
+            en la agenda de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="events-calendar">
+          <div class="events-calendar-header">
+            <h3>Junio 2026</h3>
+
+            <span>
+              Agenda cultural y universitaria
+            </span>
+          </div>
+
+          <div class="events-calendar-grid">
+            <div class="calendar-weekday">Lun</div>
+            <div class="calendar-weekday">Mar</div>
+            <div class="calendar-weekday">Mié</div>
+            <div class="calendar-weekday">Jue</div>
+            <div class="calendar-weekday">Vie</div>
+            <div class="calendar-weekday">Sáb</div>
+            <div class="calendar-weekday">Dom</div>
+
+            <div class="calendar-day">
+              <strong>1</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>2</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>3</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>4</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>5</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>6</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>7</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>8</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>9</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>10</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>11</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>12</strong>
+
+              <a href="#eventos-proximos">
+                Cine-foro comunitario
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>13</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>14</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>15</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>16</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>17</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>18</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>19</strong>
+
+              <a href="#eventos-proximos">
+                Encuentro Foránexs
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>20</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>21</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>22</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>23</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>24</strong>
+
+              <a href="#eventos-proximos">
+                Espacio abierto FEPUC
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>25</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>26</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>27</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>28</strong>
+
+              <a href="#eventos-proximos">
+                Asamblea estudiantil
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>29</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>30</strong>
+            </div>
+
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="events-final">
+      <div class="container">
+        <div class="events-final-inner">
+          <div>
+            <p class="eyebrow">
+              Propón un evento
+            </p>
+
+            <h2>
+              ¿Tienes una actividad para compartir?
+            </h2>
+
+            <p>
+              Envía información sobre actividades académicas,
+              culturales, comunitarias, FEPUC, asambleas
+              o encuentros Foránexs para revisión editorial.
+            </p>
+          </div>
+
+          <a
+            href="../contacto/index.html"
+            class="btn btn-light"
+          >
+            Proponer evento
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="../cronicas/index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript general -->
+  <script src="../../js/main.js"></script>
+
+  <!-- Filtros visuales de eventos -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const filters = document.querySelectorAll(".event-filter");
+      const events = document.querySelectorAll(".event-feed-item");
+      const emptyMessage = document.getElementById("eventsEmpty");
+
+      filters.forEach(function (filterButton) {
+        filterButton.addEventListener("click", function () {
+          const selectedFilter = filterButton.dataset.filter;
+          let visibleEvents = 0;
+
+          filters.forEach(function (button) {
+            const isSelected = button === filterButton;
+
+            button.classList.toggle("active", isSelected);
+            button.setAttribute(
+              "aria-pressed",
+              isSelected ? "true" : "false"
+            );
+          });
+
+          events.forEach(function (eventItem) {
+            const categories =
+              eventItem.dataset.category
+                .toLowerCase()
+                .split(" ");
+
+            const shouldShow =
+              selectedFilter === "todos" ||
+              categories.includes(selectedFilter);
+
+            eventItem.hidden = !shouldShow;
+
+            if (shouldShow) {
+              visibleEvents += 1;
+            }
+          });
+
+          emptyMessage.classList.toggle(
+            "visible",
+            visibleEvents === 0
+          );
+        });
+      });
+    });
+  </script>
+</body>
+</html>

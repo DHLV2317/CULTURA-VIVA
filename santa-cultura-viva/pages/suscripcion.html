@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Suscríbete a Santa Cultura Viva y recibe alertas, crónicas, eventos, recursos, convocatorias y contenidos según tus intereses."
+  />
+
+  <title>Suscripción | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/suscripcion.html -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    /* ==================================================
+       VARIABLES DE RESPALDO
+    ================================================== */
+
+    :root {
+      --bg: #f7f2ea;
+      --paper: #fffaf3;
+      --ink: #241f1b;
+      --muted: #6f6258;
+      --line: #d8c8b8;
+      --accent: #8b2f2f;
+      --accent-dark: #5e1f1f;
+      --soft: #efe1d2;
+      --green: #354f3b;
+      --purple: #8c6d3f;
+      --white: #ffffff;
+    }
+
+    /* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .suscripcion-page {
+      background: var(--bg);
+    }
+
+    .suscripcion-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .suscripcion-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .suscripcion-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .suscripcion-page .brand-subtitle {
+      display: none;
+    }
+
+    .suscripcion-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .suscripcion-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    #formulario-suscripcion,
+    #beneficios,
+    #intereses {
+      scroll-margin-top: 180px;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .suscripcion-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(28, 47, 34, 0.98) 0%,
+          rgba(53, 79, 59, 0.91) 50%,
+          rgba(94, 31, 31, 0.56) 100%
+        ),
+        url("../img/suscripcion-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .suscripcion-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .suscripcion-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .suscripcion-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .suscripcion-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(3.8rem, 8vw, 7.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .suscripcion-hero-copy > p:last-child {
+      max-width: 790px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .suscripcion-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .suscripcion-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .suscripcion-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .suscripcion-section {
+      padding: 5rem 0;
+    }
+
+    .suscripcion-section-white {
+      background: #ffffff;
+    }
+
+    .suscripcion-section-soft {
+      background: var(--bg);
+    }
+
+    .suscripcion-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .suscripcion-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .suscripcion-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       BENEFICIOS
+    ================================================== */
+
+    .subscription-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .subscription-benefit {
+      min-height: 290px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .subscription-benefit:hover {
+      background: var(--soft);
+    }
+
+    .subscription-benefit-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .subscription-benefit:nth-child(2) .subscription-benefit-number,
+    .subscription-benefit:nth-child(5) .subscription-benefit-number {
+      color: var(--accent);
+    }
+
+    .subscription-benefit:nth-child(3) .subscription-benefit-number,
+    .subscription-benefit:nth-child(6) .subscription-benefit-number {
+      color: var(--purple);
+    }
+
+    .subscription-benefit h3 {
+      margin: 3.2rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .subscription-benefit p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       FORMULARIO
+    ================================================== */
+
+    .subscription-form-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .subscription-form-copy {
+      position: sticky;
+      top: 175px;
+    }
+
+    .subscription-form-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .subscription-form-copy > p:not(.eyebrow) {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .subscription-information {
+      margin-top: 1.5rem;
+      padding: 1.35rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--green);
+    }
+
+    .subscription-information h3 {
+      margin: 0 0 0.6rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .subscription-information p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.89rem;
+      line-height: 1.55;
+    }
+
+    .subscription-editorial-form {
+      padding: 2rem;
+      display: grid;
+      gap: 1.3rem;
+      background: #ffffff;
+      border: 1px solid var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    .subscription-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .subscription-field {
+      display: grid;
+      gap: 0.48rem;
+    }
+
+    .subscription-field > label,
+    .subscription-field legend {
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.025em;
+    }
+
+    .subscription-field legend {
+      margin-bottom: 0.75rem;
+    }
+
+    .subscription-required {
+      color: var(--accent);
+    }
+
+    .subscription-optional {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .subscription-field input[type="text"],
+    .subscription-field input[type="email"],
+    .subscription-field select,
+    .subscription-field textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .subscription-field textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .subscription-field input:focus,
+    .subscription-field select:focus,
+    .subscription-field textarea:focus {
+      outline: 3px solid rgba(53, 79, 59, 0.13);
+      border-color: var(--green);
+    }
+
+    .subscription-fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* ==================================================
+       INTERESES DEL FORMULARIO
+    ================================================== */
+
+    .subscription-interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .subscription-interest-option {
+      position: relative;
+      min-height: 78px;
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .subscription-interest-option:hover {
+      border-color: var(--green);
+      background: var(--soft);
+    }
+
+    .subscription-interest-option:has(input:checked) {
+      border-color: var(--green);
+      background: rgba(53, 79, 59, 0.08);
+    }
+
+    .subscription-interest-option input {
+      width: 17px;
+      height: 17px;
+      margin: 0.1rem 0 0;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .subscription-interest-option span {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .subscription-interest-option strong {
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .subscription-interest-option small {
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    /* ==================================================
+       FRECUENCIA
+    ================================================== */
+
+    .subscription-frequency-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+    }
+
+    .subscription-frequency-option {
+      min-height: 95px;
+      padding: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .subscription-frequency-option:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(139, 47, 47, 0.07);
+    }
+
+    .subscription-frequency-option input {
+      margin-top: 0.15rem;
+      accent-color: var(--accent);
+    }
+
+    .subscription-frequency-option span {
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .subscription-frequency-option strong {
+      font-size: 0.85rem;
+    }
+
+    .subscription-frequency-option small {
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.35;
+    }
+
+    /* ==================================================
+       CONSENTIMIENTO Y ENVÍO
+    ================================================== */
+
+    .subscription-consent {
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .subscription-consent input {
+      width: 17px;
+      height: 17px;
+      margin-top: 0.15rem;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .subscription-consent span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .subscription-consent a {
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .subscription-form-footer {
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .subscription-form-footer > p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .subscription-submit {
+      min-width: 190px;
+    }
+
+    .subscription-form-message {
+      display: none;
+      padding: 1rem;
+      background: rgba(53, 79, 59, 0.1);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .subscription-form-message.visible {
+      display: block;
+    }
+
+    /* ==================================================
+       EXPLICACIÓN DE INTERESES
+    ================================================== */
+
+    .interest-explanation-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .interest-explanation-item {
+      padding: 1.8rem 0;
+      display: grid;
+      grid-template-columns: 90px 280px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .interest-explanation-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .interest-explanation-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .interest-explanation-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       COMPROMISOS DEL BOLETÍN
+    ================================================== */
+
+    .subscription-commitments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .subscription-commitment {
+      min-height: 280px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .subscription-commitment span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .subscription-commitment h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .subscription-commitment p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .subscription-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .subscription-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .subscription-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .subscription-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .subscription-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .subscription-benefits-grid,
+      .subscription-commitments {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .suscripcion-hero-grid,
+      .suscripcion-section-header,
+      .subscription-form-layout,
+      .subscription-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .subscription-form-copy {
+        position: static;
+      }
+
+      .interest-explanation-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .interest-explanation-item p {
+        grid-column: 2;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .suscripcion-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .suscripcion-hero {
+        min-height: auto;
+      }
+
+      .suscripcion-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .suscripcion-hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5.4rem);
+      }
+
+      .suscripcion-section,
+      .subscription-final {
+        padding: 3rem 0;
+      }
+
+      .subscription-benefits-grid,
+      .subscription-form-row,
+      .subscription-interest-grid,
+      .subscription-frequency-options,
+      .subscription-commitments,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subscription-editorial-form,
+      .subscription-final-inner {
+        padding: 1.5rem;
+      }
+
+      .subscription-form-footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .subscription-submit {
+        width: 100%;
+      }
+
+      .interest-explanation-item {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .interest-explanation-item p {
+        grid-column: auto;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="suscripcion-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../index.html">Inicio</a>
+      <a href="fepuc/index.html">FEPUC</a>
+      <a href="que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="alertas/index.html">Alertas</a>
+      <a href="cronicas/index.html">Crónicas</a>
+      <a href="curaduria/index.html">Curaduría</a>
+      <a href="eventos/index.html">Eventos</a>
+      <a href="foranexs/index.html">Foránexs en Red</a>
+      <a href="convocatorias/index.html">Convocatorias</a>
+      <a href="suscripcion.html">Suscripción</a>
+      <a href="contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../index.html">Inicio</a>
+      <a href="alertas/index.html">Alertas</a>
+      <a href="cronicas/index.html">Crónicas</a>
+      <a href="curaduria/index.html">Curaduría</a>
+      <a href="eventos/index.html">Eventos</a>
+      <a href="foranexs/index.html">Foránexs en Red</a>
+      <a href="convocatorias/index.html">Convocatorias</a>
+      <a class="active" href="suscripcion.html">Suscripción</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button
+          type="button"
+          class="search-submit"
+          id="searchSubmit"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="suscripcion-hero">
+      <div class="suscripcion-hero-grid">
+        <div class="suscripcion-hero-copy">
+          <p class="eyebrow">
+            Comunidad
+          </p>
+
+          <h1>
+            Suscripción
+          </h1>
+
+          <p>
+            Recibe alertas, crónicas, eventos, recursos,
+            convocatorias y contenidos de Foránexs en Red
+            seleccionados según tus intereses.
+          </p>
+        </div>
+
+        <div class="suscripcion-hero-note">
+          <h2>
+            Elige qué deseas recibir
+          </h2>
+
+          <p>
+            Personaliza tu suscripción para recibir
+            únicamente los contenidos y novedades
+            que sean relevantes para ti.
+          </p>
+
+          <a
+            href="#formulario-suscripcion"
+            class="btn btn-light"
+          >
+            Suscribirme
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section
+      class="suscripcion-section suscripcion-section-white"
+      id="beneficios"
+    >
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Boletín
+            </p>
+
+            <h2>
+              ¿Qué recibirás?
+            </h2>
+          </div>
+
+          <p>
+            La suscripción funciona como un puente
+            entre la revista y su comunidad.
+            Cada persona puede elegir sus temas de interés.
+          </p>
+        </header>
+
+        <div class="subscription-benefits-grid">
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              01
+            </span>
+
+            <h3>Alertas</h3>
+
+            <p>
+              Análisis de noticias sobre derechos humanos,
+              territorios, comunidades y posibles vulneraciones.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              02
+            </span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Temáticas mensuales, fechas de recepción
+              e indicaciones para publicar textos en la revista.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              03
+            </span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Actividades académicas, culturales,
+              comunitarias, FEPUC y encuentros Foránexs.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              04
+            </span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos, experiencias, memorias
+              y textos estudiantiles publicados en la revista.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              05
+            </span>
+
+            <h3>Curaduría</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas y recursos recomendados.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              06
+            </span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              y redes de acompañamiento.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section
+      class="suscripcion-section suscripcion-section-soft"
+      id="formulario-suscripcion"
+    >
+      <div class="container subscription-form-layout">
+        <div class="subscription-form-copy">
+          <p class="eyebrow">
+            Formulario
+          </p>
+
+          <h2>
+            Únete a Santa Cultura Viva
+          </h2>
+
+          <p>
+            Completa tus datos, elige tus intereses
+            y selecciona la frecuencia con la que deseas
+            recibir el boletín.
+          </p>
+
+          <div class="subscription-information">
+            <h3>
+              Información importante
+            </h3>
+
+            <p>
+              Esta versión presenta el funcionamiento visual.
+              Cuando se implemente Spring Boot y MySQL,
+              la información podrá almacenarse y gestionarse
+              desde el backend.
+            </p>
+          </div>
+        </div>
+
+        <form
+          class="subscription-editorial-form"
+          id="subscriptionForm"
+          action="#"
+          method="post"
+        >
+          <div class="subscription-form-row">
+            <div class="subscription-field">
+              <label for="nombreSocial">
+                Nombre social
+                <span class="subscription-required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="nombreSocial"
+                name="nombreSocial"
+                placeholder="Escribe tu nombre social"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="subscription-field">
+              <label for="pronombre">
+                Pronombre
+                <span class="subscription-optional">
+                  (opcional)
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="pronombre"
+                name="pronombre"
+                placeholder="Ejemplo: ella, él, elle"
+              />
+            </div>
+          </div>
+
+          <div class="subscription-field">
+            <label for="correo">
+              Correo electrónico
+              <span class="subscription-required">*</span>
+            </label>
+
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="correo@ejemplo.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="subscription-field">
+            <label for="vinculo">
+              Tipo de vínculo con la comunidad
+              <span class="subscription-required">*</span>
+            </label>
+
+            <select
+              id="vinculo"
+              name="vinculo"
+              required
+            >
+              <option value="">
+                Selecciona una opción
+              </option>
+
+              <option value="estudiante">
+                Estudiante
+              </option>
+
+              <option value="estudiante-foranex">
+                Estudiante foránex
+              </option>
+
+              <option value="egresadx">
+                Egresadx
+              </option>
+
+              <option value="docente">
+                Docente
+              </option>
+
+              <option value="colectivo">
+                Integrante de colectivo
+              </option>
+
+              <option value="personal">
+                Personal de la universidad
+              </option>
+
+              <option value="visitante">
+                Visitante
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+            </select>
+          </div>
+
+          <fieldset class="subscription-field subscription-fieldset">
+            <legend>
+              Intereses
+              <span class="subscription-required">*</span>
+            </legend>
+
+            <div class="subscription-interest-grid">
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="alertas"
+                />
+
+                <span>
+                  <strong>Alertas</strong>
+
+                  <small>
+                    Noticias, derechos y territorio.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="cronicas"
+                />
+
+                <span>
+                  <strong>Crónicas</strong>
+
+                  <small>
+                    Relatos y experiencias.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="curaduria"
+                />
+
+                <span>
+                  <strong>Curaduría</strong>
+
+                  <small>
+                    Lecturas, becas y recursos.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="eventos"
+                />
+
+                <span>
+                  <strong>Eventos</strong>
+
+                  <small>
+                    Agenda cultural y universitaria.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="foranexs"
+                />
+
+                <span>
+                  <strong>Foránexs en Red</strong>
+
+                  <small>
+                    Guías, mapas y acompañamiento.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="convocatorias"
+                />
+
+                <span>
+                  <strong>Convocatorias</strong>
+
+                  <small>
+                    Oportunidades para publicar.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="fepuc"
+                />
+
+                <span>
+                  <strong>FEPUC</strong>
+
+                  <small>
+                    Actividades y comunicados.
+                  </small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="subscription-field subscription-fieldset">
+            <legend>
+              Frecuencia del boletín
+            </legend>
+
+            <div class="subscription-frequency-options">
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="semanal"
+                />
+
+                <span>
+                  <strong>Semanal</strong>
+
+                  <small>
+                    Resumen de cada semana.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="quincenal"
+                  checked
+                />
+
+                <span>
+                  <strong>Quincenal</strong>
+
+                  <small>
+                    Dos envíos al mes.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="mensual"
+                />
+
+                <span>
+                  <strong>Mensual</strong>
+
+                  <small>
+                    Selección principal del mes.
+                  </small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="subscription-field">
+            <label for="comentario">
+              Comentario
+              <span class="subscription-optional">
+                (opcional)
+              </span>
+            </label>
+
+            <textarea
+              id="comentario"
+              name="comentario"
+              placeholder="Cuéntanos qué otros temas te gustaría recibir"
+            ></textarea>
+          </div>
+
+          <label class="subscription-consent">
+            <input
+              type="checkbox"
+              id="consentimiento"
+              name="consentimiento"
+              required
+            />
+
+            <span>
+              Autorizo el uso de estos datos únicamente
+              para gestionar mi suscripción y recibir
+              comunicaciones de Santa Cultura Viva.
+              Podré cancelar la suscripción posteriormente.
+            </span>
+          </label>
+
+          <div
+            class="subscription-form-message"
+            id="subscriptionMessage"
+            role="status"
+            aria-live="polite"
+          >
+            Tu información fue validada correctamente.
+            La suscripción quedará registrada cuando
+            se conecte el formulario con el backend.
+          </div>
+
+          <div class="subscription-form-footer">
+            <p>
+              Los campos marcados con * son obligatorios.
+              Debes seleccionar al menos un interés.
+            </p>
+
+            <button
+              type="submit"
+              class="btn btn-primary subscription-submit"
+            >
+              Enviar suscripción
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- INTERESES EXPLICADOS -->
+    <section
+      class="suscripcion-section suscripcion-section-white"
+      id="intereses"
+    >
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Personalización
+            </p>
+
+            <h2>
+              ¿Cómo funcionan los intereses?
+            </h2>
+          </div>
+
+          <p>
+            Cada selección permite organizar mejor
+            los contenidos que se enviarán a cada suscriptorx.
+          </p>
+        </header>
+
+        <div class="interest-explanation-list">
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              01
+            </span>
+
+            <h3>
+              Alertas
+            </h3>
+
+            <p>
+              Recibirás análisis de noticias sobre derechos humanos,
+              comunidades, territorios, discriminación,
+              violencia institucional y violencia simbólica.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              02
+            </span>
+
+            <h3>
+              Convocatorias
+            </h3>
+
+            <p>
+              Recibirás la temática mensual,
+              las fechas de recepción, los formatos aceptados
+              y las indicaciones para enviar textos.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              03
+            </span>
+
+            <h3>
+              Foránexs en Red
+            </h3>
+
+            <p>
+              Recibirás guías útiles, mapas,
+              actividades culturales gratuitas,
+              encuentros y contactos de acompañamiento.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              04
+            </span>
+
+            <h3>
+              Curaduría
+            </h3>
+
+            <p>
+              Recibirás lecturas, audiovisuales,
+              plataformas, becas, oportunidades
+              y recursos digitales seleccionados.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              05
+            </span>
+
+            <h3>
+              Eventos
+            </h3>
+
+            <p>
+              Recibirás una agenda de actividades académicas,
+              culturales, comunitarias, FEPUC,
+              asambleas y encuentros Foránexs.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              06
+            </span>
+
+            <h3>
+              Crónicas
+            </h3>
+
+            <p>
+              Recibirás relatos y reflexiones sobre cultura,
+              memoria, identidad, comunidad,
+              territorio y vida universitaria.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPROMISOS -->
+    <section class="suscripcion-section suscripcion-section-soft">
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Nuestro compromiso
+            </p>
+
+            <h2>
+              Un boletín útil y responsable
+            </h2>
+          </div>
+
+          <p>
+            La suscripción debe respetar el tiempo,
+            las preferencias y la información
+            personal de cada integrante de la comunidad.
+          </p>
+        </header>
+
+        <div class="subscription-commitments">
+          <article class="subscription-commitment">
+            <span>01</span>
+
+            <h3>Contenido seleccionado</h3>
+
+            <p>
+              Se enviarán publicaciones relevantes,
+              no una acumulación innecesaria de mensajes.
+            </p>
+          </article>
+
+          <article class="subscription-commitment">
+            <span>02</span>
+
+            <h3>Preferencias personales</h3>
+
+            <p>
+              Cada persona podrá definir los temas
+              y la frecuencia con la que desea recibir información.
+            </p>
+          </article>
+
+          <article class="subscription-commitment">
+            <span>03</span>
+
+            <h3>Protección de datos</h3>
+
+            <p>
+              Los datos serán usados únicamente
+              para la gestión del boletín y las comunicaciones autorizadas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="subscription-final">
+      <div class="container">
+        <div class="subscription-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Mantente cerca de las historias y recursos de la comunidad
+            </h2>
+
+            <p>
+              Explora también las convocatorias abiertas
+              y comparte tu propia crónica, reflexión
+              o propuesta editorial.
+            </p>
+          </div>
+
+          <a
+            href="convocatorias/index.html"
+            class="btn btn-light"
+          >
+            Ver convocatorias
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="alertas/index.html">Alertas</a>
+        <a href="cronicas/index.html">Crónicas</a>
+        <a href="curaduria/index.html">Curaduría</a>
+        <a href="eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="fepuc/index.html">FEPUC</a>
+        <a href="foranexs/index.html">Foránexs en Red</a>
+        <a href="convocatorias/index.html">Convocatorias</a>
+        <a href="contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Personaliza tus intereses y la frecuencia
+          con la que deseas recibir novedades.
+        </p>
+
+        <a href="#formulario-suscripcion">
+          Actualizar preferencias
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JavaScript general -->
+  <script src="../js/main.js"></script>
+
+  <!-- Validación visual temporal del formulario -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("subscriptionForm");
+      const message = document.getElementById("subscriptionMessage");
+      const interestInputs = form.querySelectorAll(
+        'input[name="intereses"]'
+      );
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const selectedInterests = Array.from(
+          interestInputs
+        ).filter(function (input) {
+          return input.checked;
+        });
+
+        if (!form.checkValidity()) {
+          message.classList.remove("visible");
+          form.reportValidity();
+          return;
+        }
+
+        if (selectedInterests.length === 0) {
+          message.textContent =
+            "Selecciona al menos un interés para continuar.";
+
+          message.classList.add("visible");
+          message.style.borderColor = "var(--accent)";
+          message.style.background = "rgba(139, 47, 47, 0.08)";
+          message.style.color = "var(--accent-dark)";
+
+          interestInputs[0].focus();
+          return;
+        }
+
+        message.textContent =
+          "Tu información fue validada correctamente. " +
+          "La suscripción quedará registrada cuando " +
+          "se conecte el formulario con el backend.";
+
+        message.classList.add("visible");
+        message.style.borderColor = "var(--green)";
+        message.style.background = "rgba(53, 79, 59, 0.1)";
+        message.style.color = "var(--green)";
+
+        message.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+    });
+  </script>
+</body>
+</html>

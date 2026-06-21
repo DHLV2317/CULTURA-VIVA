@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Conoce qué es Santa Cultura Viva, su propósito, comunidad, enfoque editorial, problemáticas, principios y secciones."
+  />
+
+  <title>¿Qué es Santa Cultura Viva? | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/que-es.html -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    /* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .que-es-page {
+      background: var(--bg);
+    }
+
+    .que-es-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .que-es-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .que-es-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .que-es-page .brand-subtitle {
+      display: none;
+    }
+
+    .que-es-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .que-es-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    #identidad,
+    #razon-de-ser,
+    #comunidad,
+    #problematicas,
+    #principios,
+    #mapa-editorial {
+      scroll-margin-top: 180px;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .que-es-hero {
+      position: relative;
+      min-height: 650px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(58, 19, 19, 0.98) 0%,
+          rgba(94, 31, 31, 0.89) 48%,
+          rgba(53, 79, 59, 0.57) 100%
+        ),
+        url("../img/que-es-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .que-es-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .que-es-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .que-es-hero .eyebrow {
+      color: #f2cccc;
+    }
+
+    .que-es-hero h1 {
+      max-width: 930px;
+      margin: 0 0 1.4rem;
+      color: #ffffff;
+      font-size: clamp(3.6rem, 7vw, 7.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    .que-es-hero-copy > p:last-child {
+      max-width: 790px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .que-es-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .que-es-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .que-es-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .que-es-section {
+      padding: 5rem 0;
+    }
+
+    .que-es-section-white {
+      background: #ffffff;
+    }
+
+    .que-es-section-soft {
+      background: var(--bg);
+    }
+
+    .que-es-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .que-es-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .que-es-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       DEFINICIÓN
+    ================================================== */
+
+    .about-editorial-intro {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-editorial-title {
+      position: sticky;
+      top: 175px;
+    }
+
+    .about-editorial-title h2 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .about-editorial-copy {
+      border-top: 1px solid var(--ink);
+    }
+
+    .about-editorial-block {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .about-editorial-block h3 {
+      margin: 0 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .about-editorial-block p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    /* ==================================================
+       RAZÓN DE SER
+    ================================================== */
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .purpose-card {
+      min-height: 360px;
+      padding: 2rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .purpose-card:hover {
+      background: var(--soft);
+    }
+
+    .purpose-card-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .purpose-card h3 {
+      margin: 4rem 0 0.9rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .purpose-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       COMUNIDAD
+    ================================================== */
+
+    .audience-editorial-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .audience-editorial-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 110px 300px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .audience-editorial-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .audience-editorial-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .audience-editorial-item p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       PROBLEMÁTICAS
+    ================================================== */
+
+    .problems-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .problem-editorial-card {
+      min-height: 310px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+    }
+
+    .problem-editorial-card:nth-child(2),
+    .problem-editorial-card:nth-child(5) {
+      border-top-color: var(--green);
+    }
+
+    .problem-editorial-card:nth-child(3),
+    .problem-editorial-card:nth-child(6) {
+      border-top-color: var(--purple);
+    }
+
+    .problem-editorial-card span {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .problem-editorial-card h3 {
+      margin: 3.5rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .problem-editorial-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       PRINCIPIOS
+    ================================================== */
+
+    .principles-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .principle-editorial-card {
+      min-height: 290px;
+      padding: 1.6rem;
+      background: #ffffff;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .principle-editorial-card:hover {
+      background: var(--soft);
+    }
+
+    .principle-editorial-card span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .principle-editorial-card h3 {
+      margin: 3.2rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .principle-editorial-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       MAPA EDITORIAL
+    ================================================== */
+
+    .editorial-map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .editorial-map-card {
+      position: relative;
+      min-height: 320px;
+      padding: 1.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .editorial-map-card:hover {
+      background: var(--soft);
+    }
+
+    .editorial-map-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .editorial-map-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.05;
+    }
+
+    .editorial-map-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    .editorial-map-arrow {
+      margin-top: 2rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    /* ==================================================
+       FRASE DESTACADA
+    ================================================== */
+
+    .about-statement {
+      padding: 5rem 0;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .about-statement-inner {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-statement-label {
+      color: #f2cccc;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about-statement blockquote {
+      max-width: 1000px;
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .about-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .about-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .about-final-inner .eyebrow {
+      color: #d9eadc;
+    }
+
+    .about-final-inner h2 {
+      max-width: 880px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .about-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .problems-editorial-grid,
+      .principles-editorial-grid,
+      .editorial-map-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .que-es-hero-grid,
+      .que-es-section-header,
+      .about-editorial-intro,
+      .about-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-editorial-title {
+        position: static;
+      }
+
+      .audience-editorial-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .audience-editorial-item p {
+        grid-column: 2;
+      }
+
+      .about-statement-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .que-es-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .que-es-hero {
+        min-height: auto;
+      }
+
+      .que-es-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .que-es-hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5.2rem);
+      }
+
+      .que-es-section,
+      .about-statement,
+      .about-final {
+        padding: 3rem 0;
+      }
+
+      .purpose-grid,
+      .problems-editorial-grid,
+      .principles-editorial-grid,
+      .editorial-map-grid,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .purpose-card {
+        min-height: 300px;
+      }
+
+      .audience-editorial-item {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .audience-editorial-item p {
+        grid-column: auto;
+      }
+
+      .about-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="que-es-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../index.html">Inicio</a>
+      <a href="fepuc/index.html">FEPUC</a>
+      <a href="que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="alertas/index.html">Alertas</a>
+      <a href="cronicas/index.html">Crónicas</a>
+      <a href="curaduria/index.html">Curaduría</a>
+      <a href="eventos/index.html">Eventos</a>
+      <a href="foranexs/index.html">Foránexs en Red</a>
+      <a href="convocatorias/index.html">Convocatorias</a>
+      <a href="suscripcion.html">Suscripción</a>
+      <a href="contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../index.html">Inicio</a>
+      <a href="fepuc/index.html">FEPUC</a>
+      <a class="active" href="que-es.html">¿Qué es?</a>
+      <a href="alertas/index.html">Alertas</a>
+      <a href="cronicas/index.html">Crónicas</a>
+      <a href="curaduria/index.html">Curaduría</a>
+      <a href="eventos/index.html">Eventos</a>
+      <a href="foranexs/index.html">Foránexs en Red</a>
+      <a href="convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca secciones, contenidos, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="que-es-hero">
+      <div class="que-es-hero-grid">
+        <div class="que-es-hero-copy">
+          <p class="eyebrow">
+            Identidad del proyecto
+          </p>
+
+          <h1>
+            ¿Qué es Santa Cultura Viva?
+          </h1>
+
+          <p>
+            Una plataforma editorial universitaria, comunitaria
+            e inclusiva que busca visibilizar experiencias,
+            problemáticas y expresiones culturales vinculadas
+            con estudiantes, comunidades y territorios.
+          </p>
+        </div>
+
+        <div class="que-es-hero-note">
+          <h2>
+            Una revista digital con conciencia social
+          </h2>
+
+          <p>
+            El proyecto reúne alertas, crónicas, curaduría,
+            eventos, recursos y convocatorias para construir
+            una comunidad informada, sensible y conectada.
+          </p>
+
+          <a href="#identidad" class="btn btn-light">
+            Conocer el proyecto
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFINICIÓN -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="identidad"
+    >
+      <div class="container about-editorial-intro">
+        <div class="about-editorial-title">
+          <p class="eyebrow">
+            Definición
+          </p>
+
+          <h2>
+            Una plataforma editorial, universitaria y comunitaria
+          </h2>
+        </div>
+
+        <div class="about-editorial-copy">
+          <article class="about-editorial-block">
+            <h3>
+              Una revista digital
+            </h3>
+
+            <p>
+              Santa Cultura Viva es una revista universitaria
+              que reúne contenidos editoriales, informativos,
+              narrativos y culturales en un mismo espacio digital.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Una mirada situada
+            </h3>
+
+            <p>
+              El proyecto observa la vida universitaria, la cultura
+              y los derechos humanos desde experiencias concretas,
+              territorios diversos y voces que no siempre ocupan
+              el centro de la conversación pública.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Un espacio comunitario
+            </h3>
+
+            <p>
+              La plataforma busca conectar estudiantes,
+              comunidades, colectivos, recursos, actividades
+              y oportunidades que fortalezcan la vida universitaria.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Una propuesta crítica
+            </h3>
+
+            <p>
+              Los contenidos dialogan con problemáticas como
+              centralismo, discriminación, desigualdad territorial,
+              migración, memoria, representación y participación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAZÓN DE SER -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="razon-de-ser"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Razón de ser
+            </p>
+
+            <h2>
+              ¿Por qué existe?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva surge ante la necesidad de contar
+            con un espacio editorial que informe, acompañe
+            y visibilice voces que muchas veces quedan fuera del centro.
+          </p>
+        </header>
+
+        <div class="purpose-grid">
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              01 · Visibilizar
+            </span>
+
+            <h3>
+              Hacer visibles otras experiencias
+            </h3>
+
+            <p>
+              Dar espacio a estudiantes, comunidades indígenas,
+              comunidades migrantes, zonas periféricas
+              y territorios históricamente poco representados.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              02 · Conectar
+            </span>
+
+            <h3>
+              Reunir contenidos y redes
+            </h3>
+
+            <p>
+              Articular eventos, recursos, convocatorias,
+              guías y redes de apoyo que fortalezcan
+              la vida universitaria y comunitaria.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              03 · Analizar
+            </span>
+
+            <h3>
+              Leer críticamente la realidad
+            </h3>
+
+            <p>
+              Analizar noticias, discursos y problemáticas
+              desde un enfoque de derechos humanos,
+              territorio, cultura, comunidad y memoria.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              04 · Acompañar
+            </span>
+
+            <h3>
+              Fortalecer la comunidad
+            </h3>
+
+            <p>
+              Ofrecer información y espacios útiles para estudiantes
+              foránexs, migrantes o de otras regiones que viven
+              la universidad lejos de sus lugares de origen.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMUNIDAD -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="comunidad"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Comunidad
+            </p>
+
+            <h2>
+              ¿A quién está dirigido?
+            </h2>
+          </div>
+
+          <p>
+            La plataforma está pensada para estudiantes,
+            lectorxs y comunidades interesadas en cultura,
+            derechos humanos, territorio y vida universitaria.
+          </p>
+        </header>
+
+        <div class="audience-editorial-list">
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              01
+            </span>
+
+            <h3>
+              Estudiantes universitarixs
+            </h3>
+
+            <p>
+              Personas que buscan informarse, participar,
+              publicar textos, conocer actividades
+              o encontrar recursos útiles dentro de la universidad.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              02
+            </span>
+
+            <h3>
+              Estudiantes foránexs
+            </h3>
+
+            <p>
+              Estudiantes que vienen de otras regiones,
+              del extranjero o de contextos migrantes
+              y necesitan redes, guías y espacios de encuentro.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              03
+            </span>
+
+            <h3>
+              Comunidades y territorios
+            </h3>
+
+            <p>
+              Personas interesadas en problemáticas
+              relacionadas con comunidades indígenas,
+              migrantes, zonas periféricas y territorios
+              fuera del centralismo limeño.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              04
+            </span>
+
+            <h3>
+              Lectorxs con interés cultural
+            </h3>
+
+            <p>
+              Personas que buscan crónicas, lecturas,
+              recursos audiovisuales, eventos,
+              convocatorias y reflexiones sobre cultura.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMÁTICAS -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="problematicas"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Enfoque editorial
+            </p>
+
+            <h2>
+              ¿Qué problemáticas busca visibilizar?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva no solo publica contenidos:
+            propone una mirada crítica sobre desigualdades,
+            silencios y formas de exclusión.
+          </p>
+        </header>
+
+        <div class="problems-editorial-grid">
+          <article class="problem-editorial-card">
+            <span>01</span>
+
+            <h3>Centralismo</h3>
+
+            <p>
+              La concentración de la mirada pública,
+              mediática e institucional en Lima,
+              dejando en segundo plano otros territorios.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>02</span>
+
+            <h3>Discriminación</h3>
+
+            <p>
+              Formas de exclusión relacionadas con origen,
+              acento, territorio, identidad,
+              pertenencia cultural o condición migrante.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>03</span>
+
+            <h3>Violencia institucional</h3>
+
+            <p>
+              Situaciones donde instituciones, normas
+              u omisiones afectan derechos,
+              servicios o participación comunitaria.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>04</span>
+
+            <h3>Violencia simbólica</h3>
+
+            <p>
+              Discursos, representaciones y estereotipos
+              que invisibilizan, reducen o distorsionan
+              a comunidades y territorios.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>05</span>
+
+            <h3>Desigualdad territorial</h3>
+
+            <p>
+              Brechas entre centro y periferia,
+              ciudad y región, campus y territorio,
+              que afectan oportunidades y reconocimiento.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>06</span>
+
+            <h3>Memoria y comunidad</h3>
+
+            <p>
+              Experiencias, relatos y memorias
+              que permiten comprender cómo se construyen
+              identidad, pertenencia y vínculos colectivos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="about-statement">
+      <div class="container about-statement-inner">
+        <span class="about-statement-label">
+          Nuestra mirada
+        </span>
+
+        <blockquote>
+          La cultura también está en las historias que contamos,
+          los territorios que habitamos y las redes que construimos
+          para acompañarnos.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- PRINCIPIOS -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="principios"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Principios
+            </p>
+
+            <h2>
+              Principios del proyecto
+            </h2>
+          </div>
+
+          <p>
+            Estos criterios orientan el tono, el diseño,
+            los contenidos y la relación de Santa Cultura Viva
+            con su comunidad.
+          </p>
+        </header>
+
+        <div class="principles-editorial-grid">
+          <article class="principle-editorial-card">
+            <span>01</span>
+
+            <h3>Lenguaje inclusivo</h3>
+
+            <p>
+              La plataforma reconoce la diversidad
+              de identidades, pronombres y experiencias
+              presentes en la comunidad.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>02</span>
+
+            <h3>Mirada territorial</h3>
+
+            <p>
+              El proyecto busca salir de una mirada centralista
+              y reconocer experiencias de distintos territorios
+              y lugares de origen.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>03</span>
+
+            <h3>Derechos humanos</h3>
+
+            <p>
+              Los análisis consideran desigualdades estructurales,
+              posibles vulneraciones de derechos
+              y formas de violencia.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>04</span>
+
+            <h3>Participación estudiantil</h3>
+
+            <p>
+              Lxs estudiantes pueden publicar textos,
+              recomendar recursos y proponer actividades
+              para la comunidad.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>05</span>
+
+            <h3>Cuidado editorial</h3>
+
+            <p>
+              Los contenidos pasan por revisión
+              para mantener claridad, respeto,
+              responsabilidad y coherencia.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>06</span>
+
+            <h3>Construcción comunitaria</h3>
+
+            <p>
+              Más que una página informativa,
+              el proyecto busca crear redes de apoyo,
+              encuentro y reconocimiento.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA EDITORIAL -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="mapa-editorial"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Mapa editorial
+            </p>
+
+            <h2>
+              ¿Qué encontrarás en la web?
+            </h2>
+          </div>
+
+          <p>
+            Cada sección cumple una función distinta
+            dentro de la revista y se conecta
+            con los objetivos generales del proyecto.
+          </p>
+        </header>
+
+        <div class="editorial-map-grid">
+          <a
+            class="editorial-map-card"
+            href="alertas/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                01
+              </span>
+
+              <h3>Alertas</h3>
+
+              <p>
+                Análisis de noticias sobre derechos humanos,
+                comunidades, territorios y formas de violencia.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="cronicas/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                02
+              </span>
+
+              <h3>Crónicas</h3>
+
+              <p>
+                Relatos, experiencias y textos estudiantiles
+                con mirada cultural, territorial y comunitaria.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="curaduria/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                03
+              </span>
+
+              <h3>Curaduría</h3>
+
+              <p>
+                Lecturas, audiovisuales, plataformas,
+                becas y recursos seleccionados.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="eventos/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                04
+              </span>
+
+              <h3>Eventos</h3>
+
+              <p>
+                Agenda académica, cultural, comunitaria,
+                FEPUC, asambleas y encuentros Foránexs.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="foranexs/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                05
+              </span>
+
+              <h3>Foránexs en Red</h3>
+
+              <p>
+                Guías, mapas, actividades culturales gratuitas,
+                encuentros y redes de acompañamiento.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="convocatorias/index.html"
+          >
+            <div>
+              <span class="editorial-map-number">
+                06
+              </span>
+
+              <h3>Convocatorias</h3>
+
+              <p>
+                Temáticas mensuales, formatos aceptados
+                y procesos para publicar en la revista.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="about-final">
+      <div class="container">
+        <div class="about-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Una revista para mirar, narrar y encontrarnos
+            </h2>
+
+            <p>
+              La cultura, la memoria, los territorios
+              y las voces estudiantiles merecen
+              un espacio vivo dentro de la comunidad universitaria.
+            </p>
+          </div>
+
+          <a
+            href="convocatorias/index.html"
+            class="btn btn-light"
+          >
+            Ver convocatorias
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="alertas/index.html">Alertas</a>
+        <a href="cronicas/index.html">Crónicas</a>
+        <a href="curaduria/index.html">Curaduría</a>
+        <a href="eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="fepuc/index.html">FEPUC</a>
+        <a href="foranexs/index.html">Foránexs en Red</a>
+        <a href="convocatorias/index.html">Convocatorias</a>
+        <a href="contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Ruta correcta desde pages/que-es.html -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

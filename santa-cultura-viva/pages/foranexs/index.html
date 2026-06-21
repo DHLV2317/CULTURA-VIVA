@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Información sobre la FEPUC, su función, misión, visión, organización y equipo de representación estudiantil."
+  />
+
+  <title>FEPUC | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/fepuc/index.html -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .fepuc-page {
+      background: var(--bg);
+    }
+
+    .fepuc-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .fepuc-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .fepuc-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .fepuc-page .brand-subtitle {
+      display: none;
+    }
+
+    .fepuc-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .fepuc-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .fepuc-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(25, 41, 30, 0.98) 0%,
+          rgba(53, 79, 59, 0.9) 50%,
+          rgba(53, 79, 59, 0.52) 100%
+        ),
+        url("../../img/fepuc-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .fepuc-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .fepuc-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .fepuc-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .fepuc-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .fepuc-hero-copy > p:last-child {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .fepuc-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .fepuc-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .fepuc-section {
+      padding: 5rem 0;
+    }
+
+    .fepuc-section-white {
+      background: #ffffff;
+    }
+
+    .fepuc-section-soft {
+      background: var(--bg);
+    }
+
+    .fepuc-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .fepuc-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .fepuc-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       QUÉ ES FEPUC
+    ================================================== */
+
+    .fepuc-intro-editorial {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .fepuc-intro-title {
+      position: sticky;
+      top: 175px;
+    }
+
+    .fepuc-intro-title h2 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .fepuc-intro-content {
+      border-top: 1px solid var(--ink);
+    }
+
+    .fepuc-intro-block {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .fepuc-intro-block h3 {
+      margin: 0 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .fepuc-intro-block p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ==================================================
+       MISIÓN Y VISIÓN
+    ================================================== */
+
+    .mission-vision-editorial {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .mission-editorial-card {
+      min-height: 480px;
+      padding: 2rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .mission-editorial-card:hover {
+      background: var(--soft);
+    }
+
+    .mission-editorial-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .mission-editorial-card h3 {
+      margin: 4rem 0 1rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .mission-editorial-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       EJES DE TRABAJO
+    ================================================== */
+
+    .fepuc-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .fepuc-pillar {
+      min-height: 280px;
+      padding: 1.5rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .fepuc-pillar:hover {
+      background: var(--soft);
+    }
+
+    .fepuc-pillar span {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .fepuc-pillar h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ORGANIGRAMA
+    ================================================== */
+
+    .fepuc-org-chart {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .fepuc-org-main {
+      width: min(500px, 100%);
+      margin: 0 auto 4rem;
+      position: relative;
+    }
+
+    .fepuc-org-main::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -4rem;
+      width: 1px;
+      height: 4rem;
+      background: var(--ink);
+    }
+
+    .fepuc-org-box {
+      padding: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      text-align: center;
+    }
+
+    .fepuc-org-main .fepuc-org-box {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .fepuc-org-box h3 {
+      margin: 0 0 0.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    .fepuc-org-main .fepuc-org-box h3 {
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    .fepuc-org-box p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+
+    .fepuc-org-main .fepuc-org-box p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .fepuc-org-leadership {
+      position: relative;
+      margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .fepuc-org-leadership::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .fepuc-org-leadership .fepuc-org-box {
+      position: relative;
+    }
+
+    .fepuc-org-leadership .fepuc-org-box::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      width: 1px;
+      height: 2rem;
+      background: var(--ink);
+    }
+
+    .fepuc-org-secretariats {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .fepuc-org-secretariats::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .fepuc-org-secretariats .fepuc-org-box {
+      position: relative;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fepuc-org-secretariats .fepuc-org-box::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      width: 1px;
+      height: 2rem;
+      background: var(--ink);
+    }
+
+    /* ==================================================
+       EQUIPO
+    ================================================== */
+
+    .fepuc-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .fepuc-member {
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .fepuc-member-photo {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.15)
+        ),
+        url("../../img/fepuc-integrante.jpg")
+        center / cover no-repeat;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .fepuc-member:nth-child(2) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("../../img/fepuc-integrante-2.jpg");
+    }
+
+    .fepuc-member:nth-child(3) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(139, 47, 47, 0.12)
+        ),
+        url("../../img/fepuc-integrante-3.jpg");
+    }
+
+    .fepuc-member:nth-child(4) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(216, 200, 184, 0.18)
+        ),
+        url("../../img/fepuc-integrante-4.jpg");
+    }
+
+    .fepuc-member:nth-child(5) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.16),
+          rgba(140, 109, 63, 0.16)
+        ),
+        url("../../img/fepuc-integrante-5.jpg");
+    }
+
+    .fepuc-member:nth-child(6) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.17),
+          rgba(139, 47, 47, 0.13)
+        ),
+        url("../../img/fepuc-integrante-6.jpg");
+    }
+
+    .fepuc-member-content {
+      padding: 1.5rem;
+    }
+
+    .fepuc-member-role {
+      margin: 0 0 0.65rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fepuc-member h3 {
+      margin: 0 0 0.35rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-member-pronoun {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .fepuc-member-description {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       COMUNICACIÓN
+    ================================================== */
+
+    .fepuc-communications {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .fepuc-communications-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .fepuc-communications-copy > p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .fepuc-communications-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .fepuc-communication-item {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 70px 220px 1fr;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .fepuc-communication-item span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .fepuc-communication-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .fepuc-communication-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .fepuc-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .fepuc-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .fepuc-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .fepuc-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .fepuc-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .fepuc-pillars,
+      .fepuc-org-secretariats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fepuc-org-secretariats::before,
+      .fepuc-org-secretariats .fepuc-org-box::before {
+        display: none;
+      }
+
+      .fepuc-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .fepuc-hero-grid,
+      .fepuc-section-header,
+      .fepuc-intro-editorial,
+      .fepuc-communications,
+      .fepuc-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-intro-title {
+        position: static;
+      }
+
+      .mission-vision-editorial {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-org-main::after,
+      .fepuc-org-leadership::before,
+      .fepuc-org-leadership .fepuc-org-box::before {
+        display: none;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .fepuc-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .fepuc-hero {
+        min-height: auto;
+      }
+
+      .fepuc-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .fepuc-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .fepuc-section,
+      .fepuc-final {
+        padding: 3rem 0;
+      }
+
+      .fepuc-pillars,
+      .fepuc-org-leadership,
+      .fepuc-org-secretariats,
+      .fepuc-team-grid,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-org-main {
+        margin-bottom: 1rem;
+      }
+
+      .fepuc-org-leadership {
+        margin-bottom: 1rem;
+      }
+
+      .fepuc-communication-item {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .fepuc-communication-item p {
+        grid-column: 2;
+      }
+
+      .fepuc-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="fepuc-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a class="active" href="index.html">FEPUC</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca información, comunicados o actividades"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="fepuc-hero">
+      <div class="fepuc-hero-grid">
+        <div class="fepuc-hero-copy">
+          <p class="eyebrow">
+            Representación estudiantil
+          </p>
+
+          <h1>FEPUC</h1>
+
+          <p>
+            Conoce el rol de la Federación de Estudiantes de la PUCP,
+            su misión, visión, organización interna, equipo
+            y canales de comunicación con la comunidad universitaria.
+          </p>
+        </div>
+
+        <div class="fepuc-hero-note">
+          <h2>
+            ¿Por qué está en Santa Cultura Viva?
+          </h2>
+
+          <p>
+            La FEPUC forma parte de los espacios de representación,
+            escucha, participación y articulación
+            de la comunidad estudiantil.
+          </p>
+
+          <a href="#organigrama" class="btn btn-light">
+            Ver organigrama
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUÉ ES FEPUC -->
+    <section class="fepuc-section fepuc-section-white">
+      <div class="container fepuc-intro-editorial">
+        <div class="fepuc-intro-title">
+          <p class="eyebrow">
+            ¿Qué es la FEPUC?
+          </p>
+
+          <h2>
+            Una instancia de representación estudiantil
+          </h2>
+        </div>
+
+        <div class="fepuc-intro-content">
+          <article class="fepuc-intro-block">
+            <h3>Representación</h3>
+
+            <p>
+              La Federación de Estudiantes de la PUCP busca canalizar
+              las necesidades, propuestas e inquietudes del estudiantado
+              ante las autoridades y otros espacios universitarios.
+            </p>
+          </article>
+
+          <article class="fepuc-intro-block">
+            <h3>Defensa de derechos</h3>
+
+            <p>
+              Su labor se relaciona con la defensa de los derechos
+              universitarios, el bienestar estudiantil
+              y el acceso a una vida universitaria digna e inclusiva.
+            </p>
+          </article>
+
+          <article class="fepuc-intro-block">
+            <h3>Participación</h3>
+
+            <p>
+              Promueve la participación de lxs estudiantes
+              mediante asambleas, espacios de escucha,
+              actividades y procesos de organización colectiva.
+            </p>
+          </article>
+
+          <article class="fepuc-intro-block">
+            <h3>Articulación</h3>
+
+            <p>
+              Facilita el diálogo entre estudiantes,
+              centros federados, representantes,
+              colectivos y autoridades universitarias.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIÓN Y VISIÓN -->
+    <section class="fepuc-section fepuc-section-soft">
+      <div class="container">
+        <header class="fepuc-section-header">
+          <div>
+            <p class="eyebrow">
+              Mesa Directiva
+            </p>
+
+            <h2>
+              Misión y visión
+            </h2>
+          </div>
+
+          <p>
+            El horizonte de la Mesa se construye
+            desde la representación, la escucha,
+            la organización y el acompañamiento estudiantil.
+          </p>
+        </header>
+
+        <div class="mission-vision-editorial">
+          <article class="mission-editorial-card">
+            <span class="mission-editorial-number">
+              01 · Misión
+            </span>
+
+            <h3>
+              Representar, escuchar y articular
+            </h3>
+
+            <p>
+              Representar activamente a lxs estudiantes de la PUCP,
+              promoviendo una vida universitaria participativa,
+              inclusiva, informada y organizada.
+            </p>
+
+            <p>
+              Recoger las necesidades de la comunidad,
+              impulsar iniciativas de bienestar,
+              defender los derechos universitarios
+              y fortalecer los espacios de diálogo.
+            </p>
+          </article>
+
+          <article class="mission-editorial-card">
+            <span class="mission-editorial-number">
+              02 · Visión
+            </span>
+
+            <h3>
+              Una FEPUC cercana y presente
+            </h3>
+
+            <p>
+              Construir una federación transparente,
+              accesible y presente en la vida cotidiana
+              de lxs estudiantes.
+            </p>
+
+            <p>
+              Una organización que no solo comunique,
+              sino que también escuche, acompañe,
+              articule soluciones y fortalezca
+              una comunidad crítica y solidaria.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EJES DE TRABAJO -->
+    <section class="fepuc-section fepuc-section-white">
+      <div class="container">
+        <header class="fepuc-section-header">
+          <div>
+            <p class="eyebrow">
+              Líneas de acción
+            </p>
+
+            <h2>
+              Ejes de trabajo
+            </h2>
+          </div>
+
+          <p>
+            Áreas que orientan la representación
+            y el acompañamiento de la comunidad estudiantil.
+          </p>
+        </header>
+
+        <div class="fepuc-pillars">
+          <article class="fepuc-pillar">
+            <span>01</span>
+
+            <h3>Derechos universitarios</h3>
+
+            <p>
+              Defensa, orientación y seguimiento
+              de situaciones que afectan a lxs estudiantes.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>02</span>
+
+            <h3>Bienestar estudiantil</h3>
+
+            <p>
+              Iniciativas relacionadas con salud,
+              alimentación, economía y acompañamiento.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>03</span>
+
+            <h3>Participación</h3>
+
+            <p>
+              Asambleas, espacios abiertos,
+              consultas y mecanismos de organización.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>04</span>
+
+            <h3>Comunidad</h3>
+
+            <p>
+              Construcción de redes, vínculos,
+              actividades culturales y espacios de encuentro.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>05</span>
+
+            <h3>Asuntos académicos</h3>
+
+            <p>
+              Seguimiento de necesidades vinculadas
+              con cursos, evaluaciones y formación.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>06</span>
+
+            <h3>Género e inclusión</h3>
+
+            <p>
+              Promoción de espacios seguros,
+              libres de discriminación y violencia.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>07</span>
+
+            <h3>Cultura</h3>
+
+            <p>
+              Actividades y proyectos para fortalecer
+              la diversidad cultural de la universidad.
+            </p>
+          </article>
+
+          <article class="fepuc-pillar">
+            <span>08</span>
+
+            <h3>Transparencia</h3>
+
+            <p>
+              Comunicación clara de decisiones,
+              procesos, actividades y uso de recursos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORGANIGRAMA -->
+    <section
+      class="fepuc-section fepuc-section-soft"
+      id="organigrama"
+    >
+      <div class="container">
+        <header class="fepuc-section-header">
+          <div>
+            <p class="eyebrow">
+              Organización interna
+            </p>
+
+            <h2>
+              Organigrama
+            </h2>
+          </div>
+
+          <p>
+            Una representación visual de la Mesa Directiva,
+            sus cargos principales y sus secretarías.
+          </p>
+        </header>
+
+        <div class="fepuc-org-chart">
+          <div class="fepuc-org-main">
+            <div class="fepuc-org-box">
+              <h3>Mesa Directiva FEPUC</h3>
+
+              <p>
+                Representación general del estudiantado
+              </p>
+            </div>
+          </div>
+
+          <div class="fepuc-org-leadership">
+            <div class="fepuc-org-box">
+              <h3>Presidencia</h3>
+
+              <p>
+                Dirección política y representación institucional.
+              </p>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>Vicepresidencia</h3>
+
+              <p>
+                Coordinación general y apoyo a la gestión.
+              </p>
+            </div>
+          </div>
+
+          <div class="fepuc-org-secretariats">
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Organización
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Economía
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Bienestar Estudiantil
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Derechos Universitarios
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Comunicaciones
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Género
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Cultura
+              </h3>
+            </div>
+
+            <div class="fepuc-org-box">
+              <h3>
+                Secretaría de Asuntos Académicos
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="fepuc-section fepuc-section-white">
+      <div class="container">
+        <header class="fepuc-section-header">
+          <div>
+            <p class="eyebrow">
+              Equipo
+            </p>
+
+            <h2>
+              Integrantes de la Mesa
+            </h2>
+          </div>
+
+          <p>
+            Cada integrante puede presentarse con nombre social,
+            pronombre, cargo, facultad y una descripción
+            breve de sus funciones.
+          </p>
+        </header>
+
+        <div class="fepuc-team-grid">
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Presidencia"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Presidencia
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Representa a la Mesa, coordina la agenda general
+                y articula el trabajo con centros federados
+                y autoridades universitarias.
+              </p>
+            </div>
+          </article>
+
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Vicepresidencia"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Vicepresidencia
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Acompaña la coordinación general,
+                apoya la gestión interna y fortalece
+                el seguimiento de las iniciativas.
+              </p>
+            </div>
+          </article>
+
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Organización"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Organización
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Coordina actividades, asambleas,
+                reuniones y procesos internos de la Federación.
+              </p>
+            </div>
+          </article>
+
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Bienestar Estudiantil"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Bienestar Estudiantil
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Impulsa acciones relacionadas con bienestar,
+                acompañamiento, alimentación y economía estudiantil.
+              </p>
+            </div>
+          </article>
+
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Comunicaciones"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Comunicaciones
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Gestiona comunicados, redes sociales,
+                cobertura de actividades y difusión de información.
+              </p>
+            </div>
+          </article>
+
+          <article class="fepuc-member">
+            <div
+              class="fepuc-member-photo"
+              role="img"
+              aria-label="Foto de la persona encargada de Cultura"
+            >
+              Foto
+            </div>
+
+            <div class="fepuc-member-content">
+              <p class="fepuc-member-role">
+                Cultura
+              </p>
+
+              <h3>Nombre social</h3>
+
+              <p class="fepuc-member-pronoun">
+                Pronombre: elle / ella / él
+              </p>
+
+              <p class="fepuc-member-description">
+                Promueve actividades culturales,
+                proyectos estudiantiles y espacios
+                para visibilizar la diversidad universitaria.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMUNICACIÓN -->
+    <section class="fepuc-section fepuc-section-soft">
+      <div class="container fepuc-communications">
+        <div class="fepuc-communications-copy">
+          <p class="eyebrow">
+            Información y transparencia
+          </p>
+
+          <h2>
+            ¿Qué puede comunicar la FEPUC?
+          </h2>
+
+          <p>
+            Esta sección puede concentrar información útil
+            para que la comunidad conozca actividades,
+            decisiones, comunicados y mecanismos de participación.
+          </p>
+        </div>
+
+        <div class="fepuc-communications-list">
+          <article class="fepuc-communication-item">
+            <span>01</span>
+
+            <h3>Comunicados</h3>
+
+            <p>
+              Pronunciamientos, posicionamientos
+              y mensajes oficiales dirigidos a la comunidad.
+            </p>
+          </article>
+
+          <article class="fepuc-communication-item">
+            <span>02</span>
+
+            <h3>Actividades</h3>
+
+            <p>
+              Asambleas, conversatorios,
+              jornadas de escucha y encuentros estudiantiles.
+            </p>
+          </article>
+
+          <article class="fepuc-communication-item">
+            <span>03</span>
+
+            <h3>Rendición de cuentas</h3>
+
+            <p>
+              Información sobre decisiones,
+              avances, proyectos y uso de recursos.
+            </p>
+          </article>
+
+          <article class="fepuc-communication-item">
+            <span>04</span>
+
+            <h3>Canales de atención</h3>
+
+            <p>
+              Correos, formularios, horarios
+              y espacios para recibir consultas o propuestas.
+            </p>
+          </article>
+
+          <article class="fepuc-communication-item">
+            <span>05</span>
+
+            <h3>Oportunidades</h3>
+
+            <p>
+              Convocatorias, voluntariados,
+              comisiones y formas de participación estudiantil.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="fepuc-final">
+      <div class="container">
+        <div class="fepuc-final-inner">
+          <div>
+            <p class="eyebrow">
+              Participación estudiantil
+            </p>
+
+            <h2>
+              La representación también se construye escuchando
+            </h2>
+
+            <p>
+              Comunícate con el equipo para compartir
+              una consulta, propuesta, inquietud
+              o iniciativa de la comunidad universitaria.
+            </p>
+          </div>
+
+          <a
+            href="../contacto/index.html"
+            class="btn btn-light"
+          >
+            Enviar mensaje
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="../cronicas/index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Ruta correcta desde pages/fepuc/index.html -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

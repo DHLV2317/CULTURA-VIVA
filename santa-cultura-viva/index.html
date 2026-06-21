@@ -1,479 +1,1400 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, comunidad y derechos humanos."
+  />
 
   <title>Santa Cultura Viva</title>
 
+  <!-- Ruta correcta desde el index.html principal -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* =========================================
+       AJUSTES EXCLUSIVOS DE LA PÁGINA DE INICIO
+    ========================================= */
+
+    .home-page {
+      background: var(--bg);
+    }
+
+    /* CABECERA COMPACTA */
+
+    .home-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .home-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .home-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .home-page .brand-subtitle {
+      display: none;
+    }
+
+    .home-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .home-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA PRINCIPAL
+    ========================================= */
+
+    .home-page .editorial-hero {
+      min-height: 670px;
+    }
+
+    /* =========================================
+       ÚLTIMAS ENTRADAS
+    ========================================= */
+
+    .latest-editorial {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .latest-editorial-header {
+      margin-bottom: 1.8rem;
+      padding-top: 1rem;
+      border-top: 5px solid var(--ink);
+    }
+
+    .latest-editorial-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .editorial-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .feed-item {
+      padding: 1.8rem 0;
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr) 420px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .feed-date {
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .feed-date time {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .feed-comments {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .feed-category {
+      margin: 0 0 0.65rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .feed-content h3 a:hover {
+      color: var(--accent);
+    }
+
+    .feed-content > p:last-child {
+      max-width: 650px;
+      margin: 0;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .feed-image {
+      min-height: 250px;
+      display: block;
+      overflow: hidden;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .feed-image-alerta {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("img/entrada-alerta.jpg");
+    }
+
+    .feed-image-cronica {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(239, 225, 210, 0.1)
+        ),
+        url("img/entrada-cronica.jpg");
+    }
+
+    .feed-image-curaduria {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.22),
+          rgba(94, 31, 31, 0.1)
+        ),
+        url("img/entrada-curaduria.jpg");
+    }
+
+    .feed-image-evento {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.18),
+          rgba(216, 200, 184, 0.18)
+        ),
+        url("img/entrada-evento.jpg");
+    }
+
+    .feed-image-foranexs {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.16)
+        ),
+        url("img/entrada-foranexs.jpg");
+    }
+
+    .feed-image-convocatoria {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.24),
+          rgba(36, 31, 27, 0.12)
+        ),
+        url("img/entrada-convocatoria.jpg");
+    }
+
+    /* =========================================
+       PUBLICACIÓN VISUAL DESTACADA
+    ========================================= */
+
+    .visual-feature-section {
+      padding: 4.5rem 0;
+      background: #ffffff;
+    }
+
+    .visual-feature {
+      position: relative;
+      min-height: 690px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.86) 0%,
+          rgba(20, 17, 15, 0.18) 58%,
+          rgba(20, 17, 15, 0.03) 100%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(139, 47, 47, 0.14)
+        ),
+        url("img/destacada-cronica.jpg")
+        center / cover no-repeat;
+    }
+
+    .visual-feature-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 3.2rem;
+      color: #ffffff;
+    }
+
+    .visual-feature-tags {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .visual-feature-tags span {
+      padding: 0.3rem 0.55rem;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .visual-feature h2 {
+      max-width: 1030px;
+      margin: 1rem 0;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .visual-feature-meta {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .visual-feature-link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+
+    /* =========================================
+       DIRECTORIO DE SECCIONES
+    ========================================= */
+
+    .section-directory {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .directory-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      border-top: 5px solid var(--ink);
+    }
+
+    .directory-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .directory-card {
+      min-height: 230px;
+      padding: 1.6rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .directory-card:hover {
+      background: var(--soft);
+    }
+
+    .directory-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .directory-card h3 {
+      margin: 2.8rem 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.7rem;
+      line-height: 1.05;
+    }
+
+    .directory-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CONVOCATORIA
+    ========================================= */
+
+    .home-convocatoria {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .home-convocatoria-box {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .home-convocatoria-box h2 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1;
+    }
+
+    .home-convocatoria-box p {
+      color: rgba(255, 255, 255, 0.86);
+      font-family: Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .home-convocatoria-details {
+      align-self: center;
+    }
+
+    .home-convocatoria-details p {
+      margin: 0.4rem 0;
+    }
+
+    /* =========================================
+       NEWSLETTER COMPACTO
+    ========================================= */
+
+    .newsletter-editorial {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .newsletter-editorial-inner {
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .newsletter-kicker {
+      margin: 0 0 0.8rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .newsletter-editorial-copy h2 {
+      max-width: 540px;
+      margin: 0 0 1rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.7rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .newsletter-editorial-copy > p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .newsletter-editorial-action {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .newsletter-compact-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .newsletter-compact-form input {
+      min-height: 62px;
+      padding: 0 1.2rem;
+      border: 1px solid var(--ink);
+      border-right: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .newsletter-compact-form button {
+      min-width: 155px;
+      min-height: 62px;
+      padding: 0 1.5rem;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .newsletter-compact-form button:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .newsletter-preferences {
+      width: fit-content;
+      color: var(--accent-dark);
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .newsletter-preferences:hover {
+      text-decoration: underline;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* =========================================
+       FOOTER EDITORIAL
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3.2rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p {
+      max-width: 310px;
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .feed-item {
+        grid-template-columns: 130px minmax(0, 1fr) 320px;
+      }
+
+      .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .home-convocatoria-box,
+      .newsletter-editorial-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .home-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .home-page .editorial-hero {
+        min-height: 590px;
+      }
+
+      .latest-editorial,
+      .visual-feature-section,
+      .section-directory,
+      .home-convocatoria,
+      .newsletter-editorial {
+        padding: 3rem 0;
+      }
+
+      .feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .feed-date {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .feed-image {
+        min-height: 230px;
+      }
+
+      .visual-feature {
+        min-height: 570px;
+      }
+
+      .visual-feature-content {
+        padding: 1.5rem;
+      }
+
+      .visual-feature h2 {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+      }
+
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-convocatoria-box {
+        padding: 1.5rem;
+      }
+
+      .newsletter-compact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-compact-form input {
+        border-right: 1px solid var(--ink);
+        border-bottom: 0;
+      }
+
+      .newsletter-compact-form button {
+        width: 100%;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
 </head>
 
-<body>
-  <div class="top-bar">
-    Revista digital universitaria · Cultura, territorio, derechos humanos y comunidad
-  </div>
+<body class="home-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
 
-  <header class="site-header">
-    <div class="navbar">
-      <a class="logo" href="index.html">Santa Cultura Viva</a>
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        ☰
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
       </button>
-
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html">Inicio</a>
-        <a href="pages/fepuc/index.html">FEPUC</a>
-        <a href="pages/que-es.html">¿Qué es?</a>
-        <a href="pages/alertas/index.html">Alertas</a>
-        <a href="pages/cronicas/index.html">Crónicas</a>
-        <a href="pages/curaduria/index.html">Curaduría</a>
-        <a href="pages/eventos/index.html">Eventos</a>
-        <a href="pages/foranexs/index.html">Foránexs en Red</a>
-        <a href="pages/convocatorias/index.html">Convocatorias</a>
-        <a href="pages/suscripcion.html">Suscripción</a>
-        <a href="pages/contacto/index.html">Contacto</a>
-      </nav>
     </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="index.html">Inicio</a>
+      <a href="pages/fepuc/index.html">FEPUC</a>
+      <a href="pages/que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="pages/alertas/index.html">Alertas</a>
+      <a href="pages/cronicas/index.html">Crónicas</a>
+      <a href="pages/curaduria/index.html">Curaduría</a>
+      <a href="pages/eventos/index.html">Eventos</a>
+      <a href="pages/foranexs/index.html">Foránexs en Red</a>
+      <a href="pages/convocatorias/index.html">Convocatorias</a>
+      <a href="pages/suscripcion.html">Suscripción</a>
+      <a href="pages/contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a class="active" href="index.html">Inicio</a>
+      <a href="pages/alertas/index.html">Alertas</a>
+      <a href="pages/cronicas/index.html">Crónicas</a>
+      <a href="pages/curaduria/index.html">Curaduría</a>
+      <a href="pages/eventos/index.html">Eventos</a>
+      <a href="pages/foranexs/index.html">Foránexs en Red</a>
+      <a href="pages/convocatorias/index.html">Convocatorias</a>
+    </nav>
   </header>
 
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
   <main>
-    <!-- HERO / ENTRADA DESTACADA -->
-    <section class="container hero">
-      <div class="hero-image">
-        <span>Imagen destacada</span>
-      </div>
+    <!-- PORTADA PRINCIPAL -->
+    <section class="editorial-hero">
+      <div class="editorial-hero-overlay"></div>
 
-      <div class="hero-content">
-        <p class="eyebrow">Entrada destacada · Alerta</p>
+      <div class="editorial-hero-content">
+        <span class="editorial-category">
+          Alerta destacada
+        </span>
 
-        <h1>Lima no es el Perú: mirar el país desde sus territorios y comunidades</h1>
+        <h1>
+          Lima no es el Perú: mirar el país desde sus territorios y comunidades
+        </h1>
 
-        <p>
-          Santa Cultura Viva abre un espacio editorial para pensar cultura,
-          derechos humanos, comunidad y vida universitaria desde voces que
-          muchas veces quedan fuera del centro.
+        <p class="editorial-excerpt">
+          Un análisis sobre centralismo, representación y las voces
+          que permanecen fuera de la agenda pública.
         </p>
 
-        <div class="hero-actions">
-          <a href="pages/alertas/detalle.html" class="btn btn-primary">Leer más</a>
-          <a href="pages/que-es.html" class="btn btn-outline">Conocer el proyecto</a>
+        <div class="editorial-meta">
+          <span>Por Santa Cultura Viva</span>
+          <span aria-hidden="true">/</span>
+
+          <time datetime="2026-06-17">
+            Junio 17, 2026
+          </time>
         </div>
+
+        <a
+          class="editorial-hero-link"
+          href="pages/alertas/detalle.html"
+          aria-label="Leer alerta destacada"
+        ></a>
       </div>
     </section>
 
-    <!-- ÚLTIMAS PUBLICACIONES -->
-    <section class="section container">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Muro editorial</p>
-          <h2>Últimas publicaciones</h2>
-        </div>
-
-        <p>
-          Una selección reciente de alertas, crónicas, curadurías y textos de la revista.
-        </p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-image">Imagen</div>
-
-          <p class="meta">Crónica · Vida universitaria</p>
-
-          <h3>Habitar la universidad desde otros territorios</h3>
-
-          <p>
-            Texto narrativo sobre experiencias estudiantiles, memoria y comunidad.
-          </p>
-
-          <a href="pages/cronicas/detalle.html" class="read-link">Leer crónica</a>
-        </article>
-
-        <article class="card">
-          <div class="card-image">Imagen</div>
-
-          <p class="meta">Curaduría · Lecturas</p>
-
-          <h3>Lecturas para pensar cultura, territorio y centralismo</h3>
-
-          <p>
-            Recursos seleccionados para profundizar en debates culturales y sociales.
-          </p>
-
-          <a href="pages/curaduria/index.html" class="read-link">Ver recurso</a>
-        </article>
-
-        <article class="card">
-          <div class="card-image">Imagen</div>
-
-          <p class="meta">Evento · Comunidad</p>
-
-          <h3>Encuentro comunitario de estudiantes foránexs</h3>
-
-          <p>
-            Espacio de conversación, integración y acompañamiento.
-          </p>
-
-          <a href="pages/eventos/index.html" class="read-link">Ver evento</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ALERTAS -->
-    <section class="section section-soft">
+    <!-- ÚLTIMAS ENTRADAS -->
+    <section class="latest-editorial">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Análisis de noticias</p>
-            <h2>Alertas recientes</h2>
-          </div>
+        <header class="latest-editorial-header">
+          <h2>Últimas entradas</h2>
+        </header>
 
-          <p>
-            Artículos que analizan noticias vinculadas a comunidades indígenas,
-            comunidades migrantes, zonas periféricas y vulneraciones de derechos humanos.
-          </p>
-        </div>
+        <div class="editorial-feed">
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-17">
+                Junio 17, 2026
+              </time>
 
-        <div class="filters">
-          <span>Comunidades indígenas</span>
-          <span>Lima no es el Perú</span>
-          <span>Comunidades migrantes</span>
-          <span>Zonas periféricas</span>
-          <span>Violencia institucional</span>
-          <span>Violencia simbólica</span>
-        </div>
+              <span class="feed-comments">▣ 0</span>
+            </div>
 
-        <div class="grid grid-3">
-          <article class="card card-alert">
-            <p class="meta">Lima no es el Perú</p>
+            <div class="feed-content">
+              <p class="feed-category">
+                Alertas / Lima no es el Perú
+              </p>
 
-            <h3>Cuando el centralismo invisibiliza demandas territoriales</h3>
+              <h3>
+                <a href="pages/alertas/detalle.html">
+                  Cuando el centralismo invisibiliza las demandas territoriales
+                </a>
+              </h3>
 
-            <p>
-              Análisis de una noticia y de las formas en que se vulneran derechos humanos.
-            </p>
+              <p>
+                Un análisis sobre representación mediática,
+                desigualdad territorial y las voces que permanecen
+                fuera del centro de la agenda nacional.
+              </p>
+            </div>
 
-            <a href="pages/alertas/detalle.html" class="btn btn-outline">Ver análisis + IG</a>
+            <a
+              href="pages/alertas/detalle.html"
+              class="feed-image feed-image-alerta"
+              aria-label="Leer alerta sobre centralismo"
+            ></a>
           </article>
 
-          <article class="card card-alert">
-            <p class="meta">Comunidades indígenas</p>
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-14">
+                Junio 14, 2026
+              </time>
 
-            <h3>Consulta previa y participación comunitaria</h3>
+              <span class="feed-comments">▣ 0</span>
+            </div>
 
-            <p>
-              Revisión de actores involucradxs, impacto comunitario y derechos vulnerados.
-            </p>
+            <div class="feed-content">
+              <p class="feed-category">
+                Crónicas / Vida universitaria
+              </p>
 
-            <a href="pages/alertas/detalle.html" class="btn btn-outline">Ver análisis + IG</a>
+              <h3>
+                <a href="pages/cronicas/detalle.html">
+                  Habitar la universidad desde otros territorios
+                </a>
+              </h3>
+
+              <p>
+                Relatos sobre memoria, desplazamiento, pertenencia
+                y las experiencias de quienes llegan a la universidad
+                desde otros lugares.
+              </p>
+            </div>
+
+            <a
+              href="pages/cronicas/detalle.html"
+              class="feed-image feed-image-cronica"
+              aria-label="Leer crónica sobre vida universitaria"
+            ></a>
           </article>
 
-          <article class="card card-alert">
-            <p class="meta">Violencia simbólica</p>
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-10">
+                Junio 10, 2026
+              </time>
 
-            <h3>Representaciones que excluyen a comunidades migrantes</h3>
+              <span class="feed-comments">▣ 0</span>
+            </div>
 
-            <p>
-              Lectura crítica sobre discursos, medios y exclusión social.
-            </p>
+            <div class="feed-content">
+              <p class="feed-category">
+                Curaduría / Lecturas
+              </p>
 
-            <a href="pages/alertas/detalle.html" class="btn btn-outline">Ver análisis + IG</a>
+              <h3>
+                <a href="pages/curaduria/index.html">
+                  Lecturas para pensar cultura, territorio y centralismo
+                </a>
+              </h3>
+
+              <p>
+                Una selección comentada de textos, investigaciones
+                y recursos para ampliar los debates planteados
+                por la revista.
+              </p>
+            </div>
+
+            <a
+              href="pages/curaduria/index.html"
+              class="feed-image feed-image-curaduria"
+              aria-label="Ver selección de lecturas"
+            ></a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CRÓNICAS -->
-    <section class="section container">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Voces y relatos</p>
-          <h2>Crónicas</h2>
-        </div>
-
-        <p>
-          Historias, textos y reflexiones sobre cultura, comunidad, memoria y vida universitaria.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <article class="card card-cronica">
-          <div class="card-image">Imagen</div>
-
-          <p class="meta">Crónica destacada</p>
-
-          <h3>Primer ciclo lejos de casa</h3>
-
-          <p>
-            Una mirada al inicio de la vida universitaria desde la experiencia foránex.
-          </p>
-
-          <a href="pages/cronicas/detalle.html" class="read-link">Leer crónica</a>
-        </article>
-
-        <article class="card card-cronica">
-          <div class="card-image">Imagen</div>
-
-          <p class="meta">Memoria y comunidad</p>
-
-          <h3>Lo que traemos en la mochila</h3>
-
-          <p>
-            Texto sobre identidad, territorio y comunidad en el espacio universitario.
-          </p>
-
-          <a href="pages/cronicas/detalle.html" class="read-link">Leer crónica</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- CURADURÍA -->
-    <section class="section section-soft">
+    <!-- PUBLICACIÓN DESTACADA -->
+    <section class="visual-feature-section">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Recomendaciones</p>
-            <h2>Curaduría</h2>
+        <article class="visual-feature">
+          <div class="visual-feature-content">
+            <div class="visual-feature-tags">
+              <span>Crónicas</span>
+              <span>Foránexs</span>
+            </div>
+
+            <h2>
+              Primer ciclo lejos de casa: aprender a habitar una nueva ciudad
+            </h2>
+
+            <div class="visual-feature-meta">
+              <span>Por Santa Cultura Viva</span>
+              <span>/</span>
+
+              <time datetime="2026-06-08">
+                Junio 8, 2026
+              </time>
+            </div>
           </div>
 
-          <p>
-            Lecturas, recursos audiovisuales, plataformas, convocatorias, becas y recursos IG.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card card-curaduria">
-            <p class="meta">Lecturas</p>
-
-            <h3>Archivo, memoria y territorio</h3>
-
-            <p>
-              Recomendación comentada de lectura para ampliar el debate.
-            </p>
-
-            <a href="pages/curaduria/index.html" class="btn btn-outline">Ver recurso</a>
-          </article>
-
-          <article class="card card-curaduria">
-            <p class="meta">Audiovisuales</p>
-
-            <h3>Documentales para pensar comunidad</h3>
-
-            <p>
-              Selección breve de recursos audiovisuales de acceso abierto.
-            </p>
-
-            <a href="pages/curaduria/index.html" class="btn btn-outline">Ver recurso</a>
-          </article>
-
-          <article class="card card-curaduria">
-            <p class="meta">Recursos IG</p>
-
-            <h3>Posts para guardar y compartir</h3>
-
-            <p>
-              Vínculos a publicaciones de Instagram con recursos útiles.
-            </p>
-
-            <a href="pages/curaduria/index.html" class="btn btn-outline">Ver post IG</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENTOS -->
-    <section class="section container">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Agenda</p>
-          <h2>Eventos próximos</h2>
-        </div>
-
-        <p>
-          Eventos académicos, culturales, de FEPUC, asambleas, comunidad y Foránexs.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <article class="event-card">
-          <div class="date-box">
-            <strong>12</strong>
-            <span>Jun</span>
-          </div>
-
-          <div>
-            <p class="meta">Cultural</p>
-
-            <h3>Cine-foro comunitario</h3>
-
-            <p>
-              Actividad abierta para conversar sobre cultura, territorio y universidad.
-            </p>
-
-            <a href="pages/eventos/index.html" class="read-link">Ver evento</a>
-          </div>
-        </article>
-
-        <article class="event-card">
-          <div class="date-box">
-            <strong>19</strong>
-            <span>Jun</span>
-          </div>
-
-          <div>
-            <p class="meta">Foránexs</p>
-
-            <h3>Encuentro Foránexs</h3>
-
-            <p>
-              Espacio de integración y acompañamiento para estudiantes de provincia y extranjerxs.
-            </p>
-
-            <a href="pages/eventos/index.html" class="read-link">Ver evento</a>
-          </div>
+          <a
+            href="pages/cronicas/detalle.html"
+            class="visual-feature-link"
+            aria-label="Leer Primer ciclo lejos de casa"
+          ></a>
         </article>
       </div>
     </section>
 
-    <!-- CONVOCATORIAS -->
-    <section class="section container">
-      <div class="convocatoria-box">
-        <div>
-          <p class="eyebrow eyebrow-light">Convocatorias</p>
-
-          <h2>Publica tu texto en Santa Cultura Viva</h2>
-
-          <p>
-            Cada mes abrimos una temática editorial para recibir crónicas,
-            ensayos breves, relatos, reseñas y reflexiones territoriales.
-          </p>
-        </div>
-
-        <div class="convocatoria-info">
-          <p><strong>Temática del mes:</strong> Lima no es el Perú: experiencias, memoria y territorio.</p>
-          <p><strong>Recepción:</strong> Del 1 al 20 de cada mes.</p>
-          <p><strong>Correo:</strong> santaculturaviva@gmail.com</p>
-          <p><strong>Asunto:</strong> Convocatoria SCV - Nombre social - Título del texto</p>
-
-          <a href="pages/convocatorias/index.html" class="btn btn-light">Ver convocatoria</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FORÁNEXS EN RED -->
-    <section class="section section-soft">
+    <!-- MÁS ENTRADAS -->
+    <section class="latest-editorial">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Comunidad</p>
-            <h2>Foránexs en Red</h2>
-          </div>
+        <div class="editorial-feed">
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-07">
+                Junio 7, 2026
+              </time>
 
-          <p>
-            Guías útiles, mapas, eventos culturales gratuitos, encuentros Foránexs
-            y contactos de apoyo.
-          </p>
-        </div>
+              <span class="feed-comments">▣ 0</span>
+            </div>
 
-        <div class="grid grid-4">
-          <article class="mini-card">
-            <h3>Guías útiles</h3>
-            <p>Vivienda, transporte, alimentación, salud, seguridad y vida universitaria.</p>
+            <div class="feed-content">
+              <p class="feed-category">
+                Eventos / Comunidad
+              </p>
+
+              <h3>
+                <a href="pages/eventos/index.html">
+                  Encuentro comunitario de estudiantes foránexs
+                </a>
+              </h3>
+
+              <p>
+                Una jornada de conversación, integración y acompañamiento
+                para estudiantes que viven lejos de sus lugares de origen.
+              </p>
+            </div>
+
+            <a
+              href="pages/eventos/index.html"
+              class="feed-image feed-image-evento"
+              aria-label="Ver encuentro comunitario"
+            ></a>
           </article>
 
-          <article class="mini-card">
-            <h3>Mapas</h3>
-            <p>Comedores, bibliotecas, centros culturales, rutas y zonas cercanas al campus.</p>
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-04">
+                Junio 4, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Foránexs en Red / Guías útiles
+              </p>
+
+              <h3>
+                <a href="pages/foranexs/index.html">
+                  Mapa de servicios, espacios culturales y redes de apoyo
+                </a>
+              </h3>
+
+              <p>
+                Comedores, bibliotecas, centros culturales,
+                rutas cercanas al campus y contactos
+                de acompañamiento.
+              </p>
+            </div>
+
+            <a
+              href="pages/foranexs/index.html"
+              class="feed-image feed-image-foranexs"
+              aria-label="Explorar el mapa para estudiantes foránexs"
+            ></a>
           </article>
 
-          <article class="mini-card">
-            <h3>Eventos culturales gratuitos</h3>
-            <p>Exposiciones, cine-foros, ferias, actividades municipales y eventos abiertos.</p>
-          </article>
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-01">
+                Junio 1, 2026
+              </time>
 
-          <article class="mini-card">
-            <h3>Encuentros Foránexs</h3>
-            <p>Espacios de integración, conversación y acompañamiento.</p>
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Convocatorias / Escritura
+              </p>
+
+              <h3>
+                <a href="pages/convocatorias/index.html">
+                  Convocatoria del mes: experiencias, memoria y territorio
+                </a>
+              </h3>
+
+              <p>
+                Santa Cultura Viva recibe crónicas, ensayos breves,
+                relatos y reflexiones estudiantiles hasta el día 20 del mes.
+              </p>
+            </div>
+
+            <a
+              href="pages/convocatorias/index.html"
+              class="feed-image feed-image-convocatoria"
+              aria-label="Ver convocatoria editorial"
+            ></a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- SUSCRIPCIÓN -->
-    <section class="section container">
-      <div class="newsletter-box">
-        <div>
-          <p class="eyebrow">Comunidad</p>
+    <!-- DIRECTORIO -->
+    <section class="section-directory">
+      <div class="container">
+        <header class="directory-header">
+          <h2>Explora Santa Cultura Viva</h2>
+        </header>
 
-          <h2>Suscríbete</h2>
+        <div class="directory-grid">
+          <a
+            class="directory-card"
+            href="pages/alertas/index.html"
+          >
+            <span class="directory-number">01</span>
 
-          <p>
-            Recibe alertas, crónicas, eventos, curadurías y convocatorias según tus intereses.
-          </p>
+            <h3>Alertas</h3>
+
+            <p>
+              Análisis de noticias, vulneraciones de derechos
+              y problemáticas vinculadas a comunidades y territorios.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="pages/cronicas/index.html"
+          >
+            <span class="directory-number">02</span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos y experiencias sobre cultura, memoria,
+              comunidad y vida universitaria.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="pages/curaduria/index.html"
+          >
+            <span class="directory-number">03</span>
+
+            <h3>Curaduría</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas y recursos seleccionados.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="pages/eventos/index.html"
+          >
+            <span class="directory-number">04</span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Agenda académica, cultural, comunitaria,
+              FEPUC y encuentros Foránexs.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="pages/foranexs/index.html"
+          >
+            <span class="directory-number">05</span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              y redes de acompañamiento.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="pages/convocatorias/index.html"
+          >
+            <span class="directory-number">06</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Temáticas mensuales y oportunidades
+              para publicar textos en la revista.
+            </p>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <form class="newsletter-form">
-          <input type="text" placeholder="Nombre social" />
-          <input type="text" placeholder="Pronombre" />
-          <input type="email" placeholder="Correo" />
+    <!-- CONVOCATORIA -->
+    <section class="home-convocatoria">
+      <div class="container">
+        <div class="home-convocatoria-box">
+          <div>
+            <p class="eyebrow eyebrow-light">
+              Convocatoria abierta
+            </p>
 
-          <select>
-            <option>Tipo de vínculo con la comunidad</option>
-            <option>Estudiante</option>
-            <option>Egresadx</option>
-            <option>Docente</option>
-            <option>Visitante</option>
-          </select>
+            <h2>
+              Publica tu texto en Santa Cultura Viva
+            </h2>
 
-          <div class="checkboxes">
-            <label><input type="checkbox" /> Alertas</label>
-            <label><input type="checkbox" /> Crónicas</label>
-            <label><input type="checkbox" /> Curaduría</label>
-            <label><input type="checkbox" /> Eventos</label>
-            <label><input type="checkbox" /> Foránexs</label>
-            <label><input type="checkbox" /> Convocatorias</label>
+            <p>
+              Recibimos crónicas, ensayos breves, relatos,
+              reseñas y reflexiones vinculadas con la temática del mes.
+            </p>
           </div>
 
-          <button type="button" class="btn btn-primary">Suscribirme</button>
-        </form>
+          <div class="home-convocatoria-details">
+            <p>
+              <strong>Temática:</strong>
+              Lima no es el Perú: experiencias, memoria y territorio.
+            </p>
+
+            <p>
+              <strong>Recepción:</strong>
+              del 1 al 20 de cada mes.
+            </p>
+
+            <p>
+              <strong>Correo:</strong>
+              santaculturaviva@gmail.com
+            </p>
+
+            <p>
+              <strong>Asunto:</strong>
+              Convocatoria SCV - Nombre social - Título.
+            </p>
+
+            <a
+              href="pages/convocatorias/index.html"
+              class="btn btn-light"
+            >
+              Ver convocatoria
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-editorial">
+      <div class="container">
+        <div class="newsletter-editorial-inner">
+          <div class="newsletter-editorial-copy">
+            <p class="newsletter-kicker">
+              Newsletter
+            </p>
+
+            <h2>
+              Recibe las novedades de Santa Cultura Viva
+            </h2>
+
+            <p>
+              Alertas, crónicas, eventos, recursos,
+              convocatorias y contenidos para la comunidad universitaria.
+            </p>
+          </div>
+
+          <div class="newsletter-editorial-action">
+            <form
+              class="newsletter-compact-form"
+              action="pages/suscripcion.html"
+              method="get"
+            >
+              <label
+                class="sr-only"
+                for="newsletterCorreo"
+              >
+                Correo electrónico
+              </label>
+
+              <input
+                id="newsletterCorreo"
+                type="email"
+                name="correo"
+                placeholder="Escribe tu correo electrónico"
+                required
+              />
+
+              <button type="submit">
+                Suscribirme
+              </button>
+            </form>
+
+            <a
+              class="newsletter-preferences"
+              href="pages/suscripcion.html"
+            >
+              Elegir temas e intereses →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Santa Cultura Viva</h3>
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="index.html">
+          Santa Cultura Viva
+        </a>
 
         <p>
-          Revista digital universitaria con enfoque cultural, comunitario,
-          territorial e inclusivo.
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
         </p>
       </div>
 
-      <div>
-        <h3>Secciones</h3>
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas de la comunidad universitaria.
+        </p>
+
+        <a href="pages/que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
 
         <a href="pages/alertas/index.html">Alertas</a>
         <a href="pages/cronicas/index.html">Crónicas</a>
         <a href="pages/curaduria/index.html">Curaduría</a>
         <a href="pages/eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="pages/fepuc/index.html">FEPUC</a>
+        <a href="pages/foranexs/index.html">Foránexs en Red</a>
         <a href="pages/convocatorias/index.html">Convocatorias</a>
+        <a href="pages/contacto/index.html">Contacto</a>
       </div>
 
-      <div>
-        <h3>Contacto</h3>
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
 
-        <a href="#">Instagram</a>
-        <a href="#">Correo</a>
-        <a href="pages/contacto/index.html">Formulario de contacto</a>
+        <p>
+          Suscríbete y recibe los contenidos
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="pages/suscripcion.html">
+          Ir a suscripción
+        </a>
       </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
     </div>
   </footer>
 
+  <!-- Ruta correcta desde el index principal -->
   <script src="js/main.js"></script>
 </body>
 </html>
+```

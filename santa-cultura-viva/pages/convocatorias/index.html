@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Convocatorias editoriales de Santa Cultura Viva para estudiantes y comunidad universitaria."
+  />
+
+  <title>Convocatorias | Santa Cultura Viva</title>
+
+  <!-- Ruta correcta desde pages/convocatorias/index.html -->
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* =========================================
+       CONFIGURACIÓN GENERAL DE ESTA PÁGINA
+    ========================================= */
+
+    .convocatorias-page {
+      background: var(--bg);
+    }
+
+    .convocatorias-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .convocatorias-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .convocatorias-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .convocatorias-page .brand-subtitle {
+      display: none;
+    }
+
+    .convocatorias-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .convocatorias-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .convocatorias-hero {
+      position: relative;
+      min-height: 590px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(72, 19, 19, 0.97) 0%,
+          rgba(94, 31, 31, 0.9) 50%,
+          rgba(94, 31, 31, 0.78) 100%
+        ),
+        url("../../img/entrada-convocatoria.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .convocatorias-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.35),
+          transparent 55%
+        );
+    }
+
+    .convocatorias-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .convocatorias-hero .eyebrow {
+      color: #f0c5c5;
+    }
+
+    .convocatorias-hero h1 {
+      max-width: 830px;
+      margin: 0 0 1.5rem;
+      color: #ffffff;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+    }
+
+    .convocatorias-hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.06rem;
+      line-height: 1.65;
+    }
+
+    .convocatorias-hero-card {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .convocatorias-hero-card h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .convocatorias-hero-card p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       ENCABEZADOS DE SECCIÓN
+    ========================================= */
+
+    .convocatorias-section {
+      padding: 5rem 0;
+    }
+
+    .convocatorias-section-white {
+      background: #ffffff;
+    }
+
+    .convocatorias-section-soft {
+      background: var(--bg);
+    }
+
+    .convocatorias-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .convocatorias-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .convocatorias-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       CONVOCATORIA VIGENTE
+    ========================================= */
+
+    .convocatoria-vigente {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .convocatoria-vigente h2 {
+      margin: 0 0 1.2rem;
+      color: #ffffff;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .convocatoria-vigente-copy > p:not(.eyebrow) {
+      color: rgba(255, 255, 255, 0.85);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .convocatoria-datos {
+      padding: 1.6rem;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .convocatoria-datos h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    .convocatoria-datos ul {
+      margin: 0 0 1.5rem;
+      padding-left: 1.2rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+    }
+
+    .convocatoria-datos li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* =========================================
+       PROCESO EDITORIAL
+    ========================================= */
+
+    .steps-editorial {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .step-editorial {
+      min-height: 290px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .step-editorial:hover {
+      background: var(--soft);
+    }
+
+    .step-editorial span {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .step-editorial h3 {
+      margin: 3.4rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.08;
+    }
+
+    .step-editorial p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       FORMATOS ACEPTADOS
+    ========================================= */
+
+    .formatos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .formato-card {
+      min-height: 250px;
+      padding: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--green);
+    }
+
+    .formato-card:nth-child(2),
+    .formato-card:nth-child(5) {
+      border-top-color: var(--accent);
+    }
+
+    .formato-card:nth-child(3),
+    .formato-card:nth-child(6) {
+      border-top-color: var(--purple);
+    }
+
+    .formato-card span {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .formato-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-size: 1.45rem;
+      line-height: 1.12;
+    }
+
+    .formato-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       INDICACIONES
+    ========================================= */
+
+    .indicaciones-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .indicaciones-intro {
+      position: sticky;
+      top: 175px;
+    }
+
+    .indicaciones-intro h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      line-height: 1;
+    }
+
+    .indicaciones-intro > p:last-child {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .indicaciones-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .indicacion-item {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .indicacion-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .indicacion-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.93rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CALENDARIO
+    ========================================= */
+
+    .calendar-editorial {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .calendar-item {
+      min-height: 250px;
+      padding: 1.5rem;
+      background: #ffffff;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .calendar-item span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .calendar-item h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.4rem;
+      line-height: 1.1;
+    }
+
+    .calendar-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CTA FINAL
+    ========================================= */
+
+    .convocatoria-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .convocatoria-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .convocatoria-final-inner h2 {
+      max-width: 780px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .convocatoria-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .steps-editorial,
+      .formatos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .calendar-editorial {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .convocatorias-hero-grid,
+      .convocatoria-vigente,
+      .convocatorias-section-header,
+      .indicaciones-layout,
+      .convocatoria-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .indicaciones-intro {
+        position: static;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .convocatorias-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .convocatorias-hero {
+        min-height: auto;
+      }
+
+      .convocatorias-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .convocatorias-hero h1 {
+        font-size: clamp(2.8rem, 14vw, 4.7rem);
+      }
+
+      .steps-editorial,
+      .formatos-grid,
+      .calendar-editorial,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .indicacion-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .convocatoria-vigente,
+      .convocatoria-final-inner {
+        padding: 1.5rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="convocatorias-page">
+  <!-- FONDO DEL MENÚ LATERAL -->
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <!-- MENÚ LATERAL -->
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <!-- CABECERA -->
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">Santa Cultura Viva</span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="../cronicas/index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a class="active" href="index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <!-- BUSCADOR -->
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- PORTADA -->
+    <section class="convocatorias-hero">
+      <div class="convocatorias-hero-grid">
+        <div class="convocatorias-hero-copy">
+          <p class="eyebrow">
+            Convocatorias editoriales
+          </p>
+
+          <h1>
+            Publica tu texto en Santa Cultura Viva
+          </h1>
+
+          <p>
+            Un espacio para compartir crónicas, ensayos, relatos,
+            reseñas y reflexiones sobre cultura, territorio,
+            comunidad, memoria y vida universitaria.
+          </p>
+        </div>
+
+        <div class="convocatorias-hero-card">
+          <h2>Convocatoria vigente</h2>
+
+          <p>
+            La recepción se abre cada mes. Los textos pasan por
+            revisión y acompañamiento editorial antes de publicarse.
+          </p>
+
+          <a
+            href="#convocatoria-vigente"
+            class="btn btn-light"
+          >
+            Ver temática del mes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONVOCATORIA VIGENTE -->
+    <section
+      class="convocatorias-section convocatorias-section-white"
+      id="convocatoria-vigente"
+    >
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Edición actual</p>
+            <h2>Convocatoria vigente</h2>
+          </div>
+
+          <p>
+            Conoce la temática, el periodo de recepción
+            y las condiciones para enviar tu propuesta.
+          </p>
+        </header>
+
+        <div class="convocatoria-vigente">
+          <div class="convocatoria-vigente-copy">
+            <p class="eyebrow eyebrow-light">
+              Temática del mes
+            </p>
+
+            <h2>
+              Lima no es el Perú: experiencias, memoria y territorio
+            </h2>
+
+            <p>
+              Esta edición invita a reflexionar sobre el centralismo,
+              las experiencias de estudiantes que vienen de otras regiones,
+              las memorias territoriales y las formas en que se construye
+              comunidad lejos del lugar de origen.
+            </p>
+
+            <p>
+              Se recibirán textos sobre experiencias personales,
+              relatos colectivos, procesos culturales, identidad,
+              migración interna, desigualdad territorial o memoria comunitaria.
+            </p>
+          </div>
+
+          <div class="convocatoria-datos">
+            <h3>Datos de envío</h3>
+
+            <ul>
+              <li>
+                <strong>Recepción:</strong>
+                del 1 al 20 de cada mes.
+              </li>
+
+              <li>
+                <strong>Correo:</strong>
+                santaculturaviva@gmail.com
+              </li>
+
+              <li>
+                <strong>Asunto:</strong>
+                Convocatoria SCV - Nombre social - Título.
+              </li>
+
+              <li>
+                <strong>Formato:</strong>
+                archivo Word o enlace de Google Docs.
+              </li>
+
+              <li>
+                <strong>Extensión:</strong>
+                entre 800 y 1500 palabras.
+              </li>
+            </ul>
+
+            <a
+              href="mailto:santaculturaviva@gmail.com"
+              class="btn btn-light"
+            >
+              Enviar texto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO EDITORIAL -->
+    <section class="convocatorias-section convocatorias-section-soft">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Dinámica editorial</p>
+
+            <h2>
+              ¿Cómo funciona la convocatoria?
+            </h2>
+          </div>
+
+          <p>
+            El proceso ofrece claridad, acompañamiento
+            editorial y criterios transparentes.
+          </p>
+        </header>
+
+        <div class="steps-editorial">
+          <article class="step-editorial">
+            <span>01</span>
+
+            <h3>Se anuncia la temática</h3>
+
+            <p>
+              Cada mes se publica una temática vinculada
+              con cultura, territorio, comunidad o vida universitaria.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>02</span>
+
+            <h3>Se reciben los textos</h3>
+
+            <p>
+              Lxs estudiantes envían sus trabajos al correo oficial
+              durante el periodo anunciado.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>03</span>
+
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El equipo evalúa la pertinencia, claridad,
+              enfoque y coherencia del contenido.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>04</span>
+
+            <h3>Observaciones</h3>
+
+            <p>
+              Se envían sugerencias cuando el texto requiere
+              ajustes antes de su aprobación.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>05</span>
+
+            <h3>Aprobación</h3>
+
+            <p>
+              El texto corregido queda aprobado para formar
+              parte de la revista digital.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>06</span>
+
+            <h3>Publicación</h3>
+
+            <p>
+              El contenido se publica en Crónicas
+              o dentro de una edición temática.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATOS ACEPTADOS -->
+    <section class="convocatorias-section convocatorias-section-white">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Formatos aceptados</p>
+
+            <h2>
+              ¿Qué tipo de textos se reciben?
+            </h2>
+          </div>
+
+          <p>
+            Los textos deben dialogar con la temática mensual
+            y con el enfoque editorial de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="formatos-grid">
+          <article class="formato-card">
+            <span>01</span>
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos narrativos sobre experiencias,
+              territorios, comunidad y vida universitaria.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>02</span>
+            <h3>Artículos de opinión</h3>
+
+            <p>
+              Textos argumentativos sobre problemáticas
+              sociales, culturales o estudiantiles.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>03</span>
+            <h3>Ensayos breves</h3>
+
+            <p>
+              Reflexiones analíticas sobre memoria,
+              centralismo, derechos o territorio.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>04</span>
+            <h3>Relatos</h3>
+
+            <p>
+              Textos personales o colectivos
+              que transmiten experiencias significativas.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>05</span>
+            <h3>Reseñas culturales</h3>
+
+            <p>
+              Comentarios sobre libros, películas,
+              exposiciones y eventos culturales.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>06</span>
+            <h3>Reflexiones territoriales</h3>
+
+            <p>
+              Textos sobre origen, migración,
+              pertenencia, identidad y memoria.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDICACIONES -->
+    <section class="convocatorias-section convocatorias-section-soft">
+      <div class="container indicaciones-layout">
+        <div class="indicaciones-intro">
+          <p class="eyebrow">Indicaciones</p>
+
+          <h2>
+            Antes de enviar tu texto
+          </h2>
+
+          <p>
+            Cada propuesta debe incluir información básica
+            de lx autorx y cumplir algunos criterios mínimos.
+          </p>
+        </div>
+
+        <div class="indicaciones-list">
+          <div class="indicacion-item">
+            <h3>Datos de lx autorx</h3>
+
+            <p>
+              Nombre social, pronombre, carrera o vínculo
+              con la comunidad y correo de contacto.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Título</h3>
+
+            <p>
+              Incluye un título claro. Puede ser provisional
+              si todavía se encuentra en edición.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Extensión</h3>
+
+            <p>
+              Se recomienda una extensión de 800 a 1500 palabras.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Formato</h3>
+
+            <p>
+              Archivo Word o enlace de Google Docs
+              con permisos de lectura o comentario.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Asunto</h3>
+
+            <p>
+              Convocatoria SCV - Nombre social - Título del texto.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El envío no garantiza publicación automática.
+              Todo texto pasa por un proceso de revisión.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="convocatorias-section convocatorias-section-white">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Calendario</p>
+
+            <h2>
+              Frecuencia de apertura
+            </h2>
+          </div>
+
+          <p>
+            La temática cambia según la agenda editorial,
+            social y cultural de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="calendar-editorial">
+          <article class="calendar-item">
+            <span>Semana 1</span>
+            <h3>Apertura</h3>
+
+            <p>
+              Se anuncia la temática y las indicaciones.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Días 1 al 20</span>
+            <h3>Recepción</h3>
+
+            <p>
+              Lxs estudiantes envían sus textos.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Días 21 al 25</span>
+            <h3>Revisión</h3>
+
+            <p>
+              El equipo selecciona y envía observaciones.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Fin de mes</span>
+            <h3>Publicación</h3>
+
+            <p>
+              Los textos aprobados se publican en la revista.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="convocatoria-final">
+      <div class="container">
+        <div class="convocatoria-final-inner">
+          <div>
+            <p class="eyebrow eyebrow-light">Participa</p>
+
+            <h2>
+              Tu voz también puede ser parte de la revista
+            </h2>
+
+            <p>
+              Santa Cultura Viva abre un espacio para relatos,
+              análisis y memorias que no siempre encuentran lugar
+              en los medios tradicionales.
+            </p>
+          </div>
+
+          <a
+            href="mailto:santaculturaviva@gmail.com"
+            class="btn btn-light"
+          >
+            Enviar propuesta
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces
+          y experiencias de la comunidad universitaria.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="../cronicas/index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Ruta correcta desde pages/convocatorias/index.html -->
+  <script src="../../js/main.js"></script>
+</body>
+</html>

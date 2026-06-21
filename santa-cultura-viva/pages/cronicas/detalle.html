@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Primer ciclo lejos de casa, una crónica de Santa Cultura Viva sobre comunidad, territorio y vida universitaria."
+  />
+
+  <title>Primer ciclo lejos de casa | Santa Cultura Viva</title>
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+
+  <style>
+    /* =========================================
+       CABECERA
+    ========================================= */
+
+    .cronica-detail-page {
+      background: var(--bg);
+    }
+
+    .cronica-detail-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .cronica-detail-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .cronica-detail-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .cronica-detail-page .brand-subtitle {
+      display: none;
+    }
+
+    .cronica-detail-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .cronica-detail-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA DEL ARTÍCULO
+    ========================================= */
+
+    .cronica-article-hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.88) 0%,
+          rgba(20, 17, 15, 0.28) 58%,
+          rgba(20, 17, 15, 0.05) 100%
+        ),
+        url("../../img/cronica-primer-ciclo.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #354f3b, #8c6d3f);
+      color: #ffffff;
+    }
+
+    .cronica-article-hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+    }
+
+    .cronica-article-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronica-article-hero h1 {
+      max-width: 1050px;
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: clamp(3.2rem, 7vw, 7rem);
+      font-weight: 800;
+      line-height: 0.93;
+      letter-spacing: -0.055em;
+    }
+
+    .cronica-article-summary {
+      max-width: 790px;
+      margin: 0 0 1.7rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .cronica-article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1.5rem;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       CONTENIDO DEL ARTÍCULO
+    ========================================= */
+
+    .cronica-reading-section {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .cronica-reading-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 760px);
+      gap: 4rem;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .cronica-reading-sidebar {
+      position: sticky;
+      top: 175px;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cronica-sidebar-box {
+      padding: 1.3rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .cronica-sidebar-box h3 {
+      margin: 0 0 0.65rem;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .cronica-sidebar-box p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .cronica-sidebar-box a:not(.btn) {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .cronica-article-body {
+      font-size: 1.08rem;
+    }
+
+    .cronica-article-body > p:first-child::first-letter {
+      float: left;
+      margin: 0.12rem 0.55rem 0 0;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 0.75;
+    }
+
+    .cronica-article-body p {
+      margin: 0 0 1.5rem;
+      color: #352e29;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.85;
+    }
+
+    .cronica-article-body h2 {
+      margin: 3rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .cronica-article-body blockquote {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--green);
+      color: #ffffff;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1.3;
+    }
+
+    .cronica-article-body blockquote p {
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    /* =========================================
+       FIRMA
+    ========================================= */
+
+    .cronica-author-box {
+      margin-top: 3rem;
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.3rem;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronica-author-avatar {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--soft);
+      border-radius: 50%;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .cronica-author-box h3 {
+      margin: 0 0 0.4rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .cronica-author-box p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       MÁS CRÓNICAS
+    ========================================= */
+
+    .related-cronicas {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .related-cronicas-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .related-cronicas-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .related-cronicas-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .related-cronicas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .related-cronica-card {
+      min-height: 300px;
+      padding: 1.5rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .related-cronica-card:hover {
+      background: var(--soft);
+    }
+
+    .related-cronica-card span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .related-cronica-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+
+    .related-cronica-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .related-cronica-card a {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1000px) {
+      .cronica-reading-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 2.5rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .cronica-reading-layout,
+      .related-cronicas-header {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-reading-sidebar {
+        position: static;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .related-cronicas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cronica-detail-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .cronica-article-hero {
+        min-height: 650px;
+      }
+
+      .cronica-article-hero-content {
+        padding-bottom: 3rem;
+      }
+
+      .cronica-article-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .cronica-reading-section,
+      .related-cronicas {
+        padding: 3rem 0;
+      }
+
+      .cronica-reading-sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-article-body {
+        font-size: 1rem;
+      }
+
+      .cronica-author-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body class="cronica-detail-page">
+  <div
+    class="drawer-backdrop"
+    id="drawerBackdrop"
+    aria-hidden="true"
+  ></div>
+
+  <aside
+    class="editorial-drawer"
+    id="editorialDrawer"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <strong>Santa Cultura Viva</strong>
+
+      <button
+        class="drawer-close"
+        id="drawerClose"
+        type="button"
+        aria-label="Cerrar menú"
+      >
+        ×
+      </button>
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navegación lateral">
+      <a href="../../index.html">Inicio</a>
+      <a href="../fepuc/index.html">FEPUC</a>
+      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a href="index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+      <a href="../suscripcion.html">Suscripción</a>
+      <a href="../contacto/index.html">Contacto</a>
+    </nav>
+  </aside>
+
+  <header class="editorial-header">
+    <div class="editorial-masthead">
+      <div class="masthead-tools">
+        <button
+          class="icon-button hamburger-button"
+          id="editorialMenuBtn"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="editorialDrawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <button
+          class="icon-button search-button"
+          id="searchButton"
+          type="button"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+          aria-controls="searchPanel"
+        >
+          <span class="search-circle"></span>
+          <span class="search-handle"></span>
+        </button>
+      </div>
+
+      <a class="editorial-brand" href="../../index.html">
+        <span class="brand-name">
+          Santa Cultura Viva
+        </span>
+      </a>
+
+      <div class="masthead-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="TikTok">TK</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="Navegación principal">
+      <a href="../../index.html">Inicio</a>
+      <a href="../alertas/index.html">Alertas</a>
+      <a class="active" href="index.html">Crónicas</a>
+      <a href="../curaduria/index.html">Curaduría</a>
+      <a href="../eventos/index.html">Eventos</a>
+      <a href="../foranexs/index.html">Foránexs en Red</a>
+      <a href="../convocatorias/index.html">Convocatorias</a>
+    </nav>
+  </header>
+
+  <section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+  >
+    <div class="search-panel-content">
+      <label for="siteSearch">
+        Buscar en Santa Cultura Viva
+      </label>
+
+      <div class="search-input-row">
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="Busca alertas, crónicas, eventos o recursos"
+        />
+
+        <button type="button" class="search-submit">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <article>
+      <header class="cronica-article-hero">
+        <div class="cronica-article-hero-content">
+          <p class="eyebrow">
+            Crónica · Foránexs
+          </p>
+
+          <h1>
+            Primer ciclo lejos de casa
+          </h1>
+
+          <p class="cronica-article-summary">
+            Una crónica sobre llegar a Lima, aprender a moverse
+            por una ciudad nueva, iniciar la vida universitaria
+            y construir comunidad lejos del lugar de origen.
+          </p>
+
+          <div class="cronica-article-meta">
+            <span>
+              Por Nombre social de lx estudiante
+            </span>
+
+            <span>
+              Pronombre: elle
+            </span>
+
+            <time datetime="2026-06-12">
+              Junio 12, 2026
+            </time>
+
+            <span>
+              Vida universitaria · Foránexs · Comunidad
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <section class="cronica-reading-section">
+        <div class="container cronica-reading-layout">
+          <aside class="cronica-reading-sidebar">
+            <div class="cronica-sidebar-box">
+              <h3>Sobre esta crónica</h3>
+
+              <p>
+                Las crónicas recogen experiencias,
+                memorias y reflexiones desde una voz situada.
+              </p>
+            </div>
+
+            <div class="cronica-sidebar-box">
+              <h3>También puede interesarte</h3>
+
+              <a href="../foranexs/index.html">
+                Explorar Foránexs en Red
+              </a>
+            </div>
+
+            <div class="cronica-sidebar-box">
+              <h3>Enviar un texto</h3>
+
+              <p>
+                Comparte tu crónica mediante
+                la convocatoria editorial mensual.
+              </p>
+
+              <a
+                href="../convocatorias/index.html"
+                class="btn btn-primary"
+              >
+                Ver convocatoria
+              </a>
+            </div>
+          </aside>
+
+          <div class="cronica-article-body">
+            <p>
+              Llegar a Lima fue aprender a mirar todo dos veces.
+              La primera vez para entender dónde estaba; la segunda,
+              para convencerme de que también podía habitar ese lugar.
+            </p>
+
+            <p>
+              El primer día de clases no solo llevé cuadernos,
+              horarios y una mochila demasiado llena. También llevé
+              una lista invisible de preguntas: cómo volver,
+              dónde comer, a quién llamar si me perdía y cuánto tiempo
+              me tomaría sentir que la universidad también podía ser mía.
+            </p>
+
+            <h2>
+              Una ciudad que no espera
+            </h2>
+
+            <p>
+              Lima se mueve rápido. Los buses, las avenidas,
+              las conversaciones y los horarios. Para quienes
+              venimos de otros territorios, esa velocidad puede
+              sentirse como una exigencia silenciosa:
+              adaptarse rápido, entender rápido y no preguntar tanto.
+            </p>
+
+            <p>
+              Pero adaptarse no siempre significa sentirse bien.
+              A veces adaptarse es aprender la ruta correcta,
+              reconocer una esquina, encontrar un lugar donde
+              almorzar sin gastar demasiado o descubrir que hay
+              otrxs estudiantes que también están aprendiendo a quedarse.
+            </p>
+
+            <h2>
+              La universidad como territorio nuevo
+            </h2>
+
+            <p>
+              El campus también fue un mapa por descifrar.
+              Aulas, bibliotecas, oficinas, patios y pasillos
+              que al inicio parecían iguales.
+            </p>
+
+            <p>
+              Poco a poco, cada espacio empezó a tener una historia:
+              una banca donde esperar, una biblioteca donde respirar,
+              una cafetería donde escuchar acentos distintos.
+            </p>
+
+            <blockquote>
+              <p>
+                Estar lejos de casa no significa dejar de pertenecer.
+                A veces significa aprender a construir pertenencia
+                en más de un lugar.
+              </p>
+            </blockquote>
+
+            <h2>
+              Encontrar comunidad
+            </h2>
+
+            <p>
+              Lo más importante no fue aprender una ruta,
+              sino encontrar personas. Gente que también venía
+              de lejos, que también extrañaba y que también
+              estaba intentando entender la ciudad y la universidad
+              al mismo tiempo.
+            </p>
+
+            <p>
+              En esas conversaciones apareció una forma de cuidado:
+              compartir datos, avisar sobre eventos gratuitos,
+              recomendar comedores, acompañarse a una actividad
+              o preguntar si alguien llegó bien.
+            </p>
+
+            <h2>
+              Volver sin irse
+            </h2>
+
+            <p>
+              Con el tiempo entendí que estar en Lima no borraba
+              mi lugar de origen. Lo traía conmigo en la forma
+              de hablar, en la comida que extrañaba,
+              en las llamadas de la noche y en la memoria
+              de lo que me hizo llegar hasta aquí.
+            </p>
+
+            <p>
+              El primer ciclo lejos de casa no fue solamente
+              una etapa académica. Fue una experiencia de aprendizaje
+              emocional, territorial y comunitario.
+            </p>
+
+            <p>
+              Fue entender que estudiar también implica sostenerse,
+              buscar redes y reconocer que nadie debería atravesar
+              la universidad en soledad.
+            </p>
+
+            <div class="cronica-author-box">
+              <div class="cronica-author-avatar">
+                Foto de autorx
+              </div>
+
+              <div>
+                <h3>
+                  Nombre social de lx estudiante
+                </h3>
+
+                <p>
+                  Estudiante y colaboradorx de Santa Cultura Viva.
+                  Escribe sobre territorio, memoria,
+                  comunidad y experiencia universitaria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <section class="related-cronicas">
+      <div class="container">
+        <header class="related-cronicas-header">
+          <div>
+            <p class="eyebrow">
+              Seguir leyendo
+            </p>
+
+            <h2>
+              Más crónicas
+            </h2>
+          </div>
+
+          <p>
+            Otros textos sobre memoria, territorio,
+            cultura y vida universitaria.
+          </p>
+        </header>
+
+        <div class="related-cronicas-grid">
+          <article class="related-cronica-card">
+            <span>Memoria · Territorio</span>
+
+            <h3>
+              Lo que traemos en la mochila
+            </h3>
+
+            <p>
+              Una reflexión sobre identidad,
+              territorio y memoria familiar.
+            </p>
+
+            <a href="detalle.html">
+              Leer crónica →
+            </a>
+          </article>
+
+          <article class="related-cronica-card">
+            <span>Cultura · Comunidad</span>
+
+            <h3>
+              La ciudad también se aprende caminando
+            </h3>
+
+            <p>
+              Un recorrido por espacios culturales
+              y nuevas formas de habitar la ciudad.
+            </p>
+
+            <a href="detalle.html">
+              Leer crónica →
+            </a>
+          </article>
+
+          <article class="related-cronica-card">
+            <span>Opinión · Universidad</span>
+
+            <h3>
+              Estudiar también es sostenerse
+            </h3>
+
+            <p>
+              Reflexión sobre bienestar,
+              exigencia académica y redes de cuidado.
+            </p>
+
+            <a href="detalle.html">
+              Leer crónica →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-editorial">
+    <div class="container footer-editorial-grid">
+      <div class="footer-editorial-brand">
+        <a href="../../index.html">
+          Santa Cultura Viva
+        </a>
+
+        <p>
+          Revista digital universitaria sobre cultura,
+          territorio, derechos humanos y comunidad.
+        </p>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Proyecto</h3>
+
+        <p>
+          Una plataforma editorial que visibiliza voces,
+          experiencias y problemáticas universitarias.
+        </p>
+
+        <a href="../que-es.html">
+          Conocer el proyecto
+        </a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Contenidos</h3>
+
+        <a href="../alertas/index.html">Alertas</a>
+        <a href="index.html">Crónicas</a>
+        <a href="../curaduria/index.html">Curaduría</a>
+        <a href="../eventos/index.html">Eventos</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Comunidad</h3>
+
+        <a href="../fepuc/index.html">FEPUC</a>
+        <a href="../foranexs/index.html">Foránexs en Red</a>
+        <a href="../convocatorias/index.html">Convocatorias</a>
+        <a href="../contacto/index.html">Contacto</a>
+      </div>
+
+      <div class="footer-editorial-column">
+        <h3>Newsletter</h3>
+
+        <p>
+          Recibe las publicaciones y novedades
+          más recientes de Santa Cultura Viva.
+        </p>
+
+        <a href="../suscripcion.html">
+          Ir a suscripción
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+      <p>
+        © 2026 Santa Cultura Viva. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
