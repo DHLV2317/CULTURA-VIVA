@@ -2,6 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -9,12 +10,12 @@
 
     <meta
         name="description"
-        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+        content="Información sobre la FEPUC, su misión, visión, organización y representación estudiantil."
     />
 
     <title>FEPUC | Santa Cultura Viva</title>
 
-        <link
+    <link
         rel="stylesheet"
         href="/css/styles.css"
         th:href="@{/css/styles.css}"
@@ -37,14 +38,6 @@
         href="/css/responsive.css"
         th:href="@{/css/responsive.css}"
     />
-
-
-
-    
-
-    
-
-    
 </head>
 
 <body class="page-fepuc">
@@ -56,357 +49,323 @@
 
     <div th:replace="~{fragments/search :: search}"></div>
 
-<main>
-    <!-- CABECERA -->
-    <section class="page-hero">
-      <div class="container page-hero-grid">
-        <div>
-          <p class="eyebrow">Representación estudiantil</p>
-
-          <h1>FEPUC</h1>
-
-          <p>
-            Esta sección presenta información sobre la Federación de Estudiantes de la PUCP,
-            su rol dentro de la comunidad universitaria, la misión y visión de la Mesa,
-            su organización interna y lxs integrantes que forman parte de ella.
-          </p>
-        </div>
-
-        <div class="page-hero-note">
-          <h2>¿Por qué está en Santa Cultura Viva?</h2>
-
-          <p>
-            La FEPUC forma parte de la vida estudiantil y de los espacios de representación,
-            escucha y articulación de la comunidad universitaria.
-          </p>
-
-          <a href="#organigrama" class="btn btn-primary">Ver organigrama</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUÉ ES FEPUC -->
-    <section class="section container">
-      <div class="fepuc-intro">
-        <div>
-          <p class="eyebrow">¿Qué es la FEPUC?</p>
-
-          <h2>Una instancia de representación estudiantil</h2>
-        </div>
-
-        <div>
-          <p>
-            La Federación de Estudiantes de la PUCP, FEPUC, es un espacio de representación
-            estudiantil que busca canalizar las necesidades, propuestas e inquietudes de lxs
-            estudiantes ante la universidad.
-          </p>
-
-          <p>
-            Su labor se relaciona con la defensa de derechos universitarios, la promoción de
-            la participación estudiantil, el fortalecimiento de la comunidad y la articulación
-            entre estudiantes, centros federados y autoridades.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MISIÓN Y VISIÓN -->
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Mesa Directiva</p>
-            <h2>Misión y visión</h2>
-          </div>
-
-          <p>
-            Estos bloques presentan el horizonte político, comunitario y estudiantil
-            de la Mesa.
-          </p>
-        </div>
-
-        <div class="mission-vision-grid">
-          <article class="mission-card">
-            <p class="eyebrow">Misión</p>
-
-            <h3>Representar, escuchar y articular</h3>
-
-            <p>
-              Nuestra misión es representar activamente a lxs estudiantes de la PUCP,
-              promoviendo una vida universitaria más participativa, inclusiva, informada
-              y organizada.
-            </p>
-
-            <p>
-              Buscamos recoger las necesidades de la comunidad estudiantil, impulsar
-              iniciativas de bienestar, defender los derechos universitarios y fortalecer
-              los espacios de diálogo entre estudiantes, centros federados y autoridades.
-            </p>
-          </article>
-
-          <article class="mission-card">
-            <p class="eyebrow">Visión</p>
-
-            <h3>Una FEPUC cercana y presente</h3>
-
-            <p>
-              Nuestra visión es construir una FEPUC cercana, transparente y presente en la
-              vida cotidiana de lxs estudiantes; una federación que no solo comunique, sino
-              que escuche, acompañe y articule soluciones.
-            </p>
-
-            <p>
-              Aspiramos a una comunidad estudiantil más conectada, crítica, solidaria y
-              comprometida con la transformación de la universidad.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ORGANIGRAMA -->
-    <section class="section container" id="organigrama">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Organización interna</p>
-          <h2>Organigrama</h2>
-        </div>
-
-        <p>
-          Esta estructura permite visualizar cómo se organiza la Mesa y sus secretarías.
-        </p>
-      </div>
-
-      <div class="org-chart">
-        <div class="org-level org-main">
-          <div class="org-box">
-            <h3>Mesa Directiva FEPUC</h3>
-            <p>Representación general del estudiantado</p>
-          </div>
-        </div>
-
-        <div class="org-level org-two">
-          <div class="org-box">
-            <h3>Presidencia</h3>
-            <p>Dirección política y representación institucional</p>
-          </div>
-
-          <div class="org-box">
-            <h3>Vicepresidencia</h3>
-            <p>Coordinación general y apoyo a la gestión</p>
-          </div>
-        </div>
-
-        <div class="org-level org-secretarias">
-          <div class="org-box">
-            <h3>Secretaría de Organización</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Economía</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Bienestar Estudiantil</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Derechos Universitarios</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Comunicaciones</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Género</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Cultura</h3>
-          </div>
-
-          <div class="org-box">
-            <h3>Secretaría de Asuntos Académicos</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTEGRANTES -->
-    <section class="section section-soft">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Equipo</p>
-            <h2>Integrantes de la Mesa</h2>
-          </div>
-
-          <p>
-            Cada integrante puede presentarse con nombre social, pronombre, cargo,
-            facultad y una breve descripción de sus funciones.
-          </p>
-        </div>
-
-        <div class="team-grid">
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Presidencia</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Representa a la Mesa, coordina la agenda general y articula el trabajo
-              con centros federados y autoridades.
-            </p>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Vicepresidencia</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Acompaña la coordinación general, apoya la gestión interna y fortalece
-              el seguimiento de iniciativas.
-            </p>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Secretaría de Comunicaciones</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Gestiona la comunicación pública, difusión de actividades, redes sociales
-              y materiales informativos.
-            </p>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Secretaría de Cultura</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Impulsa actividades culturales, espacios de encuentro y propuestas vinculadas
-              a comunidad e identidad.
-            </p>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Secretaría de Bienestar Estudiantil</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Promueve iniciativas relacionadas con bienestar, acompañamiento y necesidades
-              estudiantiles.
-            </p>
-          </article>
-
-          <article class="member-card">
-            <div class="member-photo">Foto</div>
-
-            <p class="meta">Secretaría de Derechos Universitarios</p>
-
-            <h3>Nombre social</h3>
-
-            <p class="member-pronoun">Pronombre: elle / ella / él</p>
-
-            <p>
-              Acompaña problemáticas vinculadas a derechos universitarios, representación
-              y participación estudiantil.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMUNICADOS RELACIONADOS -->
-    <section class="section container">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Publicaciones relacionadas</p>
-          <h2>Comunicados y actividades FEPUC</h2>
-        </div>
-
-        <p>
-          Aquí pueden aparecer comunicados, actividades, notas o publicaciones vinculadas
-          a la federación.
-        </p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-image">Imagen</div>
-          <p class="meta">FEPUC · Comunicado</p>
-          <h3>Pronunciamiento estudiantil</h3>
-          <p>
-            Espacio para publicar comunicados oficiales o resúmenes de pronunciamientos.
-          </p>
-          <a href="#" class="read-link">Leer comunicado</a>
-        </article>
-
-        <article class="card">
-          <div class="card-image">Imagen</div>
-          <p class="meta">FEPUC · Actividad</p>
-          <h3>Espacio abierto con la Mesa</h3>
-          <p>
-            Actividad para escuchar inquietudes, propuestas y necesidades estudiantiles.
-          </p>
-          <a href="/eventos" th:href="@{/eventos}" class="read-link">Ver evento</a>
-        </article>
-
-        <article class="card">
-          <div class="card-image">Imagen</div>
-          <p class="meta">FEPUC · Comunidad</p>
-          <h3>Campaña de bienestar estudiantil</h3>
-          <p>
-            Iniciativa orientada a fortalecer redes de apoyo y acompañamiento.
-          </p>
-          <a href="#" class="read-link">Ver más</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section container">
-      <div class="submission-box">
-        <div>
-          <p class="eyebrow eyebrow-light">Representación estudiantil</p>
-
-          <h2>Conoce, participa y mantente informadx</h2>
-
-          <p>
-            Esta sección busca acercar la FEPUC a lxs estudiantes mediante información
-            clara sobre su organización, objetivos y actividades.
-          </p>
-        </div>
-
-        <a href="/eventos" th:href="@{/eventos}" class="btn btn-light">Ver eventos FEPUC</a>
-      </div>
-    </section>
-  </main>
+    <main>
+        <!-- PORTADA -->
+        <section class="fepuc-hero">
+            <div class="container fepuc-hero-grid">
+                <div class="fepuc-hero-copy">
+                    <p class="fepuc-eyebrow">
+                        Representación estudiantil
+                    </p>
+
+                    <h1>FEPUC</h1>
+
+                    <p>
+                        Conoce el rol de la Federación de Estudiantes de la PUCP,
+                        su misión, visión, organización interna, espacios de
+                        representación y canales de comunicación con la comunidad.
+                    </p>
+                </div>
+
+                <div class="fepuc-hero-note">
+                    <h2>Una federación cercana y presente</h2>
+
+                    <p>
+                        La FEPUC articula necesidades, propuestas e iniciativas
+                        de la comunidad estudiantil ante la universidad.
+                    </p>
+
+                    <a class="fepuc-button" href="#organigrama">
+                        Ver organigrama
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUÉ ES FEPUC -->
+        <section class="fepuc-section fepuc-section-light">
+            <div class="container fepuc-intro">
+                <div>
+                    <p class="fepuc-eyebrow">¿Qué es la FEPUC?</p>
+
+                    <h2>
+                        Una instancia de representación estudiantil
+                    </h2>
+                </div>
+
+                <div class="fepuc-intro-text">
+                    <p>
+                        La Federación de Estudiantes de la PUCP es un espacio
+                        de representación que canaliza necesidades, propuestas
+                        e inquietudes del estudiantado.
+                    </p>
+
+                    <p>
+                        Su labor se relaciona con la defensa de derechos
+                        universitarios, el bienestar, la participación
+                        estudiantil y la articulación con centros federados,
+                        colectivos y autoridades.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISIÓN Y VISIÓN -->
+        <section class="fepuc-section fepuc-section-paper">
+            <div class="container">
+                <header class="fepuc-section-heading">
+                    <div>
+                        <p class="fepuc-eyebrow">Mesa Directiva</p>
+                        <h2>Misión y visión</h2>
+                    </div>
+
+                    <p>
+                        Principios que orientan el trabajo político,
+                        comunitario y estudiantil de la Federación.
+                    </p>
+                </header>
+
+                <div class="fepuc-mission-grid">
+                    <article class="fepuc-mission-card">
+                        <span>01</span>
+
+                        <h3>Misión</h3>
+
+                        <h4>Representar, escuchar y articular</h4>
+
+                        <p>
+                            Representar activamente a lxs estudiantes de la PUCP,
+                            promoviendo una vida universitaria participativa,
+                            inclusiva, informada y organizada.
+                        </p>
+
+                        <p>
+                            Recoger necesidades, impulsar iniciativas de bienestar
+                            y fortalecer los espacios de diálogo dentro de la
+                            comunidad universitaria.
+                        </p>
+                    </article>
+
+                    <article class="fepuc-mission-card">
+                        <span>02</span>
+
+                        <h3>Visión</h3>
+
+                        <h4>Una FEPUC cercana y transparente</h4>
+
+                        <p>
+                            Construir una Federación presente en la vida cotidiana
+                            del estudiantado, capaz de comunicar, escuchar,
+                            acompañar y articular soluciones.
+                        </p>
+
+                        <p>
+                            Fortalecer una comunidad estudiantil crítica,
+                            solidaria y comprometida con la transformación
+                            de la universidad.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EJES DE TRABAJO -->
+        <section class="fepuc-section fepuc-section-light">
+            <div class="container">
+                <header class="fepuc-section-heading">
+                    <div>
+                        <p class="fepuc-eyebrow">Trabajo estudiantil</p>
+                        <h2>Ejes de acción</h2>
+                    </div>
+
+                    <p>
+                        Áreas que organizan el acompañamiento y las iniciativas
+                        dirigidas a la comunidad universitaria.
+                    </p>
+                </header>
+
+                <div class="fepuc-axis-grid">
+                    <article class="fepuc-axis-card">
+                        <span>01</span>
+                        <h3>Representación</h3>
+                        <p>
+                            Articulación con estudiantes, centros federados
+                            y autoridades universitarias.
+                        </p>
+                    </article>
+
+                    <article class="fepuc-axis-card">
+                        <span>02</span>
+                        <h3>Bienestar</h3>
+                        <p>
+                            Acompañamiento de necesidades vinculadas con la
+                            experiencia y permanencia universitaria.
+                        </p>
+                    </article>
+
+                    <article class="fepuc-axis-card">
+                        <span>03</span>
+                        <h3>Derechos</h3>
+                        <p>
+                            Defensa de derechos universitarios y seguimiento
+                            de problemáticas estudiantiles.
+                        </p>
+                    </article>
+
+                    <article class="fepuc-axis-card">
+                        <span>04</span>
+                        <h3>Comunidad</h3>
+                        <p>
+                            Promoción de espacios culturales, políticos,
+                            académicos y de encuentro estudiantil.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORGANIGRAMA -->
+        <section
+            class="fepuc-section fepuc-section-paper"
+            id="organigrama"
+        >
+            <div class="container">
+                <header class="fepuc-section-heading">
+                    <div>
+                        <p class="fepuc-eyebrow">Organización interna</p>
+                        <h2>Organigrama</h2>
+                    </div>
+
+                    <p>
+                        Estructura general de la Mesa Directiva
+                        y sus principales secretarías.
+                    </p>
+                </header>
+
+                <div class="fepuc-org">
+                    <article class="fepuc-org-main">
+                        <p>Mesa Directiva</p>
+                        <h3>FEPUC</h3>
+                        <span>
+                            Representación general del estudiantado
+                        </span>
+                    </article>
+
+                    <div class="fepuc-org-leadership">
+                        <article class="fepuc-org-card">
+                            <h3>Presidencia</h3>
+                            <p>
+                                Dirección política y representación institucional.
+                            </p>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Vicepresidencia</h3>
+                            <p>
+                                Coordinación general y seguimiento de la gestión.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="fepuc-secretariat-grid">
+                        <article class="fepuc-org-card">
+                            <h3>Organización</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Economía</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Bienestar Estudiantil</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Derechos Universitarios</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Comunicaciones</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Género</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Cultura</h3>
+                        </article>
+
+                        <article class="fepuc-org-card">
+                            <h3>Asuntos Académicos</h3>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMUNICACIÓN -->
+        <section class="fepuc-section fepuc-section-light">
+            <div class="container fepuc-communication">
+                <div>
+                    <p class="fepuc-eyebrow">
+                        Información y participación
+                    </p>
+
+                    <h2>
+                        Mantente conectadx con la FEPUC
+                    </h2>
+
+                    <p>
+                        Consulta actividades, comunicados y espacios de
+                        participación para la comunidad estudiantil.
+                    </p>
+                </div>
+
+                <div class="fepuc-link-list">
+                    <a th:href="@{/eventos}">
+                        <span>01</span>
+                        <strong>Eventos FEPUC</strong>
+                        <small>Asambleas, talleres y actividades.</small>
+                    </a>
+
+                    <a th:href="@{/alertas}">
+                        <span>02</span>
+                        <strong>Comunicados</strong>
+                        <small>Información y asuntos estudiantiles.</small>
+                    </a>
+
+                    <a th:href="@{/contacto}">
+                        <span>03</span>
+                        <strong>Contacto</strong>
+                        <small>Consultas, propuestas y participación.</small>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="fepuc-final">
+            <div class="container fepuc-final-inner">
+                <div>
+                    <p class="fepuc-eyebrow">Participación estudiantil</p>
+
+                    <h2>
+                        Una Federación se construye con la comunidad
+                    </h2>
+
+                    <p>
+                        Conoce sus actividades, comparte tus necesidades
+                        y participa en los espacios de representación.
+                    </p>
+                </div>
+
+                <a class="fepuc-button fepuc-button-light" th:href="@{/contacto}">
+                    Contactar
+                </a>
+            </div>
+        </section>
+    </main>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
 
@@ -414,7 +373,5 @@
         src="/js/main.js"
         th:src="@{/js/main.js}"
     ></script>
-
-
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer
+    class="site-footer"
+    th:fragment="legacyFooter"
+>
+    <div class="container footer-grid">
+        <div>
+            <h3>Santa Cultura Viva</h3>
+
+            <p>
+                Revista digital universitaria con enfoque cultural,
+                comunitario, territorial e inclusivo.
+            </p>
+        </div>
+
+        <div>
+            <h3>Secciones</h3>
+
+            <a href="/alertas" th:href="@{/alertas}">Alertas</a>
+            <a href="/cronicas" th:href="@{/cronicas}">Cr&oacute;nicas</a>
+            <a href="/curaduria" th:href="@{/curaduria}">Curadur&iacute;a</a>
+            <a href="/eventos" th:href="@{/eventos}">Eventos</a>
+            <a href="/convocatorias" th:href="@{/convocatorias}">Convocatorias</a>
+        </div>
+
+        <div>
+            <h3>Contacto</h3>
+
+            <a href="#">Instagram</a>
+            <a href="#">Correo</a>
+            <a href="/contacto" th:href="@{/contacto}">
+                Formulario de contacto
+            </a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

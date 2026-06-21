@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="legacyHeader">
+    <div class="top-bar">
+        Revista digital universitaria &middot; Cultura, territorio, derechos humanos y comunidad
+    </div>
+
+    <header class="site-header">
+        <div class="navbar">
+            <a
+                class="logo"
+                href="/"
+                th:href="@{/}"
+            >
+                Santa Cultura Viva
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir men&uacute;"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            >
+                &#9776;
+            </button>
+
+            <nav
+                class="main-nav"
+                id="mainNav"
+                aria-label="Navegaci&oacute;n principal"
+            >
+                <a href="/" th:href="@{/}">Inicio</a>
+                <a href="/fepuc" th:href="@{/fepuc}">FEPUC</a>
+                <a href="/que-es" th:href="@{/que-es}">&iquest;Qu&eacute; es?</a>
+                <a href="/alertas" th:href="@{/alertas}">Alertas</a>
+                <a href="/cronicas" th:href="@{/cronicas}">Cr&oacute;nicas</a>
+                <a href="/curaduria" th:href="@{/curaduria}">Curadur&iacute;a</a>
+                <a href="/eventos" th:href="@{/eventos}">Eventos</a>
+                <a href="/foranexs" th:href="@{/foranexs}">For&aacute;nexs en Red</a>
+                <a href="/convocatorias" th:href="@{/convocatorias}">Convocatorias</a>
+                <a href="/suscripcion" th:href="@{/suscripcion}">Suscripci&oacute;n</a>
+                <a href="/contacto" th:href="@{/contacto}">Contacto</a>
+            </nav>
+        </div>
+    </header>
+</div>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -9,12 +10,12 @@
 
     <meta
         name="description"
-        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+        content="Foránexs en Red reúne recursos, eventos culturales gratuitos, redes de apoyo y oportunidades para estudiantes de distintas regiones."
     />
 
     <title>Foránexs en Red | Santa Cultura Viva</title>
 
-        <link
+    <link
         rel="stylesheet"
         href="/css/styles.css"
         th:href="@{/css/styles.css}"
@@ -37,17 +38,9 @@
         href="/css/responsive.css"
         th:href="@{/css/responsive.css}"
     />
-
-
-
-    
-
-    
-
-    
 </head>
 
-<body class="page-foranexs fepuc-page">
+<body class="page-foranexs">
     <div th:replace="~{fragments/drawer :: drawer}"></div>
 
     <div
@@ -56,685 +49,404 @@
 
     <div th:replace="~{fragments/search :: search}"></div>
 
-<main>
-    <!-- PORTADA -->
-    <section class="fepuc-hero">
-      <div class="fepuc-hero-grid">
-        <div class="fepuc-hero-copy">
-          <p class="eyebrow">
-            Representación estudiantil
-          </p>
+    <main>
+        <!-- PORTADA -->
+        <section class="foranexs-hero">
+            <div class="container foranexs-hero-grid">
+                <div class="foranexs-hero-copy">
+                    <p class="foranexs-eyebrow">
+                        Comunidad, territorio y acompañamiento
+                    </p>
 
-          <h1>FEPUC</h1>
+                    <h1>Foránexs en Red</h1>
 
-          <p>
-            Conoce el rol de la Federación de Estudiantes de la PUCP,
-            su misión, visión, organización interna, equipo
-            y canales de comunicación con la comunidad universitaria.
-          </p>
-        </div>
+                    <p>
+                        Una red de información, oportunidades y espacios
+                        culturales para estudiantes provenientes de distintas
+                        regiones que construyen su vida universitaria en Lima.
+                    </p>
+                </div>
 
-        <div class="fepuc-hero-note">
-          <h2>
-            ¿Por qué está en Santa Cultura Viva?
-          </h2>
+                <div class="foranexs-hero-card">
+                    <p>Esta sección reúne</p>
 
-          <p>
-            La FEPUC forma parte de los espacios de representación,
-            escucha, participación y articulación
-            de la comunidad estudiantil.
-          </p>
+                    <ul>
+                        <li>Recursos útiles para estudiantes.</li>
+                        <li>Eventos culturales gratuitos.</li>
+                        <li>Redes y colectivos de acompañamiento.</li>
+                        <li>Becas, talleres y oportunidades.</li>
+                    </ul>
 
-          <a href="#organigrama" class="btn btn-light">
-            Ver organigrama
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUÉ ES FEPUC -->
-    <section class="fepuc-section fepuc-section-white">
-      <div class="container fepuc-intro-editorial">
-        <div class="fepuc-intro-title">
-          <p class="eyebrow">
-            ¿Qué es la FEPUC?
-          </p>
-
-          <h2>
-            Una instancia de representación estudiantil
-          </h2>
-        </div>
-
-        <div class="fepuc-intro-content">
-          <article class="fepuc-intro-block">
-            <h3>Representación</h3>
-
-            <p>
-              La Federación de Estudiantes de la PUCP busca canalizar
-              las necesidades, propuestas e inquietudes del estudiantado
-              ante las autoridades y otros espacios universitarios.
-            </p>
-          </article>
-
-          <article class="fepuc-intro-block">
-            <h3>Defensa de derechos</h3>
-
-            <p>
-              Su labor se relaciona con la defensa de los derechos
-              universitarios, el bienestar estudiantil
-              y el acceso a una vida universitaria digna e inclusiva.
-            </p>
-          </article>
-
-          <article class="fepuc-intro-block">
-            <h3>Participación</h3>
-
-            <p>
-              Promueve la participación de lxs estudiantes
-              mediante asambleas, espacios de escucha,
-              actividades y procesos de organización colectiva.
-            </p>
-          </article>
-
-          <article class="fepuc-intro-block">
-            <h3>Articulación</h3>
-
-            <p>
-              Facilita el diálogo entre estudiantes,
-              centros federados, representantes,
-              colectivos y autoridades universitarias.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MISIÓN Y VISIÓN -->
-    <section class="fepuc-section fepuc-section-soft">
-      <div class="container">
-        <header class="fepuc-section-header">
-          <div>
-            <p class="eyebrow">
-              Mesa Directiva
-            </p>
-
-            <h2>
-              Misión y visión
-            </h2>
-          </div>
-
-          <p>
-            El horizonte de la Mesa se construye
-            desde la representación, la escucha,
-            la organización y el acompañamiento estudiantil.
-          </p>
-        </header>
-
-        <div class="mission-vision-editorial">
-          <article class="mission-editorial-card">
-            <span class="mission-editorial-number">
-              01 · Misión
-            </span>
-
-            <h3>
-              Representar, escuchar y articular
-            </h3>
-
-            <p>
-              Representar activamente a lxs estudiantes de la PUCP,
-              promoviendo una vida universitaria participativa,
-              inclusiva, informada y organizada.
-            </p>
-
-            <p>
-              Recoger las necesidades de la comunidad,
-              impulsar iniciativas de bienestar,
-              defender los derechos universitarios
-              y fortalecer los espacios de diálogo.
-            </p>
-          </article>
-
-          <article class="mission-editorial-card">
-            <span class="mission-editorial-number">
-              02 · Visión
-            </span>
-
-            <h3>
-              Una FEPUC cercana y presente
-            </h3>
-
-            <p>
-              Construir una federación transparente,
-              accesible y presente en la vida cotidiana
-              de lxs estudiantes.
-            </p>
-
-            <p>
-              Una organización que no solo comunique,
-              sino que también escuche, acompañe,
-              articule soluciones y fortalezca
-              una comunidad crítica y solidaria.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- EJES DE TRABAJO -->
-    <section class="fepuc-section fepuc-section-white">
-      <div class="container">
-        <header class="fepuc-section-header">
-          <div>
-            <p class="eyebrow">
-              Líneas de acción
-            </p>
-
-            <h2>
-              Ejes de trabajo
-            </h2>
-          </div>
-
-          <p>
-            Áreas que orientan la representación
-            y el acompañamiento de la comunidad estudiantil.
-          </p>
-        </header>
-
-        <div class="fepuc-pillars">
-          <article class="fepuc-pillar">
-            <span>01</span>
-
-            <h3>Derechos universitarios</h3>
-
-            <p>
-              Defensa, orientación y seguimiento
-              de situaciones que afectan a lxs estudiantes.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>02</span>
-
-            <h3>Bienestar estudiantil</h3>
-
-            <p>
-              Iniciativas relacionadas con salud,
-              alimentación, economía y acompañamiento.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>03</span>
-
-            <h3>Participación</h3>
-
-            <p>
-              Asambleas, espacios abiertos,
-              consultas y mecanismos de organización.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>04</span>
-
-            <h3>Comunidad</h3>
-
-            <p>
-              Construcción de redes, vínculos,
-              actividades culturales y espacios de encuentro.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>05</span>
-
-            <h3>Asuntos académicos</h3>
-
-            <p>
-              Seguimiento de necesidades vinculadas
-              con cursos, evaluaciones y formación.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>06</span>
-
-            <h3>Género e inclusión</h3>
-
-            <p>
-              Promoción de espacios seguros,
-              libres de discriminación y violencia.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>07</span>
-
-            <h3>Cultura</h3>
-
-            <p>
-              Actividades y proyectos para fortalecer
-              la diversidad cultural de la universidad.
-            </p>
-          </article>
-
-          <article class="fepuc-pillar">
-            <span>08</span>
-
-            <h3>Transparencia</h3>
-
-            <p>
-              Comunicación clara de decisiones,
-              procesos, actividades y uso de recursos.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ORGANIGRAMA -->
-    <section
-      class="fepuc-section fepuc-section-soft"
-      id="organigrama"
-    >
-      <div class="container">
-        <header class="fepuc-section-header">
-          <div>
-            <p class="eyebrow">
-              Organización interna
-            </p>
-
-            <h2>
-              Organigrama
-            </h2>
-          </div>
-
-          <p>
-            Una representación visual de la Mesa Directiva,
-            sus cargos principales y sus secretarías.
-          </p>
-        </header>
-
-        <div class="fepuc-org-chart">
-          <div class="fepuc-org-main">
-            <div class="fepuc-org-box">
-              <h3>Mesa Directiva FEPUC</h3>
-
-              <p>
-                Representación general del estudiantado
-              </p>
+                    <a class="foranexs-button" href="#recursos">
+                        Explorar recursos
+                    </a>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="fepuc-org-leadership">
-            <div class="fepuc-org-box">
-              <h3>Presidencia</h3>
+        <!-- PRESENTACIÓN -->
+        <section class="foranexs-section foranexs-section-light">
+            <div class="container foranexs-intro">
+                <div>
+                    <p class="foranexs-eyebrow">
+                        ¿Qué es Foránexs en Red?
+                    </p>
 
-              <p>
-                Dirección política y representación institucional.
-              </p>
+                    <h2>
+                        Una comunidad que conecta territorios
+                    </h2>
+                </div>
+
+                <div>
+                    <p>
+                        Foránexs en Red conecta a estudiantes provenientes
+                        de distintas regiones, visibiliza sus necesidades y
+                        reúne información útil para acompañar su experiencia
+                        universitaria.
+                    </p>
+
+                    <p>
+                        La sección busca descentralizar la mirada sobre la
+                        universidad y reconocer que Lima no representa todas
+                        las realidades, trayectorias ni identidades del país.
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <div class="fepuc-org-box">
-              <h3>Vicepresidencia</h3>
+        <!-- RECURSOS -->
+        <section
+            class="foranexs-section foranexs-section-paper"
+            id="recursos"
+        >
+            <div class="container">
+                <header class="foranexs-heading">
+                    <div>
+                        <p class="foranexs-eyebrow">Guías útiles</p>
+                        <h2>Recursos para estudiantes</h2>
+                    </div>
 
-              <p>
-                Coordinación general y apoyo a la gestión.
-              </p>
+                    <p>
+                        Información práctica para facilitar la adaptación,
+                        movilidad y vida cotidiana en la ciudad.
+                    </p>
+                </header>
+
+                <div class="foranexs-resource-grid">
+                    <article class="foranexs-resource-card">
+                        <span>01</span>
+                        <h3>Orientación universitaria</h3>
+                        <p>
+                            Servicios, trámites, acompañamiento académico
+                            y oficinas de apoyo dentro de la universidad.
+                        </p>
+                    </article>
+
+                    <article class="foranexs-resource-card">
+                        <span>02</span>
+                        <h3>Vivienda</h3>
+                        <p>
+                            Recomendaciones para evaluar habitaciones,
+                            contratos, zonas y condiciones de alquiler.
+                        </p>
+                    </article>
+
+                    <article class="foranexs-resource-card">
+                        <span>03</span>
+                        <h3>Movilidad</h3>
+                        <p>
+                            Rutas de transporte, alternativas cercanas al
+                            campus y recomendaciones para desplazarse.
+                        </p>
+                    </article>
+
+                    <article class="foranexs-resource-card">
+                        <span>04</span>
+                        <h3>Alimentación</h3>
+                        <p>
+                            Comedores, mercados, opciones económicas
+                            y espacios próximos a la universidad.
+                        </p>
+                    </article>
+
+                    <article class="foranexs-resource-card">
+                        <span>05</span>
+                        <h3>Salud y bienestar</h3>
+                        <p>
+                            Servicios de salud, acompañamiento emocional
+                            y redes de atención disponibles.
+                        </p>
+                    </article>
+
+                    <article class="foranexs-resource-card">
+                        <span>06</span>
+                        <h3>Becas y apoyos</h3>
+                        <p>
+                            Programas de ayuda económica, fondos,
+                            subvenciones y oportunidades estudiantiles.
+                        </p>
+                    </article>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="fepuc-org-secretariats">
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Organización
-              </h3>
+        <!-- EVENTOS GRATUITOS -->
+        <section class="foranexs-section foranexs-section-dark">
+            <div class="container">
+                <header class="foranexs-heading foranexs-heading-light">
+                    <div>
+                        <p class="foranexs-eyebrow">
+                            Agenda cultural
+                        </p>
+
+                        <h2>Eventos culturales gratuitos</h2>
+                    </div>
+
+                    <p>
+                        Actividades para conocer la ciudad, encontrarse
+                        con otras personas y acceder a cultura sin costo.
+                    </p>
+                </header>
+
+                <div class="foranexs-event-grid">
+                    <article class="foranexs-event-card">
+                        <div class="foranexs-event-date">
+                            <strong>28</strong>
+                            <span>JUN</span>
+                        </div>
+
+                        <div>
+                            <p class="foranexs-event-type">
+                                Feria cultural
+                            </p>
+
+                            <h3>
+                                Encuentro de culturas regionales
+                            </h3>
+
+                            <p>
+                                Música, gastronomía, emprendimientos
+                                y presentaciones de distintas regiones.
+                            </p>
+
+                            <dl>
+                                <div>
+                                    <dt>Lugar</dt>
+                                    <dd>Centro de Lima</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Costo</dt>
+                                    <dd>Gratuito</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="foranexs-event-card">
+                        <div class="foranexs-event-date">
+                            <strong>05</strong>
+                            <span>JUL</span>
+                        </div>
+
+                        <div>
+                            <p class="foranexs-event-type">
+                                Museo
+                            </p>
+
+                            <h3>
+                                Recorrido cultural gratuito
+                            </h3>
+
+                            <p>
+                                Visita colectiva a exposiciones,
+                                archivos y espacios culturales de Lima.
+                            </p>
+
+                            <dl>
+                                <div>
+                                    <dt>Lugar</dt>
+                                    <dd>Pueblo Libre</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Costo</dt>
+                                    <dd>Gratuito</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+
+                    <article class="foranexs-event-card">
+                        <div class="foranexs-event-date">
+                            <strong>12</strong>
+                            <span>JUL</span>
+                        </div>
+
+                        <div>
+                            <p class="foranexs-event-type">
+                                Cine comunitario
+                            </p>
+
+                            <h3>
+                                Memoria, territorio y migración
+                            </h3>
+
+                            <p>
+                                Proyección y conversación sobre experiencias
+                                de movilidad, identidad y comunidad.
+                            </p>
+
+                            <dl>
+                                <div>
+                                    <dt>Lugar</dt>
+                                    <dd>San Miguel</dd>
+                                </div>
+
+                                <div>
+                                    <dt>Costo</dt>
+                                    <dd>Gratuito</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+                </div>
+
+                <a
+                    class="foranexs-button foranexs-button-light"
+                    th:href="@{/eventos}"
+                >
+                    Ver todos los eventos
+                </a>
             </div>
+        </section>
 
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Economía
-              </h3>
+        <!-- REDES Y COLECTIVOS -->
+        <section class="foranexs-section foranexs-section-light">
+            <div class="container">
+                <header class="foranexs-heading">
+                    <div>
+                        <p class="foranexs-eyebrow">
+                            Directorio comunitario
+                        </p>
+
+                        <h2>Redes y colectivos</h2>
+                    </div>
+
+                    <p>
+                        Espacios de encuentro, organización,
+                        cultura y acompañamiento estudiantil.
+                    </p>
+                </header>
+
+                <div class="foranexs-network-grid">
+                    <article>
+                        <span>Red 01</span>
+                        <h3>Colectivos regionales</h3>
+                        <p>
+                            Comunidades organizadas alrededor de identidades
+                            y experiencias territoriales compartidas.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>Red 02</span>
+                        <h3>Asociaciones estudiantiles</h3>
+                        <p>
+                            Organizaciones universitarias que promueven
+                            actividades académicas, culturales y sociales.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>Red 03</span>
+                        <h3>Comunidades culturales</h3>
+                        <p>
+                            Espacios vinculados con música, danza,
+                            memoria, lengua, arte y patrimonio.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>Red 04</span>
+                        <h3>Redes de apoyo</h3>
+                        <p>
+                            Grupos de orientación, acompañamiento,
+                            bienestar y cuidado comunitario.
+                        </p>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Bienestar Estudiantil
-              </h3>
+        <!-- OPORTUNIDADES -->
+        <section class="foranexs-section foranexs-section-accent">
+            <div class="container foranexs-opportunities">
+                <div>
+                    <p class="foranexs-eyebrow">Oportunidades</p>
+
+                    <h2>
+                        Becas, talleres y convocatorias
+                    </h2>
+
+                    <p>
+                        Reunimos oportunidades que pueden ser útiles
+                        para estudiantes de distintas regiones.
+                    </p>
+                </div>
+
+                <div class="foranexs-opportunity-list">
+                    <a th:href="@{/convocatorias}">
+                        <span>01</span>
+                        <strong>Becas y fondos estudiantiles</strong>
+                    </a>
+
+                    <a th:href="@{/convocatorias}">
+                        <span>02</span>
+                        <strong>Voluntariados y proyectos sociales</strong>
+                    </a>
+
+                    <a th:href="@{/convocatorias}">
+                        <span>03</span>
+                        <strong>Talleres y actividades formativas</strong>
+                    </a>
+
+                    <a th:href="@{/convocatorias}">
+                        <span>04</span>
+                        <strong>Convocatorias culturales</strong>
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Derechos Universitarios
-              </h3>
+        <!-- CTA -->
+        <section class="foranexs-final">
+            <div class="container foranexs-final-inner">
+                <div>
+                    <p class="foranexs-eyebrow">
+                        Construyamos la red
+                    </p>
+
+                    <h2>
+                        ¿Conoces un recurso, colectivo
+                        o evento gratuito?
+                    </h2>
+
+                    <p>
+                        Comparte la información para que pueda llegar
+                        a más estudiantes y comunidades.
+                    </p>
+                </div>
+
+                <a
+                    class="foranexs-button foranexs-button-light"
+                    th:href="@{/contacto}"
+                >
+                    Compartir información
+                </a>
             </div>
-
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Comunicaciones
-              </h3>
-            </div>
-
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Género
-              </h3>
-            </div>
-
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Cultura
-              </h3>
-            </div>
-
-            <div class="fepuc-org-box">
-              <h3>
-                Secretaría de Asuntos Académicos
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EQUIPO -->
-    <section class="fepuc-section fepuc-section-white">
-      <div class="container">
-        <header class="fepuc-section-header">
-          <div>
-            <p class="eyebrow">
-              Equipo
-            </p>
-
-            <h2>
-              Integrantes de la Mesa
-            </h2>
-          </div>
-
-          <p>
-            Cada integrante puede presentarse con nombre social,
-            pronombre, cargo, facultad y una descripción
-            breve de sus funciones.
-          </p>
-        </header>
-
-        <div class="fepuc-team-grid">
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Presidencia"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Presidencia
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Representa a la Mesa, coordina la agenda general
-                y articula el trabajo con centros federados
-                y autoridades universitarias.
-              </p>
-            </div>
-          </article>
-
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Vicepresidencia"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Vicepresidencia
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Acompaña la coordinación general,
-                apoya la gestión interna y fortalece
-                el seguimiento de las iniciativas.
-              </p>
-            </div>
-          </article>
-
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Organización"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Organización
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Coordina actividades, asambleas,
-                reuniones y procesos internos de la Federación.
-              </p>
-            </div>
-          </article>
-
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Bienestar Estudiantil"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Bienestar Estudiantil
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Impulsa acciones relacionadas con bienestar,
-                acompañamiento, alimentación y economía estudiantil.
-              </p>
-            </div>
-          </article>
-
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Comunicaciones"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Comunicaciones
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Gestiona comunicados, redes sociales,
-                cobertura de actividades y difusión de información.
-              </p>
-            </div>
-          </article>
-
-          <article class="fepuc-member">
-            <div
-              class="fepuc-member-photo"
-              role="img"
-              aria-label="Foto de la persona encargada de Cultura"
-            >
-              Foto
-            </div>
-
-            <div class="fepuc-member-content">
-              <p class="fepuc-member-role">
-                Cultura
-              </p>
-
-              <h3>Nombre social</h3>
-
-              <p class="fepuc-member-pronoun">
-                Pronombre: elle / ella / él
-              </p>
-
-              <p class="fepuc-member-description">
-                Promueve actividades culturales,
-                proyectos estudiantiles y espacios
-                para visibilizar la diversidad universitaria.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMUNICACIÓN -->
-    <section class="fepuc-section fepuc-section-soft">
-      <div class="container fepuc-communications">
-        <div class="fepuc-communications-copy">
-          <p class="eyebrow">
-            Información y transparencia
-          </p>
-
-          <h2>
-            ¿Qué puede comunicar la FEPUC?
-          </h2>
-
-          <p>
-            Esta sección puede concentrar información útil
-            para que la comunidad conozca actividades,
-            decisiones, comunicados y mecanismos de participación.
-          </p>
-        </div>
-
-        <div class="fepuc-communications-list">
-          <article class="fepuc-communication-item">
-            <span>01</span>
-
-            <h3>Comunicados</h3>
-
-            <p>
-              Pronunciamientos, posicionamientos
-              y mensajes oficiales dirigidos a la comunidad.
-            </p>
-          </article>
-
-          <article class="fepuc-communication-item">
-            <span>02</span>
-
-            <h3>Actividades</h3>
-
-            <p>
-              Asambleas, conversatorios,
-              jornadas de escucha y encuentros estudiantiles.
-            </p>
-          </article>
-
-          <article class="fepuc-communication-item">
-            <span>03</span>
-
-            <h3>Rendición de cuentas</h3>
-
-            <p>
-              Información sobre decisiones,
-              avances, proyectos y uso de recursos.
-            </p>
-          </article>
-
-          <article class="fepuc-communication-item">
-            <span>04</span>
-
-            <h3>Canales de atención</h3>
-
-            <p>
-              Correos, formularios, horarios
-              y espacios para recibir consultas o propuestas.
-            </p>
-          </article>
-
-          <article class="fepuc-communication-item">
-            <span>05</span>
-
-            <h3>Oportunidades</h3>
-
-            <p>
-              Convocatorias, voluntariados,
-              comisiones y formas de participación estudiantil.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="fepuc-final">
-      <div class="container">
-        <div class="fepuc-final-inner">
-          <div>
-            <p class="eyebrow">
-              Participación estudiantil
-            </p>
-
-            <h2>
-              La representación también se construye escuchando
-            </h2>
-
-            <p>
-              Comunícate con el equipo para compartir
-              una consulta, propuesta, inquietud
-              o iniciativa de la comunidad universitaria.
-            </p>
-          </div>
-
-          <a
-            href="/contacto" th:href="@{/contacto}"
-            class="btn btn-light"
-          >
-            Enviar mensaje
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
 
@@ -742,7 +454,5 @@
         src="/js/main.js"
         th:src="@{/js/main.js}"
     ></script>
-
-
 </body>
 </html>
