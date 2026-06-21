@@ -1,0 +1,695 @@
+/*
+ * Santa Cultura Viva
+ * Estilos exclusivos de la página de inicio.
+ * Extraídos durante la migración a Spring Boot.
+ */
+/* =========================================
+       AJUSTES EXCLUSIVOS DE LA PÁGINA DE INICIO
+    ========================================= */
+
+    .home-page {
+      background: var(--bg);
+    }
+
+    /* CABECERA COMPACTA */
+
+    .home-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .home-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .home-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .home-page .brand-subtitle {
+      display: none;
+    }
+
+    .home-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .home-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA PRINCIPAL
+    ========================================= */
+
+    .home-page .editorial-hero {
+      min-height: 670px;
+    }
+
+    /* =========================================
+       ÚLTIMAS ENTRADAS
+    ========================================= */
+
+    .latest-editorial {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .latest-editorial-header {
+      margin-bottom: 1.8rem;
+      padding-top: 1rem;
+      border-top: 5px solid var(--ink);
+    }
+
+    .latest-editorial-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .editorial-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .feed-item {
+      padding: 1.8rem 0;
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr) 420px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .feed-date {
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .feed-date time {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .feed-comments {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .feed-category {
+      margin: 0 0 0.65rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .feed-content h3 a:hover {
+      color: var(--accent);
+    }
+
+    .feed-content > p:last-child {
+      max-width: 650px;
+      margin: 0;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .feed-image {
+      min-height: 250px;
+      display: block;
+      overflow: hidden;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .feed-image-alerta {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("/img/entrada-alerta.jpg");
+    }
+
+    .feed-image-cronica {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(239, 225, 210, 0.1)
+        ),
+        url("/img/entrada-cronica.jpg");
+    }
+
+    .feed-image-curaduria {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.22),
+          rgba(94, 31, 31, 0.1)
+        ),
+        url("/img/entrada-curaduria.jpg");
+    }
+
+    .feed-image-evento {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.18),
+          rgba(216, 200, 184, 0.18)
+        ),
+        url("/img/entrada-evento.jpg");
+    }
+
+    .feed-image-foranexs {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.16)
+        ),
+        url("/img/entrada-foranexs.jpg");
+    }
+
+    .feed-image-convocatoria {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.24),
+          rgba(36, 31, 27, 0.12)
+        ),
+        url("/img/entrada-convocatoria.jpg");
+    }
+
+    /* =========================================
+       PUBLICACIÓN VISUAL DESTACADA
+    ========================================= */
+
+    .visual-feature-section {
+      padding: 4.5rem 0;
+      background: #ffffff;
+    }
+
+    .visual-feature {
+      position: relative;
+      min-height: 690px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.86) 0%,
+          rgba(20, 17, 15, 0.18) 58%,
+          rgba(20, 17, 15, 0.03) 100%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(139, 47, 47, 0.14)
+        ),
+        url("/img/destacada-cronica.jpg")
+        center / cover no-repeat;
+    }
+
+    .visual-feature-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 3.2rem;
+      color: #ffffff;
+    }
+
+    .visual-feature-tags {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .visual-feature-tags span {
+      padding: 0.3rem 0.55rem;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .visual-feature h2 {
+      max-width: 1030px;
+      margin: 1rem 0;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .visual-feature-meta {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .visual-feature-link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+    }
+
+    /* =========================================
+       DIRECTORIO DE SECCIONES
+    ========================================= */
+
+    .section-directory {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .directory-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      border-top: 5px solid var(--ink);
+    }
+
+    .directory-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .directory-card {
+      min-height: 230px;
+      padding: 1.6rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .directory-card:hover {
+      background: var(--soft);
+    }
+
+    .directory-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+    }
+
+    .directory-card h3 {
+      margin: 2.8rem 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.7rem;
+      line-height: 1.05;
+    }
+
+    .directory-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CONVOCATORIA
+    ========================================= */
+
+    .home-convocatoria {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .home-convocatoria-box {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .home-convocatoria-box h2 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1;
+    }
+
+    .home-convocatoria-box p {
+      color: rgba(255, 255, 255, 0.86);
+      font-family: Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .home-convocatoria-details {
+      align-self: center;
+    }
+
+    .home-convocatoria-details p {
+      margin: 0.4rem 0;
+    }
+
+    /* =========================================
+       NEWSLETTER COMPACTO
+    ========================================= */
+
+    .newsletter-editorial {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .newsletter-editorial-inner {
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .newsletter-kicker {
+      margin: 0 0 0.8rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .newsletter-editorial-copy h2 {
+      max-width: 540px;
+      margin: 0 0 1rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.7rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .newsletter-editorial-copy > p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    .newsletter-editorial-action {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .newsletter-compact-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .newsletter-compact-form input {
+      min-height: 62px;
+      padding: 0 1.2rem;
+      border: 1px solid var(--ink);
+      border-right: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .newsletter-compact-form button {
+      min-width: 155px;
+      min-height: 62px;
+      padding: 0 1.5rem;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .newsletter-compact-form button:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .newsletter-preferences {
+      width: fit-content;
+      color: var(--accent-dark);
+      font-family: Arial, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .newsletter-preferences:hover {
+      text-decoration: underline;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* =========================================
+       FOOTER EDITORIAL
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3.2rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p {
+      max-width: 310px;
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .feed-item {
+        grid-template-columns: 130px minmax(0, 1fr) 320px;
+      }
+
+      .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .home-convocatoria-box,
+      .newsletter-editorial-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .home-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .home-page .editorial-hero {
+        min-height: 590px;
+      }
+
+      .latest-editorial,
+      .visual-feature-section,
+      .section-directory,
+      .home-convocatoria,
+      .newsletter-editorial {
+        padding: 3rem 0;
+      }
+
+      .feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .feed-date {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .feed-image {
+        min-height: 230px;
+      }
+
+      .visual-feature {
+        min-height: 570px;
+      }
+
+      .visual-feature-content {
+        padding: 1.5rem;
+      }
+
+      .visual-feature h2 {
+        font-size: clamp(2rem, 10vw, 3.2rem);
+      }
+
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-convocatoria-box {
+        padding: 1.5rem;
+      }
+
+      .newsletter-compact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-compact-form input {
+        border-right: 1px solid var(--ink);
+        border-bottom: 0;
+      }
+
+      .newsletter-compact-form button {
+        width: 100%;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }

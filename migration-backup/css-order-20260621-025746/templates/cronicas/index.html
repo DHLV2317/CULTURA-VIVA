@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Crónicas | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/cronicas.css"
+        th:href="@{/css/cronicas.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-cronicas cronicas-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('cronicas')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <section class="cronicas-hero">
+      <div class="cronicas-hero-grid">
+        <div class="cronicas-hero-copy">
+          <p class="eyebrow">
+            Voces y relatos
+          </p>
+
+          <h1>Crónicas</h1>
+
+          <p>
+            Relatos, experiencias y reflexiones sobre cultura,
+            comunidad, memoria, territorio, identidad
+            y vida universitaria.
+          </p>
+        </div>
+
+        <div class="cronicas-hero-note">
+          <h2>Textos con mirada propia</h2>
+
+          <p>
+            Cada crónica parte de una experiencia situada
+            y pasa por revisión editorial antes de publicarse.
+          </p>
+
+          <a
+            href="/convocatorias" th:href="@{/convocatorias}"
+            class="btn btn-light"
+          >
+            Enviar texto
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-soft">
+      <div class="container">
+        <article class="cronica-featured-editorial">
+          <div
+            class="cronica-featured-image-editorial"
+            role="img"
+            aria-label="Imagen de la crónica Primer ciclo lejos de casa"
+          ></div>
+
+          <div class="cronica-featured-content-editorial">
+            <p class="eyebrow">
+              Crónica destacada · Foránexs
+            </p>
+
+            <h2>
+              Primer ciclo lejos de casa
+            </h2>
+
+            <p>
+              Una crónica sobre llegar a Lima, aprender a moverse
+              por una ciudad nueva, iniciar la universidad
+              y construir comunidad lejos del lugar de origen.
+            </p>
+
+            <div class="cronica-tags">
+              <span>Vida universitaria</span>
+              <span>Foránexs</span>
+              <span>Memoria</span>
+            </div>
+
+            <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}" class="btn btn-light">
+              Leer crónica
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-white">
+      <div class="container">
+        <header class="cronicas-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Explora por tema
+            </h2>
+          </div>
+
+          <p>
+            Las crónicas se organizan según la experiencia,
+            el territorio o la mirada editorial de cada texto.
+          </p>
+        </header>
+
+        <div class="cronica-filter-list">
+          <button class="cronica-filter active" type="button">
+            Todas
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Vida universitaria
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Foránexs
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Memoria
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Territorio
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Comunidad
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Cultura
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Opinión
+          </button>
+
+          <button class="cronica-filter" type="button">
+            Identidad
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-white">
+      <div class="container">
+        <header class="cronicas-section-header">
+          <div>
+            <p class="eyebrow">Últimas crónicas</p>
+
+            <h2>
+              Relatos recientes
+            </h2>
+          </div>
+
+          <p>
+            Textos estudiantiles y comunitarios publicados
+            en la revista digital.
+          </p>
+        </header>
+
+        <div class="cronicas-feed">
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-12">
+                Junio 12, 2026
+              </time>
+
+              <span>Crónica 01</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Foránexs / Vida universitaria
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Primer ciclo lejos de casa
+                </a>
+              </h3>
+
+              <p>
+                Relato sobre adaptación, universidad,
+                ciudad y búsqueda de redes de apoyo.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Foránexs</span>
+                <span>Comunidad</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-primer-ciclo"
+              aria-label="Leer Primer ciclo lejos de casa"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-09">
+                Junio 9, 2026
+              </time>
+
+              <span>Crónica 02</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Memoria / Territorio
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Lo que traemos en la mochila
+                </a>
+              </h3>
+
+              <p>
+                Una reflexión sobre identidad, recuerdos familiares
+                y aquello que acompaña a quienes dejan su lugar de origen.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Memoria</span>
+                <span>Territorio</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-mochila"
+              aria-label="Leer Lo que traemos en la mochila"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-07">
+                Junio 7, 2026
+              </time>
+
+              <span>Crónica 03</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Cultura / Comunidad
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  La ciudad también se aprende caminando
+                </a>
+              </h3>
+
+              <p>
+                Un recorrido por espacios culturales,
+                calles y lugares que ayudan a reconocer
+                y habitar una nueva ciudad.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Cultura</span>
+                <span>Ciudad</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-ciudad"
+              aria-label="Leer La ciudad también se aprende caminando"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-05">
+                Junio 5, 2026
+              </time>
+
+              <span>Crónica 04</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Opinión / Universidad
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Estudiar también es sostenerse
+                </a>
+              </h3>
+
+              <p>
+                Reflexión sobre exigencia académica,
+                bienestar y redes de cuidado dentro
+                de la vida universitaria.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Bienestar</span>
+                <span>Universidad</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-sostenerse"
+              aria-label="Leer Estudiar también es sostenerse"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-03">
+                Junio 3, 2026
+              </time>
+
+              <span>Crónica 05</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Identidad / Comunidad
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Hablar con acento propio
+                </a>
+              </h3>
+
+              <p>
+                Texto sobre lenguaje, pertenencia
+                y experiencias dentro del espacio universitario.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Identidad</span>
+                <span>Lenguaje</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-acento"
+              aria-label="Leer Hablar con acento propio"
+            ></a>
+          </article>
+
+          <article class="cronica-feed-item">
+            <div class="cronica-feed-date">
+              <time datetime="2026-06-01">
+                Junio 1, 2026
+              </time>
+
+              <span>Crónica 06</span>
+            </div>
+
+            <div class="cronica-feed-content">
+              <p class="cronica-feed-category">
+                Cultura / Memoria
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Una canción para volver
+                </a>
+              </h3>
+
+              <p>
+                Crónica sobre música, recuerdos
+                y el vínculo emocional con el lugar de origen.
+              </p>
+
+              <div class="cronica-feed-tags">
+                <span>Música</span>
+                <span>Memoria</span>
+              </div>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="cronica-feed-image cronica-image-cancion"
+              aria-label="Leer Una canción para volver"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-section cronicas-section-soft">
+      <div class="container cronicas-submit-editorial">
+        <div class="cronicas-submit-copy">
+          <p class="eyebrow">
+            Publica en la revista
+          </p>
+
+          <h2>
+            ¿Quieres enviar una crónica?
+          </h2>
+
+          <p>
+            Lxs estudiantes pueden enviar crónicas,
+            relatos, artículos de opinión, reseñas culturales
+            o reflexiones territoriales mediante Convocatorias.
+          </p>
+        </div>
+
+        <div class="cronicas-submit-steps">
+          <article class="cronicas-submit-step">
+            <span>01</span>
+
+            <h3>Revisa la temática</h3>
+
+            <p>
+              Verifica que tu texto dialogue con la convocatoria vigente.
+            </p>
+          </article>
+
+          <article class="cronicas-submit-step">
+            <span>02</span>
+
+            <h3>Envía tu texto</h3>
+
+            <p>
+              Utiliza el correo y el asunto indicados en la convocatoria.
+            </p>
+          </article>
+
+          <article class="cronicas-submit-step">
+            <span>03</span>
+
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El equipo revisará tu propuesta y podrá sugerir ajustes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cronicas-final">
+      <div class="container">
+        <div class="cronicas-final-inner">
+          <div>
+            <p class="eyebrow">
+              Convocatoria abierta
+            </p>
+
+            <h2>
+              Tu historia también puede ser parte de Santa Cultura Viva
+            </h2>
+
+            <p>
+              Revisa la temática del mes y envía tu crónica,
+              relato o reflexión para ser considerada
+              dentro de la revista.
+            </p>
+          </div>
+
+          <a
+            href="/convocatorias" th:href="@{/convocatorias}"
+            class="btn btn-light"
+          >
+            Ver convocatoria
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

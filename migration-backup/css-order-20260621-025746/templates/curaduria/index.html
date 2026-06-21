@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Curaduría | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/curaduria.css"
+        th:href="@{/css/curaduria.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-curaduria curaduria-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('curaduria')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="curaduria-hero">
+      <div class="curaduria-hero-grid">
+        <div class="curaduria-hero-copy">
+          <p class="eyebrow">
+            Recomendaciones seleccionadas
+          </p>
+
+          <h1>Curaduría</h1>
+
+          <p>
+            Una biblioteca viva de lecturas, audiovisuales,
+            plataformas, convocatorias, becas y recursos digitales
+            para ampliar las conversaciones de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="curaduria-hero-note">
+          <h2>
+            Materiales para seguir explorando
+          </h2>
+
+          <p>
+            Los recursos complementan los artículos de la revista
+            y permiten profundizar en cultura, territorio,
+            derechos humanos, comunidad y vida universitaria.
+          </p>
+
+          <a href="#recursos" class="btn btn-light">
+            Ver recursos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="curaduria-section curaduria-section-white">
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Explora por tipo de recurso
+            </h2>
+          </div>
+
+          <p>
+            Las recomendaciones se organizan según su formato,
+            utilidad y forma de acceso.
+          </p>
+        </header>
+
+        <div class="curaduria-filter-list">
+          <button class="curaduria-filter active" type="button">
+            Todos
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Lecturas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Audiovisuales
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Plataformas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Convocatorias
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Becas
+          </button>
+
+          <button class="curaduria-filter" type="button">
+            Recursos IG
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECURSO DESTACADO -->
+    <section class="curaduria-section curaduria-section-soft">
+      <div class="container">
+        <article class="curaduria-featured">
+          <div class="curaduria-featured-content">
+            <p class="eyebrow">
+              Recurso destacado · Lecturas
+            </p>
+
+            <h2>
+              Lecturas para pensar territorio, memoria y comunidad
+            </h2>
+
+            <p>
+              Una selección de textos para reflexionar sobre
+              centralismo, desigualdad territorial, identidad,
+              comunidades históricamente invisibilizadas
+              y experiencias universitarias.
+            </p>
+
+            <div class="curaduria-featured-tags">
+              <span>Lecturas</span>
+              <span>Territorio</span>
+              <span>Memoria</span>
+              <span>Comunidad</span>
+            </div>
+
+            <a href="#" class="btn btn-light">
+              Ver selección
+            </a>
+          </div>
+
+          <div
+            class="curaduria-featured-image"
+            role="img"
+            aria-label="Libros y documentos recomendados por Santa Cultura Viva"
+          ></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RECURSOS RECIENTES -->
+    <section
+      class="curaduria-section curaduria-section-white"
+      id="recursos"
+    >
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">
+              Recursos recientes
+            </p>
+
+            <h2>
+              Recomendaciones de la semana
+            </h2>
+          </div>
+
+          <p>
+            Cada ficha presenta el tipo de recurso,
+            una descripción breve, la fuente y su enlace externo.
+          </p>
+        </header>
+
+        <div class="resources-feed">
+          <!-- RECURSO 1 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>01</strong>
+              <span>Lectura</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Lecturas / Memoria
+              </p>
+
+              <h3>
+                <a href="#">
+                  Archivo, memoria y territorio
+                </a>
+              </h3>
+
+              <p>
+                Una selección de textos para comprender cómo
+                las memorias territoriales dialogan con la identidad,
+                la cultura y la construcción de comunidad.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Fuente externa</span>
+                <a href="#">Ver lectura →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-lectura"
+              aria-label="Abrir recurso Archivo, memoria y territorio"
+            ></a>
+          </article>
+
+          <!-- RECURSO 2 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>02</strong>
+              <span>Audiovisual</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Audiovisuales / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Documentales para pensar comunidad
+                </a>
+              </h3>
+
+              <p>
+                Documentales, entrevistas y materiales audiovisuales
+                para ampliar la reflexión sobre territorio,
+                organización comunitaria y derechos humanos.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Video y documental</span>
+                <a href="#">Ver selección →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-audiovisual"
+              aria-label="Abrir selección de documentales"
+            ></a>
+          </article>
+
+          <!-- RECURSO 3 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>03</strong>
+              <span>Plataforma</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Plataformas / Archivos
+              </p>
+
+              <h3>
+                <a href="#">
+                  Mapas y archivos comunitarios
+                </a>
+              </h3>
+
+              <p>
+                Plataformas digitales para consultar mapas,
+                archivos, investigaciones, reportes y materiales
+                producidos por organizaciones sociales.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Plataforma digital</span>
+                <a href="#">Abrir plataforma →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-plataforma"
+              aria-label="Abrir mapas y archivos comunitarios"
+            ></a>
+          </article>
+
+          <!-- RECURSO 4 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>04</strong>
+              <span>Convocatoria</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Convocatorias / Cultura
+              </p>
+
+              <h3>
+                <a href="/convocatorias" th:href="@{/convocatorias}">
+                  Llamados para proyectos culturales
+                </a>
+              </h3>
+
+              <p>
+                Oportunidades para participar en publicaciones,
+                proyectos culturales, iniciativas comunitarias,
+                concursos y espacios de formación.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Oportunidad externa</span>
+
+                <a href="/convocatorias" th:href="@{/convocatorias}">
+                  Ver convocatorias →
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="/convocatorias" th:href="@{/convocatorias}"
+              class="resource-feed-image resource-image-convocatoria"
+              aria-label="Ver llamados para proyectos culturales"
+            ></a>
+          </article>
+
+          <!-- RECURSO 5 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>05</strong>
+              <span>Beca</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Becas / Formación
+              </p>
+
+              <h3>
+                <a href="#">
+                  Becas y fondos para estudiantes
+                </a>
+              </h3>
+
+              <p>
+                Recursos para encontrar becas, fondos,
+                apoyos económicos y programas de formación
+                vinculados con cultura, investigación y comunidad.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Apoyo estudiantil</span>
+                <a href="#">Ver oportunidades →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-beca"
+              aria-label="Ver becas y fondos para estudiantes"
+            ></a>
+          </article>
+
+          <!-- RECURSO 6 -->
+          <article class="resource-feed-item">
+            <div class="resource-feed-number">
+              <strong>06</strong>
+              <span>Instagram</span>
+            </div>
+
+            <div class="resource-feed-content">
+              <p class="resource-feed-category">
+                Recursos IG / Guías
+              </p>
+
+              <h3>
+                <a href="#">
+                  Publicaciones para guardar y compartir
+                </a>
+              </h3>
+
+              <p>
+                Guías, datos, recomendaciones, infografías
+                y materiales visuales útiles para estudiantes
+                y comunidades universitarias.
+              </p>
+
+              <div class="resource-feed-footer">
+                <span>Instagram</span>
+                <a href="#">Ver publicaciones →</a>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="resource-feed-image resource-image-instagram"
+              aria-label="Ver recursos de Instagram"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="curaduria-section curaduria-section-soft">
+      <div class="container">
+        <header class="curaduria-section-header">
+          <div>
+            <p class="eyebrow">
+              Selección editorial
+            </p>
+
+            <h2>
+              ¿Qué encontrarás en Curaduría?
+            </h2>
+          </div>
+
+          <p>
+            Seis tipos de recursos para explorar,
+            aprender, participar y compartir.
+          </p>
+        </header>
+
+        <div class="curaduria-directory">
+          <article class="curaduria-directory-card">
+            <span>01</span>
+
+            <h3>Lecturas</h3>
+
+            <p>
+              Artículos, ensayos, informes, libros
+              y documentos recomendados por el equipo editorial.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>02</span>
+
+            <h3>Audiovisuales</h3>
+
+            <p>
+              Documentales, entrevistas, cortometrajes,
+              podcasts, charlas y registros audiovisuales.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>03</span>
+
+            <h3>Plataformas</h3>
+
+            <p>
+              Archivos digitales, mapas, observatorios,
+              bibliotecas y herramientas de consulta.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>04</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Oportunidades externas para proyectos,
+              publicaciones, formación y participación cultural.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>05</span>
+
+            <h3>Becas</h3>
+
+            <p>
+              Programas de apoyo, fondos,
+              intercambios y oportunidades para estudiantes.
+            </p>
+          </article>
+
+          <article class="curaduria-directory-card">
+            <span>06</span>
+
+            <h3>Recursos IG</h3>
+
+            <p>
+              Publicaciones visuales, guías,
+              infografías y materiales para guardar o compartir.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRITERIOS -->
+    <section class="curaduria-section curaduria-section-white">
+      <div class="container selection-layout">
+        <div class="selection-intro">
+          <p class="eyebrow">
+            Criterios editoriales
+          </p>
+
+          <h2>
+            ¿Cómo elegimos los recursos?
+          </h2>
+
+          <p>
+            La selección busca ofrecer materiales útiles,
+            accesibles, confiables y relacionados con
+            los temas de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="selection-list">
+          <article class="selection-item">
+            <span>01</span>
+
+            <h3>Pertinencia</h3>
+
+            <p>
+              El recurso debe dialogar con cultura,
+              territorio, derechos humanos, comunidad
+              o vida universitaria.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>02</span>
+
+            <h3>Utilidad</h3>
+
+            <p>
+              Debe ofrecer información, herramientas
+              u oportunidades relevantes para la comunidad.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>03</span>
+
+            <h3>Fuente</h3>
+
+            <p>
+              Se revisa quién produce el contenido,
+              su propósito y la claridad de la información.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>04</span>
+
+            <h3>Accesibilidad</h3>
+
+            <p>
+              Se priorizan materiales de acceso libre
+              o que puedan consultarse sin barreras innecesarias.
+            </p>
+          </article>
+
+          <article class="selection-item">
+            <span>05</span>
+
+            <h3>Diversidad</h3>
+
+            <p>
+              Se buscan formatos, perspectivas,
+              territorios y voces distintas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="curaduria-final">
+      <div class="container">
+        <div class="curaduria-final-inner">
+          <div>
+            <p class="eyebrow">
+              Recomienda un recurso
+            </p>
+
+            <h2>
+              Ayúdanos a ampliar esta biblioteca viva
+            </h2>
+
+            <p>
+              Comparte una lectura, audiovisual, plataforma,
+              convocatoria, beca o publicación que pueda
+              ser útil para la comunidad.
+            </p>
+          </div>
+
+          <a
+            href="/contacto" th:href="@{/contacto}"
+            class="btn btn-light"
+          >
+            Enviar recomendación
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

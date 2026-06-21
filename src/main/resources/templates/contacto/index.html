@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Contacto | Santa Cultura Viva</title>
+
+        <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/contacto.css"
+        th:href="@{/css/contacto.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+
+
+
+    
+
+    
+
+    
+</head>
+
+<body class="page-contacto contacto-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="contacto-hero">
+      <div class="contacto-hero-grid">
+        <div class="contacto-hero-copy">
+          <p class="eyebrow">Escríbenos</p>
+
+          <h1>Contacto</h1>
+
+          <p>
+            Envía consultas, propuestas editoriales, recursos,
+            eventos, alianzas o mensajes generales al equipo
+            de Santa Cultura Viva.
+          </p>
+        </div>
+
+        <div class="contacto-hero-note">
+          <h2>
+            También puedes proponer contenido
+          </h2>
+
+          <p>
+            Comparte una idea, recomienda un recurso,
+            propone una actividad o consulta sobre
+            nuestras convocatorias editoriales.
+          </p>
+
+          <a
+            href="#formulario-contacto"
+            class="btn btn-light"
+          >
+            Ir al formulario
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CANALES -->
+    <section class="contacto-section contacto-section-white">
+      <div class="container">
+        <header class="contacto-section-header">
+          <div>
+            <p class="eyebrow">Canales</p>
+
+            <h2>
+              Formas de contacto
+            </h2>
+          </div>
+
+          <p>
+            Comunícate con el equipo según el tipo
+            de consulta o propuesta que desees enviar.
+          </p>
+        </header>
+
+        <div class="contact-channels-grid">
+          <article class="contact-channel">
+            <span class="contact-channel-number">01</span>
+
+            <h3>Correo editorial</h3>
+
+            <p>
+              Para consultas generales, propuestas de contenido
+              y coordinación con el equipo editorial.
+            </p>
+
+            <a href="mailto:santaculturaviva@gmail.com">
+              santaculturaviva@gmail.com
+            </a>
+          </article>
+
+          <article class="contact-channel">
+            <span class="contact-channel-number">02</span>
+
+            <h3>Instagram</h3>
+
+            <p>
+              Para consultar publicaciones, alertas visuales,
+              recursos recomendados y novedades de la revista.
+            </p>
+
+            <a href="#">
+              Ver Instagram
+            </a>
+          </article>
+
+          <article class="contact-channel">
+            <span class="contact-channel-number">03</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Para revisar temáticas mensuales, fechas,
+              formatos aceptados y condiciones de envío.
+            </p>
+
+            <a href="/convocatorias" th:href="@{/convocatorias}">
+              Ver convocatoria
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section
+      class="contacto-section contacto-section-soft"
+      id="formulario-contacto"
+    >
+      <div class="container contact-form-layout">
+        <div class="contact-form-intro">
+          <p class="eyebrow">Formulario</p>
+
+          <h2>
+            Envíanos un mensaje
+          </h2>
+
+          <p>
+            Selecciona el tipo de mensaje y completa tus datos.
+            La información será gestionada por el equipo editorial
+            cuando el formulario se conecte con Spring Boot.
+          </p>
+
+          <div class="contact-form-note">
+            <h3>Tipos de mensajes</h3>
+
+            <p>
+              Consultas, propuestas de crónica, recursos de curaduría,
+              eventos, alianzas, convocatorias o reportes técnicos.
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-editorial-form">
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="contactNombreSocial">
+                Nombre social
+              </label>
+
+              <input
+                type="text"
+                id="contactNombreSocial"
+                name="nombreSocial"
+                placeholder="Escribe tu nombre social"
+              />
+            </div>
+
+            <div class="contact-field">
+              <label for="contactPronombre">
+                Pronombre
+              </label>
+
+              <input
+                type="text"
+                id="contactPronombre"
+                name="pronombre"
+                placeholder="Ejemplo: ella, él, elle"
+              />
+            </div>
+          </div>
+
+          <div class="contact-field">
+            <label for="contactCorreo">
+              Correo electrónico
+            </label>
+
+            <input
+              type="email"
+              id="contactCorreo"
+              name="correo"
+              placeholder="correo@ejemplo.com"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="asunto">
+              Asunto
+            </label>
+
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              placeholder="Escribe el asunto de tu mensaje"
+            />
+          </div>
+
+          <div class="contact-field">
+            <label for="tipoMensaje">
+              Tipo de mensaje
+            </label>
+
+            <select
+              id="tipoMensaje"
+              name="tipoMensaje"
+            >
+              <option value="">
+                Selecciona una opción
+              </option>
+
+              <option value="consulta-general">
+                Consulta general
+              </option>
+
+              <option value="propuesta-cronica">
+                Propuesta de crónica
+              </option>
+
+              <option value="propuesta-curaduria">
+                Propuesta de curaduría
+              </option>
+
+              <option value="evento">
+                Evento
+              </option>
+
+              <option value="convocatoria">
+                Convocatoria
+              </option>
+
+              <option value="alianza">
+                Alianza
+              </option>
+
+              <option value="problema-tecnico">
+                Problema técnico
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+            </select>
+          </div>
+
+          <div class="contact-field">
+            <label for="mensaje">
+              Mensaje
+            </label>
+
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Escribe tu mensaje"
+            ></textarea>
+          </div>
+
+          <div class="contact-form-footer">
+            <p>
+              Esta versión es visual. El botón quedará conectado
+              a la base de datos cuando se implemente Spring Boot y MySQL.
+            </p>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+            >
+              Enviar mensaje
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- PROPUESTAS -->
+    <section class="contacto-section contacto-section-white">
+      <div class="container">
+        <header class="contacto-section-header">
+          <div>
+            <p class="eyebrow">Propuestas</p>
+
+            <h2>
+              ¿Qué puedes enviarnos?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva recibe distintos tipos
+            de propuestas para evaluación y revisión editorial.
+          </p>
+        </header>
+
+        <div class="proposal-grid">
+          <article class="proposal-card">
+            <span>01</span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Ideas o textos narrativos vinculados con cultura,
+              memoria, comunidad o vida universitaria.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>02</span>
+
+            <h3>Recursos</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas o recursos para Curaduría.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>03</span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Actividades académicas, culturales,
+              FEPUC, comunitarias o Foránexs.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>04</span>
+
+            <h3>Alianzas</h3>
+
+            <p>
+              Propuestas de colaboración con colectivos,
+              proyectos o espacios culturales.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>05</span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              o contactos de acompañamiento.
+            </p>
+          </article>
+
+          <article class="proposal-card">
+            <span>06</span>
+
+            <h3>Problemas técnicos</h3>
+
+            <p>
+              Reportes sobre errores, enlaces rotos
+              o dificultades de navegación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="contact-final">
+      <div class="container">
+        <div class="contact-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Este proyecto también se construye escuchando
+            </h2>
+
+            <p>
+              El diálogo con la comunidad permite mejorar
+              la revista, sumar recursos y abrir nuevos
+              espacios editoriales y culturales.
+            </p>
+          </div>
+
+          <a
+            href="/suscripcion" th:href="@{/suscripcion}"
+            class="btn btn-light"
+          >
+            Suscribirme
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

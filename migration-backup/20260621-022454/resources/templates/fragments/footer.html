@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<footer
+    class="footer-editorial"
+    th:fragment="footer"
+>
+    <div class="container footer-editorial-grid">
+        <div class="footer-editorial-brand">
+            <a th:href="@{/}">
+                Santa Cultura Viva
+            </a>
+
+            <p>
+                Revista digital universitaria sobre cultura,
+                territorio, derechos humanos y comunidad.
+            </p>
+        </div>
+
+        <div class="footer-editorial-column">
+            <h3>Proyecto</h3>
+
+            <p>
+                Una plataforma editorial que visibiliza voces,
+                experiencias y problemÃ¡ticas universitarias.
+            </p>
+
+            <a th:href="@{/que-es}">
+                Conocer el proyecto
+            </a>
+        </div>
+
+        <div class="footer-editorial-column">
+            <h3>Contenidos</h3>
+
+            <a th:href="@{/alertas}">Alertas</a>
+            <a th:href="@{/cronicas}">CrÃ³nicas</a>
+            <a th:href="@{/curaduria}">CuradurÃ­a</a>
+            <a th:href="@{/eventos}">Eventos</a>
+        </div>
+
+        <div class="footer-editorial-column">
+            <h3>Comunidad</h3>
+
+            <a th:href="@{/fepuc}">FEPUC</a>
+            <a th:href="@{/foranexs}">ForÃ¡nexs en Red</a>
+            <a th:href="@{/convocatorias}">Convocatorias</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </div>
+
+        <div class="footer-editorial-column">
+            <h3>Newsletter</h3>
+
+            <p>
+                Recibe publicaciones y novedades
+                de Santa Cultura Viva.
+            </p>
+
+            <a th:href="@{/suscripcion}">
+                Ir a suscripciÃ³n
+            </a>
+        </div>
+    </div>
+
+    <div class="container footer-editorial-bottom">
+        <p>
+            Â© 2026 Santa Cultura Viva.
+            Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>¿Qué es Santa Cultura Viva?</title>
+
+        <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/que-es.css"
+        th:href="@{/css/que-es.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+
+
+
+    
+
+    
+
+    
+</head>
+
+<body class="page-que-es que-es-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="que-es-hero">
+      <div class="que-es-hero-grid">
+        <div class="que-es-hero-copy">
+          <p class="eyebrow">
+            Identidad del proyecto
+          </p>
+
+          <h1>
+            ¿Qué es Santa Cultura Viva?
+          </h1>
+
+          <p>
+            Una plataforma editorial universitaria, comunitaria
+            e inclusiva que busca visibilizar experiencias,
+            problemáticas y expresiones culturales vinculadas
+            con estudiantes, comunidades y territorios.
+          </p>
+        </div>
+
+        <div class="que-es-hero-note">
+          <h2>
+            Una revista digital con conciencia social
+          </h2>
+
+          <p>
+            El proyecto reúne alertas, crónicas, curaduría,
+            eventos, recursos y convocatorias para construir
+            una comunidad informada, sensible y conectada.
+          </p>
+
+          <a href="#identidad" class="btn btn-light">
+            Conocer el proyecto
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEFINICIÓN -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="identidad"
+    >
+      <div class="container about-editorial-intro">
+        <div class="about-editorial-title">
+          <p class="eyebrow">
+            Definición
+          </p>
+
+          <h2>
+            Una plataforma editorial, universitaria y comunitaria
+          </h2>
+        </div>
+
+        <div class="about-editorial-copy">
+          <article class="about-editorial-block">
+            <h3>
+              Una revista digital
+            </h3>
+
+            <p>
+              Santa Cultura Viva es una revista universitaria
+              que reúne contenidos editoriales, informativos,
+              narrativos y culturales en un mismo espacio digital.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Una mirada situada
+            </h3>
+
+            <p>
+              El proyecto observa la vida universitaria, la cultura
+              y los derechos humanos desde experiencias concretas,
+              territorios diversos y voces que no siempre ocupan
+              el centro de la conversación pública.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Un espacio comunitario
+            </h3>
+
+            <p>
+              La plataforma busca conectar estudiantes,
+              comunidades, colectivos, recursos, actividades
+              y oportunidades que fortalezcan la vida universitaria.
+            </p>
+          </article>
+
+          <article class="about-editorial-block">
+            <h3>
+              Una propuesta crítica
+            </h3>
+
+            <p>
+              Los contenidos dialogan con problemáticas como
+              centralismo, discriminación, desigualdad territorial,
+              migración, memoria, representación y participación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAZÓN DE SER -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="razon-de-ser"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Razón de ser
+            </p>
+
+            <h2>
+              ¿Por qué existe?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva surge ante la necesidad de contar
+            con un espacio editorial que informe, acompañe
+            y visibilice voces que muchas veces quedan fuera del centro.
+          </p>
+        </header>
+
+        <div class="purpose-grid">
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              01 · Visibilizar
+            </span>
+
+            <h3>
+              Hacer visibles otras experiencias
+            </h3>
+
+            <p>
+              Dar espacio a estudiantes, comunidades indígenas,
+              comunidades migrantes, zonas periféricas
+              y territorios históricamente poco representados.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              02 · Conectar
+            </span>
+
+            <h3>
+              Reunir contenidos y redes
+            </h3>
+
+            <p>
+              Articular eventos, recursos, convocatorias,
+              guías y redes de apoyo que fortalezcan
+              la vida universitaria y comunitaria.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              03 · Analizar
+            </span>
+
+            <h3>
+              Leer críticamente la realidad
+            </h3>
+
+            <p>
+              Analizar noticias, discursos y problemáticas
+              desde un enfoque de derechos humanos,
+              territorio, cultura, comunidad y memoria.
+            </p>
+          </article>
+
+          <article class="purpose-card">
+            <span class="purpose-card-number">
+              04 · Acompañar
+            </span>
+
+            <h3>
+              Fortalecer la comunidad
+            </h3>
+
+            <p>
+              Ofrecer información y espacios útiles para estudiantes
+              foránexs, migrantes o de otras regiones que viven
+              la universidad lejos de sus lugares de origen.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMUNIDAD -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="comunidad"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Comunidad
+            </p>
+
+            <h2>
+              ¿A quién está dirigido?
+            </h2>
+          </div>
+
+          <p>
+            La plataforma está pensada para estudiantes,
+            lectorxs y comunidades interesadas en cultura,
+            derechos humanos, territorio y vida universitaria.
+          </p>
+        </header>
+
+        <div class="audience-editorial-list">
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              01
+            </span>
+
+            <h3>
+              Estudiantes universitarixs
+            </h3>
+
+            <p>
+              Personas que buscan informarse, participar,
+              publicar textos, conocer actividades
+              o encontrar recursos útiles dentro de la universidad.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              02
+            </span>
+
+            <h3>
+              Estudiantes foránexs
+            </h3>
+
+            <p>
+              Estudiantes que vienen de otras regiones,
+              del extranjero o de contextos migrantes
+              y necesitan redes, guías y espacios de encuentro.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              03
+            </span>
+
+            <h3>
+              Comunidades y territorios
+            </h3>
+
+            <p>
+              Personas interesadas en problemáticas
+              relacionadas con comunidades indígenas,
+              migrantes, zonas periféricas y territorios
+              fuera del centralismo limeño.
+            </p>
+          </article>
+
+          <article class="audience-editorial-item">
+            <span class="audience-editorial-number">
+              04
+            </span>
+
+            <h3>
+              Lectorxs con interés cultural
+            </h3>
+
+            <p>
+              Personas que buscan crónicas, lecturas,
+              recursos audiovisuales, eventos,
+              convocatorias y reflexiones sobre cultura.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMÁTICAS -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="problematicas"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Enfoque editorial
+            </p>
+
+            <h2>
+              ¿Qué problemáticas busca visibilizar?
+            </h2>
+          </div>
+
+          <p>
+            Santa Cultura Viva no solo publica contenidos:
+            propone una mirada crítica sobre desigualdades,
+            silencios y formas de exclusión.
+          </p>
+        </header>
+
+        <div class="problems-editorial-grid">
+          <article class="problem-editorial-card">
+            <span>01</span>
+
+            <h3>Centralismo</h3>
+
+            <p>
+              La concentración de la mirada pública,
+              mediática e institucional en Lima,
+              dejando en segundo plano otros territorios.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>02</span>
+
+            <h3>Discriminación</h3>
+
+            <p>
+              Formas de exclusión relacionadas con origen,
+              acento, territorio, identidad,
+              pertenencia cultural o condición migrante.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>03</span>
+
+            <h3>Violencia institucional</h3>
+
+            <p>
+              Situaciones donde instituciones, normas
+              u omisiones afectan derechos,
+              servicios o participación comunitaria.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>04</span>
+
+            <h3>Violencia simbólica</h3>
+
+            <p>
+              Discursos, representaciones y estereotipos
+              que invisibilizan, reducen o distorsionan
+              a comunidades y territorios.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>05</span>
+
+            <h3>Desigualdad territorial</h3>
+
+            <p>
+              Brechas entre centro y periferia,
+              ciudad y región, campus y territorio,
+              que afectan oportunidades y reconocimiento.
+            </p>
+          </article>
+
+          <article class="problem-editorial-card">
+            <span>06</span>
+
+            <h3>Memoria y comunidad</h3>
+
+            <p>
+              Experiencias, relatos y memorias
+              que permiten comprender cómo se construyen
+              identidad, pertenencia y vínculos colectivos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRASE -->
+    <section class="about-statement">
+      <div class="container about-statement-inner">
+        <span class="about-statement-label">
+          Nuestra mirada
+        </span>
+
+        <blockquote>
+          La cultura también está en las historias que contamos,
+          los territorios que habitamos y las redes que construimos
+          para acompañarnos.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- PRINCIPIOS -->
+    <section
+      class="que-es-section que-es-section-white"
+      id="principios"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Principios
+            </p>
+
+            <h2>
+              Principios del proyecto
+            </h2>
+          </div>
+
+          <p>
+            Estos criterios orientan el tono, el diseño,
+            los contenidos y la relación de Santa Cultura Viva
+            con su comunidad.
+          </p>
+        </header>
+
+        <div class="principles-editorial-grid">
+          <article class="principle-editorial-card">
+            <span>01</span>
+
+            <h3>Lenguaje inclusivo</h3>
+
+            <p>
+              La plataforma reconoce la diversidad
+              de identidades, pronombres y experiencias
+              presentes en la comunidad.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>02</span>
+
+            <h3>Mirada territorial</h3>
+
+            <p>
+              El proyecto busca salir de una mirada centralista
+              y reconocer experiencias de distintos territorios
+              y lugares de origen.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>03</span>
+
+            <h3>Derechos humanos</h3>
+
+            <p>
+              Los análisis consideran desigualdades estructurales,
+              posibles vulneraciones de derechos
+              y formas de violencia.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>04</span>
+
+            <h3>Participación estudiantil</h3>
+
+            <p>
+              Lxs estudiantes pueden publicar textos,
+              recomendar recursos y proponer actividades
+              para la comunidad.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>05</span>
+
+            <h3>Cuidado editorial</h3>
+
+            <p>
+              Los contenidos pasan por revisión
+              para mantener claridad, respeto,
+              responsabilidad y coherencia.
+            </p>
+          </article>
+
+          <article class="principle-editorial-card">
+            <span>06</span>
+
+            <h3>Construcción comunitaria</h3>
+
+            <p>
+              Más que una página informativa,
+              el proyecto busca crear redes de apoyo,
+              encuentro y reconocimiento.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA EDITORIAL -->
+    <section
+      class="que-es-section que-es-section-soft"
+      id="mapa-editorial"
+    >
+      <div class="container">
+        <header class="que-es-section-header">
+          <div>
+            <p class="eyebrow">
+              Mapa editorial
+            </p>
+
+            <h2>
+              ¿Qué encontrarás en la web?
+            </h2>
+          </div>
+
+          <p>
+            Cada sección cumple una función distinta
+            dentro de la revista y se conecta
+            con los objetivos generales del proyecto.
+          </p>
+        </header>
+
+        <div class="editorial-map-grid">
+          <a
+            class="editorial-map-card"
+            href="/alertas" th:href="@{/alertas}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                01
+              </span>
+
+              <h3>Alertas</h3>
+
+              <p>
+                Análisis de noticias sobre derechos humanos,
+                comunidades, territorios y formas de violencia.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="/cronicas" th:href="@{/cronicas}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                02
+              </span>
+
+              <h3>Crónicas</h3>
+
+              <p>
+                Relatos, experiencias y textos estudiantiles
+                con mirada cultural, territorial y comunitaria.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="/curaduria" th:href="@{/curaduria}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                03
+              </span>
+
+              <h3>Curaduría</h3>
+
+              <p>
+                Lecturas, audiovisuales, plataformas,
+                becas y recursos seleccionados.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="/eventos" th:href="@{/eventos}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                04
+              </span>
+
+              <h3>Eventos</h3>
+
+              <p>
+                Agenda académica, cultural, comunitaria,
+                FEPUC, asambleas y encuentros Foránexs.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="/foranexs" th:href="@{/foranexs}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                05
+              </span>
+
+              <h3>Foránexs en Red</h3>
+
+              <p>
+                Guías, mapas, actividades culturales gratuitas,
+                encuentros y redes de acompañamiento.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+
+          <a
+            class="editorial-map-card"
+            href="/convocatorias" th:href="@{/convocatorias}"
+          >
+            <div>
+              <span class="editorial-map-number">
+                06
+              </span>
+
+              <h3>Convocatorias</h3>
+
+              <p>
+                Temáticas mensuales, formatos aceptados
+                y procesos para publicar en la revista.
+              </p>
+            </div>
+
+            <span class="editorial-map-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="about-final">
+      <div class="container">
+        <div class="about-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Una revista para mirar, narrar y encontrarnos
+            </h2>
+
+            <p>
+              La cultura, la memoria, los territorios
+              y las voces estudiantiles merecen
+              un espacio vivo dentro de la comunidad universitaria.
+            </p>
+          </div>
+
+          <a
+            href="/convocatorias" th:href="@{/convocatorias}"
+            class="btn btn-light"
+          >
+            Ver convocatorias
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

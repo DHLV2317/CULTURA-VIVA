@@ -1,0 +1,846 @@
+/*
+ * Santa Cultura Viva
+ * Archivo generado durante la migración a Spring Boot.
+ * Contiene estilos específicos de las páginas indicadas.
+ */
+/* =========================================================
+   Fuente: pages\foranexs\index.html
+   Ruta: /foranexs
+   ========================================================= */
+/* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .fepuc-page {
+      background: var(--bg);
+    }
+
+    .fepuc-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .fepuc-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .fepuc-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .fepuc-page .brand-subtitle {
+      display: none;
+    }
+
+    .fepuc-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .fepuc-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .fepuc-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(25, 41, 30, 0.98) 0%,
+          rgba(53, 79, 59, 0.9) 50%,
+          rgba(53, 79, 59, 0.52) 100%
+        ),
+        url("../../img/fepuc-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .fepuc-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .fepuc-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .fepuc-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .fepuc-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .fepuc-hero-copy > p:last-child {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .fepuc-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .fepuc-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .fepuc-section {
+      padding: 5rem 0;
+    }
+
+    .fepuc-section-white {
+      background: #ffffff;
+    }
+
+    .fepuc-section-soft {
+      background: var(--bg);
+    }
+
+    .fepuc-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .fepuc-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .fepuc-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       QUÉ ES FEPUC
+    ================================================== */
+
+    .fepuc-intro-editorial {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .fepuc-intro-title {
+      position: sticky;
+      top: 175px;
+    }
+
+    .fepuc-intro-title h2 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .fepuc-intro-content {
+      border-top: 1px solid var(--ink);
+    }
+
+    .fepuc-intro-block {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .fepuc-intro-block h3 {
+      margin: 0 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .fepuc-intro-block p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ==================================================
+       MISIÓN Y VISIÓN
+    ================================================== */
+
+    .mission-vision-editorial {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .mission-editorial-card {
+      min-height: 480px;
+      padding: 2rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .mission-editorial-card:hover {
+      background: var(--soft);
+    }
+
+    .mission-editorial-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .mission-editorial-card h3 {
+      margin: 4rem 0 1rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .mission-editorial-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       EJES DE TRABAJO
+    ================================================== */
+
+    .fepuc-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .fepuc-pillar {
+      min-height: 280px;
+      padding: 1.5rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .fepuc-pillar:hover {
+      background: var(--soft);
+    }
+
+    .fepuc-pillar span {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .fepuc-pillar h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ORGANIGRAMA
+    ================================================== */
+
+    .fepuc-org-chart {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .fepuc-org-main {
+      width: min(500px, 100%);
+      margin: 0 auto 4rem;
+      position: relative;
+    }
+
+    .fepuc-org-main::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -4rem;
+      width: 1px;
+      height: 4rem;
+      background: var(--ink);
+    }
+
+    .fepuc-org-box {
+      padding: 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      text-align: center;
+    }
+
+    .fepuc-org-main .fepuc-org-box {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .fepuc-org-box h3 {
+      margin: 0 0 0.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.2;
+    }
+
+    .fepuc-org-main .fepuc-org-box h3 {
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    .fepuc-org-box p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+
+    .fepuc-org-main .fepuc-org-box p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .fepuc-org-leadership {
+      position: relative;
+      margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .fepuc-org-leadership::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .fepuc-org-leadership .fepuc-org-box {
+      position: relative;
+    }
+
+    .fepuc-org-leadership .fepuc-org-box::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      width: 1px;
+      height: 2rem;
+      background: var(--ink);
+    }
+
+    .fepuc-org-secretariats {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .fepuc-org-secretariats::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 12.5%;
+      right: 12.5%;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .fepuc-org-secretariats .fepuc-org-box {
+      position: relative;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fepuc-org-secretariats .fepuc-org-box::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      width: 1px;
+      height: 2rem;
+      background: var(--ink);
+    }
+
+    /* ==================================================
+       EQUIPO
+    ================================================== */
+
+    .fepuc-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .fepuc-member {
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .fepuc-member-photo {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.15)
+        ),
+        url("../../img/fepuc-integrante.jpg")
+        center / cover no-repeat;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .fepuc-member:nth-child(2) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.18),
+          rgba(53, 79, 59, 0.12)
+        ),
+        url("../../img/fepuc-integrante-2.jpg");
+    }
+
+    .fepuc-member:nth-child(3) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(139, 47, 47, 0.12)
+        ),
+        url("../../img/fepuc-integrante-3.jpg");
+    }
+
+    .fepuc-member:nth-child(4) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.18),
+          rgba(216, 200, 184, 0.18)
+        ),
+        url("../../img/fepuc-integrante-4.jpg");
+    }
+
+    .fepuc-member:nth-child(5) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.16),
+          rgba(140, 109, 63, 0.16)
+        ),
+        url("../../img/fepuc-integrante-5.jpg");
+    }
+
+    .fepuc-member:nth-child(6) .fepuc-member-photo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.17),
+          rgba(139, 47, 47, 0.13)
+        ),
+        url("../../img/fepuc-integrante-6.jpg");
+    }
+
+    .fepuc-member-content {
+      padding: 1.5rem;
+    }
+
+    .fepuc-member-role {
+      margin: 0 0 0.65rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fepuc-member h3 {
+      margin: 0 0 0.35rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .fepuc-member-pronoun {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .fepuc-member-description {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       COMUNICACIÓN
+    ================================================== */
+
+    .fepuc-communications {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .fepuc-communications-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .fepuc-communications-copy > p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .fepuc-communications-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .fepuc-communication-item {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 70px 220px 1fr;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .fepuc-communication-item span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .fepuc-communication-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .fepuc-communication-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .fepuc-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .fepuc-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .fepuc-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .fepuc-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .fepuc-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .fepuc-pillars,
+      .fepuc-org-secretariats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fepuc-org-secretariats::before,
+      .fepuc-org-secretariats .fepuc-org-box::before {
+        display: none;
+      }
+
+      .fepuc-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .fepuc-hero-grid,
+      .fepuc-section-header,
+      .fepuc-intro-editorial,
+      .fepuc-communications,
+      .fepuc-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-intro-title {
+        position: static;
+      }
+
+      .mission-vision-editorial {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-org-main::after,
+      .fepuc-org-leadership::before,
+      .fepuc-org-leadership .fepuc-org-box::before {
+        display: none;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .fepuc-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .fepuc-hero {
+        min-height: auto;
+      }
+
+      .fepuc-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .fepuc-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .fepuc-section,
+      .fepuc-final {
+        padding: 3rem 0;
+      }
+
+      .fepuc-pillars,
+      .fepuc-org-leadership,
+      .fepuc-org-secretariats,
+      .fepuc-team-grid,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fepuc-org-main {
+        margin-bottom: 1rem;
+      }
+
+      .fepuc-org-leadership {
+        margin-bottom: 1rem;
+      }
+
+      .fepuc-communication-item {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .fepuc-communication-item p {
+        grid-column: 2;
+      }
+
+      .fepuc-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }

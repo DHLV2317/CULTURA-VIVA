@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+    lang="es"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body>
+    <div
+        th:replace="~{fragments/drawer :: drawer}"
+    ></div>
+
+    <div
+        th:replace="~{fragments/header :: header('inicio')}"
+    ></div>
+
+    <div
+        th:replace="~{fragments/search :: search}"
+    ></div>
+
+    <main class="container">
+        <h1>Santa Cultura Viva</h1>
+
+        <p>
+            Plantilla provisional. AquÃ­ se migrarÃ¡
+            el contenido del frontend original.
+        </p>
+    </main>
+
+    <div
+        th:replace="~{fragments/footer :: footer}"
+    ></div>
+
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

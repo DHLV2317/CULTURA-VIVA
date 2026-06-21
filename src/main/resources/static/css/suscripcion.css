@@ -1,0 +1,855 @@
+/*
+ * Santa Cultura Viva
+ * Archivo generado durante la migración a Spring Boot.
+ * Contiene estilos específicos de las páginas indicadas.
+ */
+/* =========================================================
+   Fuente: pages\suscripcion.html
+   Ruta: /suscripcion
+   ========================================================= */
+/* ==================================================
+       VARIABLES DE RESPALDO
+    ================================================== */
+
+    :root {
+      --bg: #f7f2ea;
+      --paper: #fffaf3;
+      --ink: #241f1b;
+      --muted: #6f6258;
+      --line: #d8c8b8;
+      --accent: #8b2f2f;
+      --accent-dark: #5e1f1f;
+      --soft: #efe1d2;
+      --green: #354f3b;
+      --purple: #8c6d3f;
+      --white: #ffffff;
+    }
+
+    /* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .suscripcion-page {
+      background: var(--bg);
+    }
+
+    .suscripcion-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .suscripcion-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .suscripcion-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .suscripcion-page .brand-subtitle {
+      display: none;
+    }
+
+    .suscripcion-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .suscripcion-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    #formulario-suscripcion,
+    #beneficios,
+    #intereses {
+      scroll-margin-top: 180px;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .suscripcion-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(28, 47, 34, 0.98) 0%,
+          rgba(53, 79, 59, 0.91) 50%,
+          rgba(94, 31, 31, 0.56) 100%
+        ),
+        url("../img/suscripcion-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .suscripcion-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .suscripcion-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .suscripcion-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .suscripcion-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(3.8rem, 8vw, 7.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .suscripcion-hero-copy > p:last-child {
+      max-width: 790px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .suscripcion-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .suscripcion-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .suscripcion-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .suscripcion-section {
+      padding: 5rem 0;
+    }
+
+    .suscripcion-section-white {
+      background: #ffffff;
+    }
+
+    .suscripcion-section-soft {
+      background: var(--bg);
+    }
+
+    .suscripcion-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .suscripcion-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .suscripcion-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       BENEFICIOS
+    ================================================== */
+
+    .subscription-benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .subscription-benefit {
+      min-height: 290px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .subscription-benefit:hover {
+      background: var(--soft);
+    }
+
+    .subscription-benefit-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .subscription-benefit:nth-child(2) .subscription-benefit-number,
+    .subscription-benefit:nth-child(5) .subscription-benefit-number {
+      color: var(--accent);
+    }
+
+    .subscription-benefit:nth-child(3) .subscription-benefit-number,
+    .subscription-benefit:nth-child(6) .subscription-benefit-number {
+      color: var(--purple);
+    }
+
+    .subscription-benefit h3 {
+      margin: 3.2rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .subscription-benefit p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       FORMULARIO
+    ================================================== */
+
+    .subscription-form-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .subscription-form-copy {
+      position: sticky;
+      top: 175px;
+    }
+
+    .subscription-form-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .subscription-form-copy > p:not(.eyebrow) {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .subscription-information {
+      margin-top: 1.5rem;
+      padding: 1.35rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--green);
+    }
+
+    .subscription-information h3 {
+      margin: 0 0 0.6rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .subscription-information p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.89rem;
+      line-height: 1.55;
+    }
+
+    .subscription-editorial-form {
+      padding: 2rem;
+      display: grid;
+      gap: 1.3rem;
+      background: #ffffff;
+      border: 1px solid var(--ink);
+      font-family: Arial, sans-serif;
+    }
+
+    .subscription-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .subscription-field {
+      display: grid;
+      gap: 0.48rem;
+    }
+
+    .subscription-field > label,
+    .subscription-field legend {
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.025em;
+    }
+
+    .subscription-field legend {
+      margin-bottom: 0.75rem;
+    }
+
+    .subscription-required {
+      color: var(--accent);
+    }
+
+    .subscription-optional {
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .subscription-field input[type="text"],
+    .subscription-field input[type="email"],
+    .subscription-field select,
+    .subscription-field textarea {
+      width: 100%;
+      padding: 0.95rem;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .subscription-field textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .subscription-field input:focus,
+    .subscription-field select:focus,
+    .subscription-field textarea:focus {
+      outline: 3px solid rgba(53, 79, 59, 0.13);
+      border-color: var(--green);
+    }
+
+    .subscription-fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    /* ==================================================
+       INTERESES DEL FORMULARIO
+    ================================================== */
+
+    .subscription-interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .subscription-interest-option {
+      position: relative;
+      min-height: 78px;
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .subscription-interest-option:hover {
+      border-color: var(--green);
+      background: var(--soft);
+    }
+
+    .subscription-interest-option:has(input:checked) {
+      border-color: var(--green);
+      background: rgba(53, 79, 59, 0.08);
+    }
+
+    .subscription-interest-option input {
+      width: 17px;
+      height: 17px;
+      margin: 0.1rem 0 0;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .subscription-interest-option span {
+      display: grid;
+      gap: 0.18rem;
+    }
+
+    .subscription-interest-option strong {
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .subscription-interest-option small {
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    /* ==================================================
+       FRECUENCIA
+    ================================================== */
+
+    .subscription-frequency-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+    }
+
+    .subscription-frequency-option {
+      min-height: 95px;
+      padding: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .subscription-frequency-option:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(139, 47, 47, 0.07);
+    }
+
+    .subscription-frequency-option input {
+      margin-top: 0.15rem;
+      accent-color: var(--accent);
+    }
+
+    .subscription-frequency-option span {
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .subscription-frequency-option strong {
+      font-size: 0.85rem;
+    }
+
+    .subscription-frequency-option small {
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.35;
+    }
+
+    /* ==================================================
+       CONSENTIMIENTO Y ENVÍO
+    ================================================== */
+
+    .subscription-consent {
+      padding: 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+
+    .subscription-consent input {
+      width: 17px;
+      height: 17px;
+      margin-top: 0.15rem;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .subscription-consent span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .subscription-consent a {
+      color: var(--accent-dark);
+      font-weight: 800;
+    }
+
+    .subscription-form-footer {
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .subscription-form-footer > p {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .subscription-submit {
+      min-width: 190px;
+    }
+
+    .subscription-form-message {
+      display: none;
+      padding: 1rem;
+      background: rgba(53, 79, 59, 0.1);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .subscription-form-message.visible {
+      display: block;
+    }
+
+    /* ==================================================
+       EXPLICACIÓN DE INTERESES
+    ================================================== */
+
+    .interest-explanation-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .interest-explanation-item {
+      padding: 1.8rem 0;
+      display: grid;
+      grid-template-columns: 90px 280px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .interest-explanation-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .interest-explanation-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .interest-explanation-item p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       COMPROMISOS DEL BOLETÍN
+    ================================================== */
+
+    .subscription-commitments {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .subscription-commitment {
+      min-height: 280px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .subscription-commitment span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .subscription-commitment h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .subscription-commitment p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .subscription-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .subscription-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .subscription-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .subscription-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .subscription-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .subscription-benefits-grid,
+      .subscription-commitments {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .suscripcion-hero-grid,
+      .suscripcion-section-header,
+      .subscription-form-layout,
+      .subscription-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .subscription-form-copy {
+        position: static;
+      }
+
+      .interest-explanation-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .interest-explanation-item p {
+        grid-column: 2;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .suscripcion-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .suscripcion-hero {
+        min-height: auto;
+      }
+
+      .suscripcion-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .suscripcion-hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5.4rem);
+      }
+
+      .suscripcion-section,
+      .subscription-final {
+        padding: 3rem 0;
+      }
+
+      .subscription-benefits-grid,
+      .subscription-form-row,
+      .subscription-interest-grid,
+      .subscription-frequency-options,
+      .subscription-commitments,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .subscription-editorial-form,
+      .subscription-final-inner {
+        padding: 1.5rem;
+      }
+
+      .subscription-form-footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .subscription-submit {
+        width: 100%;
+      }
+
+      .interest-explanation-item {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .interest-explanation-item p {
+        grid-column: auto;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }

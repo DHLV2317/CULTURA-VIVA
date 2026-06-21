@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Eventos | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/eventos.css"
+        th:href="@{/css/eventos.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-eventos eventos-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('eventos')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="eventos-hero">
+      <div class="eventos-hero-grid">
+        <div class="eventos-hero-copy">
+          <p class="eyebrow">
+            Agenda comunitaria
+          </p>
+
+          <h1>Eventos</h1>
+
+          <p>
+            Una agenda viva de actividades académicas,
+            culturales, estudiantiles, comunitarias,
+            FEPUC, asambleas y encuentros Foránexs.
+          </p>
+        </div>
+
+        <div class="eventos-hero-note">
+          <h2>
+            Eventos y convocatorias son secciones distintas
+          </h2>
+
+          <p>
+            Aquí encontrarás actividades con fecha, hora,
+            ubicación y modalidad. Las convocatorias para
+            publicar textos están en su propio apartado.
+          </p>
+
+          <a href="#eventos-proximos" class="btn btn-light">
+            Ver agenda
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="eventos-section eventos-section-white">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Filtros</p>
+
+            <h2>
+              Explora por tipo de evento
+            </h2>
+          </div>
+
+          <p>
+            Selecciona una categoría para mostrar únicamente
+            las actividades relacionadas con ese tema.
+          </p>
+        </header>
+
+        <div
+          class="event-filter-list"
+          aria-label="Filtros de eventos"
+        >
+          <button
+            class="event-filter active"
+            type="button"
+            data-filter="todos"
+            aria-pressed="true"
+          >
+            Todos
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="academico"
+            aria-pressed="false"
+          >
+            Académico
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="cultural"
+            aria-pressed="false"
+          >
+            Cultural
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="fepuc"
+            aria-pressed="false"
+          >
+            FEPUC
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="asamblea"
+            aria-pressed="false"
+          >
+            Asamblea
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="comunidad"
+            aria-pressed="false"
+          >
+            Comunidad
+          </button>
+
+          <button
+            class="event-filter"
+            type="button"
+            data-filter="foranexs"
+            aria-pressed="false"
+          >
+            Foránexs
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTO DESTACADO -->
+    <section class="eventos-section eventos-section-soft">
+      <div class="container">
+        <article class="event-featured-editorial">
+          <div class="event-featured-date-editorial">
+            <strong>19</strong>
+            <span>Junio 2026</span>
+          </div>
+
+          <div class="event-featured-content-editorial">
+            <p class="eyebrow">
+              Evento destacado · Foránexs
+            </p>
+
+            <h2>
+              Encuentro Foránexs: construir comunidad lejos de casa
+            </h2>
+
+            <p>
+              Espacio de conversación, integración y acompañamiento
+              para estudiantes que vienen de otras regiones o del
+              extranjero. El encuentro busca compartir experiencias,
+              rutas útiles y redes de apoyo.
+            </p>
+
+            <div class="event-featured-details">
+              <span>
+                <strong>Hora:</strong>
+                5:00 p. m.
+              </span>
+
+              <span>
+                <strong>Lugar:</strong>
+                Campus PUCP
+              </span>
+
+              <span>
+                <strong>Modalidad:</strong>
+                Presencial
+              </span>
+
+              <span>
+                <strong>Organiza:</strong>
+                Santa Cultura Viva
+              </span>
+            </div>
+
+            <a href="#" class="btn btn-light">
+              Ver inscripción
+            </a>
+          </div>
+
+          <div
+            class="event-featured-image-editorial"
+            role="img"
+            aria-label="Encuentro de estudiantes foránexs"
+          ></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EVENTOS PRÓXIMOS -->
+    <section
+      class="eventos-section eventos-section-white"
+      id="eventos-proximos"
+    >
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Agenda</p>
+
+            <h2>
+              Eventos próximos
+            </h2>
+          </div>
+
+          <p>
+            Actividades académicas, culturales y comunitarias
+            organizadas cronológicamente.
+          </p>
+        </header>
+
+        <div class="events-feed">
+          <!-- EVENTO 1 -->
+          <article
+            class="event-feed-item"
+            data-category="cultural comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>12</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Cultural / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Cine-foro comunitario
+                </a>
+              </h3>
+
+              <p>
+                Proyección y conversación abierta sobre cultura,
+                territorio, memoria y experiencias universitarias.
+              </p>
+
+              <div class="event-feed-info">
+                <span>6:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Auditorio por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-cineforo"
+              aria-label="Ver información del cine-foro comunitario"
+            ></a>
+          </article>
+
+          <!-- EVENTO 2 -->
+          <article
+            class="event-feed-item"
+            data-category="foranexs comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>19</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Foránexs / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Encuentro Foránexs
+                </a>
+              </h3>
+
+              <p>
+                Espacio de integración, conversación y acompañamiento
+                para estudiantes de otras regiones y del extranjero.
+              </p>
+
+              <div class="event-feed-info">
+                <span>5:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Campus PUCP</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-foranexs"
+              aria-label="Ver información del Encuentro Foránexs"
+            ></a>
+          </article>
+
+          <!-- EVENTO 3 -->
+          <article
+            class="event-feed-item"
+            data-category="fepuc comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>24</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                FEPUC / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Espacio abierto con la Mesa
+                </a>
+              </h3>
+
+              <p>
+                Conversatorio para compartir inquietudes,
+                propuestas y necesidades estudiantiles
+                con representantes de la FEPUC.
+              </p>
+
+              <div class="event-feed-info">
+                <span>4:00 p. m.</span>
+                <span>Híbrido</span>
+                <span>Ubicación por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-fepuc"
+              aria-label="Ver información del espacio abierto con FEPUC"
+            ></a>
+          </article>
+
+          <!-- EVENTO 4 -->
+          <article
+            class="event-feed-item"
+            data-category="asamblea comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>28</strong>
+              <span>Junio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Asamblea / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Asamblea estudiantil abierta
+                </a>
+              </h3>
+
+              <p>
+                Espacio de diálogo sobre problemáticas,
+                organización estudiantil y propuestas
+                de participación colectiva.
+              </p>
+
+              <div class="event-feed-info">
+                <span>3:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Lugar por confirmar</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-asamblea"
+              aria-label="Ver información de la asamblea estudiantil"
+            ></a>
+          </article>
+
+          <!-- EVENTO 5 -->
+          <article
+            class="event-feed-item"
+            data-category="academico comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>03</strong>
+              <span>Julio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Académico / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Conversatorio sobre territorio y universidad
+                </a>
+              </h3>
+
+              <p>
+                Diálogo sobre desigualdad territorial,
+                centralismo y experiencias universitarias
+                desde distintas regiones del país.
+              </p>
+
+              <div class="event-feed-info">
+                <span>5:30 p. m.</span>
+                <span>Híbrido</span>
+                <span>Auditorio y transmisión</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-academico"
+              aria-label="Ver conversatorio sobre territorio y universidad"
+            ></a>
+          </article>
+
+          <!-- EVENTO 6 -->
+          <article
+            class="event-feed-item"
+            data-category="cultural comunidad"
+          >
+            <div class="event-feed-date">
+              <strong>10</strong>
+              <span>Julio 2026</span>
+            </div>
+
+            <div class="event-feed-content">
+              <p class="event-feed-category">
+                Cultural / Comunidad
+              </p>
+
+              <h3>
+                <a href="#">
+                  Feria de proyectos culturales estudiantiles
+                </a>
+              </h3>
+
+              <p>
+                Encuentro para conocer publicaciones,
+                colectivos, intervenciones artísticas
+                y proyectos culturales de estudiantes.
+              </p>
+
+              <div class="event-feed-info">
+                <span>12:00 p. m.</span>
+                <span>Presencial</span>
+                <span>Jardines del campus</span>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="event-feed-image event-image-cultural"
+              aria-label="Ver feria de proyectos culturales"
+            ></a>
+          </article>
+        </div>
+
+        <p class="events-empty" id="eventsEmpty">
+          No se encontraron eventos para esta categoría.
+        </p>
+      </div>
+    </section>
+
+    <!-- TIPOS DE EVENTOS -->
+    <section class="eventos-section eventos-section-soft">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Categorías</p>
+
+            <h2>
+              Tipos de eventos
+            </h2>
+          </div>
+
+          <p>
+            Cada categoría responde a una necesidad distinta
+            dentro de la comunidad universitaria.
+          </p>
+        </header>
+
+        <div class="event-types-grid">
+          <article class="event-type-card">
+            <span>01</span>
+
+            <h3>Académico</h3>
+
+            <p>
+              Charlas, conversatorios, mesas de diálogo
+              y actividades vinculadas con la formación universitaria.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>02</span>
+
+            <h3>Cultural</h3>
+
+            <p>
+              Cine-foros, ferias, exposiciones,
+              presentaciones, lecturas y actividades artísticas.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>03</span>
+
+            <h3>FEPUC</h3>
+
+            <p>
+              Actividades, espacios de escucha y encuentros
+              organizados o vinculados con la federación.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>04</span>
+
+            <h3>Asamblea</h3>
+
+            <p>
+              Espacios de deliberación, organización
+              y participación estudiantil.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>05</span>
+
+            <h3>Comunidad</h3>
+
+            <p>
+              Encuentros abiertos para fortalecer redes,
+              conversación, colaboración y acompañamiento.
+            </p>
+          </article>
+
+          <article class="event-type-card">
+            <span>06</span>
+
+            <h3>Foránexs</h3>
+
+            <p>
+              Actividades para estudiantes de otras regiones,
+              del extranjero o con experiencias migrantes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="eventos-section eventos-section-white">
+      <div class="container">
+        <header class="eventos-section-header">
+          <div>
+            <p class="eyebrow">Calendario</p>
+
+            <h2>
+              Junio de 2026
+            </h2>
+          </div>
+
+          <p>
+            Vista mensual de las actividades registradas
+            en la agenda de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="events-calendar">
+          <div class="events-calendar-header">
+            <h3>Junio 2026</h3>
+
+            <span>
+              Agenda cultural y universitaria
+            </span>
+          </div>
+
+          <div class="events-calendar-grid">
+            <div class="calendar-weekday">Lun</div>
+            <div class="calendar-weekday">Mar</div>
+            <div class="calendar-weekday">Mié</div>
+            <div class="calendar-weekday">Jue</div>
+            <div class="calendar-weekday">Vie</div>
+            <div class="calendar-weekday">Sáb</div>
+            <div class="calendar-weekday">Dom</div>
+
+            <div class="calendar-day">
+              <strong>1</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>2</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>3</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>4</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>5</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>6</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>7</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>8</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>9</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>10</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>11</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>12</strong>
+
+              <a href="#eventos-proximos">
+                Cine-foro comunitario
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>13</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>14</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>15</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>16</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>17</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>18</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>19</strong>
+
+              <a href="#eventos-proximos">
+                Encuentro Foránexs
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>20</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>21</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>22</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>23</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>24</strong>
+
+              <a href="#eventos-proximos">
+                Espacio abierto FEPUC
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>25</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>26</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>27</strong>
+            </div>
+
+            <div class="calendar-day event-day">
+              <strong>28</strong>
+
+              <a href="#eventos-proximos">
+                Asamblea estudiantil
+              </a>
+            </div>
+
+            <div class="calendar-day">
+              <strong>29</strong>
+            </div>
+
+            <div class="calendar-day">
+              <strong>30</strong>
+            </div>
+
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+            <div class="calendar-day empty"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="events-final">
+      <div class="container">
+        <div class="events-final-inner">
+          <div>
+            <p class="eyebrow">
+              Propón un evento
+            </p>
+
+            <h2>
+              ¿Tienes una actividad para compartir?
+            </h2>
+
+            <p>
+              Envía información sobre actividades académicas,
+              culturales, comunitarias, FEPUC, asambleas
+              o encuentros Foránexs para revisión editorial.
+            </p>
+          </div>
+
+          <a
+            href="/contacto" th:href="@{/contacto}"
+            class="btn btn-light"
+          >
+            Proponer evento
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+      const filters = document.querySelectorAll(".event-filter");
+      const events = document.querySelectorAll(".event-feed-item");
+      const emptyMessage = document.getElementById("eventsEmpty");
+
+      filters.forEach(function (filterButton) {
+        filterButton.addEventListener("click", function () {
+          const selectedFilter = filterButton.dataset.filter;
+          let visibleEvents = 0;
+
+          filters.forEach(function (button) {
+            const isSelected = button === filterButton;
+
+            button.classList.toggle("active", isSelected);
+            button.setAttribute(
+              "aria-pressed",
+              isSelected ? "true" : "false"
+            );
+          });
+
+          events.forEach(function (eventItem) {
+            const categories =
+              eventItem.dataset.category
+                .toLowerCase()
+                .split(" ");
+
+            const shouldShow =
+              selectedFilter === "todos" ||
+              categories.includes(selectedFilter);
+
+            eventItem.hidden = !shouldShow;
+
+            if (shouldShow) {
+              visibleEvents += 1;
+            }
+          });
+
+          emptyMessage.classList.toggle(
+            "visible",
+            visibleEvents === 0
+          );
+        });
+      });
+    });
+</script>
+</body>
+</html>

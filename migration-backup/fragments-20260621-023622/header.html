@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header
+    class="editorial-header"
+    th:fragment="header(activePage)"
+>
+    <!-- Cabecera editorial compartida -->
+
+    <div class="editorial-masthead">
+        <div class="masthead-tools">
+            <button
+                class="icon-button hamburger-button"
+                id="editorialMenuBtn"
+                type="button"
+                aria-label="Abrir menÃº"
+                aria-expanded="false"
+                aria-controls="editorialDrawer"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <button
+                class="icon-button search-button"
+                id="searchButton"
+                type="button"
+                aria-label="Abrir buscador"
+                aria-expanded="false"
+                aria-controls="searchPanel"
+            >
+                <span class="search-circle"></span>
+                <span class="search-handle"></span>
+            </button>
+        </div>
+
+        <a class="editorial-brand" th:href="@{/}">
+            <span class="brand-name">
+                Santa Cultura Viva
+            </span>
+        </a>
+
+        <div class="masthead-social">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="TikTok">TK</a>
+            <a href="#" aria-label="YouTube">YT</a>
+        </div>
+    </div>
+
+    <nav class="editorial-nav" aria-label="NavegaciÃ³n principal">
+        <a
+            th:href="@{/}"
+            th:classappend="${activePage == 'inicio'} ? ' active' : ''"
+        >
+            Inicio
+        </a>
+
+        <a
+            th:href="@{/fepuc}"
+            th:classappend="${activePage == 'fepuc'} ? ' active' : ''"
+        >
+            FEPUC
+        </a>
+
+        <a
+            th:href="@{/alertas}"
+            th:classappend="${activePage == 'alertas'} ? ' active' : ''"
+        >
+            Alertas
+        </a>
+
+        <a
+            th:href="@{/cronicas}"
+            th:classappend="${activePage == 'cronicas'} ? ' active' : ''"
+        >
+            CrÃ³nicas
+        </a>
+
+        <a
+            th:href="@{/curaduria}"
+            th:classappend="${activePage == 'curaduria'} ? ' active' : ''"
+        >
+            CuradurÃ­a
+        </a>
+
+        <a
+            th:href="@{/eventos}"
+            th:classappend="${activePage == 'eventos'} ? ' active' : ''"
+        >
+            Eventos
+        </a>
+
+        <a
+            th:href="@{/foranexs}"
+            th:classappend="${activePage == 'foranexs'} ? ' active' : ''"
+        >
+            ForÃ¡nexs en Red
+        </a>
+
+        <a
+            th:href="@{/convocatorias}"
+            th:classappend="${activePage == 'convocatorias'} ? ' active' : ''"
+        >
+            Convocatorias
+        </a>
+    </nav>
+</header>
+
+</body>
+</html>

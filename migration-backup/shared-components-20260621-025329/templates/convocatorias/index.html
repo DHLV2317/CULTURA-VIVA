@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Convocatorias | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/convocatorias.css"
+        th:href="@{/css/convocatorias.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-convocatorias convocatorias-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('convocatorias')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="convocatorias-hero">
+      <div class="convocatorias-hero-grid">
+        <div class="convocatorias-hero-copy">
+          <p class="eyebrow">
+            Convocatorias editoriales
+          </p>
+
+          <h1>
+            Publica tu texto en Santa Cultura Viva
+          </h1>
+
+          <p>
+            Un espacio para compartir crónicas, ensayos, relatos,
+            reseñas y reflexiones sobre cultura, territorio,
+            comunidad, memoria y vida universitaria.
+          </p>
+        </div>
+
+        <div class="convocatorias-hero-card">
+          <h2>Convocatoria vigente</h2>
+
+          <p>
+            La recepción se abre cada mes. Los textos pasan por
+            revisión y acompañamiento editorial antes de publicarse.
+          </p>
+
+          <a
+            href="#convocatoria-vigente"
+            class="btn btn-light"
+          >
+            Ver temática del mes
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONVOCATORIA VIGENTE -->
+    <section
+      class="convocatorias-section convocatorias-section-white"
+      id="convocatoria-vigente"
+    >
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Edición actual</p>
+            <h2>Convocatoria vigente</h2>
+          </div>
+
+          <p>
+            Conoce la temática, el periodo de recepción
+            y las condiciones para enviar tu propuesta.
+          </p>
+        </header>
+
+        <div class="convocatoria-vigente">
+          <div class="convocatoria-vigente-copy">
+            <p class="eyebrow eyebrow-light">
+              Temática del mes
+            </p>
+
+            <h2>
+              Lima no es el Perú: experiencias, memoria y territorio
+            </h2>
+
+            <p>
+              Esta edición invita a reflexionar sobre el centralismo,
+              las experiencias de estudiantes que vienen de otras regiones,
+              las memorias territoriales y las formas en que se construye
+              comunidad lejos del lugar de origen.
+            </p>
+
+            <p>
+              Se recibirán textos sobre experiencias personales,
+              relatos colectivos, procesos culturales, identidad,
+              migración interna, desigualdad territorial o memoria comunitaria.
+            </p>
+          </div>
+
+          <div class="convocatoria-datos">
+            <h3>Datos de envío</h3>
+
+            <ul>
+              <li>
+                <strong>Recepción:</strong>
+                del 1 al 20 de cada mes.
+              </li>
+
+              <li>
+                <strong>Correo:</strong>
+                santaculturaviva@gmail.com
+              </li>
+
+              <li>
+                <strong>Asunto:</strong>
+                Convocatoria SCV - Nombre social - Título.
+              </li>
+
+              <li>
+                <strong>Formato:</strong>
+                archivo Word o enlace de Google Docs.
+              </li>
+
+              <li>
+                <strong>Extensión:</strong>
+                entre 800 y 1500 palabras.
+              </li>
+            </ul>
+
+            <a
+              href="mailto:santaculturaviva@gmail.com"
+              class="btn btn-light"
+            >
+              Enviar texto
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO EDITORIAL -->
+    <section class="convocatorias-section convocatorias-section-soft">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Dinámica editorial</p>
+
+            <h2>
+              ¿Cómo funciona la convocatoria?
+            </h2>
+          </div>
+
+          <p>
+            El proceso ofrece claridad, acompañamiento
+            editorial y criterios transparentes.
+          </p>
+        </header>
+
+        <div class="steps-editorial">
+          <article class="step-editorial">
+            <span>01</span>
+
+            <h3>Se anuncia la temática</h3>
+
+            <p>
+              Cada mes se publica una temática vinculada
+              con cultura, territorio, comunidad o vida universitaria.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>02</span>
+
+            <h3>Se reciben los textos</h3>
+
+            <p>
+              Lxs estudiantes envían sus trabajos al correo oficial
+              durante el periodo anunciado.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>03</span>
+
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El equipo evalúa la pertinencia, claridad,
+              enfoque y coherencia del contenido.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>04</span>
+
+            <h3>Observaciones</h3>
+
+            <p>
+              Se envían sugerencias cuando el texto requiere
+              ajustes antes de su aprobación.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>05</span>
+
+            <h3>Aprobación</h3>
+
+            <p>
+              El texto corregido queda aprobado para formar
+              parte de la revista digital.
+            </p>
+          </article>
+
+          <article class="step-editorial">
+            <span>06</span>
+
+            <h3>Publicación</h3>
+
+            <p>
+              El contenido se publica en Crónicas
+              o dentro de una edición temática.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATOS ACEPTADOS -->
+    <section class="convocatorias-section convocatorias-section-white">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Formatos aceptados</p>
+
+            <h2>
+              ¿Qué tipo de textos se reciben?
+            </h2>
+          </div>
+
+          <p>
+            Los textos deben dialogar con la temática mensual
+            y con el enfoque editorial de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="formatos-grid">
+          <article class="formato-card">
+            <span>01</span>
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos narrativos sobre experiencias,
+              territorios, comunidad y vida universitaria.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>02</span>
+            <h3>Artículos de opinión</h3>
+
+            <p>
+              Textos argumentativos sobre problemáticas
+              sociales, culturales o estudiantiles.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>03</span>
+            <h3>Ensayos breves</h3>
+
+            <p>
+              Reflexiones analíticas sobre memoria,
+              centralismo, derechos o territorio.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>04</span>
+            <h3>Relatos</h3>
+
+            <p>
+              Textos personales o colectivos
+              que transmiten experiencias significativas.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>05</span>
+            <h3>Reseñas culturales</h3>
+
+            <p>
+              Comentarios sobre libros, películas,
+              exposiciones y eventos culturales.
+            </p>
+          </article>
+
+          <article class="formato-card">
+            <span>06</span>
+            <h3>Reflexiones territoriales</h3>
+
+            <p>
+              Textos sobre origen, migración,
+              pertenencia, identidad y memoria.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDICACIONES -->
+    <section class="convocatorias-section convocatorias-section-soft">
+      <div class="container indicaciones-layout">
+        <div class="indicaciones-intro">
+          <p class="eyebrow">Indicaciones</p>
+
+          <h2>
+            Antes de enviar tu texto
+          </h2>
+
+          <p>
+            Cada propuesta debe incluir información básica
+            de lx autorx y cumplir algunos criterios mínimos.
+          </p>
+        </div>
+
+        <div class="indicaciones-list">
+          <div class="indicacion-item">
+            <h3>Datos de lx autorx</h3>
+
+            <p>
+              Nombre social, pronombre, carrera o vínculo
+              con la comunidad y correo de contacto.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Título</h3>
+
+            <p>
+              Incluye un título claro. Puede ser provisional
+              si todavía se encuentra en edición.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Extensión</h3>
+
+            <p>
+              Se recomienda una extensión de 800 a 1500 palabras.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Formato</h3>
+
+            <p>
+              Archivo Word o enlace de Google Docs
+              con permisos de lectura o comentario.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Asunto</h3>
+
+            <p>
+              Convocatoria SCV - Nombre social - Título del texto.
+            </p>
+          </div>
+
+          <div class="indicacion-item">
+            <h3>Revisión editorial</h3>
+
+            <p>
+              El envío no garantiza publicación automática.
+              Todo texto pasa por un proceso de revisión.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="convocatorias-section convocatorias-section-white">
+      <div class="container">
+        <header class="convocatorias-section-header">
+          <div>
+            <p class="eyebrow">Calendario</p>
+
+            <h2>
+              Frecuencia de apertura
+            </h2>
+          </div>
+
+          <p>
+            La temática cambia según la agenda editorial,
+            social y cultural de Santa Cultura Viva.
+          </p>
+        </header>
+
+        <div class="calendar-editorial">
+          <article class="calendar-item">
+            <span>Semana 1</span>
+            <h3>Apertura</h3>
+
+            <p>
+              Se anuncia la temática y las indicaciones.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Días 1 al 20</span>
+            <h3>Recepción</h3>
+
+            <p>
+              Lxs estudiantes envían sus textos.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Días 21 al 25</span>
+            <h3>Revisión</h3>
+
+            <p>
+              El equipo selecciona y envía observaciones.
+            </p>
+          </article>
+
+          <article class="calendar-item">
+            <span>Fin de mes</span>
+            <h3>Publicación</h3>
+
+            <p>
+              Los textos aprobados se publican en la revista.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="convocatoria-final">
+      <div class="container">
+        <div class="convocatoria-final-inner">
+          <div>
+            <p class="eyebrow eyebrow-light">Participa</p>
+
+            <h2>
+              Tu voz también puede ser parte de la revista
+            </h2>
+
+            <p>
+              Santa Cultura Viva abre un espacio para relatos,
+              análisis y memorias que no siempre encuentran lugar
+              en los medios tradicionales.
+            </p>
+          </div>
+
+          <a
+            href="mailto:santaculturaviva@gmail.com"
+            class="btn btn-light"
+          >
+            Enviar propuesta
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

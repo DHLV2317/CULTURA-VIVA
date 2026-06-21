@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Detalle de crónica | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/cronicas.css"
+        th:href="@{/css/cronicas.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-cronica-detalle cronica-detail-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('cronicas')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <article>
+      <header class="cronica-article-hero">
+        <div class="cronica-article-hero-content">
+          <p class="eyebrow">
+            Crónica · Foránexs
+          </p>
+
+          <h1>
+            Primer ciclo lejos de casa
+          </h1>
+
+          <p class="cronica-article-summary">
+            Una crónica sobre llegar a Lima, aprender a moverse
+            por una ciudad nueva, iniciar la vida universitaria
+            y construir comunidad lejos del lugar de origen.
+          </p>
+
+          <div class="cronica-article-meta">
+            <span>
+              Por Nombre social de lx estudiante
+            </span>
+
+            <span>
+              Pronombre: elle
+            </span>
+
+            <time datetime="2026-06-12">
+              Junio 12, 2026
+            </time>
+
+            <span>
+              Vida universitaria · Foránexs · Comunidad
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <section class="cronica-reading-section">
+        <div class="container cronica-reading-layout">
+          <aside class="cronica-reading-sidebar">
+            <div class="cronica-sidebar-box">
+              <h3>Sobre esta crónica</h3>
+
+              <p>
+                Las crónicas recogen experiencias,
+                memorias y reflexiones desde una voz situada.
+              </p>
+            </div>
+
+            <div class="cronica-sidebar-box">
+              <h3>También puede interesarte</h3>
+
+              <a href="/foranexs" th:href="@{/foranexs}">
+                Explorar Foránexs en Red
+              </a>
+            </div>
+
+            <div class="cronica-sidebar-box">
+              <h3>Enviar un texto</h3>
+
+              <p>
+                Comparte tu crónica mediante
+                la convocatoria editorial mensual.
+              </p>
+
+              <a
+                href="/convocatorias" th:href="@{/convocatorias}"
+                class="btn btn-primary"
+              >
+                Ver convocatoria
+              </a>
+            </div>
+          </aside>
+
+          <div class="cronica-article-body">
+            <p>
+              Llegar a Lima fue aprender a mirar todo dos veces.
+              La primera vez para entender dónde estaba; la segunda,
+              para convencerme de que también podía habitar ese lugar.
+            </p>
+
+            <p>
+              El primer día de clases no solo llevé cuadernos,
+              horarios y una mochila demasiado llena. También llevé
+              una lista invisible de preguntas: cómo volver,
+              dónde comer, a quién llamar si me perdía y cuánto tiempo
+              me tomaría sentir que la universidad también podía ser mía.
+            </p>
+
+            <h2>
+              Una ciudad que no espera
+            </h2>
+
+            <p>
+              Lima se mueve rápido. Los buses, las avenidas,
+              las conversaciones y los horarios. Para quienes
+              venimos de otros territorios, esa velocidad puede
+              sentirse como una exigencia silenciosa:
+              adaptarse rápido, entender rápido y no preguntar tanto.
+            </p>
+
+            <p>
+              Pero adaptarse no siempre significa sentirse bien.
+              A veces adaptarse es aprender la ruta correcta,
+              reconocer una esquina, encontrar un lugar donde
+              almorzar sin gastar demasiado o descubrir que hay
+              otrxs estudiantes que también están aprendiendo a quedarse.
+            </p>
+
+            <h2>
+              La universidad como territorio nuevo
+            </h2>
+
+            <p>
+              El campus también fue un mapa por descifrar.
+              Aulas, bibliotecas, oficinas, patios y pasillos
+              que al inicio parecían iguales.
+            </p>
+
+            <p>
+              Poco a poco, cada espacio empezó a tener una historia:
+              una banca donde esperar, una biblioteca donde respirar,
+              una cafetería donde escuchar acentos distintos.
+            </p>
+
+            <blockquote>
+              <p>
+                Estar lejos de casa no significa dejar de pertenecer.
+                A veces significa aprender a construir pertenencia
+                en más de un lugar.
+              </p>
+            </blockquote>
+
+            <h2>
+              Encontrar comunidad
+            </h2>
+
+            <p>
+              Lo más importante no fue aprender una ruta,
+              sino encontrar personas. Gente que también venía
+              de lejos, que también extrañaba y que también
+              estaba intentando entender la ciudad y la universidad
+              al mismo tiempo.
+            </p>
+
+            <p>
+              En esas conversaciones apareció una forma de cuidado:
+              compartir datos, avisar sobre eventos gratuitos,
+              recomendar comedores, acompañarse a una actividad
+              o preguntar si alguien llegó bien.
+            </p>
+
+            <h2>
+              Volver sin irse
+            </h2>
+
+            <p>
+              Con el tiempo entendí que estar en Lima no borraba
+              mi lugar de origen. Lo traía conmigo en la forma
+              de hablar, en la comida que extrañaba,
+              en las llamadas de la noche y en la memoria
+              de lo que me hizo llegar hasta aquí.
+            </p>
+
+            <p>
+              El primer ciclo lejos de casa no fue solamente
+              una etapa académica. Fue una experiencia de aprendizaje
+              emocional, territorial y comunitario.
+            </p>
+
+            <p>
+              Fue entender que estudiar también implica sostenerse,
+              buscar redes y reconocer que nadie debería atravesar
+              la universidad en soledad.
+            </p>
+
+            <div class="cronica-author-box">
+              <div class="cronica-author-avatar">
+                Foto de autorx
+              </div>
+
+              <div>
+                <h3>
+                  Nombre social de lx estudiante
+                </h3>
+
+                <p>
+                  Estudiante y colaboradorx de Santa Cultura Viva.
+                  Escribe sobre territorio, memoria,
+                  comunidad y experiencia universitaria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <section class="related-cronicas">
+      <div class="container">
+        <header class="related-cronicas-header">
+          <div>
+            <p class="eyebrow">
+              Seguir leyendo
+            </p>
+
+            <h2>
+              Más crónicas
+            </h2>
+          </div>
+
+          <p>
+            Otros textos sobre memoria, territorio,
+            cultura y vida universitaria.
+          </p>
+        </header>
+
+        <div class="related-cronicas-grid">
+          <article class="related-cronica-card">
+            <span>Memoria · Territorio</span>
+
+            <h3>
+              Lo que traemos en la mochila
+            </h3>
+
+            <p>
+              Una reflexión sobre identidad,
+              territorio y memoria familiar.
+            </p>
+
+            <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+              Leer crónica →
+            </a>
+          </article>
+
+          <article class="related-cronica-card">
+            <span>Cultura · Comunidad</span>
+
+            <h3>
+              La ciudad también se aprende caminando
+            </h3>
+
+            <p>
+              Un recorrido por espacios culturales
+              y nuevas formas de habitar la ciudad.
+            </p>
+
+            <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+              Leer crónica →
+            </a>
+          </article>
+
+          <article class="related-cronica-card">
+            <span>Opinión · Universidad</span>
+
+            <h3>
+              Estudiar también es sostenerse
+            </h3>
+
+            <p>
+              Reflexión sobre bienestar,
+              exigencia académica y redes de cuidado.
+            </p>
+
+            <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+              Leer crónica →
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+
+</body>
+</html>

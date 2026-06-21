@@ -1,0 +1,643 @@
+/*
+ * Santa Cultura Viva
+ * Archivo generado durante la migración a Spring Boot.
+ * Contiene estilos específicos de las páginas indicadas.
+ */
+/* =========================================================
+   Fuente: pages\alertas\index.html
+   Ruta: /alertas
+   ========================================================= */
+/* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
+    .alertas-page {
+      background: var(--bg);
+    }
+
+    .alertas-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .alertas-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .alertas-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .alertas-page .brand-subtitle {
+      display: none;
+    }
+
+    .alertas-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .alertas-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .alertas-hero {
+      position: relative;
+      min-height: 610px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(47, 15, 15, 0.96) 0%,
+          rgba(94, 31, 31, 0.87) 48%,
+          rgba(94, 31, 31, 0.52) 100%
+        ),
+        url("../../img/alerta-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .alertas-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.55),
+          transparent 60%
+        );
+    }
+
+    .alertas-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .alertas-hero .eyebrow {
+      color: #f2cccc;
+    }
+
+    .alertas-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .alertas-hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .alertas-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .alertas-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .alertas-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       ESTRUCTURA DE SECCIONES
+    ========================================= */
+
+    .alertas-section {
+      padding: 5rem 0;
+    }
+
+    .alertas-section-white {
+      background: #ffffff;
+    }
+
+    .alertas-section-soft {
+      background: var(--bg);
+    }
+
+    .alertas-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .alertas-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .alertas-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FILTROS
+    ========================================= */
+
+    .alert-filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .alert-filter {
+      padding: 0.62rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .alert-filter:hover,
+    .alert-filter.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* =========================================
+       ALERTA DESTACADA
+    ========================================= */
+
+    .alert-featured {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 560px;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .alert-featured-image {
+      min-height: 560px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.25),
+          rgba(20, 17, 15, 0.05)
+        ),
+        url("../../img/alerta-destacada.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #8b2f2f, #354f3b);
+    }
+
+    .alert-featured-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .alert-featured-content .eyebrow {
+      color: #f2cccc;
+    }
+
+    .alert-featured-content h2 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(2.4rem, 4vw, 4.3rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .alert-featured-content > p {
+      margin: 0 0 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .alert-featured-tags {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .alert-featured-tags span {
+      padding: 0.4rem 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: 999px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+    }
+
+    /* =========================================
+       LISTADO EDITORIAL
+    ========================================= */
+
+    .alerts-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .alert-feed-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 390px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .alert-feed-date {
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .alert-feed-date time {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .alert-feed-date span {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .alert-feed-category {
+      margin: 0 0 0.6rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .alert-feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .alert-feed-content h3 a:hover {
+      color: var(--accent);
+    }
+
+    .alert-feed-content > p {
+      max-width: 660px;
+      margin: 0 0 1rem;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .alert-feed-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .alert-feed-tags span {
+      padding: 0.32rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .alert-feed-image {
+      min-height: 245px;
+      display: block;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .alert-image-consulta {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.16),
+          rgba(53, 79, 59, 0.14)
+        ),
+        url("../../img/alerta-consulta.jpg");
+    }
+
+    .alert-image-migrantes {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.18),
+          rgba(140, 109, 63, 0.13)
+        ),
+        url("../../img/alerta-migrantes.jpg");
+    }
+
+    .alert-image-servicios {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(216, 200, 184, 0.15)
+        ),
+        url("../../img/alerta-servicios.jpg");
+    }
+
+    .alert-image-centralismo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.2),
+          rgba(36, 31, 27, 0.13)
+        ),
+        url("../../img/alerta-centralismo.jpg");
+    }
+
+    .alert-image-ambiental {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.23),
+          rgba(140, 109, 63, 0.13)
+        ),
+        url("../../img/alerta-ambiental.jpg");
+    }
+
+    .alert-image-representacion {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.18),
+          rgba(139, 47, 47, 0.13)
+        ),
+        url("../../img/alerta-representacion.jpg");
+    }
+
+    /* =========================================
+       INSTAGRAM
+    ========================================= */
+
+    .instagram-editorial {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .instagram-editorial-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .instagram-editorial-inner .eyebrow {
+      color: #d9eadc;
+    }
+
+    .instagram-editorial-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .instagram-editorial-inner p {
+      max-width: 780px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.83);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER EDITORIAL
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .alert-feed-item {
+        grid-template-columns: 125px minmax(0, 1fr) 310px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .alertas-hero-grid,
+      .alert-featured,
+      .alertas-section-header,
+      .instagram-editorial-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .alert-featured-image {
+        min-height: 420px;
+      }
+
+      .alert-feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .alert-feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .alertas-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .alertas-hero {
+        min-height: auto;
+      }
+
+      .alertas-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .alertas-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .alertas-section,
+      .instagram-editorial {
+        padding: 3rem 0;
+      }
+
+      .alert-featured-content {
+        padding: 1.6rem;
+      }
+
+      .alert-featured-image {
+        min-height: 300px;
+      }
+
+      .alert-feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .alert-feed-date {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .alert-feed-image {
+        min-height: 230px;
+      }
+
+      .instagram-editorial-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+
+/* =========================================================
+   Fuente: pages\alertas\detalle.html
+   Ruta: /alertas/detalle
+   ========================================================= */
+/* Esta página no contenía CSS interno. */

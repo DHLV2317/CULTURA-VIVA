@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="drawer">
+    <div
+        class="drawer-backdrop"
+        id="drawerBackdrop"
+        aria-hidden="true"
+    ></div>
+
+    <aside
+        class="editorial-drawer"
+        id="editorialDrawer"
+        aria-hidden="true"
+    >
+        <div class="drawer-header">
+            <strong>Santa Cultura Viva</strong>
+
+            <button
+                class="drawer-close"
+                id="drawerClose"
+                type="button"
+                aria-label="Cerrar menÃº"
+            >
+                Ã—
+            </button>
+        </div>
+
+        <nav class="drawer-nav" aria-label="NavegaciÃ³n lateral">
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/fepuc}">FEPUC</a>
+            <a th:href="@{/que-es}">Â¿QuÃ© es Santa Cultura Viva?</a>
+            <a th:href="@{/alertas}">Alertas</a>
+            <a th:href="@{/cronicas}">CrÃ³nicas</a>
+            <a th:href="@{/curaduria}">CuradurÃ­a</a>
+            <a th:href="@{/eventos}">Eventos</a>
+            <a th:href="@{/foranexs}">ForÃ¡nexs en Red</a>
+            <a th:href="@{/convocatorias}">Convocatorias</a>
+            <a th:href="@{/suscripcion}">SuscripciÃ³n</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+    </aside>
+</div>
+
+</body>
+</html>

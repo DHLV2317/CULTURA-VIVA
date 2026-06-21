@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html
+    lang="es"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/home.css"
+        th:href="@{/css/home.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="home-page">
+    <!-- Menú lateral compartido -->
+    <div
+        th:replace="~{fragments/drawer :: drawer}"
+    ></div>
+
+    <!-- Cabecera compartida -->
+    <div
+        th:replace="~{fragments/header :: header('inicio')}"
+    ></div>
+
+    <!-- Buscador compartido -->
+    <div
+        th:replace="~{fragments/search :: search}"
+    ></div>
+
+    <main>
+<!-- PORTADA PRINCIPAL -->
+    <section class="editorial-hero">
+      <div class="editorial-hero-overlay"></div>
+
+      <div class="editorial-hero-content">
+        <span class="editorial-category">
+          Alerta destacada
+        </span>
+
+        <h1>
+          Lima no es el Perú: mirar el país desde sus territorios y comunidades
+        </h1>
+
+        <p class="editorial-excerpt">
+          Un análisis sobre centralismo, representación y las voces
+          que permanecen fuera de la agenda pública.
+        </p>
+
+        <div class="editorial-meta">
+          <span>Por Santa Cultura Viva</span>
+          <span aria-hidden="true">/</span>
+
+          <time datetime="2026-06-17">
+            Junio 17, 2026
+          </time>
+        </div>
+
+        <a
+          class="editorial-hero-link"
+          href="/alertas/detalle" th:href="@{/alertas/detalle}"
+          aria-label="Leer alerta destacada"
+        ></a>
+      </div>
+    </section>
+
+    <!-- ÚLTIMAS ENTRADAS -->
+    <section class="latest-editorial">
+      <div class="container">
+        <header class="latest-editorial-header">
+          <h2>Últimas entradas</h2>
+        </header>
+
+        <div class="editorial-feed">
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-17">
+                Junio 17, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Alertas / Lima no es el Perú
+              </p>
+
+              <h3>
+                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
+                  Cuando el centralismo invisibiliza las demandas territoriales
+                </a>
+              </h3>
+
+              <p>
+                Un análisis sobre representación mediática,
+                desigualdad territorial y las voces que permanecen
+                fuera del centro de la agenda nacional.
+              </p>
+            </div>
+
+            <a
+              href="/alertas/detalle" th:href="@{/alertas/detalle}"
+              class="feed-image feed-image-alerta"
+              aria-label="Leer alerta sobre centralismo"
+            ></a>
+          </article>
+
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-14">
+                Junio 14, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Crónicas / Vida universitaria
+              </p>
+
+              <h3>
+                <a href="/cronicas/detalle" th:href="@{/cronicas/detalle}">
+                  Habitar la universidad desde otros territorios
+                </a>
+              </h3>
+
+              <p>
+                Relatos sobre memoria, desplazamiento, pertenencia
+                y las experiencias de quienes llegan a la universidad
+                desde otros lugares.
+              </p>
+            </div>
+
+            <a
+              href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+              class="feed-image feed-image-cronica"
+              aria-label="Leer crónica sobre vida universitaria"
+            ></a>
+          </article>
+
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-10">
+                Junio 10, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Curaduría / Lecturas
+              </p>
+
+              <h3>
+                <a href="/curaduria" th:href="@{/curaduria}">
+                  Lecturas para pensar cultura, territorio y centralismo
+                </a>
+              </h3>
+
+              <p>
+                Una selección comentada de textos, investigaciones
+                y recursos para ampliar los debates planteados
+                por la revista.
+              </p>
+            </div>
+
+            <a
+              href="/curaduria" th:href="@{/curaduria}"
+              class="feed-image feed-image-curaduria"
+              aria-label="Ver selección de lecturas"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICACIÓN DESTACADA -->
+    <section class="visual-feature-section">
+      <div class="container">
+        <article class="visual-feature">
+          <div class="visual-feature-content">
+            <div class="visual-feature-tags">
+              <span>Crónicas</span>
+              <span>Foránexs</span>
+            </div>
+
+            <h2>
+              Primer ciclo lejos de casa: aprender a habitar una nueva ciudad
+            </h2>
+
+            <div class="visual-feature-meta">
+              <span>Por Santa Cultura Viva</span>
+              <span>/</span>
+
+              <time datetime="2026-06-08">
+                Junio 8, 2026
+              </time>
+            </div>
+          </div>
+
+          <a
+            href="/cronicas/detalle" th:href="@{/cronicas/detalle}"
+            class="visual-feature-link"
+            aria-label="Leer Primer ciclo lejos de casa"
+          ></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- MÁS ENTRADAS -->
+    <section class="latest-editorial">
+      <div class="container">
+        <div class="editorial-feed">
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-07">
+                Junio 7, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Eventos / Comunidad
+              </p>
+
+              <h3>
+                <a href="/eventos" th:href="@{/eventos}">
+                  Encuentro comunitario de estudiantes foránexs
+                </a>
+              </h3>
+
+              <p>
+                Una jornada de conversación, integración y acompañamiento
+                para estudiantes que viven lejos de sus lugares de origen.
+              </p>
+            </div>
+
+            <a
+              href="/eventos" th:href="@{/eventos}"
+              class="feed-image feed-image-evento"
+              aria-label="Ver encuentro comunitario"
+            ></a>
+          </article>
+
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-04">
+                Junio 4, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Foránexs en Red / Guías útiles
+              </p>
+
+              <h3>
+                <a href="/foranexs" th:href="@{/foranexs}">
+                  Mapa de servicios, espacios culturales y redes de apoyo
+                </a>
+              </h3>
+
+              <p>
+                Comedores, bibliotecas, centros culturales,
+                rutas cercanas al campus y contactos
+                de acompañamiento.
+              </p>
+            </div>
+
+            <a
+              href="/foranexs" th:href="@{/foranexs}"
+              class="feed-image feed-image-foranexs"
+              aria-label="Explorar el mapa para estudiantes foránexs"
+            ></a>
+          </article>
+
+          <article class="feed-item">
+            <div class="feed-date">
+              <time datetime="2026-06-01">
+                Junio 1, 2026
+              </time>
+
+              <span class="feed-comments">▣ 0</span>
+            </div>
+
+            <div class="feed-content">
+              <p class="feed-category">
+                Convocatorias / Escritura
+              </p>
+
+              <h3>
+                <a href="/convocatorias" th:href="@{/convocatorias}">
+                  Convocatoria del mes: experiencias, memoria y territorio
+                </a>
+              </h3>
+
+              <p>
+                Santa Cultura Viva recibe crónicas, ensayos breves,
+                relatos y reflexiones estudiantiles hasta el día 20 del mes.
+              </p>
+            </div>
+
+            <a
+              href="/convocatorias" th:href="@{/convocatorias}"
+              class="feed-image feed-image-convocatoria"
+              aria-label="Ver convocatoria editorial"
+            ></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECTORIO -->
+    <section class="section-directory">
+      <div class="container">
+        <header class="directory-header">
+          <h2>Explora Santa Cultura Viva</h2>
+        </header>
+
+        <div class="directory-grid">
+          <a
+            class="directory-card"
+            href="/alertas" th:href="@{/alertas}"
+          >
+            <span class="directory-number">01</span>
+
+            <h3>Alertas</h3>
+
+            <p>
+              Análisis de noticias, vulneraciones de derechos
+              y problemáticas vinculadas a comunidades y territorios.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="/cronicas" th:href="@{/cronicas}"
+          >
+            <span class="directory-number">02</span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos y experiencias sobre cultura, memoria,
+              comunidad y vida universitaria.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="/curaduria" th:href="@{/curaduria}"
+          >
+            <span class="directory-number">03</span>
+
+            <h3>Curaduría</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas y recursos seleccionados.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="/eventos" th:href="@{/eventos}"
+          >
+            <span class="directory-number">04</span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Agenda académica, cultural, comunitaria,
+              FEPUC y encuentros Foránexs.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="/foranexs" th:href="@{/foranexs}"
+          >
+            <span class="directory-number">05</span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              y redes de acompañamiento.
+            </p>
+          </a>
+
+          <a
+            class="directory-card"
+            href="/convocatorias" th:href="@{/convocatorias}"
+          >
+            <span class="directory-number">06</span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Temáticas mensuales y oportunidades
+              para publicar textos en la revista.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONVOCATORIA -->
+    <section class="home-convocatoria">
+      <div class="container">
+        <div class="home-convocatoria-box">
+          <div>
+            <p class="eyebrow eyebrow-light">
+              Convocatoria abierta
+            </p>
+
+            <h2>
+              Publica tu texto en Santa Cultura Viva
+            </h2>
+
+            <p>
+              Recibimos crónicas, ensayos breves, relatos,
+              reseñas y reflexiones vinculadas con la temática del mes.
+            </p>
+          </div>
+
+          <div class="home-convocatoria-details">
+            <p>
+              <strong>Temática:</strong>
+              Lima no es el Perú: experiencias, memoria y territorio.
+            </p>
+
+            <p>
+              <strong>Recepción:</strong>
+              del 1 al 20 de cada mes.
+            </p>
+
+            <p>
+              <strong>Correo:</strong>
+              santaculturaviva@gmail.com
+            </p>
+
+            <p>
+              <strong>Asunto:</strong>
+              Convocatoria SCV - Nombre social - Título.
+            </p>
+
+            <a
+              href="/convocatorias" th:href="@{/convocatorias}"
+              class="btn btn-light"
+            >
+              Ver convocatoria
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-editorial">
+      <div class="container">
+        <div class="newsletter-editorial-inner">
+          <div class="newsletter-editorial-copy">
+            <p class="newsletter-kicker">
+              Newsletter
+            </p>
+
+            <h2>
+              Recibe las novedades de Santa Cultura Viva
+            </h2>
+
+            <p>
+              Alertas, crónicas, eventos, recursos,
+              convocatorias y contenidos para la comunidad universitaria.
+            </p>
+          </div>
+
+          <div class="newsletter-editorial-action">
+            <form
+              class="newsletter-compact-form"
+              action="pages/suscripcion.html"
+              method="get"
+            >
+              <label
+                class="sr-only"
+                for="newsletterCorreo"
+              >
+                Correo electrónico
+              </label>
+
+              <input
+                id="newsletterCorreo"
+                type="email"
+                name="correo"
+                placeholder="Escribe tu correo electrónico"
+                required
+              />
+
+              <button type="submit">
+                Suscribirme
+              </button>
+            </form>
+
+            <a
+              class="newsletter-preferences"
+              href="/suscripcion" th:href="@{/suscripcion}"
+            >
+              Elegir temas e intereses →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <!-- Footer compartido -->
+    <div
+        th:replace="~{fragments/footer :: footer}"
+    ></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+</body>
+</html>

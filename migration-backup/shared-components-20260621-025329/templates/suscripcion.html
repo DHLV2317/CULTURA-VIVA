@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+    />
+
+    <title>Suscripción | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/suscripcion.css"
+        th:href="@{/css/suscripcion.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
+</head>
+
+<body class="page-suscripcion suscripcion-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
+
+    <div
+        th:replace="~{fragments/header :: header('')}"
+    ></div>
+
+    <div th:replace="~{fragments/search :: search}"></div>
+
+<main>
+    <!-- PORTADA -->
+    <section class="suscripcion-hero">
+      <div class="suscripcion-hero-grid">
+        <div class="suscripcion-hero-copy">
+          <p class="eyebrow">
+            Comunidad
+          </p>
+
+          <h1>
+            Suscripción
+          </h1>
+
+          <p>
+            Recibe alertas, crónicas, eventos, recursos,
+            convocatorias y contenidos de Foránexs en Red
+            seleccionados según tus intereses.
+          </p>
+        </div>
+
+        <div class="suscripcion-hero-note">
+          <h2>
+            Elige qué deseas recibir
+          </h2>
+
+          <p>
+            Personaliza tu suscripción para recibir
+            únicamente los contenidos y novedades
+            que sean relevantes para ti.
+          </p>
+
+          <a
+            href="#formulario-suscripcion"
+            class="btn btn-light"
+          >
+            Suscribirme
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section
+      class="suscripcion-section suscripcion-section-white"
+      id="beneficios"
+    >
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Boletín
+            </p>
+
+            <h2>
+              ¿Qué recibirás?
+            </h2>
+          </div>
+
+          <p>
+            La suscripción funciona como un puente
+            entre la revista y su comunidad.
+            Cada persona puede elegir sus temas de interés.
+          </p>
+        </header>
+
+        <div class="subscription-benefits-grid">
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              01
+            </span>
+
+            <h3>Alertas</h3>
+
+            <p>
+              Análisis de noticias sobre derechos humanos,
+              territorios, comunidades y posibles vulneraciones.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              02
+            </span>
+
+            <h3>Convocatorias</h3>
+
+            <p>
+              Temáticas mensuales, fechas de recepción
+              e indicaciones para publicar textos en la revista.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              03
+            </span>
+
+            <h3>Eventos</h3>
+
+            <p>
+              Actividades académicas, culturales,
+              comunitarias, FEPUC y encuentros Foránexs.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              04
+            </span>
+
+            <h3>Crónicas</h3>
+
+            <p>
+              Relatos, experiencias, memorias
+              y textos estudiantiles publicados en la revista.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              05
+            </span>
+
+            <h3>Curaduría</h3>
+
+            <p>
+              Lecturas, audiovisuales, plataformas,
+              becas y recursos recomendados.
+            </p>
+          </article>
+
+          <article class="subscription-benefit">
+            <span class="subscription-benefit-number">
+              06
+            </span>
+
+            <h3>Foránexs en Red</h3>
+
+            <p>
+              Guías, mapas, actividades culturales gratuitas
+              y redes de acompañamiento.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section
+      class="suscripcion-section suscripcion-section-soft"
+      id="formulario-suscripcion"
+    >
+      <div class="container subscription-form-layout">
+        <div class="subscription-form-copy">
+          <p class="eyebrow">
+            Formulario
+          </p>
+
+          <h2>
+            Únete a Santa Cultura Viva
+          </h2>
+
+          <p>
+            Completa tus datos, elige tus intereses
+            y selecciona la frecuencia con la que deseas
+            recibir el boletín.
+          </p>
+
+          <div class="subscription-information">
+            <h3>
+              Información importante
+            </h3>
+
+            <p>
+              Esta versión presenta el funcionamiento visual.
+              Cuando se implemente Spring Boot y MySQL,
+              la información podrá almacenarse y gestionarse
+              desde el backend.
+            </p>
+          </div>
+        </div>
+
+        <form
+          class="subscription-editorial-form"
+          id="subscriptionForm"
+          action="#"
+          method="post"
+        >
+          <div class="subscription-form-row">
+            <div class="subscription-field">
+              <label for="nombreSocial">
+                Nombre social
+                <span class="subscription-required">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="nombreSocial"
+                name="nombreSocial"
+                placeholder="Escribe tu nombre social"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="subscription-field">
+              <label for="pronombre">
+                Pronombre
+                <span class="subscription-optional">
+                  (opcional)
+                </span>
+              </label>
+
+              <input
+                type="text"
+                id="pronombre"
+                name="pronombre"
+                placeholder="Ejemplo: ella, él, elle"
+              />
+            </div>
+          </div>
+
+          <div class="subscription-field">
+            <label for="correo">
+              Correo electrónico
+              <span class="subscription-required">*</span>
+            </label>
+
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="correo@ejemplo.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="subscription-field">
+            <label for="vinculo">
+              Tipo de vínculo con la comunidad
+              <span class="subscription-required">*</span>
+            </label>
+
+            <select
+              id="vinculo"
+              name="vinculo"
+              required
+            >
+              <option value="">
+                Selecciona una opción
+              </option>
+
+              <option value="estudiante">
+                Estudiante
+              </option>
+
+              <option value="estudiante-foranex">
+                Estudiante foránex
+              </option>
+
+              <option value="egresadx">
+                Egresadx
+              </option>
+
+              <option value="docente">
+                Docente
+              </option>
+
+              <option value="colectivo">
+                Integrante de colectivo
+              </option>
+
+              <option value="personal">
+                Personal de la universidad
+              </option>
+
+              <option value="visitante">
+                Visitante
+              </option>
+
+              <option value="otro">
+                Otro
+              </option>
+            </select>
+          </div>
+
+          <fieldset class="subscription-field subscription-fieldset">
+            <legend>
+              Intereses
+              <span class="subscription-required">*</span>
+            </legend>
+
+            <div class="subscription-interest-grid">
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="alertas"
+                />
+
+                <span>
+                  <strong>Alertas</strong>
+
+                  <small>
+                    Noticias, derechos y territorio.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="cronicas"
+                />
+
+                <span>
+                  <strong>Crónicas</strong>
+
+                  <small>
+                    Relatos y experiencias.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="curaduria"
+                />
+
+                <span>
+                  <strong>Curaduría</strong>
+
+                  <small>
+                    Lecturas, becas y recursos.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="eventos"
+                />
+
+                <span>
+                  <strong>Eventos</strong>
+
+                  <small>
+                    Agenda cultural y universitaria.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="foranexs"
+                />
+
+                <span>
+                  <strong>Foránexs en Red</strong>
+
+                  <small>
+                    Guías, mapas y acompañamiento.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="convocatorias"
+                />
+
+                <span>
+                  <strong>Convocatorias</strong>
+
+                  <small>
+                    Oportunidades para publicar.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-interest-option">
+                <input
+                  type="checkbox"
+                  name="intereses"
+                  value="fepuc"
+                />
+
+                <span>
+                  <strong>FEPUC</strong>
+
+                  <small>
+                    Actividades y comunicados.
+                  </small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="subscription-field subscription-fieldset">
+            <legend>
+              Frecuencia del boletín
+            </legend>
+
+            <div class="subscription-frequency-options">
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="semanal"
+                />
+
+                <span>
+                  <strong>Semanal</strong>
+
+                  <small>
+                    Resumen de cada semana.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="quincenal"
+                  checked
+                />
+
+                <span>
+                  <strong>Quincenal</strong>
+
+                  <small>
+                    Dos envíos al mes.
+                  </small>
+                </span>
+              </label>
+
+              <label class="subscription-frequency-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="mensual"
+                />
+
+                <span>
+                  <strong>Mensual</strong>
+
+                  <small>
+                    Selección principal del mes.
+                  </small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="subscription-field">
+            <label for="comentario">
+              Comentario
+              <span class="subscription-optional">
+                (opcional)
+              </span>
+            </label>
+
+            <textarea
+              id="comentario"
+              name="comentario"
+              placeholder="Cuéntanos qué otros temas te gustaría recibir"
+            ></textarea>
+          </div>
+
+          <label class="subscription-consent">
+            <input
+              type="checkbox"
+              id="consentimiento"
+              name="consentimiento"
+              required
+            />
+
+            <span>
+              Autorizo el uso de estos datos únicamente
+              para gestionar mi suscripción y recibir
+              comunicaciones de Santa Cultura Viva.
+              Podré cancelar la suscripción posteriormente.
+            </span>
+          </label>
+
+          <div
+            class="subscription-form-message"
+            id="subscriptionMessage"
+            role="status"
+            aria-live="polite"
+          >
+            Tu información fue validada correctamente.
+            La suscripción quedará registrada cuando
+            se conecte el formulario con el backend.
+          </div>
+
+          <div class="subscription-form-footer">
+            <p>
+              Los campos marcados con * son obligatorios.
+              Debes seleccionar al menos un interés.
+            </p>
+
+            <button
+              type="submit"
+              class="btn btn-primary subscription-submit"
+            >
+              Enviar suscripción
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- INTERESES EXPLICADOS -->
+    <section
+      class="suscripcion-section suscripcion-section-white"
+      id="intereses"
+    >
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Personalización
+            </p>
+
+            <h2>
+              ¿Cómo funcionan los intereses?
+            </h2>
+          </div>
+
+          <p>
+            Cada selección permite organizar mejor
+            los contenidos que se enviarán a cada suscriptorx.
+          </p>
+        </header>
+
+        <div class="interest-explanation-list">
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              01
+            </span>
+
+            <h3>
+              Alertas
+            </h3>
+
+            <p>
+              Recibirás análisis de noticias sobre derechos humanos,
+              comunidades, territorios, discriminación,
+              violencia institucional y violencia simbólica.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              02
+            </span>
+
+            <h3>
+              Convocatorias
+            </h3>
+
+            <p>
+              Recibirás la temática mensual,
+              las fechas de recepción, los formatos aceptados
+              y las indicaciones para enviar textos.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              03
+            </span>
+
+            <h3>
+              Foránexs en Red
+            </h3>
+
+            <p>
+              Recibirás guías útiles, mapas,
+              actividades culturales gratuitas,
+              encuentros y contactos de acompañamiento.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              04
+            </span>
+
+            <h3>
+              Curaduría
+            </h3>
+
+            <p>
+              Recibirás lecturas, audiovisuales,
+              plataformas, becas, oportunidades
+              y recursos digitales seleccionados.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              05
+            </span>
+
+            <h3>
+              Eventos
+            </h3>
+
+            <p>
+              Recibirás una agenda de actividades académicas,
+              culturales, comunitarias, FEPUC,
+              asambleas y encuentros Foránexs.
+            </p>
+          </article>
+
+          <article class="interest-explanation-item">
+            <span class="interest-explanation-number">
+              06
+            </span>
+
+            <h3>
+              Crónicas
+            </h3>
+
+            <p>
+              Recibirás relatos y reflexiones sobre cultura,
+              memoria, identidad, comunidad,
+              territorio y vida universitaria.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPROMISOS -->
+    <section class="suscripcion-section suscripcion-section-soft">
+      <div class="container">
+        <header class="suscripcion-section-header">
+          <div>
+            <p class="eyebrow">
+              Nuestro compromiso
+            </p>
+
+            <h2>
+              Un boletín útil y responsable
+            </h2>
+          </div>
+
+          <p>
+            La suscripción debe respetar el tiempo,
+            las preferencias y la información
+            personal de cada integrante de la comunidad.
+          </p>
+        </header>
+
+        <div class="subscription-commitments">
+          <article class="subscription-commitment">
+            <span>01</span>
+
+            <h3>Contenido seleccionado</h3>
+
+            <p>
+              Se enviarán publicaciones relevantes,
+              no una acumulación innecesaria de mensajes.
+            </p>
+          </article>
+
+          <article class="subscription-commitment">
+            <span>02</span>
+
+            <h3>Preferencias personales</h3>
+
+            <p>
+              Cada persona podrá definir los temas
+              y la frecuencia con la que desea recibir información.
+            </p>
+          </article>
+
+          <article class="subscription-commitment">
+            <span>03</span>
+
+            <h3>Protección de datos</h3>
+
+            <p>
+              Los datos serán usados únicamente
+              para la gestión del boletín y las comunicaciones autorizadas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="subscription-final">
+      <div class="container">
+        <div class="subscription-final-inner">
+          <div>
+            <p class="eyebrow">
+              Santa Cultura Viva
+            </p>
+
+            <h2>
+              Mantente cerca de las historias y recursos de la comunidad
+            </h2>
+
+            <p>
+              Explora también las convocatorias abiertas
+              y comparte tu propia crónica, reflexión
+              o propuesta editorial.
+            </p>
+          </div>
+
+          <a
+            href="/convocatorias" th:href="@{/convocatorias}"
+            class="btn btn-light"
+          >
+            Ver convocatorias
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("subscriptionForm");
+      const message = document.getElementById("subscriptionMessage");
+      const interestInputs = form.querySelectorAll(
+        'input[name="intereses"]'
+      );
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const selectedInterests = Array.from(
+          interestInputs
+        ).filter(function (input) {
+          return input.checked;
+        });
+
+        if (!form.checkValidity()) {
+          message.classList.remove("visible");
+          form.reportValidity();
+          return;
+        }
+
+        if (selectedInterests.length === 0) {
+          message.textContent =
+            "Selecciona al menos un interés para continuar.";
+
+          message.classList.add("visible");
+          message.style.borderColor = "var(--accent)";
+          message.style.background = "rgba(139, 47, 47, 0.08)";
+          message.style.color = "var(--accent-dark)";
+
+          interestInputs[0].focus();
+          return;
+        }
+
+        message.textContent =
+          "Tu información fue validada correctamente. " +
+          "La suscripción quedará registrada cuando " +
+          "se conecte el formulario con el backend.";
+
+        message.classList.add("visible");
+        message.style.borderColor = "var(--green)";
+        message.style.background = "rgba(53, 79, 59, 0.1)";
+        message.style.color = "var(--green)";
+
+        message.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+    });
+</script>
+</body>
+</html>

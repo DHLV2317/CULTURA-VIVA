@@ -1,0 +1,730 @@
+/*
+ * Santa Cultura Viva
+ * Archivo generado durante la migración a Spring Boot.
+ * Contiene estilos específicos de las páginas indicadas.
+ */
+/* =========================================================
+   Fuente: pages\que-es.html
+   Ruta: /que-es
+   ========================================================= */
+/* ==================================================
+       CONFIGURACIÓN GENERAL
+    ================================================== */
+
+    .que-es-page {
+      background: var(--bg);
+    }
+
+    .que-es-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .que-es-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .que-es-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .que-es-page .brand-subtitle {
+      display: none;
+    }
+
+    .que-es-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .que-es-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    #identidad,
+    #razon-de-ser,
+    #comunidad,
+    #problematicas,
+    #principios,
+    #mapa-editorial {
+      scroll-margin-top: 180px;
+    }
+
+    /* ==================================================
+       PORTADA
+    ================================================== */
+
+    .que-es-hero {
+      position: relative;
+      min-height: 650px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(58, 19, 19, 0.98) 0%,
+          rgba(94, 31, 31, 0.89) 48%,
+          rgba(53, 79, 59, 0.57) 100%
+        ),
+        url("../img/que-es-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .que-es-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.58),
+          transparent 62%
+        );
+    }
+
+    .que-es-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .que-es-hero .eyebrow {
+      color: #f2cccc;
+    }
+
+    .que-es-hero h1 {
+      max-width: 930px;
+      margin: 0 0 1.4rem;
+      color: #ffffff;
+      font-size: clamp(3.6rem, 7vw, 7.4rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    .que-es-hero-copy > p:last-child {
+      max-width: 790px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .que-es-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .que-es-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .que-es-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================
+       ESTRUCTURA DE SECCIONES
+    ================================================== */
+
+    .que-es-section {
+      padding: 5rem 0;
+    }
+
+    .que-es-section-white {
+      background: #ffffff;
+    }
+
+    .que-es-section-soft {
+      background: var(--bg);
+    }
+
+    .que-es-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .que-es-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .que-es-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       DEFINICIÓN
+    ================================================== */
+
+    .about-editorial-intro {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-editorial-title {
+      position: sticky;
+      top: 175px;
+    }
+
+    .about-editorial-title h2 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4.5vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .about-editorial-copy {
+      border-top: 1px solid var(--ink);
+    }
+
+    .about-editorial-block {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .about-editorial-block h3 {
+      margin: 0 0 0.7rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .about-editorial-block p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.72;
+    }
+
+    /* ==================================================
+       RAZÓN DE SER
+    ================================================== */
+
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .purpose-card {
+      min-height: 360px;
+      padding: 2rem;
+      background: var(--paper);
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .purpose-card:hover {
+      background: var(--soft);
+    }
+
+    .purpose-card-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .purpose-card h3 {
+      margin: 4rem 0 0.9rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .purpose-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       COMUNIDAD
+    ================================================== */
+
+    .audience-editorial-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .audience-editorial-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 110px 300px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .audience-editorial-number {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .audience-editorial-item h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .audience-editorial-item p {
+      max-width: 640px;
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    /* ==================================================
+       PROBLEMÁTICAS
+    ================================================== */
+
+    .problems-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .problem-editorial-card {
+      min-height: 310px;
+      padding: 1.6rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+    }
+
+    .problem-editorial-card:nth-child(2),
+    .problem-editorial-card:nth-child(5) {
+      border-top-color: var(--green);
+    }
+
+    .problem-editorial-card:nth-child(3),
+    .problem-editorial-card:nth-child(6) {
+      border-top-color: var(--purple);
+    }
+
+    .problem-editorial-card span {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .problem-editorial-card h3 {
+      margin: 3.5rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+    }
+
+    .problem-editorial-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       PRINCIPIOS
+    ================================================== */
+
+    .principles-editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .principle-editorial-card {
+      min-height: 290px;
+      padding: 1.6rem;
+      background: #ffffff;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      transition: 0.2s ease;
+    }
+
+    .principle-editorial-card:hover {
+      background: var(--soft);
+    }
+
+    .principle-editorial-card span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .principle-editorial-card h3 {
+      margin: 3.2rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .principle-editorial-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    /* ==================================================
+       MAPA EDITORIAL
+    ================================================== */
+
+    .editorial-map-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .editorial-map-card {
+      position: relative;
+      min-height: 320px;
+      padding: 1.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .editorial-map-card:hover {
+      background: var(--soft);
+    }
+
+    .editorial-map-number {
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .editorial-map-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.05;
+    }
+
+    .editorial-map-card p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.58;
+    }
+
+    .editorial-map-arrow {
+      margin-top: 2rem;
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+
+    /* ==================================================
+       FRASE DESTACADA
+    ================================================== */
+
+    .about-statement {
+      padding: 5rem 0;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .about-statement-inner {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-statement-label {
+      color: #f2cccc;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .about-statement blockquote {
+      max-width: 1000px;
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+    }
+
+    /* ==================================================
+       CTA FINAL
+    ================================================== */
+
+    .about-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .about-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .about-final-inner .eyebrow {
+      color: #d9eadc;
+    }
+
+    .about-final-inner h2 {
+      max-width: 880px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .about-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
+
+    @media (max-width: 1100px) {
+      .problems-editorial-grid,
+      .principles-editorial-grid,
+      .editorial-map-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .que-es-hero-grid,
+      .que-es-section-header,
+      .about-editorial-intro,
+      .about-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-editorial-title {
+        position: static;
+      }
+
+      .audience-editorial-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .audience-editorial-item p {
+        grid-column: 2;
+      }
+
+      .about-statement-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .que-es-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .que-es-hero {
+        min-height: auto;
+      }
+
+      .que-es-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .que-es-hero h1 {
+        font-size: clamp(3.2rem, 16vw, 5.2rem);
+      }
+
+      .que-es-section,
+      .about-statement,
+      .about-final {
+        padding: 3rem 0;
+      }
+
+      .purpose-grid,
+      .problems-editorial-grid,
+      .principles-editorial-grid,
+      .editorial-map-grid,
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .purpose-card {
+        min-height: 300px;
+      }
+
+      .audience-editorial-item {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .audience-editorial-item p {
+        grid-column: auto;
+      }
+
+      .about-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }

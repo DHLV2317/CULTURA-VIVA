@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<section
+    class="search-panel"
+    id="searchPanel"
+    aria-label="Buscador de Santa Cultura Viva"
+    th:fragment="search"
+>
+    <div class="search-panel-content">
+        <label for="siteSearch">
+            Buscar en Santa Cultura Viva
+        </label>
+
+        <div class="search-input-row">
+            <input
+                id="siteSearch"
+                type="search"
+                placeholder="Busca alertas, cr&oacute;nicas, eventos o recursos"
+            />
+
+            <button
+                id="searchSubmit"
+                type="button"
+                class="search-submit"
+            >
+                Buscar
+            </button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

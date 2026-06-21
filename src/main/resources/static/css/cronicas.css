@@ -1,0 +1,1192 @@
+/*
+ * Santa Cultura Viva
+ * Archivo generado durante la migración a Spring Boot.
+ * Contiene estilos específicos de las páginas indicadas.
+ */
+/* =========================================================
+   Fuente: pages\cronicas\index.html
+   Ruta: /cronicas
+   ========================================================= */
+/* =========================================
+       CONFIGURACIÓN GENERAL
+    ========================================= */
+
+    .cronicas-page {
+      background: var(--bg);
+    }
+
+    .cronicas-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .cronicas-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .cronicas-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .cronicas-page .brand-subtitle {
+      display: none;
+    }
+
+    .cronicas-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .cronicas-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
+    .cronicas-hero {
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(26, 46, 32, 0.97) 0%,
+          rgba(53, 79, 59, 0.88) 50%,
+          rgba(53, 79, 59, 0.5) 100%
+        ),
+        url("../../img/cronicas-portada.jpg")
+        center / cover no-repeat;
+      color: #ffffff;
+    }
+
+    .cronicas-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.55),
+          transparent 62%
+        );
+    }
+
+    .cronicas-hero-grid {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .cronicas-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronicas-hero h1 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    .cronicas-hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.07rem;
+      line-height: 1.65;
+    }
+
+    .cronicas-hero-note {
+      padding: 1.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .cronicas-hero-note h2 {
+      margin: 0 0 0.8rem;
+      color: #ffffff;
+      font-size: 1.8rem;
+      line-height: 1.1;
+    }
+
+    .cronicas-hero-note p {
+      margin: 0 0 1.3rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       SECCIONES
+    ========================================= */
+
+    .cronicas-section {
+      padding: 5rem 0;
+    }
+
+    .cronicas-section-white {
+      background: #ffffff;
+    }
+
+    .cronicas-section-soft {
+      background: var(--bg);
+    }
+
+    .cronicas-section-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .cronicas-section-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .cronicas-section-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       CRÓNICA DESTACADA
+    ========================================= */
+
+    .cronica-featured-editorial {
+      min-height: 600px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .cronica-featured-image-editorial {
+      min-height: 600px;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.35),
+          rgba(20, 17, 15, 0.03)
+        ),
+        url("../../img/cronica-destacada.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #354f3b, #8c6d3f);
+    }
+
+    .cronica-featured-content-editorial {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cronica-featured-content-editorial .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronica-featured-content-editorial h2 {
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .cronica-featured-content-editorial > p {
+      margin: 0 0 1.4rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .cronica-tags {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .cronica-tags span {
+      padding: 0.4rem 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+    }
+
+    /* =========================================
+       FILTROS
+    ========================================= */
+
+    .cronica-filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .cronica-filter {
+      padding: 0.62rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .cronica-filter:hover,
+    .cronica-filter.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #ffffff;
+    }
+
+    /* =========================================
+       LISTADO DE CRÓNICAS
+    ========================================= */
+
+    .cronicas-feed {
+      border-top: 1px solid var(--ink);
+    }
+
+    .cronica-feed-item {
+      padding: 2rem 0;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 390px;
+      gap: 2rem;
+      align-items: start;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronica-feed-date {
+      font-family: Arial, sans-serif;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cronica-feed-date time {
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+
+    .cronica-feed-date span {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .cronica-feed-category {
+      margin: 0 0 0.6rem;
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cronica-feed-content h3 {
+      margin: 0 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .cronica-feed-content h3 a:hover {
+      color: var(--green);
+    }
+
+    .cronica-feed-content > p {
+      max-width: 660px;
+      margin: 0 0 1rem;
+      color: #39312c;
+      font-size: 1rem;
+      line-height: 1.58;
+    }
+
+    .cronica-feed-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .cronica-feed-tags span {
+      padding: 0.32rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .cronica-feed-image {
+      min-height: 245px;
+      display: block;
+      background-color: var(--soft);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .cronica-image-primer-ciclo {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.2),
+          rgba(140, 109, 63, 0.12)
+        ),
+        url("../../img/cronica-primer-ciclo.jpg");
+    }
+
+    .cronica-image-mochila {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(53, 79, 59, 0.1)
+        ),
+        url("../../img/cronica-mochila.jpg");
+    }
+
+    .cronica-image-ciudad {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(94, 31, 31, 0.15),
+          rgba(53, 79, 59, 0.18)
+        ),
+        url("../../img/cronica-ciudad.jpg");
+    }
+
+    .cronica-image-sostenerse {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(53, 79, 59, 0.19),
+          rgba(216, 200, 184, 0.16)
+        ),
+        url("../../img/cronica-sostenerse.jpg");
+    }
+
+    .cronica-image-acento {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(139, 47, 47, 0.16),
+          rgba(140, 109, 63, 0.14)
+        ),
+        url("../../img/cronica-acento.jpg");
+    }
+
+    .cronica-image-cancion {
+      background-image:
+        linear-gradient(
+          135deg,
+          rgba(140, 109, 63, 0.2),
+          rgba(94, 31, 31, 0.12)
+        ),
+        url("../../img/cronica-cancion.jpg");
+    }
+
+    /* =========================================
+       ENVÍO DE TEXTOS
+    ========================================= */
+
+    .cronicas-submit-editorial {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .cronicas-submit-copy h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .cronicas-submit-copy > p:last-child {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .cronicas-submit-steps {
+      border-top: 1px solid var(--ink);
+    }
+
+    .cronicas-submit-step {
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 70px 210px 1fr;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronicas-submit-step span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .cronicas-submit-step h3 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .cronicas-submit-step p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       CTA FINAL
+    ========================================= */
+
+    .cronicas-final {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .cronicas-final-inner {
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      background: var(--accent-dark);
+      color: #ffffff;
+    }
+
+    .cronicas-final-inner .eyebrow {
+      color: #f2cccc;
+    }
+
+    .cronicas-final-inner h2 {
+      max-width: 850px;
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .cronicas-final-inner p {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1050px) {
+      .cronica-feed-item {
+        grid-template-columns: 125px minmax(0, 1fr) 310px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .cronicas-hero-grid,
+      .cronica-featured-editorial,
+      .cronicas-section-header,
+      .cronicas-submit-editorial,
+      .cronicas-final-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-featured-image-editorial {
+        min-height: 420px;
+      }
+
+      .cronica-feed-item {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .cronica-feed-image {
+        grid-column: 1 / -1;
+        min-height: 330px;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cronicas-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .cronicas-hero {
+        min-height: auto;
+      }
+
+      .cronicas-hero-grid {
+        padding: 3.8rem 0;
+      }
+
+      .cronicas-hero h1 {
+        font-size: clamp(4rem, 22vw, 6rem);
+      }
+
+      .cronicas-section,
+      .cronicas-final {
+        padding: 3rem 0;
+      }
+
+      .cronica-featured-content-editorial {
+        padding: 1.6rem;
+      }
+
+      .cronica-featured-image-editorial {
+        min-height: 300px;
+      }
+
+      .cronica-feed-item {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .cronica-feed-date {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .cronica-feed-image {
+        min-height: 230px;
+      }
+
+      .cronicas-submit-step {
+        grid-template-columns: 45px 1fr;
+      }
+
+      .cronicas-submit-step p {
+        grid-column: 2;
+      }
+
+      .cronicas-final-inner {
+        padding: 1.6rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
+
+/* =========================================================
+   Fuente: pages\cronicas\detalle.html
+   Ruta: /cronicas/detalle
+   ========================================================= */
+/* =========================================
+       CABECERA
+    ========================================= */
+
+    .cronica-detail-page {
+      background: var(--bg);
+    }
+
+    .cronica-detail-page .editorial-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
+    }
+
+    .cronica-detail-page .editorial-masthead {
+      min-height: 92px;
+      padding: 0.8rem 2.4rem;
+    }
+
+    .cronica-detail-page .brand-name {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+    }
+
+    .cronica-detail-page .brand-subtitle {
+      display: none;
+    }
+
+    .cronica-detail-page .editorial-nav {
+      min-height: 54px;
+    }
+
+    .cronica-detail-page .editorial-nav a {
+      padding: 1rem 0;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       PORTADA DEL ARTÍCULO
+    ========================================= */
+
+    .cronica-article-hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          0deg,
+          rgba(20, 17, 15, 0.88) 0%,
+          rgba(20, 17, 15, 0.28) 58%,
+          rgba(20, 17, 15, 0.05) 100%
+        ),
+        url("../../img/cronica-primer-ciclo.jpg")
+        center / cover no-repeat,
+        linear-gradient(135deg, #354f3b, #8c6d3f);
+      color: #ffffff;
+    }
+
+    .cronica-article-hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+      padding: 5rem 0 4rem;
+    }
+
+    .cronica-article-hero .eyebrow {
+      color: #d9eadc;
+    }
+
+    .cronica-article-hero h1 {
+      max-width: 1050px;
+      margin: 0 0 1.3rem;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      font-size: clamp(3.2rem, 7vw, 7rem);
+      font-weight: 800;
+      line-height: 0.93;
+      letter-spacing: -0.055em;
+    }
+
+    .cronica-article-summary {
+      max-width: 790px;
+      margin: 0 0 1.7rem;
+      color: rgba(255, 255, 255, 0.88);
+      font-family: Arial, sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .cronica-article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 1.5rem;
+      color: rgba(255, 255, 255, 0.82);
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================
+       CONTENIDO DEL ARTÍCULO
+    ========================================= */
+
+    .cronica-reading-section {
+      padding: 5rem 0;
+      background: #ffffff;
+    }
+
+    .cronica-reading-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 760px);
+      gap: 4rem;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .cronica-reading-sidebar {
+      position: sticky;
+      top: 175px;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cronica-sidebar-box {
+      padding: 1.3rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .cronica-sidebar-box h3 {
+      margin: 0 0 0.65rem;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .cronica-sidebar-box p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .cronica-sidebar-box a:not(.btn) {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .cronica-article-body {
+      font-size: 1.08rem;
+    }
+
+    .cronica-article-body > p:first-child::first-letter {
+      float: left;
+      margin: 0.12rem 0.55rem 0 0;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 0.75;
+    }
+
+    .cronica-article-body p {
+      margin: 0 0 1.5rem;
+      color: #352e29;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.85;
+    }
+
+    .cronica-article-body h2 {
+      margin: 3rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--ink);
+      font-family: Arial, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .cronica-article-body blockquote {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--green);
+      color: #ffffff;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+      line-height: 1.3;
+    }
+
+    .cronica-article-body blockquote p {
+      margin: 0;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    /* =========================================
+       FIRMA
+    ========================================= */
+
+    .cronica-author-box {
+      margin-top: 3rem;
+      padding: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.3rem;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .cronica-author-avatar {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--soft);
+      border-radius: 50%;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .cronica-author-box h3 {
+      margin: 0 0 0.4rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.15rem;
+    }
+
+    .cronica-author-box p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    /* =========================================
+       MÁS CRÓNICAS
+    ========================================= */
+
+    .related-cronicas {
+      padding: 5rem 0;
+      background: var(--bg);
+    }
+
+    .related-cronicas-header {
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: end;
+      border-top: 5px solid var(--ink);
+    }
+
+    .related-cronicas-header h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .related-cronicas-header > p {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .related-cronicas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--ink);
+    }
+
+    .related-cronica-card {
+      min-height: 300px;
+      padding: 1.5rem;
+      border-right: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      background: var(--paper);
+      transition: 0.2s ease;
+    }
+
+    .related-cronica-card:hover {
+      background: var(--soft);
+    }
+
+    .related-cronica-card span {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .related-cronica-card h3 {
+      margin: 3rem 0 0.8rem;
+      font-family: Arial, sans-serif;
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+
+    .related-cronica-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .related-cronica-card a {
+      color: var(--green);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer-editorial {
+      padding: 5rem 0 2rem;
+      background: #1c1a19;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-editorial-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-editorial-brand > a {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .footer-editorial-brand p,
+    .footer-editorial-column p {
+      margin: 0 0 1rem;
+      color: #aaa5a1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .footer-editorial-column h3 {
+      margin: 0 0 1rem;
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .footer-editorial-column a {
+      display: block;
+      width: fit-content;
+      margin-bottom: 0.65rem;
+      color: #d2ceca;
+      font-size: 0.9rem;
+    }
+
+    .footer-editorial-column a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-editorial-bottom {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .footer-editorial-bottom p {
+      margin: 0;
+      color: #aaa5a1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 1000px) {
+      .cronica-reading-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 2.5rem;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1.3fr repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .cronica-reading-layout,
+      .related-cronicas-header {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-reading-sidebar {
+        position: static;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .related-cronicas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-editorial-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cronica-detail-page .editorial-masthead {
+        min-height: 84px;
+        padding: 0.7rem 1rem;
+      }
+
+      .cronica-article-hero {
+        min-height: 650px;
+      }
+
+      .cronica-article-hero-content {
+        padding-bottom: 3rem;
+      }
+
+      .cronica-article-hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+      }
+
+      .cronica-reading-section,
+      .related-cronicas {
+        padding: 3rem 0;
+      }
+
+      .cronica-reading-sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .cronica-article-body {
+        font-size: 1rem;
+      }
+
+      .cronica-author-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-editorial-brand {
+        grid-column: auto;
+      }
+    }
