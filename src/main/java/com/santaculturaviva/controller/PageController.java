@@ -1,3 +1,9 @@
+// ==========================================================
+// REEMPLAZA COMPLETAMENTE:
+// src/main/java/com/santaculturaviva/controller/
+// PageController.java
+// ==========================================================
+
 package com.santaculturaviva.controller;
 
 import org.springframework.stereotype.Controller;
@@ -64,10 +70,5 @@ public class PageController {
     @GetMapping("/suscripcion")
     public String suscripcion() {
         return "suscripcion";
-    }
-
-    @GetMapping("/contacto")
-    public String contacto() {
-        return "contacto/index";
     }
 }
