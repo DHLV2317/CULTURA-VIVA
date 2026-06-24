@@ -1142,383 +1142,502 @@
       </div>
     </section>
 
-    <!-- FORMULARIO -->
-    <section
-      class="suscripcion-section suscripcion-section-soft"
-      id="formulario-suscripcion"
-    >
-      <div class="container subscription-form-layout">
+<!-- FORMULARIO -->
+<section
+    class="suscripcion-section suscripcion-section-soft"
+    id="formulario-suscripcion"
+>
+    <div class="container subscription-form-layout">
         <div class="subscription-form-copy">
-          <p class="eyebrow">
-            Formulario
-          </p>
+            <p class="eyebrow">Formulario</p>
 
-          <h2>
-            Únete a Santa Cultura Viva
-          </h2>
-
-          <p>
-            Completa tus datos, elige tus intereses
-            y selecciona la frecuencia con la que deseas
-            recibir el boletín.
-          </p>
-
-          <div class="subscription-information">
-            <h3>
-              Información importante
-            </h3>
+            <h2>Únete a Santa Cultura Viva</h2>
 
             <p>
-              Esta versión presenta el funcionamiento visual.
-              Cuando se implemente Spring Boot y MySQL,
-              la información podrá almacenarse y gestionarse
-              desde el backend.
+                Completa tus datos, elige tus intereses
+                y selecciona la frecuencia con la que deseas
+                recibir el boletín.
             </p>
-          </div>
+
+            <div class="subscription-information">
+                <h3>Información importante</h3>
+
+                <p>
+                    Tus datos serán utilizados únicamente para
+                    gestionar la suscripción y enviarte los
+                    contenidos que hayas seleccionado.
+                </p>
+            </div>
         </div>
 
         <form
-          class="subscription-editorial-form"
-          id="subscriptionForm"
-          action="#"
-          method="post"
+            class="subscription-editorial-form"
+            id="subscriptionForm"
+            method="post"
+            th:action="@{/suscripcion}"
+            th:object="${suscripcionFormulario}"
+            novalidate
         >
-          <div class="subscription-form-row">
-            <div class="subscription-field">
-              <label for="nombreSocial">
-                Nombre social
-                <span class="subscription-required">*</span>
-              </label>
-
-              <input
-                type="text"
-                id="nombreSocial"
-                name="nombreSocial"
-                placeholder="Escribe tu nombre social"
-                autocomplete="name"
-                required
-              />
-            </div>
-
-            <div class="subscription-field">
-              <label for="pronombre">
-                Pronombre
-                <span class="subscription-optional">
-                  (opcional)
-                </span>
-              </label>
-
-              <input
-                type="text"
-                id="pronombre"
-                name="pronombre"
-                placeholder="Ejemplo: ella, él, elle"
-              />
-            </div>
-          </div>
-
-          <div class="subscription-field">
-            <label for="correo">
-              Correo electrónico
-              <span class="subscription-required">*</span>
-            </label>
-
-            <input
-              type="email"
-              id="correo"
-              name="correo"
-              placeholder="correo@ejemplo.com"
-              autocomplete="email"
-              required
-            />
-          </div>
-
-          <div class="subscription-field">
-            <label for="vinculo">
-              Tipo de vínculo con la comunidad
-              <span class="subscription-required">*</span>
-            </label>
-
-            <select
-              id="vinculo"
-              name="vinculo"
-              required
+            <!-- MENSAJE DE ÉXITO -->
+            <div
+                class="subscription-alert subscription-alert-success"
+                role="status"
+                th:if="${mensajeExito}"
             >
-              <option value="">
-                Selecciona una opción
-              </option>
+                <strong>Suscripción registrada</strong>
 
-              <option value="estudiante">
-                Estudiante
-              </option>
-
-              <option value="estudiante-foranex">
-                Estudiante foránex
-              </option>
-
-              <option value="egresadx">
-                Egresadx
-              </option>
-
-              <option value="docente">
-                Docente
-              </option>
-
-              <option value="colectivo">
-                Integrante de colectivo
-              </option>
-
-              <option value="personal">
-                Personal de la universidad
-              </option>
-
-              <option value="visitante">
-                Visitante
-              </option>
-
-              <option value="otro">
-                Otro
-              </option>
-            </select>
-          </div>
-
-          <fieldset class="subscription-field subscription-fieldset">
-            <legend>
-              Intereses
-              <span class="subscription-required">*</span>
-            </legend>
-
-            <div class="subscription-interest-grid">
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="alertas"
-                />
-
-                <span>
-                  <strong>Alertas</strong>
-
-                  <small>
-                    Noticias, derechos y territorio.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="cronicas"
-                />
-
-                <span>
-                  <strong>Crónicas</strong>
-
-                  <small>
-                    Relatos y experiencias.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="curaduria"
-                />
-
-                <span>
-                  <strong>Curaduría</strong>
-
-                  <small>
-                    Lecturas, becas y recursos.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="eventos"
-                />
-
-                <span>
-                  <strong>Eventos</strong>
-
-                  <small>
-                    Agenda cultural y universitaria.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="foranexs"
-                />
-
-                <span>
-                  <strong>Foránexs en Red</strong>
-
-                  <small>
-                    Guías, mapas y acompañamiento.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="convocatorias"
-                />
-
-                <span>
-                  <strong>Convocatorias</strong>
-
-                  <small>
-                    Oportunidades para publicar.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-interest-option">
-                <input
-                  type="checkbox"
-                  name="intereses"
-                  value="fepuc"
-                />
-
-                <span>
-                  <strong>FEPUC</strong>
-
-                  <small>
-                    Actividades y comunicados.
-                  </small>
-                </span>
-              </label>
+                <p th:text="${mensajeExito}">
+                    Tu suscripción fue registrada correctamente.
+                </p>
             </div>
-          </fieldset>
 
-          <fieldset class="subscription-field subscription-fieldset">
-            <legend>
-              Frecuencia del boletín
-            </legend>
-
-            <div class="subscription-frequency-options">
-              <label class="subscription-frequency-option">
-                <input
-                  type="radio"
-                  name="frecuencia"
-                  value="semanal"
-                />
-
-                <span>
-                  <strong>Semanal</strong>
-
-                  <small>
-                    Resumen de cada semana.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-frequency-option">
-                <input
-                  type="radio"
-                  name="frecuencia"
-                  value="quincenal"
-                  checked
-                />
-
-                <span>
-                  <strong>Quincenal</strong>
-
-                  <small>
-                    Dos envíos al mes.
-                  </small>
-                </span>
-              </label>
-
-              <label class="subscription-frequency-option">
-                <input
-                  type="radio"
-                  name="frecuencia"
-                  value="mensual"
-                />
-
-                <span>
-                  <strong>Mensual</strong>
-
-                  <small>
-                    Selección principal del mes.
-                  </small>
-                </span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="subscription-field">
-            <label for="comentario">
-              Comentario
-              <span class="subscription-optional">
-                (opcional)
-              </span>
-            </label>
-
-            <textarea
-              id="comentario"
-              name="comentario"
-              placeholder="Cuéntanos qué otros temas te gustaría recibir"
-            ></textarea>
-          </div>
-
-          <label class="subscription-consent">
-            <input
-              type="checkbox"
-              id="consentimiento"
-              name="consentimiento"
-              required
-            />
-
-            <span>
-              Autorizo el uso de estos datos únicamente
-              para gestionar mi suscripción y recibir
-              comunicaciones de Santa Cultura Viva.
-              Podré cancelar la suscripción posteriormente.
-            </span>
-          </label>
-
-          <div
-            class="subscription-form-message"
-            id="subscriptionMessage"
-            role="status"
-            aria-live="polite"
-          >
-            Tu información fue validada correctamente.
-            La suscripción quedará registrada cuando
-            se conecte el formulario con el backend.
-          </div>
-
-          <div class="subscription-form-footer">
-            <p>
-              Los campos marcados con * son obligatorios.
-              Debes seleccionar al menos un interés.
-            </p>
-
-            <button
-              type="submit"
-              class="btn btn-primary subscription-submit"
+            <!-- MENSAJE GENERAL DE ERROR -->
+            <div
+                class="subscription-alert subscription-alert-error"
+                role="alert"
+                th:if="${#fields.hasAnyErrors()}"
             >
-              Enviar suscripción
-            </button>
-          </div>
+                <strong>Revisa el formulario</strong>
+
+                <p>
+                    Hay campos que deben corregirse antes
+                    de registrar la suscripción.
+                </p>
+            </div>
+
+            <div class="subscription-form-row">
+                <!-- NOMBRE SOCIAL -->
+                <div class="subscription-field">
+                    <label for="nombreSocial">
+                        Nombre social
+
+                        <span class="subscription-required">
+                            *
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreSocial"
+                        th:field="*{nombreSocial}"
+                        maxlength="120"
+                        placeholder="Escribe tu nombre social"
+                        autocomplete="name"
+                        th:classappend="${#fields.hasErrors('nombreSocial')} ? 'field-invalid' : ''"
+                    />
+
+                    <p
+                        class="subscription-field-error"
+                        th:if="${#fields.hasErrors('nombreSocial')}"
+                        th:errors="*{nombreSocial}"
+                    >
+                        Error en el nombre social.
+                    </p>
+                </div>
+
+                <!-- PRONOMBRE -->
+                <div class="subscription-field">
+                    <label for="pronombre">
+                        Pronombre
+
+                        <span class="subscription-optional">
+                            (opcional)
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pronombre"
+                        th:field="*{pronombre}"
+                        maxlength="50"
+                        placeholder="Ejemplo: ella, él, elle"
+                        th:classappend="${#fields.hasErrors('pronombre')} ? 'field-invalid' : ''"
+                    />
+
+                    <p
+                        class="subscription-field-error"
+                        th:if="${#fields.hasErrors('pronombre')}"
+                        th:errors="*{pronombre}"
+                    >
+                        Error en el pronombre.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CORREO -->
+            <div class="subscription-field">
+                <label for="correo">
+                    Correo electrónico
+
+                    <span class="subscription-required">
+                        *
+                    </span>
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    th:field="*{correo}"
+                    maxlength="150"
+                    placeholder="correo@ejemplo.com"
+                    autocomplete="email"
+                    th:classappend="${#fields.hasErrors('correo')} ? 'field-invalid' : ''"
+                />
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('correo')}"
+                    th:errors="*{correo}"
+                >
+                    Error en el correo electrónico.
+                </p>
+            </div>
+
+            <!-- TIPO DE VÍNCULO -->
+            <div class="subscription-field">
+                <label for="tipoVinculo">
+                    Tipo de vínculo con la comunidad
+
+                    <span class="subscription-required">
+                        *
+                    </span>
+                </label>
+
+                <select
+                    id="tipoVinculo"
+                    th:field="*{tipoVinculo}"
+                    th:classappend="${#fields.hasErrors('tipoVinculo')} ? 'field-invalid' : ''"
+                >
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="estudiante">
+                        Estudiante
+                    </option>
+
+                    <option value="estudiante-foranex">
+                        Estudiante foránex
+                    </option>
+
+                    <option value="egresadx">
+                        Egresadx
+                    </option>
+
+                    <option value="docente">
+                        Docente
+                    </option>
+
+                    <option value="colectivo">
+                        Integrante de colectivo
+                    </option>
+
+                    <option value="personal-universidad">
+                        Personal de la universidad
+                    </option>
+
+                    <option value="visitante">
+                        Visitante
+                    </option>
+
+                    <option value="otro">
+                        Otro
+                    </option>
+                </select>
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('tipoVinculo')}"
+                    th:errors="*{tipoVinculo}"
+                >
+                    Error en el tipo de vínculo.
+                </p>
+            </div>
+
+            <!-- INTERESES -->
+            <fieldset
+                class="subscription-field subscription-fieldset"
+                th:classappend="${#fields.hasErrors('intereses')} ? 'fieldset-invalid' : ''"
+            >
+                <legend>
+                    Intereses
+
+                    <span class="subscription-required">
+                        *
+                    </span>
+                </legend>
+
+                <div class="subscription-interest-grid">
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="alertas"
+                        />
+
+                        <span>
+                            <strong>Alertas</strong>
+
+                            <small>
+                                Noticias, derechos y territorio.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="cronicas"
+                        />
+
+                        <span>
+                            <strong>Crónicas</strong>
+
+                            <small>
+                                Relatos y experiencias.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="curaduria"
+                        />
+
+                        <span>
+                            <strong>Curaduría</strong>
+
+                            <small>
+                                Lecturas, becas y recursos.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="eventos"
+                        />
+
+                        <span>
+                            <strong>Eventos</strong>
+
+                            <small>
+                                Agenda cultural y universitaria.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="foranexs"
+                        />
+
+                        <span>
+                            <strong>Foránexs en Red</strong>
+
+                            <small>
+                                Guías, mapas y acompañamiento.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="convocatorias"
+                        />
+
+                        <span>
+                            <strong>Convocatorias</strong>
+
+                            <small>
+                                Oportunidades para publicar.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-interest-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{intereses}"
+                            value="fepuc"
+                        />
+
+                        <span>
+                            <strong>FEPUC</strong>
+
+                            <small>
+                                Actividades y comunicados.
+                            </small>
+                        </span>
+                    </label>
+                </div>
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('intereses')}"
+                    th:errors="*{intereses}"
+                >
+                    Selecciona al menos un interés.
+                </p>
+            </fieldset>
+
+            <!-- FRECUENCIA -->
+            <fieldset
+                class="subscription-field subscription-fieldset"
+                th:classappend="${#fields.hasErrors('frecuencia')} ? 'fieldset-invalid' : ''"
+            >
+                <legend>
+                    Frecuencia del boletín
+
+                    <span class="subscription-required">
+                        *
+                    </span>
+                </legend>
+
+                <div class="subscription-frequency-options">
+                    <label class="subscription-frequency-option">
+                        <input
+                            type="radio"
+                            th:field="*{frecuencia}"
+                            value="semanal"
+                        />
+
+                        <span>
+                            <strong>Semanal</strong>
+
+                            <small>
+                                Resumen de cada semana.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-frequency-option">
+                        <input
+                            type="radio"
+                            th:field="*{frecuencia}"
+                            value="quincenal"
+                        />
+
+                        <span>
+                            <strong>Quincenal</strong>
+
+                            <small>
+                                Dos envíos al mes.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="subscription-frequency-option">
+                        <input
+                            type="radio"
+                            th:field="*{frecuencia}"
+                            value="mensual"
+                        />
+
+                        <span>
+                            <strong>Mensual</strong>
+
+                            <small>
+                                Selección principal del mes.
+                            </small>
+                        </span>
+                    </label>
+                </div>
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('frecuencia')}"
+                    th:errors="*{frecuencia}"
+                >
+                    Selecciona una frecuencia.
+                </p>
+            </fieldset>
+
+            <!-- COMENTARIO -->
+            <div class="subscription-field">
+                <label for="comentario">
+                    Comentario
+
+                    <span class="subscription-optional">
+                        (opcional)
+                    </span>
+                </label>
+
+                <textarea
+                    id="comentario"
+                    th:field="*{comentario}"
+                    maxlength="2000"
+                    rows="6"
+                    placeholder="Cuéntanos qué otros temas te gustaría recibir"
+                    th:classappend="${#fields.hasErrors('comentario')} ? 'field-invalid' : ''"
+                ></textarea>
+
+                <p
+                    class="subscription-field-help"
+                >
+                    Máximo 2000 caracteres.
+                </p>
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('comentario')}"
+                    th:errors="*{comentario}"
+                >
+                    Error en el comentario.
+                </p>
+            </div>
+
+            <!-- CONSENTIMIENTO -->
+            <div class="subscription-consent-wrapper">
+                <label class="subscription-consent">
+                    <input
+                        type="checkbox"
+                        id="consentimiento"
+                        th:field="*{consentimiento}"
+                    />
+
+                    <span>
+                        Autorizo el uso de estos datos únicamente
+                        para gestionar mi suscripción y recibir
+                        comunicaciones de Santa Cultura Viva.
+                        Podré cancelar la suscripción posteriormente.
+                    </span>
+                </label>
+
+                <p
+                    class="subscription-field-error"
+                    th:if="${#fields.hasErrors('consentimiento')}"
+                    th:errors="*{consentimiento}"
+                >
+                    Debes autorizar el uso de tus datos.
+                </p>
+            </div>
+
+            <div class="subscription-form-footer">
+                <p>
+                    Los campos marcados con * son obligatorios.
+                    Debes seleccionar al menos un interés.
+                </p>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary subscription-submit"
+                >
+                    Enviar suscripción
+                </button>
+            </div>
         </form>
-      </div>
-    </section>
-
+    </div>
+</section>
     <!-- INTERESES EXPLICADOS -->
     <section
       class="suscripcion-section suscripcion-section-white"

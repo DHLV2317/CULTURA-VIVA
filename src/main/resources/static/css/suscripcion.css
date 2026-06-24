@@ -853,3 +853,88 @@
         grid-column: auto;
       }
     }
+/* ==================================================
+   VALIDACIÓN Y MENSAJES DEL FORMULARIO
+================================================== */
+
+.subscription-alert {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.subscription-alert strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.subscription-alert p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.subscription-alert-success {
+    border-color: #31553d;
+    background: #edf5ef;
+    color: #23422e;
+}
+
+.subscription-alert-error {
+    border-color: #9b3434;
+    background: #fff0ef;
+    color: #7b2929;
+}
+
+.subscription-field .field-invalid {
+    border-color: #a72f2f;
+    background: #fff7f6;
+}
+
+.subscription-field .field-invalid:focus {
+    outline: 2px solid rgba(167, 47, 47, 0.22);
+    outline-offset: 2px;
+}
+
+.subscription-fieldset.fieldset-invalid {
+    padding: 1rem;
+    border: 1px solid #a72f2f;
+    background: #fff7f6;
+}
+
+.subscription-field-error {
+    margin: 0.5rem 0 0;
+    color: #9b2828;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.subscription-field-help {
+    margin: 0.45rem 0 0;
+    color: #70645c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.subscription-consent-wrapper {
+    margin-top: 1rem;
+}
+
+.subscription-consent-wrapper .subscription-field-error {
+    margin-left: 2rem;
+}
+
+.subscription-required {
+    color: #8b2f2f;
+}
+
+.subscription-optional {
+    color: #6f6258;
+    font-size: 0.75rem;
+    font-weight: 400;
+}

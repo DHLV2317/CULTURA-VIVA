@@ -66,9 +66,4 @@ public class PageController {
     public String convocatorias() {
         return "convocatorias/index";
     }
-
-    @GetMapping("/suscripcion")
-    public String suscripcion() {
-        return "suscripcion";
-    }
 }
