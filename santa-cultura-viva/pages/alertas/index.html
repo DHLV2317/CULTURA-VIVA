@@ -1,1274 +1,372 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="description"
-    content="Alertas de Santa Cultura Viva: análisis de noticias sobre derechos humanos, comunidades, territorios y formas de violencia."
-  />
-
-  <title>Alertas | Santa Cultura Viva</title>
-
-  <!-- Ruta correcta desde pages/alertas/index.html -->
-  <link rel="stylesheet" href="../../css/styles.css" />
-
-  <style>
-    /* =========================================
-       CONFIGURACIÓN GENERAL
-    ========================================= */
-
-    .alertas-page {
-      background: var(--bg);
-    }
-
-    .alertas-page .editorial-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #ffffff;
-      box-shadow: 0 2px 9px rgba(36, 31, 27, 0.08);
-    }
-
-    .alertas-page .editorial-masthead {
-      min-height: 92px;
-      padding: 0.8rem 2.4rem;
-    }
-
-    .alertas-page .brand-name {
-      font-size: clamp(2rem, 3vw, 3.2rem);
-    }
-
-    .alertas-page .brand-subtitle {
-      display: none;
-    }
-
-    .alertas-page .editorial-nav {
-      min-height: 54px;
-    }
-
-    .alertas-page .editorial-nav a {
-      padding: 1rem 0;
-      font-size: 0.82rem;
-    }
-
-    /* =========================================
-       PORTADA
-    ========================================= */
-
-    .alertas-hero {
-      position: relative;
-      min-height: 610px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(47, 15, 15, 0.96) 0%,
-          rgba(94, 31, 31, 0.87) 48%,
-          rgba(94, 31, 31, 0.52) 100%
-        ),
-        url("../../img/alerta-portada.jpg")
-        center / cover no-repeat;
-      color: #ffffff;
-    }
-
-    .alertas-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          0deg,
-          rgba(20, 17, 15, 0.55),
-          transparent 60%
-        );
-    }
-
-    .alertas-hero-grid {
-      position: relative;
-      z-index: 2;
-      width: min(1180px, calc(100% - 40px));
-      margin-inline: auto;
-      padding: 5rem 0 4rem;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
-      align-items: end;
-    }
-
-    .alertas-hero .eyebrow {
-      color: #f2cccc;
-    }
-
-    .alertas-hero h1 {
-      margin: 0 0 1.3rem;
-      color: #ffffff;
-      font-size: clamp(4rem, 8vw, 8rem);
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-    }
-
-    .alertas-hero-copy > p:last-child {
-      max-width: 760px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.88);
-      font-family: Arial, sans-serif;
-      font-size: 1.07rem;
-      line-height: 1.65;
-    }
-
-    .alertas-hero-note {
-      padding: 1.8rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(8px);
-    }
-
-    .alertas-hero-note h2 {
-      margin: 0 0 0.8rem;
-      color: #ffffff;
-      font-size: 1.8rem;
-      line-height: 1.1;
-    }
-
-    .alertas-hero-note p {
-      margin: 0 0 1.3rem;
-      color: rgba(255, 255, 255, 0.84);
-      font-family: Arial, sans-serif;
-      font-size: 0.96rem;
-      line-height: 1.55;
-    }
-
-    /* =========================================
-       ESTRUCTURA DE SECCIONES
-    ========================================= */
-
-    .alertas-section {
-      padding: 5rem 0;
-    }
-
-    .alertas-section-white {
-      background: #ffffff;
-    }
-
-    .alertas-section-soft {
-      background: var(--bg);
-    }
-
-    .alertas-section-header {
-      margin-bottom: 2rem;
-      padding-top: 1rem;
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 3rem;
-      align-items: end;
-      border-top: 5px solid var(--ink);
-    }
-
-    .alertas-section-header h2 {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.045em;
-    }
-
-    .alertas-section-header > p {
-      margin: 0;
-      color: var(--muted);
-      font-family: Arial, sans-serif;
-      font-size: 0.96rem;
-      line-height: 1.6;
-    }
-
-    /* =========================================
-       FILTROS
-    ========================================= */
-
-    .alert-filter-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    .alert-filter {
-      padding: 0.62rem 1rem;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--ink);
-      font-family: Arial, sans-serif;
-      font-size: 0.84rem;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .alert-filter:hover,
-    .alert-filter.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    /* =========================================
-       ALERTA DESTACADA
-    ========================================= */
-
-    .alert-featured {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      min-height: 560px;
-      background: var(--accent-dark);
-      color: #ffffff;
-    }
-
-    .alert-featured-image {
-      min-height: 560px;
-      background:
-        linear-gradient(
-          0deg,
-          rgba(20, 17, 15, 0.25),
-          rgba(20, 17, 15, 0.05)
-        ),
-        url("../../img/alerta-destacada.jpg")
-        center / cover no-repeat,
-        linear-gradient(135deg, #8b2f2f, #354f3b);
-    }
-
-    .alert-featured-content {
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .alert-featured-content .eyebrow {
-      color: #f2cccc;
-    }
-
-    .alert-featured-content h2 {
-      margin: 0 0 1.3rem;
-      color: #ffffff;
-      font-size: clamp(2.4rem, 4vw, 4.3rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-    }
-
-    .alert-featured-content > p {
-      margin: 0 0 1.4rem;
-      color: rgba(255, 255, 255, 0.85);
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .alert-featured-tags {
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .alert-featured-tags span {
-      padding: 0.4rem 0.7rem;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      border-radius: 999px;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-      font-size: 0.77rem;
-    }
-
-    /* =========================================
-       LISTADO EDITORIAL
-    ========================================= */
-
-    .alerts-feed {
-      border-top: 1px solid var(--ink);
-    }
-
-    .alert-feed-item {
-      padding: 2rem 0;
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr) 390px;
-      gap: 2rem;
-      align-items: start;
-      border-bottom: 1px solid var(--ink);
-    }
-
-    .alert-feed-date {
-      font-family: Arial, sans-serif;
-      font-size: 0.73rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .alert-feed-date time {
-      display: block;
-      margin-bottom: 0.65rem;
-    }
-
-    .alert-feed-date span {
-      color: var(--muted);
-      font-size: 0.79rem;
-    }
-
-    .alert-feed-category {
-      margin: 0 0 0.6rem;
-      color: var(--accent);
-      font-family: Arial, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .alert-feed-content h3 {
-      margin: 0 0 0.8rem;
-      font-family: Arial, sans-serif;
-      font-size: clamp(1.55rem, 2.4vw, 2.25rem);
-      font-weight: 800;
-      line-height: 1.07;
-      letter-spacing: -0.035em;
-    }
-
-    .alert-feed-content h3 a:hover {
-      color: var(--accent);
-    }
-
-    .alert-feed-content > p {
-      max-width: 660px;
-      margin: 0 0 1rem;
-      color: #39312c;
-      font-size: 1rem;
-      line-height: 1.58;
-    }
-
-    .alert-feed-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-    }
-
-    .alert-feed-tags span {
-      padding: 0.32rem 0.58rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-    }
-
-    .alert-feed-image {
-      min-height: 245px;
-      display: block;
-      background-color: var(--soft);
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .alert-image-consulta {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(139, 47, 47, 0.16),
-          rgba(53, 79, 59, 0.14)
-        ),
-        url("../../img/alerta-consulta.jpg");
-    }
-
-    .alert-image-migrantes {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(94, 31, 31, 0.18),
-          rgba(140, 109, 63, 0.13)
-        ),
-        url("../../img/alerta-migrantes.jpg");
-    }
-
-    .alert-image-servicios {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(53, 79, 59, 0.2),
-          rgba(216, 200, 184, 0.15)
-        ),
-        url("../../img/alerta-servicios.jpg");
-    }
-
-    .alert-image-centralismo {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(139, 47, 47, 0.2),
-          rgba(36, 31, 27, 0.13)
-        ),
-        url("../../img/alerta-centralismo.jpg");
-    }
-
-    .alert-image-ambiental {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(53, 79, 59, 0.23),
-          rgba(140, 109, 63, 0.13)
-        ),
-        url("../../img/alerta-ambiental.jpg");
-    }
-
-    .alert-image-representacion {
-      background-image:
-        linear-gradient(
-          135deg,
-          rgba(140, 109, 63, 0.18),
-          rgba(139, 47, 47, 0.13)
-        ),
-        url("../../img/alerta-representacion.jpg");
-    }
-
-    /* =========================================
-       INSTAGRAM
-    ========================================= */
-
-    .instagram-editorial {
-      padding: 5rem 0;
-      background: #ffffff;
-    }
-
-    .instagram-editorial-inner {
-      padding: 3rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 3rem;
-      align-items: center;
-      background: var(--green);
-      color: #ffffff;
-    }
-
-    .instagram-editorial-inner .eyebrow {
-      color: #d9eadc;
-    }
-
-    .instagram-editorial-inner h2 {
-      max-width: 850px;
-      margin: 0 0 1rem;
-      color: #ffffff;
-      font-size: clamp(2.3rem, 4vw, 4rem);
-      line-height: 1;
-      letter-spacing: -0.035em;
-    }
-
-    .instagram-editorial-inner p {
-      max-width: 780px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.83);
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    /* =========================================
-       FOOTER EDITORIAL
-    ========================================= */
-
-    .footer-editorial {
-      padding: 5rem 0 2rem;
-      background: #1c1a19;
-      color: #ffffff;
-      font-family: Arial, sans-serif;
-    }
-
-    .footer-editorial-grid {
-      display: grid;
-      grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .footer-editorial-brand > a {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .footer-editorial-brand p,
-    .footer-editorial-column p {
-      margin: 0 0 1rem;
-      color: #aaa5a1;
-      font-size: 0.9rem;
-      line-height: 1.55;
-    }
-
-    .footer-editorial-column h3 {
-      margin: 0 0 1rem;
-      color: #ffffff;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .footer-editorial-column a {
-      display: block;
-      width: fit-content;
-      margin-bottom: 0.65rem;
-      color: #d2ceca;
-      font-size: 0.9rem;
-    }
-
-    .footer-editorial-column a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer-editorial-bottom {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .footer-editorial-bottom p {
-      margin: 0;
-      color: #aaa5a1;
-      font-size: 0.82rem;
-    }
-
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
-
-    @media (max-width: 1050px) {
-      .alert-feed-item {
-        grid-template-columns: 125px minmax(0, 1fr) 310px;
-      }
-
-      .footer-editorial-grid {
-        grid-template-columns: 1.3fr repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 850px) {
-      .alertas-hero-grid,
-      .alert-featured,
-      .alertas-section-header,
-      .instagram-editorial-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .alert-featured-image {
-        min-height: 420px;
-      }
-
-      .alert-feed-item {
-        grid-template-columns: 110px 1fr;
-      }
-
-      .alert-feed-image {
-        grid-column: 1 / -1;
-        min-height: 330px;
-      }
-
-      .footer-editorial-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-editorial-brand {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .alertas-page .editorial-masthead {
-        min-height: 84px;
-        padding: 0.7rem 1rem;
-      }
-
-      .alertas-hero {
-        min-height: auto;
-      }
-
-      .alertas-hero-grid {
-        padding: 3.8rem 0;
-      }
-
-      .alertas-hero h1 {
-        font-size: clamp(4rem, 22vw, 6rem);
-      }
-
-      .alertas-section,
-      .instagram-editorial {
-        padding: 3rem 0;
-      }
-
-      .alert-featured-content {
-        padding: 1.6rem;
-      }
-
-      .alert-featured-image {
-        min-height: 300px;
-      }
-
-      .alert-feed-item {
-        grid-template-columns: 1fr;
-        gap: 0.9rem;
-      }
-
-      .alert-feed-date {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .alert-feed-image {
-        min-height: 230px;
-      }
-
-      .instagram-editorial-inner {
-        padding: 1.6rem;
-      }
-
-      .footer-editorial-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .footer-editorial-brand {
-        grid-column: auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+        name="description"
+        content="Alertas y análisis sobre comunidades, territorios, derechos humanos y violencia simbólica."
+    />
+
+    <title>Alertas | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+        th:href="@{/css/styles.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/alertas.css"
+        th:href="@{/css/alertas.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/components.css"
+        th:href="@{/css/components.css}"
+    />
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+        th:href="@{/css/responsive.css}"
+    />
 </head>
 
-<body class="alertas-page">
-  <!-- FONDO DEL MENÚ LATERAL -->
-  <div
-    class="drawer-backdrop"
-    id="drawerBackdrop"
-    aria-hidden="true"
-  ></div>
+<body class="page-alertas alertas-page">
+    <div th:replace="~{fragments/drawer :: drawer}"></div>
 
-  <!-- MENÚ LATERAL -->
-  <aside
-    class="editorial-drawer"
-    id="editorialDrawer"
-    aria-hidden="true"
-  >
-    <div class="drawer-header">
-      <strong>Santa Cultura Viva</strong>
+    <div
+        th:replace="~{fragments/header :: header('alertas')}"
+    ></div>
 
-      <button
-        class="drawer-close"
-        id="drawerClose"
-        type="button"
-        aria-label="Cerrar menú"
-      >
-        ×
-      </button>
-    </div>
+    <div th:replace="~{fragments/search :: search}"></div>
 
-    <nav class="drawer-nav" aria-label="Navegación lateral">
-      <a href="../../index.html">Inicio</a>
-      <a href="../fepuc/index.html">FEPUC</a>
-      <a href="../que-es.html">¿Qué es Santa Cultura Viva?</a>
-      <a href="index.html">Alertas</a>
-      <a href="../cronicas/index.html">Crónicas</a>
-      <a href="../curaduria/index.html">Curaduría</a>
-      <a href="../eventos/index.html">Eventos</a>
-      <a href="../foranexs/index.html">Foránexs en Red</a>
-      <a href="../convocatorias/index.html">Convocatorias</a>
-      <a href="../suscripcion.html">Suscripción</a>
-      <a href="../contacto/index.html">Contacto</a>
-    </nav>
-  </aside>
+    <main>
+        <!-- PORTADA -->
+        <section class="alertas-hero">
+            <div class="alertas-hero-grid">
+                <div class="alertas-hero-copy">
+                    <p class="eyebrow">
+                        Análisis de noticias
+                    </p>
 
-  <!-- CABECERA -->
-  <header class="editorial-header">
-    <div class="editorial-masthead">
-      <div class="masthead-tools">
-        <button
-          class="icon-button hamburger-button"
-          id="editorialMenuBtn"
-          type="button"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-          aria-controls="editorialDrawer"
+                    <h1>Alertas</h1>
+
+                    <p>
+                        Artículos de análisis que parten de noticias
+                        vinculadas con comunidades, territorios,
+                        derechos humanos, discriminación,
+                        violencia institucional y violencia simbólica.
+                    </p>
+                </div>
+
+                <div class="alertas-hero-note">
+                    <h2>No son avisos simples</h2>
+
+                    <p>
+                        Cada alerta explica qué ocurrió,
+                        qué derechos podrían estar siendo vulnerados
+                        y por qué el caso importa para la comunidad.
+                    </p>
+
+                    <a
+                        href="#alertas-recientes"
+                        class="btn btn-light"
+                    >
+                        Ver alertas
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENFOQUES -->
+        <section class="alertas-section alertas-section-white">
+            <div class="container">
+                <header class="alertas-section-header">
+                    <div>
+                        <p class="eyebrow">
+                            Enfoque editorial
+                        </p>
+
+                        <h2>
+                            Mirar críticamente la realidad
+                        </h2>
+                    </div>
+
+                    <p>
+                        Las alertas relacionan noticias y acontecimientos
+                        con derechos, territorios, comunidades
+                        y formas de desigualdad que requieren atención.
+                    </p>
+                </header>
+
+                <div class="alert-filter-list">
+                    <span class="alert-filter active">
+                        Todas
+                    </span>
+
+                    <span class="alert-filter">
+                        Territorio
+                    </span>
+
+                    <span class="alert-filter">
+                        Derechos ambientales
+                    </span>
+
+                    <span class="alert-filter">
+                        Discriminación
+                    </span>
+
+                    <span class="alert-filter">
+                        Violencia institucional
+                    </span>
+
+                    <span class="alert-filter">
+                        Violencia simbólica
+                    </span>
+
+                    <span class="alert-filter">
+                        Acceso cultural
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALERTA DESTACADA -->
+        <section
+            class="alertas-section alertas-section-soft"
+            th:if="${alertaDestacada != null}"
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+            <div class="container">
+                <article class="alert-featured">
+                    <div class="alert-featured-image">
+                        <img
+                            th:if="${alertaDestacada.imagen != null and !#strings.isEmpty(alertaDestacada.imagen)}"
+                            th:src="${alertaDestacada.imagen}"
+                            th:alt="${alertaDestacada.titulo}"
+                        />
 
-        <button
-          class="icon-button search-button"
-          id="searchButton"
-          type="button"
-          aria-label="Abrir buscador"
-          aria-expanded="false"
-          aria-controls="searchPanel"
+                        <span
+                            class="alert-image-placeholder"
+                            th:unless="${alertaDestacada.imagen != null and !#strings.isEmpty(alertaDestacada.imagen)}"
+                        >
+                            SCV
+                        </span>
+                    </div>
+
+                    <div class="alert-featured-content">
+                        <p class="eyebrow">
+                            Alerta destacada
+                        </p>
+
+                        <h2 th:text="${alertaDestacada.titulo}">
+                            Título de la alerta destacada
+                        </h2>
+
+                        <p th:text="${alertaDestacada.resumen}">
+                            Resumen de la alerta destacada.
+                        </p>
+
+                        <div class="alert-featured-tags">
+                            <span
+                                th:text="${alertaDestacada.categoria}"
+                            >
+                                Categoría
+                            </span>
+
+                            <span
+                                th:if="${alertaDestacada.territorio != null and !#strings.isEmpty(alertaDestacada.territorio)}"
+                                th:text="${alertaDestacada.territorio}"
+                            >
+                                Territorio
+                            </span>
+                        </div>
+
+                        <a
+                            class="btn btn-light"
+                            th:href="@{/alertas/{slug}(slug=${alertaDestacada.slug})}"
+                        >
+                            Leer análisis
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- LISTADO -->
+        <section
+            class="alertas-section alertas-section-white"
+            id="alertas-recientes"
         >
-          <span class="search-circle"></span>
-          <span class="search-handle"></span>
-        </button>
-      </div>
+            <div class="container">
+                <header class="alertas-section-header">
+                    <div>
+                        <p class="eyebrow">
+                            Últimas alertas
+                        </p>
 
-      <a class="editorial-brand" href="../../index.html">
-        <span class="brand-name">
-          Santa Cultura Viva
-        </span>
-      </a>
+                        <h2>
+                            Artículos recientes
+                        </h2>
+                    </div>
 
-      <div class="masthead-social">
-        <a href="#" aria-label="Instagram">IG</a>
-        <a href="#" aria-label="Facebook">FB</a>
-        <a href="#" aria-label="TikTok">TK</a>
-        <a href="#" aria-label="YouTube">YT</a>
-      </div>
-    </div>
+                    <p>
+                        Cada publicación incluye contexto,
+                        territorio, fuente y análisis
+                        de la problemática abordada.
+                    </p>
+                </header>
 
-    <nav class="editorial-nav" aria-label="Navegación principal">
-      <a href="../../index.html">Inicio</a>
-      <a class="active" href="index.html">Alertas</a>
-      <a href="../cronicas/index.html">Crónicas</a>
-      <a href="../curaduria/index.html">Curaduría</a>
-      <a href="../eventos/index.html">Eventos</a>
-      <a href="../foranexs/index.html">Foránexs en Red</a>
-      <a href="../convocatorias/index.html">Convocatorias</a>
-    </nav>
-  </header>
+                <!-- ESTADO VACÍO -->
+                <div
+                    class="alert-empty"
+                    th:if="${alertas == null or #lists.isEmpty(alertas)}"
+                >
+                    <h3>
+                        Todavía no existen alertas publicadas
+                    </h3>
 
-  <!-- BUSCADOR -->
-  <section
-    class="search-panel"
-    id="searchPanel"
-    aria-label="Buscador de Santa Cultura Viva"
-  >
-    <div class="search-panel-content">
-      <label for="siteSearch">
-        Buscar en Santa Cultura Viva
-      </label>
+                    <p>
+                        Las nuevas publicaciones aparecerán aquí
+                        cuando sean incorporadas al sistema.
+                    </p>
+                </div>
 
-      <div class="search-input-row">
-        <input
-          id="siteSearch"
-          type="search"
-          placeholder="Busca alertas, crónicas, eventos o recursos"
-        />
+                <div
+                    class="alerts-feed"
+                    th:if="${alertasSecundarias != null and !#lists.isEmpty(alertasSecundarias)}"
+                >
+                    <article
+                        class="alert-feed-item"
+                        th:each="alerta, iteracion : ${alertasSecundarias}"
+                    >
+                        <div class="alert-feed-date">
+                            <time
+                                th:if="${alerta.fechaPublicacion != null}"
+                                th:text="${alerta.fechaPublicacion.toLocalDate()}"
+                            >
+                                2026-06-24
+                            </time>
 
-        <button type="button" class="search-submit">
-          Buscar
-        </button>
-      </div>
-    </div>
-  </section>
+                            <span th:text="|Alerta ${iteracion.count}|">
+                                Alerta 1
+                            </span>
+                        </div>
 
-  <main>
-    <!-- PORTADA -->
-    <section class="alertas-hero">
-      <div class="alertas-hero-grid">
-        <div class="alertas-hero-copy">
-          <p class="eyebrow">
-            Análisis de noticias
-          </p>
+                        <div class="alert-feed-content">
+                            <p
+                                class="alert-feed-category"
+                                th:text="${alerta.categoria}"
+                            >
+                                Categoría
+                            </p>
 
-          <h1>Alertas</h1>
+                            <h3>
+                                <a
+                                    th:href="@{/alertas/{slug}(slug=${alerta.slug})}"
+                                    th:text="${alerta.titulo}"
+                                >
+                                    Título de la alerta
+                                </a>
+                            </h3>
 
-          <p>
-            Artículos de análisis que parten de noticias vinculadas
-            a comunidades indígenas, comunidades migrantes, zonas
-            periféricas y territorios históricamente invisibilizados.
-          </p>
-        </div>
+                            <p th:text="${alerta.resumen}">
+                                Resumen de la alerta.
+                            </p>
 
-        <div class="alertas-hero-note">
-          <h2>No son avisos simples</h2>
+                            <div class="alert-feed-tags">
+                                <span th:text="${alerta.categoria}">
+                                    Categoría
+                                </span>
 
-          <p>
-            Cada alerta explica qué ocurrió, qué derechos podrían
-            estar siendo vulnerados y por qué el caso importa.
-            También se vincula con una publicación de Instagram.
-          </p>
+                                <span
+                                    th:if="${alerta.territorio != null and !#strings.isEmpty(alerta.territorio)}"
+                                    th:text="${alerta.territorio}"
+                                >
+                                    Territorio
+                                </span>
+                            </div>
+                        </div>
 
-          <a href="#ultimas-alertas" class="btn btn-light">
-            Ver alertas
-          </a>
-        </div>
-      </div>
-    </section>
+                        <a
+                            class="alert-feed-image"
+                            th:href="@{/alertas/{slug}(slug=${alerta.slug})}"
+                            th:aria-label="|Leer ${alerta.titulo}|"
+                        >
+                            <img
+                                th:if="${alerta.imagen != null and !#strings.isEmpty(alerta.imagen)}"
+                                th:src="${alerta.imagen}"
+                                th:alt="${alerta.titulo}"
+                            />
 
-    <!-- FILTROS -->
-    <section class="alertas-section alertas-section-white">
-      <div class="container">
-        <header class="alertas-section-header">
-          <div>
-            <p class="eyebrow">Filtros editoriales</p>
+                            <span
+                                class="alert-image-placeholder"
+                                th:unless="${alerta.imagen != null and !#strings.isEmpty(alerta.imagen)}"
+                            >
+                                SCV
+                            </span>
+                        </a>
+                    </article>
+                </div>
 
-            <h2>
-              Explora por enfoque
-            </h2>
-          </div>
-
-          <p>
-            Organiza las alertas según comunidad, territorio,
-            derecho vulnerado o forma de violencia.
-          </p>
-        </header>
-
-        <div class="alert-filter-list">
-          <button class="alert-filter active" type="button">
-            Todas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Comunidades indígenas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Lima no es el Perú
-          </button>
-
-          <button class="alert-filter" type="button">
-            Comunidades migrantes
-          </button>
-
-          <button class="alert-filter" type="button">
-            Zonas periféricas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derechos territoriales
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derechos ambientales
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derecho a la consulta
-          </button>
-
-          <button class="alert-filter" type="button">
-            Discriminación
-          </button>
-
-          <button class="alert-filter" type="button">
-            Violencia institucional
-          </button>
-
-          <button class="alert-filter" type="button">
-            Violencia simbólica
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALERTA DESTACADA -->
-    <section class="alertas-section alertas-section-soft">
-      <div class="container">
-        <article class="alert-featured">
-          <div
-            class="alert-featured-image"
-            role="img"
-            aria-label="Imagen de la alerta destacada sobre centralismo"
-          ></div>
-
-          <div class="alert-featured-content">
-            <p class="eyebrow">
-              Alerta destacada · Lima no es el Perú
-            </p>
-
-            <h2>
-              Cuando el centralismo invisibiliza las demandas territoriales
-            </h2>
-
-            <p>
-              Esta alerta analiza cómo determinadas noticias reproducen
-              una mirada centralista del país, dejando en segundo plano
-              las demandas, las voces y los derechos de comunidades
-              ubicadas fuera de Lima.
-            </p>
-
-            <div class="alert-featured-tags">
-              <span>Derechos humanos</span>
-              <span>Violencia simbólica</span>
-              <span>Territorio</span>
+                <!-- CUANDO SOLO EXISTE LA DESTACADA -->
+                <div
+                    class="alert-empty alert-empty-compact"
+                    th:if="${alertaDestacada != null and (alertasSecundarias == null or #lists.isEmpty(alertasSecundarias))}"
+                >
+                    <p>
+                        La alerta destacada es la única publicación
+                        disponible actualmente.
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <a href="detalle.html" class="btn btn-light">
-              Leer análisis
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
+        <!-- REDES -->
+        <section class="instagram-editorial">
+            <div class="container">
+                <div class="instagram-editorial-inner">
+                    <div>
+                        <p class="eyebrow">
+                            Redes
+                        </p>
 
-    <!-- LISTADO -->
-    <section
-      class="alertas-section alertas-section-white"
-      id="ultimas-alertas"
-    >
-      <div class="container">
-        <header class="alertas-section-header">
-          <div>
-            <p class="eyebrow">Últimas alertas</p>
+                        <h2>
+                            Cada alerta también puede tener
+                            una versión visual
+                        </h2>
 
-            <h2>
-              Artículos recientes
-            </h2>
-          </div>
+                        <p>
+                            Los análisis pueden complementarse
+                            con publicaciones breves para facilitar
+                            su circulación dentro de la comunidad.
+                        </p>
+                    </div>
 
-          <p>
-            Cada alerta incluye contexto, fuente periodística,
-            análisis de derechos y enlace a su publicación de Instagram.
-          </p>
-        </header>
-
-        <div class="alerts-feed">
-          <!-- ALERTA 1 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-17">
-                Junio 17, 2026
-              </time>
-
-              <span>Alerta 01</span>
+                    <a
+                        href="#"
+                        class="btn btn-light"
+                    >
+                        Ir a Instagram
+                    </a>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Comunidades indígenas / Derecho a la consulta
-              </p>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 
-              <h3>
-                <a href="detalle.html">
-                  Consulta previa y participación comunitaria
-                </a>
-              </h3>
-
-              <p>
-                Un análisis sobre la importancia de la participación
-                efectiva de las comunidades indígenas en decisiones
-                que afectan sus territorios.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Consulta previa</span>
-                <span>Derechos territoriales</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-consulta"
-              aria-label="Leer alerta sobre consulta previa"
-            ></a>
-          </article>
-
-          <!-- ALERTA 2 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-14">
-                Junio 14, 2026
-              </time>
-
-              <span>Alerta 02</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Comunidades migrantes / Discriminación
-              </p>
-
-              <h3>
-                <a href="detalle.html">
-                  Discursos que excluyen a comunidades migrantes
-                </a>
-              </h3>
-
-              <p>
-                Una lectura crítica sobre discursos públicos,
-                medios y representaciones que pueden normalizar
-                la discriminación y la exclusión.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Discriminación</span>
-                <span>Violencia simbólica</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-migrantes"
-              aria-label="Leer alerta sobre comunidades migrantes"
-            ></a>
-          </article>
-
-          <!-- ALERTA 3 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-11">
-                Junio 11, 2026
-              </time>
-
-              <span>Alerta 03</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Zonas periféricas / Violencia institucional
-              </p>
-
-              <h3>
-                <a href="detalle.html">
-                  Servicios públicos y desigualdad territorial
-                </a>
-              </h3>
-
-              <p>
-                Análisis sobre cómo la falta de acceso equitativo
-                a servicios básicos puede reproducir vulneraciones
-                estructurales.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Zonas periféricas</span>
-                <span>Violencia institucional</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-servicios"
-              aria-label="Leer alerta sobre servicios públicos"
-            ></a>
-          </article>
-
-          <!-- ALERTA 4 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-08">
-                Junio 8, 2026
-              </time>
-
-              <span>Alerta 04</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Lima no es el Perú / Centralismo
-              </p>
-
-              <h3>
-                <a href="detalle.html">
-                  La mirada limeña sobre los conflictos sociales
-                </a>
-              </h3>
-
-              <p>
-                Una revisión de coberturas que reducen demandas
-                sociales complejas a lecturas simplificadas
-                y centradas únicamente en Lima.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Centralismo</span>
-                <span>Territorio</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-centralismo"
-              aria-label="Leer alerta sobre centralismo"
-            ></a>
-          </article>
-
-          <!-- ALERTA 5 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-05">
-                Junio 5, 2026
-              </time>
-
-              <span>Alerta 05</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Derechos ambientales / Territorio
-              </p>
-
-              <h3>
-                <a href="detalle.html">
-                  Impactos ambientales y comunidades afectadas
-                </a>
-              </h3>
-
-              <p>
-                Análisis sobre situaciones donde el deterioro
-                ambiental afecta directamente la salud,
-                el territorio y la vida comunitaria.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Derechos ambientales</span>
-                <span>Comunidad</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-ambiental"
-              aria-label="Leer alerta sobre derechos ambientales"
-            ></a>
-          </article>
-
-          <!-- ALERTA 6 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-02">
-                Junio 2, 2026
-              </time>
-
-              <span>Alerta 06</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Violencia simbólica / Representación
-              </p>
-
-              <h3>
-                <a href="detalle.html">
-                  Quiénes aparecen y quiénes quedan fuera del relato
-                </a>
-              </h3>
-
-              <p>
-                Un análisis sobre la representación mediática
-                de comunidades históricamente poco visibilizadas.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Representación</span>
-                <span>Medios</span>
-              </div>
-            </div>
-
-            <a
-              href="detalle.html"
-              class="alert-feed-image alert-image-representacion"
-              aria-label="Leer alerta sobre representación mediática"
-            ></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- INSTAGRAM -->
-    <section class="instagram-editorial">
-      <div class="container">
-        <div class="instagram-editorial-inner">
-          <div>
-            <p class="eyebrow">Redes</p>
-
-            <h2>
-              Cada alerta también tiene una versión visual
-            </h2>
-
-            <p>
-              Los artículos completos se complementan con publicaciones
-              de Instagram que resumen los principales hallazgos
-              y facilitan su difusión dentro de la comunidad.
-            </p>
-          </div>
-
-          <a href="#" class="btn btn-light">
-            Ir a Instagram
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer-editorial">
-    <div class="container footer-editorial-grid">
-      <div class="footer-editorial-brand">
-        <a href="../../index.html">
-          Santa Cultura Viva
-        </a>
-
-        <p>
-          Revista digital universitaria sobre cultura,
-          territorio, derechos humanos y comunidad.
-        </p>
-      </div>
-
-      <div class="footer-editorial-column">
-        <h3>Proyecto</h3>
-
-        <p>
-          Una plataforma editorial que visibiliza voces,
-          experiencias y problemáticas de la comunidad universitaria.
-        </p>
-
-        <a href="../que-es.html">
-          Conocer el proyecto
-        </a>
-      </div>
-
-      <div class="footer-editorial-column">
-        <h3>Contenidos</h3>
-
-        <a href="index.html">Alertas</a>
-        <a href="../cronicas/index.html">Crónicas</a>
-        <a href="../curaduria/index.html">Curaduría</a>
-        <a href="../eventos/index.html">Eventos</a>
-      </div>
-
-      <div class="footer-editorial-column">
-        <h3>Comunidad</h3>
-
-        <a href="../fepuc/index.html">FEPUC</a>
-        <a href="../foranexs/index.html">Foránexs en Red</a>
-        <a href="../convocatorias/index.html">Convocatorias</a>
-        <a href="../contacto/index.html">Contacto</a>
-      </div>
-
-      <div class="footer-editorial-column">
-        <h3>Newsletter</h3>
-
-        <p>
-          Recibe las publicaciones y novedades
-          más recientes de Santa Cultura Viva.
-        </p>
-
-        <a href="../suscripcion.html">
-          Ir a suscripción
-        </a>
-      </div>
-    </div>
-
-    <div class="container footer-editorial-bottom">
-      <p>
-        © 2026 Santa Cultura Viva. Todos los derechos reservados.
-      </p>
-    </div>
-  </footer>
-
-  <!-- Ruta correcta desde pages/alertas/index.html -->
-  <script src="../../js/main.js"></script>
+    <script
+        src="/js/main.js"
+        th:src="@{/js/main.js}"
+    ></script>
 </body>
 </html>

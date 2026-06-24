@@ -2,6 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -9,12 +10,12 @@
 
     <meta
         name="description"
-        content="Santa Cultura Viva, revista digital universitaria sobre cultura, territorio, derechos humanos y comunidad."
+        content="Alertas y análisis sobre comunidades, territorios, derechos humanos y violencia simbólica."
     />
 
     <title>Alertas | Santa Cultura Viva</title>
 
-        <link
+    <link
         rel="stylesheet"
         href="/css/styles.css"
         th:href="@{/css/styles.css}"
@@ -37,14 +38,6 @@
         href="/css/responsive.css"
         th:href="@{/css/responsive.css}"
     />
-
-
-
-    
-
-    
-
-    
 </head>
 
 <body class="page-alertas alertas-page">
@@ -56,435 +49,318 @@
 
     <div th:replace="~{fragments/search :: search}"></div>
 
-<main>
-    <!-- PORTADA -->
-    <section class="alertas-hero">
-      <div class="alertas-hero-grid">
-        <div class="alertas-hero-copy">
-          <p class="eyebrow">
-            Análisis de noticias
-          </p>
+    <main>
+        <!-- PORTADA -->
+        <section class="alertas-hero">
+            <div class="alertas-hero-grid">
+                <div class="alertas-hero-copy">
+                    <p class="eyebrow">
+                        Análisis de noticias
+                    </p>
 
-          <h1>Alertas</h1>
+                    <h1>Alertas</h1>
 
-          <p>
-            Artículos de análisis que parten de noticias vinculadas
-            a comunidades indígenas, comunidades migrantes, zonas
-            periféricas y territorios históricamente invisibilizados.
-          </p>
-        </div>
+                    <p>
+                        Artículos de análisis que parten de noticias
+                        vinculadas con comunidades, territorios,
+                        derechos humanos, discriminación,
+                        violencia institucional y violencia simbólica.
+                    </p>
+                </div>
 
-        <div class="alertas-hero-note">
-          <h2>No son avisos simples</h2>
+                <div class="alertas-hero-note">
+                    <h2>No son avisos simples</h2>
 
-          <p>
-            Cada alerta explica qué ocurrió, qué derechos podrían
-            estar siendo vulnerados y por qué el caso importa.
-            También se vincula con una publicación de Instagram.
-          </p>
+                    <p>
+                        Cada alerta explica qué ocurrió,
+                        qué derechos podrían estar siendo vulnerados
+                        y por qué el caso importa para la comunidad.
+                    </p>
 
-          <a href="#ultimas-alertas" class="btn btn-light">
-            Ver alertas
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FILTROS -->
-    <section class="alertas-section alertas-section-white">
-      <div class="container">
-        <header class="alertas-section-header">
-          <div>
-            <p class="eyebrow">Filtros editoriales</p>
-
-            <h2>
-              Explora por enfoque
-            </h2>
-          </div>
-
-          <p>
-            Organiza las alertas según comunidad, territorio,
-            derecho vulnerado o forma de violencia.
-          </p>
-        </header>
-
-        <div class="alert-filter-list">
-          <button class="alert-filter active" type="button">
-            Todas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Comunidades indígenas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Lima no es el Perú
-          </button>
-
-          <button class="alert-filter" type="button">
-            Comunidades migrantes
-          </button>
-
-          <button class="alert-filter" type="button">
-            Zonas periféricas
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derechos territoriales
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derechos ambientales
-          </button>
-
-          <button class="alert-filter" type="button">
-            Derecho a la consulta
-          </button>
-
-          <button class="alert-filter" type="button">
-            Discriminación
-          </button>
-
-          <button class="alert-filter" type="button">
-            Violencia institucional
-          </button>
-
-          <button class="alert-filter" type="button">
-            Violencia simbólica
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ALERTA DESTACADA -->
-    <section class="alertas-section alertas-section-soft">
-      <div class="container">
-        <article class="alert-featured">
-          <div
-            class="alert-featured-image"
-            role="img"
-            aria-label="Imagen de la alerta destacada sobre centralismo"
-          ></div>
-
-          <div class="alert-featured-content">
-            <p class="eyebrow">
-              Alerta destacada · Lima no es el Perú
-            </p>
-
-            <h2>
-              Cuando el centralismo invisibiliza las demandas territoriales
-            </h2>
-
-            <p>
-              Esta alerta analiza cómo determinadas noticias reproducen
-              una mirada centralista del país, dejando en segundo plano
-              las demandas, las voces y los derechos de comunidades
-              ubicadas fuera de Lima.
-            </p>
-
-            <div class="alert-featured-tags">
-              <span>Derechos humanos</span>
-              <span>Violencia simbólica</span>
-              <span>Territorio</span>
+                    <a
+                        href="#alertas-recientes"
+                        class="btn btn-light"
+                    >
+                        Ver alertas
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <a href="/alertas/detalle" th:href="@{/alertas/detalle}" class="btn btn-light">
-              Leer análisis
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
+        <!-- ENFOQUES -->
+        <section class="alertas-section alertas-section-white">
+            <div class="container">
+                <header class="alertas-section-header">
+                    <div>
+                        <p class="eyebrow">
+                            Enfoque editorial
+                        </p>
 
-    <!-- LISTADO -->
-    <section
-      class="alertas-section alertas-section-white"
-      id="ultimas-alertas"
-    >
-      <div class="container">
-        <header class="alertas-section-header">
-          <div>
-            <p class="eyebrow">Últimas alertas</p>
+                        <h2>
+                            Mirar críticamente la realidad
+                        </h2>
+                    </div>
 
-            <h2>
-              Artículos recientes
-            </h2>
-          </div>
+                    <p>
+                        Las alertas relacionan noticias y acontecimientos
+                        con derechos, territorios, comunidades
+                        y formas de desigualdad que requieren atención.
+                    </p>
+                </header>
 
-          <p>
-            Cada alerta incluye contexto, fuente periodística,
-            análisis de derechos y enlace a su publicación de Instagram.
-          </p>
-        </header>
+                <div class="alert-filter-list">
+                    <span class="alert-filter active">
+                        Todas
+                    </span>
 
-        <div class="alerts-feed">
-          <!-- ALERTA 1 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-17">
-                Junio 17, 2026
-              </time>
+                    <span class="alert-filter">
+                        Territorio
+                    </span>
 
-              <span>Alerta 01</span>
+                    <span class="alert-filter">
+                        Derechos ambientales
+                    </span>
+
+                    <span class="alert-filter">
+                        Discriminación
+                    </span>
+
+                    <span class="alert-filter">
+                        Violencia institucional
+                    </span>
+
+                    <span class="alert-filter">
+                        Violencia simbólica
+                    </span>
+
+                    <span class="alert-filter">
+                        Acceso cultural
+                    </span>
+                </div>
             </div>
+        </section>
 
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Comunidades indígenas / Derecho a la consulta
-              </p>
+        <!-- ALERTA DESTACADA -->
+        <section
+            class="alertas-section alertas-section-soft"
+            th:if="${alertaDestacada != null}"
+        >
+            <div class="container">
+                <article class="alert-featured">
+                    <div class="alert-featured-image">
+                        <img
+                            th:if="${alertaDestacada.imagen != null and !#strings.isEmpty(alertaDestacada.imagen)}"
+                            th:src="${alertaDestacada.imagen}"
+                            th:alt="${alertaDestacada.titulo}"
+                        />
 
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  Consulta previa y participación comunitaria
-                </a>
-              </h3>
+                        <span
+                            class="alert-image-placeholder"
+                            th:unless="${alertaDestacada.imagen != null and !#strings.isEmpty(alertaDestacada.imagen)}"
+                        >
+                            SCV
+                        </span>
+                    </div>
 
-              <p>
-                Un análisis sobre la importancia de la participación
-                efectiva de las comunidades indígenas en decisiones
-                que afectan sus territorios.
-              </p>
+                    <div class="alert-featured-content">
+                        <p class="eyebrow">
+                            Alerta destacada
+                        </p>
 
-              <div class="alert-feed-tags">
-                <span>Consulta previa</span>
-                <span>Derechos territoriales</span>
-              </div>
+                        <h2 th:text="${alertaDestacada.titulo}">
+                            Título de la alerta destacada
+                        </h2>
+
+                        <p th:text="${alertaDestacada.resumen}">
+                            Resumen de la alerta destacada.
+                        </p>
+
+                        <div class="alert-featured-tags">
+                            <span
+                                th:text="${alertaDestacada.categoria}"
+                            >
+                                Categoría
+                            </span>
+
+                            <span
+                                th:if="${alertaDestacada.territorio != null and !#strings.isEmpty(alertaDestacada.territorio)}"
+                                th:text="${alertaDestacada.territorio}"
+                            >
+                                Territorio
+                            </span>
+                        </div>
+
+                        <a
+                            class="btn btn-light"
+                            th:href="@{/alertas/{slug}(slug=${alertaDestacada.slug})}"
+                        >
+                            Leer análisis
+                        </a>
+                    </div>
+                </article>
             </div>
+        </section>
 
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-consulta"
-              aria-label="Leer alerta sobre consulta previa"
-            ></a>
-          </article>
+        <!-- LISTADO -->
+        <section
+            class="alertas-section alertas-section-white"
+            id="alertas-recientes"
+        >
+            <div class="container">
+                <header class="alertas-section-header">
+                    <div>
+                        <p class="eyebrow">
+                            Últimas alertas
+                        </p>
 
-          <!-- ALERTA 2 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-14">
-                Junio 14, 2026
-              </time>
+                        <h2>
+                            Artículos recientes
+                        </h2>
+                    </div>
 
-              <span>Alerta 02</span>
+                    <p>
+                        Cada publicación incluye contexto,
+                        territorio, fuente y análisis
+                        de la problemática abordada.
+                    </p>
+                </header>
+
+                <!-- ESTADO VACÍO -->
+                <div
+                    class="alert-empty"
+                    th:if="${alertas == null or #lists.isEmpty(alertas)}"
+                >
+                    <h3>
+                        Todavía no existen alertas publicadas
+                    </h3>
+
+                    <p>
+                        Las nuevas publicaciones aparecerán aquí
+                        cuando sean incorporadas al sistema.
+                    </p>
+                </div>
+
+                <div
+                    class="alerts-feed"
+                    th:if="${alertasSecundarias != null and !#lists.isEmpty(alertasSecundarias)}"
+                >
+                    <article
+                        class="alert-feed-item"
+                        th:each="alerta, iteracion : ${alertasSecundarias}"
+                    >
+                        <div class="alert-feed-date">
+                            <time
+                                th:if="${alerta.fechaPublicacion != null}"
+                                th:text="${alerta.fechaPublicacion.toLocalDate()}"
+                            >
+                                2026-06-24
+                            </time>
+
+                            <span th:text="|Alerta ${iteracion.count}|">
+                                Alerta 1
+                            </span>
+                        </div>
+
+                        <div class="alert-feed-content">
+                            <p
+                                class="alert-feed-category"
+                                th:text="${alerta.categoria}"
+                            >
+                                Categoría
+                            </p>
+
+                            <h3>
+                                <a
+                                    th:href="@{/alertas/{slug}(slug=${alerta.slug})}"
+                                    th:text="${alerta.titulo}"
+                                >
+                                    Título de la alerta
+                                </a>
+                            </h3>
+
+                            <p th:text="${alerta.resumen}">
+                                Resumen de la alerta.
+                            </p>
+
+                            <div class="alert-feed-tags">
+                                <span th:text="${alerta.categoria}">
+                                    Categoría
+                                </span>
+
+                                <span
+                                    th:if="${alerta.territorio != null and !#strings.isEmpty(alerta.territorio)}"
+                                    th:text="${alerta.territorio}"
+                                >
+                                    Territorio
+                                </span>
+                            </div>
+                        </div>
+
+                        <a
+                            class="alert-feed-image"
+                            th:href="@{/alertas/{slug}(slug=${alerta.slug})}"
+                            th:aria-label="|Leer ${alerta.titulo}|"
+                        >
+                            <img
+                                th:if="${alerta.imagen != null and !#strings.isEmpty(alerta.imagen)}"
+                                th:src="${alerta.imagen}"
+                                th:alt="${alerta.titulo}"
+                            />
+
+                            <span
+                                class="alert-image-placeholder"
+                                th:unless="${alerta.imagen != null and !#strings.isEmpty(alerta.imagen)}"
+                            >
+                                SCV
+                            </span>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- CUANDO SOLO EXISTE LA DESTACADA -->
+                <div
+                    class="alert-empty alert-empty-compact"
+                    th:if="${alertaDestacada != null and (alertasSecundarias == null or #lists.isEmpty(alertasSecundarias))}"
+                >
+                    <p>
+                        La alerta destacada es la única publicación
+                        disponible actualmente.
+                    </p>
+                </div>
             </div>
+        </section>
 
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Comunidades migrantes / Discriminación
-              </p>
+        <!-- REDES -->
+        <section class="instagram-editorial">
+            <div class="container">
+                <div class="instagram-editorial-inner">
+                    <div>
+                        <p class="eyebrow">
+                            Redes
+                        </p>
 
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  Discursos que excluyen a comunidades migrantes
-                </a>
-              </h3>
+                        <h2>
+                            Cada alerta también puede tener
+                            una versión visual
+                        </h2>
 
-              <p>
-                Una lectura crítica sobre discursos públicos,
-                medios y representaciones que pueden normalizar
-                la discriminación y la exclusión.
-              </p>
+                        <p>
+                            Los análisis pueden complementarse
+                            con publicaciones breves para facilitar
+                            su circulación dentro de la comunidad.
+                        </p>
+                    </div>
 
-              <div class="alert-feed-tags">
-                <span>Discriminación</span>
-                <span>Violencia simbólica</span>
-              </div>
+                    <a
+                        href="#"
+                        class="btn btn-light"
+                    >
+                        Ir a Instagram
+                    </a>
+                </div>
             </div>
-
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-migrantes"
-              aria-label="Leer alerta sobre comunidades migrantes"
-            ></a>
-          </article>
-
-          <!-- ALERTA 3 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-11">
-                Junio 11, 2026
-              </time>
-
-              <span>Alerta 03</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Zonas periféricas / Violencia institucional
-              </p>
-
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  Servicios públicos y desigualdad territorial
-                </a>
-              </h3>
-
-              <p>
-                Análisis sobre cómo la falta de acceso equitativo
-                a servicios básicos puede reproducir vulneraciones
-                estructurales.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Zonas periféricas</span>
-                <span>Violencia institucional</span>
-              </div>
-            </div>
-
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-servicios"
-              aria-label="Leer alerta sobre servicios públicos"
-            ></a>
-          </article>
-
-          <!-- ALERTA 4 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-08">
-                Junio 8, 2026
-              </time>
-
-              <span>Alerta 04</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Lima no es el Perú / Centralismo
-              </p>
-
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  La mirada limeña sobre los conflictos sociales
-                </a>
-              </h3>
-
-              <p>
-                Una revisión de coberturas que reducen demandas
-                sociales complejas a lecturas simplificadas
-                y centradas únicamente en Lima.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Centralismo</span>
-                <span>Territorio</span>
-              </div>
-            </div>
-
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-centralismo"
-              aria-label="Leer alerta sobre centralismo"
-            ></a>
-          </article>
-
-          <!-- ALERTA 5 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-05">
-                Junio 5, 2026
-              </time>
-
-              <span>Alerta 05</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Derechos ambientales / Territorio
-              </p>
-
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  Impactos ambientales y comunidades afectadas
-                </a>
-              </h3>
-
-              <p>
-                Análisis sobre situaciones donde el deterioro
-                ambiental afecta directamente la salud,
-                el territorio y la vida comunitaria.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Derechos ambientales</span>
-                <span>Comunidad</span>
-              </div>
-            </div>
-
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-ambiental"
-              aria-label="Leer alerta sobre derechos ambientales"
-            ></a>
-          </article>
-
-          <!-- ALERTA 6 -->
-          <article class="alert-feed-item">
-            <div class="alert-feed-date">
-              <time datetime="2026-06-02">
-                Junio 2, 2026
-              </time>
-
-              <span>Alerta 06</span>
-            </div>
-
-            <div class="alert-feed-content">
-              <p class="alert-feed-category">
-                Violencia simbólica / Representación
-              </p>
-
-              <h3>
-                <a href="/alertas/detalle" th:href="@{/alertas/detalle}">
-                  Quiénes aparecen y quiénes quedan fuera del relato
-                </a>
-              </h3>
-
-              <p>
-                Un análisis sobre la representación mediática
-                de comunidades históricamente poco visibilizadas.
-              </p>
-
-              <div class="alert-feed-tags">
-                <span>Representación</span>
-                <span>Medios</span>
-              </div>
-            </div>
-
-            <a
-              href="/alertas/detalle" th:href="@{/alertas/detalle}"
-              class="alert-feed-image alert-image-representacion"
-              aria-label="Leer alerta sobre representación mediática"
-            ></a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- INSTAGRAM -->
-    <section class="instagram-editorial">
-      <div class="container">
-        <div class="instagram-editorial-inner">
-          <div>
-            <p class="eyebrow">Redes</p>
-
-            <h2>
-              Cada alerta también tiene una versión visual
-            </h2>
-
-            <p>
-              Los artículos completos se complementan con publicaciones
-              de Instagram que resumen los principales hallazgos
-              y facilitan su difusión dentro de la comunidad.
-            </p>
-          </div>
-
-          <a href="#" class="btn btn-light">
-            Ir a Instagram
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
 
@@ -492,7 +368,5 @@
         src="/js/main.js"
         th:src="@{/js/main.js}"
     ></script>
-
-
 </body>
 </html>

@@ -27,16 +27,6 @@ public class PageController {
         return "que-es";
     }
 
-    @GetMapping("/alertas")
-    public String alertas() {
-        return "alertas/index";
-    }
-
-    @GetMapping("/alertas/detalle")
-    public String detalleAlerta() {
-        return "alertas/detalle";
-    }
-
     @GetMapping("/cronicas")
     public String cronicas() {
         return "cronicas/index";
