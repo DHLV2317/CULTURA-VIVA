@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administrar alertas | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/admin-alertas.css"
+        th:href="@{/css/admin-alertas.css}"
+    >
+</head>
+
+<body class="admin-page">
+
+<header class="admin-header">
+    <div class="admin-container admin-header-inner">
+        <div>
+            <p class="admin-eyebrow">
+                Santa Cultura Viva
+            </p>
+
+            <h1>Administración de alertas</h1>
+        </div>
+
+        <div class="admin-header-actions">
+            <a
+                class="admin-link-light"
+                href="/alertas"
+                th:href="@{/alertas}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Ver sitio público
+            </a>
+
+            <a
+                class="admin-button admin-button-primary"
+                href="/admin/alertas/nueva"
+                th:href="@{/admin/alertas/nueva}"
+            >
+                Nueva alerta
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="admin-main">
+    <div class="admin-container">
+
+        <div
+            class="admin-message admin-message-success"
+            th:if="${mensajeExito != null}"
+            th:text="${mensajeExito}"
+        >
+            Operación realizada correctamente.
+        </div>
+
+        <section class="admin-panel">
+            <header class="admin-panel-header">
+                <div>
+                    <p class="admin-eyebrow admin-eyebrow-dark">
+                        Contenido editorial
+                    </p>
+
+                    <h2>Alertas registradas</h2>
+                </div>
+
+                <span
+                    class="admin-count"
+                    th:if="${alertas != null}"
+                    th:text="${#lists.size(alertas) + ' alerta(s)'}"
+                >
+                    0 alertas
+                </span>
+            </header>
+
+            <div
+                class="admin-empty"
+                th:if="${alertas == null or #lists.isEmpty(alertas)}"
+            >
+                <h3>Todavía no existen alertas</h3>
+
+                <p>
+                    Registra la primera publicación mediante
+                    el botón “Nueva alerta”.
+                </p>
+
+                <a
+                    class="admin-button admin-button-primary"
+                    href="/admin/alertas/nueva"
+                    th:href="@{/admin/alertas/nueva}"
+                >
+                    Crear primera alerta
+                </a>
+            </div>
+
+            <div
+                class="admin-table-wrapper"
+                th:if="${alertas != null and !#lists.isEmpty(alertas)}"
+            >
+                <table class="admin-table">
+                    <thead>
+                    <tr>
+                        <th>Alerta</th>
+                        <th>Categoría</th>
+                        <th>Estado</th>
+                        <th>Destacada</th>
+                        <th>Publicación</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="alerta : ${alertas}">
+                        <td class="admin-title-cell">
+                            <strong th:text="${alerta.titulo}">
+                                Título de la alerta
+                            </strong>
+
+                            <small th:text="${'/' + alerta.slug}">
+                                /slug
+                            </small>
+                        </td>
+
+                        <td th:text="${alerta.categoria}">
+                            Categoría
+                        </td>
+
+                        <td>
+                            <span
+                                class="admin-status"
+                                th:classappend="${alerta.estado == 'PUBLICADA'}
+                                    ? ' admin-status-published'
+                                    : ' admin-status-draft'"
+                                th:text="${alerta.estado}"
+                            >
+                                BORRADOR
+                            </span>
+                        </td>
+
+                        <td>
+                            <span
+                                class="admin-featured"
+                                th:classappend="${alerta.destacada}
+                                    ? ' admin-featured-active'
+                                    : ''"
+                                th:text="${alerta.destacada ? 'Sí' : 'No'}"
+                            >
+                                No
+                            </span>
+                        </td>
+
+                        <td>
+                            <span
+                                th:if="${alerta.fechaPublicacion != null}"
+                                th:text="${alerta.fechaPublicacion}"
+                            >
+                                2026-06-24T14:00
+                            </span>
+
+                            <span
+                                class="admin-muted"
+                                th:unless="${alerta.fechaPublicacion != null}"
+                            >
+                                Sin fecha
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="admin-row-actions">
+                                <a
+                                    th:if="${alerta.estado == 'PUBLICADA'}"
+                                    th:href="@{/alertas/{slug}(slug=${alerta.slug})}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Ver
+                                </a>
+
+                                <a
+                                    th:href="@{/admin/alertas/{id}/editar(id=${alerta.id})}"
+                                >
+                                    Editar
+                                </a>
+
+                                <form
+                                    method="post"
+                                    th:action="@{/admin/alertas/{id}/eliminar(id=${alerta.id})}"
+                                    onsubmit="return confirm('¿Seguro que deseas eliminar esta alerta? Esta acción no se puede deshacer.');"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="admin-delete-button"
+                                    >
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+</body>
+</html>

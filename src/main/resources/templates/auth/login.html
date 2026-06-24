@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ingresar | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/auth.css"
+        th:href="@{/css/auth.css}"
+    >
+</head>
+
+<body class="auth-body">
+
+<main class="auth-layout">
+
+    <section class="auth-brand">
+        <a
+            class="auth-logo"
+            href="/"
+            th:href="@{/}"
+        >
+            <span class="auth-logo-mark">
+                SCV
+            </span>
+
+            <span>
+                <strong>Santa Cultura Viva</strong>
+                <small>Revista digital universitaria</small>
+            </span>
+        </a>
+
+        <div class="auth-brand-copy">
+            <p class="auth-eyebrow">
+                Cultura, comunidad y territorio
+            </p>
+
+            <h1>
+                Un espacio para participar, editar y preservar
+                nuestra memoria cultural.
+            </h1>
+
+            <p>
+                Ingresa con la cuenta asignada por Santa Cultura Viva.
+                La plataforma mostrará las funciones disponibles
+                según tu rol.
+            </p>
+        </div>
+
+        <div class="auth-role-list">
+            <article>
+                <strong>Administración</strong>
+
+                <span>
+                    Gestión de usuarios, contenidos,
+                    mensajes y suscripciones.
+                </span>
+            </article>
+
+            <article>
+                <strong>Edición y revisión</strong>
+
+                <span>
+                    Creación de borradores, correcciones
+                    y publicación editorial.
+                </span>
+            </article>
+
+            <article>
+                <strong>Comunidad estudiantil</strong>
+
+                <span>
+                    Eventos, convocatorias y espacios
+                    de participación cultural.
+                </span>
+            </article>
+        </div>
+    </section>
+
+    <section class="auth-card-wrapper">
+        <div class="auth-card">
+
+            <a
+                class="auth-back"
+                href="/"
+                th:href="@{/}"
+            >
+                ← Volver al sitio público
+            </a>
+
+            <p class="auth-eyebrow auth-eyebrow-dark">
+                Acceso a la plataforma
+            </p>
+
+            <h2>Iniciar sesión</h2>
+
+            <p class="auth-intro">
+                Usa el correo asociado a tu cuenta.
+            </p>
+
+            <div
+                class="auth-message auth-message-error"
+                th:if="${param.error}"
+            >
+                El correo o la contraseña no son correctos.
+            </div>
+
+            <div
+                class="auth-message auth-message-success"
+                th:if="${param.logout}"
+            >
+                La sesión se cerró correctamente.
+            </div>
+
+            <form
+                id="loginForm"
+                class="auth-form"
+                method="post"
+                th:action="@{/login}"
+                autocomplete="off"
+            >
+                <div class="auth-field">
+                    <label for="username">
+                        Correo
+                    </label>
+
+                    <input
+                        type="email"
+                        id="username"
+                        name="username"
+                        value=""
+                        placeholder="nombre@correo.com"
+                        autocomplete="off"
+                        autocapitalize="none"
+                        spellcheck="false"
+                        required
+                        autofocus
+                    >
+                </div>
+
+                <div class="auth-field">
+                    <label for="password">
+                        Contraseña
+                    </label>
+
+                    <div class="auth-password-row">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value=""
+                            placeholder="Escribe tu contraseña"
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="auth-password-toggle"
+                            id="togglePassword"
+                            aria-label="Mostrar contraseña"
+                        >
+                            Mostrar
+                        </button>
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+                    Ingresar
+                </button>
+            </form>
+
+            <p class="auth-help">
+                ¿No puedes ingresar? Comunícate con la administración
+                de Santa Cultura Viva.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<script>
+    const formulario = document.getElementById("loginForm");
+    const correo = document.getElementById("username");
+    const password = document.getElementById("password");
+    const botonPassword =
+        document.getElementById("togglePassword");
+
+    function limpiarCampos() {
+        formulario.reset();
+        correo.value = "";
+        password.value = "";
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+        limpiarCampos();
+
+        setTimeout(limpiarCampos, 150);
+        setTimeout(limpiarCampos, 500);
+    });
+
+    window.addEventListener("pageshow", function () {
+        limpiarCampos();
+
+        setTimeout(limpiarCampos, 150);
+    });
+
+    botonPassword.addEventListener("click", function () {
+        const estaOculta =
+            password.type === "password";
+
+        password.type =
+            estaOculta ? "text" : "password";
+
+        botonPassword.textContent =
+            estaOculta ? "Ocultar" : "Mostrar";
+    });
+</script>
+
+</body>
+</html>

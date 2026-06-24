@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title
+    th:text="${tituloPagina + ' - Santa Cultura Viva'}"
+>
+    Formulario de alerta - Santa Cultura Viva
+</title>
+
+<link
+    rel="stylesheet"
+    href="/css/admin-alertas.css"
+    th:href="@{/css/admin-alertas.css}"
+>
+</head>
+
+<body class="admin-page">
+
+<header class="admin-header">
+    <div class="admin-container admin-header-inner">
+        <div>
+            <p class="admin-eyebrow">
+                Panel editorial
+            </p>
+<h1 th:text="${tituloPagina}">
+            Nueva alerta
+        </h1>
+    </div>
+
+    <a
+        class="admin-link-light"
+        href="/admin/alertas"
+        th:href="@{/admin/alertas}"
+    >
+        Volver al listado
+    </a>
+</div>
+</header>
+
+<main class="admin-main">
+    <div class="admin-container admin-container-form">
+<form
+        class="admin-form"
+        method="post"
+        th:object="${alertaFormulario}"
+        th:action="${esEdicion}
+            ? @{/admin/alertas/{id}/editar(id=${alertaId})}
+            : @{/admin/alertas/nueva}"
+        novalidate
+    >
+        <div
+            class="admin-message admin-message-error"
+            th:if="${#fields.hasAnyErrors()}"
+        >
+            Revisa los campos marcados antes de guardar.
+        </div>
+
+        <section class="admin-form-section">
+            <header class="admin-form-section-header">
+                <p class="admin-eyebrow admin-eyebrow-dark">
+                    Información principal
+                </p>
+
+                <h2>Contenido de la alerta</h2>
+            </header>
+
+            <div class="admin-field">
+                <label for="titulo">
+                    Título
+                    <span aria-hidden="true">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="titulo"
+                    th:field="*{titulo}"
+                    maxlength="180"
+                    placeholder="Escribe el título de la alerta"
+                    th:classappend="${#fields.hasErrors('titulo')}
+                        ? ' field-invalid'
+                        : ''"
+                >
+
+                <p
+                    class="admin-field-error"
+                    th:if="${#fields.hasErrors('titulo')}"
+                    th:errors="*{titulo}"
+                >
+                    Error en el título.
+                </p>
+            </div>
+
+            <div class="admin-field">
+                <label for="slug">
+                    Slug
+                    <span class="admin-optional">
+                        Opcional
+                    </span>
+                </label>
+
+                <input
+                    type="text"
+                    id="slug"
+                    th:field="*{slug}"
+                    maxlength="200"
+                    placeholder="Se genera automáticamente si queda vacío"
+                    th:classappend="${#fields.hasErrors('slug')}
+                        ? ' field-invalid'
+                        : ''"
+                >
+
+                <small>
+                    Ejemplo: proteccion-humedales-costeros.
+                    Usa letras minúsculas, números y guiones.
+                </small>
+
+                <p
+                    class="admin-field-error"
+                    th:if="${#fields.hasErrors('slug')}"
+                    th:errors="*{slug}"
+                >
+                    Error en el slug.
+                </p>
+            </div>
+
+            <div class="admin-field">
+                <label for="resumen">
+                    Resumen
+                    <span aria-hidden="true">*</span>
+                </label>
+
+                <textarea
+                    id="resumen"
+                    th:field="*{resumen}"
+                    maxlength="600"
+                    rows="5"
+                    placeholder="Escribe un resumen breve para el listado público"
+                    th:classappend="${#fields.hasErrors('resumen')}
+                        ? ' field-invalid'
+                        : ''"
+                ></textarea>
+
+                <small>
+                    Máximo 600 caracteres.
+                </small>
+
+                <p
+                    class="admin-field-error"
+                    th:if="${#fields.hasErrors('resumen')}"
+                    th:errors="*{resumen}"
+                >
+                    Error en el resumen.
+                </p>
+            </div>
+
+            <div class="admin-field">
+                <label for="contenido">
+                    Contenido completo
+                    <span aria-hidden="true">*</span>
+                </label>
+
+                <textarea
+                    id="contenido"
+                    th:field="*{contenido}"
+                    maxlength="50000"
+                    rows="16"
+                    placeholder="Escribe aquí el análisis completo de la alerta"
+                    th:classappend="${#fields.hasErrors('contenido')}
+                        ? ' field-invalid'
+                        : ''"
+                ></textarea>
+
+                <small>
+                    El contenido debe tener al menos 20 caracteres.
+                </small>
+
+                <p
+                    class="admin-field-error"
+                    th:if="${#fields.hasErrors('contenido')}"
+                    th:errors="*{contenido}"
+                >
+                    Error en el contenido.
+                </p>
+            </div>
+        </section>
+
+        <section class="admin-form-section">
+            <header class="admin-form-section-header">
+                <p class="admin-eyebrow admin-eyebrow-dark">
+                    Clasificación
+                </p>
+
+                <h2>Información editorial</h2>
+            </header>
+
+            <div class="admin-grid-two">
+                <div class="admin-field">
+                    <label for="categoria">
+                        Categoría
+                        <span aria-hidden="true">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="categoria"
+                        th:field="*{categoria}"
+                        maxlength="80"
+                        placeholder="Territorio"
+                        th:classappend="${#fields.hasErrors('categoria')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('categoria')}"
+                        th:errors="*{categoria}"
+                    >
+                        Error en la categoría.
+                    </p>
+                </div>
+
+                <div class="admin-field">
+                    <label for="territorio">
+                        Territorio
+                        <span class="admin-optional">
+                            Opcional
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="territorio"
+                        th:field="*{territorio}"
+                        maxlength="120"
+                        placeholder="Costa del Perú"
+                        th:classappend="${#fields.hasErrors('territorio')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('territorio')}"
+                        th:errors="*{territorio}"
+                    >
+                        Error en el territorio.
+                    </p>
+                </div>
+            </div>
+
+            <div class="admin-grid-two">
+                <div class="admin-field">
+                    <label for="fuente">
+                        Fuente
+                        <span class="admin-optional">
+                            Opcional
+                        </span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fuente"
+                        th:field="*{fuente}"
+                        maxlength="180"
+                        placeholder="Nombre del medio u organización"
+                        th:classappend="${#fields.hasErrors('fuente')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('fuente')}"
+                        th:errors="*{fuente}"
+                    >
+                        Error en la fuente.
+                    </p>
+                </div>
+
+                <div class="admin-field">
+                    <label for="urlFuente">
+                        Enlace de la fuente
+                        <span class="admin-optional">
+                            Opcional
+                        </span>
+                    </label>
+
+                    <input
+                        type="url"
+                        id="urlFuente"
+                        th:field="*{urlFuente}"
+                        maxlength="500"
+                        placeholder="https://ejemplo.com/noticia"
+                        th:classappend="${#fields.hasErrors('urlFuente')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+
+                    <small>
+                        Debe comenzar con http:// o https://.
+                    </small>
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('urlFuente')}"
+                        th:errors="*{urlFuente}"
+                    >
+                        Error en la URL.
+                    </p>
+                </div>
+            </div>
+
+            <div class="admin-field">
+                <label for="imagen">
+                    Ruta o URL de imagen
+                    <span class="admin-optional">
+                        Opcional
+                    </span>
+                </label>
+
+                <input
+                    type="text"
+                    id="imagen"
+                    th:field="*{imagen}"
+                    maxlength="500"
+                    placeholder="/img/alertas/imagen.jpg o https://..."
+                    th:classappend="${#fields.hasErrors('imagen')}
+                        ? ' field-invalid'
+                        : ''"
+                >
+
+                <small>
+                    Para una imagen local, guárdala dentro de
+                    static/img/alertas y escribe una ruta como:
+                    /img/alertas/humedales.jpg
+                </small>
+
+                <p
+                    class="admin-field-error"
+                    th:if="${#fields.hasErrors('imagen')}"
+                    th:errors="*{imagen}"
+                >
+                    Error en la imagen.
+                </p>
+            </div>
+        </section>
+
+        <section class="admin-form-section">
+            <header class="admin-form-section-header">
+                <p class="admin-eyebrow admin-eyebrow-dark">
+                    Publicación
+                </p>
+
+                <h2>Estado y visibilidad</h2>
+            </header>
+
+            <div class="admin-grid-two">
+                <div class="admin-field">
+                    <label for="estado">
+                        Estado
+                        <span aria-hidden="true">*</span>
+                    </label>
+
+                    <select
+                        id="estado"
+                        th:field="*{estado}"
+                        th:classappend="${#fields.hasErrors('estado')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+                        <option value="BORRADOR">
+                            Borrador
+                        </option>
+
+                        <option value="PUBLICADA">
+                            Publicada
+                        </option>
+                    </select>
+
+                    <small>
+                        Los borradores no aparecen en el sitio público.
+                    </small>
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('estado')}"
+                        th:errors="*{estado}"
+                    >
+                        Error en el estado.
+                    </p>
+                </div>
+
+                <div class="admin-field">
+                    <label for="fechaPublicacion">
+                        Fecha de publicación
+                        <span class="admin-optional">
+                            Opcional
+                        </span>
+                    </label>
+
+                    <input
+                        type="datetime-local"
+                        id="fechaPublicacion"
+                        th:field="*{fechaPublicacion}"
+                        step="60"
+                        th:classappend="${#fields.hasErrors('fechaPublicacion')}
+                            ? ' field-invalid'
+                            : ''"
+                    >
+
+                    <small>
+                        Al publicar sin fecha se utilizará
+                        la fecha y hora actual.
+                    </small>
+
+                    <p
+                        class="admin-field-error"
+                        th:if="${#fields.hasErrors('fechaPublicacion')}"
+                        th:errors="*{fechaPublicacion}"
+                    >
+                        Error en la fecha.
+                    </p>
+                </div>
+            </div>
+
+            <label class="admin-checkbox">
+                <input
+                    type="checkbox"
+                    th:field="*{destacada}"
+                >
+
+                <span>
+                    <strong>
+                        Marcar como alerta destacada.
+                    </strong>
+
+                    Solo una alerta publicada puede permanecer
+                    destacada. Al elegir otra, la anterior
+                    se desmarcará automáticamente.
+                </span>
+            </label>
+        </section>
+
+        <div class="admin-form-actions">
+            <a
+                class="admin-cancel-link"
+                href="/admin/alertas"
+                th:href="@{/admin/alertas}"
+            >
+                Cancelar
+            </a>
+
+            <button
+                type="submit"
+                class="admin-button admin-button-primary"
+            >
+                <span
+                    th:text="${esEdicion
+                        ? 'Guardar cambios'
+                        : 'Crear alerta'}"
+                >
+                    Guardar
+                </span>
+            </button>
+        </div>
+    </form>
+
+</div>
+</main>
+
+</body>
+</html>

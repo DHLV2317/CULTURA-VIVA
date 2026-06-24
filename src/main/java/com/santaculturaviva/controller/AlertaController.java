@@ -1,9 +1,3 @@
-// ==========================================================
-// ARCHIVO:
-// src/main/java/com/santaculturaviva/controller/
-// AlertaController.java
-// ==========================================================
-
 package com.santaculturaviva.controller;
 
 import com.santaculturaviva.model.Alerta;
@@ -72,10 +66,6 @@ public class AlertaController {
         return "alertas/index";
     }
 
-    /*
-     * Compatibilidad temporal con los enlaces antiguos
-     * que todavía apuntan a /alertas/detalle.
-     */
     @GetMapping("/detalle")
     public String redirigirDetalleAntiguo() {
         List<Alerta> alertas =

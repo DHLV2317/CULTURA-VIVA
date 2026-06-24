@@ -1,9 +1,3 @@
-// ==========================================================
-// REEMPLAZA COMPLETAMENTE:
-// src/main/java/com/santaculturaviva/controller/
-// PageController.java
-// ==========================================================
-
 package com.santaculturaviva.controller;
 
 import org.springframework.stereotype.Controller;
@@ -26,6 +20,11 @@ public class PageController {
     public String queEs() {
         return "que-es";
     }
+
+    /*
+     * /alertas y /alertas/{slug}
+     * son administradas por AlertaController.
+     */
 
     @GetMapping("/cronicas")
     public String cronicas() {
@@ -56,4 +55,9 @@ public class PageController {
     public String convocatorias() {
         return "convocatorias/index";
     }
+
+    /*
+     * /contacto es administrado por ContactoController.
+     * /suscripcion es administrado por SuscripcionController.
+     */
 }
