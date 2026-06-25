@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Mi panel | Santa Cultura Viva</title>
+
+<link
+    rel="stylesheet"
+    href="/css/auth.css"
+    th:href="@{/css/auth.css}"
+>
+
+</head>
+
+<body class="panel-body">
+
+<header class="panel-header">
+    <a
+        class="auth-logo auth-logo-dark"
+        href="/"
+        th:href="@{/}"
+    >
+        <span class="auth-logo-mark">
+            SCV
+        </span>
+
+    <span>
+        <strong>Santa Cultura Viva</strong>
+        <small>Panel de acceso</small>
+    </span>
+</a>
+
+<div class="panel-header-actions">
+    <a
+        class="panel-site-link"
+        href="/"
+        th:href="@{/}"
+    >
+        Ver sitio público
+    </a>
+
+    <form
+        method="post"
+        th:action="@{/logout}"
+    >
+        <button
+            type="submit"
+            class="panel-logout"
+        >
+            Cerrar sesión
+        </button>
+    </form>
+</div>
+
+</header>
+
+<main class="panel-main">
+
+<section class="panel-welcome">
+    <p class="auth-eyebrow auth-eyebrow-dark">
+        Sesión iniciada
+    </p>
+
+    <h1>Bienvenidx a Santa Cultura Viva</h1>
+
+    <p>
+        Has ingresado con:
+        <strong th:text="${correo}">
+            correo@ejemplo.com
+        </strong>
+    </p>
+</section>
+
+<section class="panel-grid">
+
+    <!-- ADMINISTRADOR -->
+    <article
+        class="panel-card panel-card-primary"
+        th:if="${esAdministrador}"
+    >
+        <span class="panel-tag">
+            Administrador/a
+        </span>
+
+        <h2>Gestión integral</h2>
+
+        <p>
+            Administra contenidos, usuarios, roles,
+            mensajes de contacto y suscripciones.
+        </p>
+
+        <a
+            href="/admin/alertas"
+            th:href="@{/admin/alertas}"
+        >
+            Administrar alertas →
+        </a>
+    </article>
+
+    <!-- EDITOR -->
+    <article
+        class="panel-card"
+        th:if="${esEditor}"
+    >
+        <span class="panel-tag">
+            Editor/a
+        </span>
+
+        <h2>Edición de contenidos</h2>
+
+        <p>
+            Crea publicaciones, modifica borradores
+            y prepara contenidos para su revisión.
+        </p>
+
+        <a
+            href="/admin/alertas"
+            th:href="@{/admin/alertas}"
+        >
+            Ir al módulo de alertas →
+        </a>
+    </article>
+
+    <!-- REVISOR -->
+    <article
+        class="panel-card"
+        th:if="${esRevisor}"
+    >
+        <span class="panel-tag">
+            Revisor/a
+        </span>
+
+        <h2>Revisión editorial</h2>
+
+        <p>
+            Revisa la información de los contenidos
+            y administra su publicación.
+        </p>
+
+        <a
+            href="/admin/alertas"
+            th:href="@{/admin/alertas}"
+        >
+            Revisar alertas →
+        </a>
+    </article>
+
+    <!-- ESTUDIANTE -->
+    <article
+        class="panel-card"
+        th:if="${esEstudiante}"
+    >
+        <span class="panel-tag">
+            Estudiante registradx
+        </span>
+
+        <h2>Participación cultural</h2>
+
+        <p>
+            Explora eventos, convocatorias, curadurías
+            y espacios de participación comunitaria.
+        </p>
+
+        <div class="panel-links">
+            <a
+                href="/eventos"
+                th:href="@{/eventos}"
+            >
+                Eventos
+            </a>
+
+            <a
+                href="/convocatorias"
+                th:href="@{/convocatorias}"
+            >
+                Convocatorias
+            </a>
+
+            <a
+                href="/curaduria"
+                th:href="@{/curaduria}"
+            >
+                Curaduría
+            </a>
+        </div>
+    </article>
+
+    <!-- TARJETA COMÚN PARA TODOS -->
+    <article class="panel-card">
+        <span class="panel-tag">
+            Revista digital
+        </span>
+
+        <h2>Explorar Santa Cultura Viva</h2>
+
+        <p>
+            Consulta alertas, crónicas, eventos,
+            convocatorias y contenidos culturales.
+        </p>
+
+        <a
+            href="/"
+            th:href="@{/}"
+        >
+            Ir a la página principal →
+        </a>
+    </article>
+
+</section>
+</main>
+
+</body>
+</html>

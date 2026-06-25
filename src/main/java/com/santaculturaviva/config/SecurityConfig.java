@@ -28,8 +28,30 @@ public SecurityFilterChain securityFilterChain(
             autorizacion -> autorizacion
 
                 /*
-                 * Solamente el administrador
-                 * puede eliminar alertas.
+                 * Página de inicio de sesión,
+                 * errores y recursos estáticos.
+                 */
+                .requestMatchers(
+                    "/login",
+                    "/error",
+                    "/favicon.ico",
+                    "/css/**",
+                    "/js/**",
+                    "/img/**",
+                    "/images/**"
+                )
+                .permitAll()
+
+                /*
+                 * Cualquier usuario autenticado
+                 * puede entrar a su panel.
+                 */
+                .requestMatchers("/panel")
+                .authenticated()
+
+                /*
+                 * Solo el administrador puede
+                 * eliminar una alerta.
                  */
                 .requestMatchers(
                     HttpMethod.POST,
@@ -62,31 +84,39 @@ public SecurityFilterChain securityFilterChain(
                 .hasRole("ADMINISTRADOR")
 
                 /*
-                 * Las demás rutas administrativas
-                 * requieren rol administrador.
+                 * Cualquier otra ruta administrativa
+                 * requiere rol administrador.
                  */
-                .requestMatchers(
-                    "/admin/**"
-                )
+                .requestMatchers("/admin/**")
                 .hasRole("ADMINISTRADOR")
 
                 /*
-                 * El resto del sitio permanece público.
+                 * El resto de Santa Cultura Viva
+                 * permanece accesible públicamente.
                  */
                 .anyRequest()
                 .permitAll()
         )
         .formLogin(
             formulario -> formulario
-                .defaultSuccessUrl("/", false)
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/panel", true)
+                .failureUrl("/login?error")
                 .permitAll()
         )
         .logout(
             cierre -> cierre
-                .logoutSuccessUrl("/")
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 .permitAll()
         );
 
     return http.build();
 }
+
 }
