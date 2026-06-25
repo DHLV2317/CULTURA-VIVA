@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title
+        th:text="${tituloPagina + ' - Santa Cultura Viva'}"
+    >
+        Usuario - Santa Cultura Viva
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/css/admin-usuarios.css"
+        th:href="@{/css/admin-usuarios.css}"
+    >
+</head>
+
+<body class="users-page">
+
+<header class="users-header">
+    <div class="users-container users-header-inner">
+        <a
+            class="users-brand"
+            href="/panel"
+            th:href="@{/panel}"
+        >
+            <span class="users-brand-mark">
+                SCV
+            </span>
+
+            <span>
+                <strong>Santa Cultura Viva</strong>
+                <small>Gestión de usuarios</small>
+            </span>
+        </a>
+
+        <a
+            class="users-header-link"
+            href="/admin/usuarios"
+            th:href="@{/admin/usuarios}"
+        >
+            Volver al listado
+        </a>
+    </div>
+</header>
+
+<main class="users-main">
+    <div class="users-container users-form-container">
+
+        <section class="users-form-heading">
+            <p class="users-eyebrow">
+                Gestión de accesos
+            </p>
+
+            <h1 th:text="${tituloPagina}">
+                Nuevo usuario
+            </h1>
+
+            <p>
+                Completa los datos de la cuenta y selecciona
+                los permisos que tendrá dentro de la plataforma.
+            </p>
+        </section>
+
+        <form
+            class="users-form"
+            method="post"
+            th:object="${usuarioFormulario}"
+            th:action="${esEdicion} ? @{/admin/usuarios/{id}/editar(id=${usuarioId})} : @{/admin/usuarios/nuevo}"
+            autocomplete="off"
+            novalidate
+        >
+
+            <div
+                class="users-message users-message-error"
+                th:if="${#fields.hasAnyErrors()}"
+            >
+                Revisa los campos marcados antes de guardar.
+            </div>
+
+            <section class="users-form-section">
+                <header class="users-form-section-header">
+                    <div>
+                        <p class="users-eyebrow">
+                            Información personal
+                        </p>
+
+                        <h2>Datos de la cuenta</h2>
+                    </div>
+                </header>
+
+                <div class="users-form-grid">
+
+                    <div class="users-field">
+                        <label for="nombreSocial">
+                            Nombre social
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombreSocial"
+                            th:field="*{nombreSocial}"
+                            maxlength="120"
+                            placeholder="Nombre que aparecerá en la plataforma"
+                            th:classappend="${#fields.hasErrors('nombreSocial')} ? ' users-input-error' : ''"
+                        >
+
+                        <p
+                            class="users-field-error"
+                            th:if="${#fields.hasErrors('nombreSocial')}"
+                            th:errors="*{nombreSocial}"
+                        >
+                            Error en el nombre.
+                        </p>
+                    </div>
+
+                    <div class="users-field">
+                        <label for="pronombre">
+                            Pronombre
+                            <small>Opcional</small>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pronombre"
+                            th:field="*{pronombre}"
+                            maxlength="50"
+                            placeholder="Ejemplo: ella, él, elle"
+                            th:classappend="${#fields.hasErrors('pronombre')} ? ' users-input-error' : ''"
+                        >
+
+                        <p
+                            class="users-field-error"
+                            th:if="${#fields.hasErrors('pronombre')}"
+                            th:errors="*{pronombre}"
+                        >
+                            Error en el pronombre.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="users-field">
+                    <label for="correo">
+                        Correo
+                        <span>*</span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        th:field="*{correo}"
+                        maxlength="150"
+                        placeholder="nombre@correo.com"
+                        autocomplete="off"
+                        th:classappend="${#fields.hasErrors('correo')} ? ' users-input-error' : ''"
+                    >
+
+                    <p
+                        class="users-field-error"
+                        th:if="${#fields.hasErrors('correo')}"
+                        th:errors="*{correo}"
+                    >
+                        Error en el correo.
+                    </p>
+                </div>
+
+            </section>
+
+            <section class="users-form-section">
+                <header class="users-form-section-header">
+                    <div>
+                        <p class="users-eyebrow">
+                            Seguridad
+                        </p>
+
+                        <h2>Contraseña</h2>
+                    </div>
+                </header>
+
+                <div
+                    class="users-form-note"
+                    th:if="${esEdicion}"
+                >
+                    Deja estos campos vacíos para conservar
+                    la contraseña actual.
+                </div>
+
+                <div class="users-form-grid">
+
+                    <div class="users-field">
+                        <label for="password">
+                            Contraseña
+                            <span th:unless="${esEdicion}">*</span>
+                            <small th:if="${esEdicion}">Opcional</small>
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            th:field="*{password}"
+                            maxlength="100"
+                            placeholder="Mínimo 8 caracteres"
+                            autocomplete="new-password"
+                            th:classappend="${#fields.hasErrors('password')} ? ' users-input-error' : ''"
+                        >
+
+                        <p
+                            class="users-field-error"
+                            th:if="${#fields.hasErrors('password')}"
+                            th:errors="*{password}"
+                        >
+                            Error en la contraseña.
+                        </p>
+                    </div>
+
+                    <div class="users-field">
+                        <label for="confirmarPassword">
+                            Confirmar contraseña
+                            <span th:unless="${esEdicion}">*</span>
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmarPassword"
+                            th:field="*{confirmarPassword}"
+                            maxlength="100"
+                            placeholder="Vuelve a escribir la contraseña"
+                            autocomplete="new-password"
+                            th:classappend="${#fields.hasErrors('confirmarPassword')} ? ' users-input-error' : ''"
+                        >
+
+                        <p
+                            class="users-field-error"
+                            th:if="${#fields.hasErrors('confirmarPassword')}"
+                            th:errors="*{confirmarPassword}"
+                        >
+                            Las contraseñas no coinciden.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="users-form-section">
+                <header class="users-form-section-header">
+                    <div>
+                        <p class="users-eyebrow">
+                            Autorización
+                        </p>
+
+                        <h2>Roles del usuario</h2>
+                    </div>
+                </header>
+
+                <p class="users-section-description">
+                    Puedes asignar uno o varios roles.
+                    Las funciones visibles dependerán de esta selección.
+                </p>
+
+                <div class="users-role-options">
+
+                    <label
+                        class="users-role-option"
+                        th:each="rol : ${rolesDisponibles}"
+                    >
+                        <input
+                            type="checkbox"
+                            th:field="*{rolesIds}"
+                            th:value="${rol.id}"
+                        >
+
+                        <span>
+                            <strong th:text="${rol.etiqueta}">
+                                Rol
+                            </strong>
+
+                            <small th:text="${rol.descripcion}">
+                                Descripción del rol.
+                            </small>
+                        </span>
+                    </label>
+
+                </div>
+
+                <p
+                    class="users-field-error"
+                    th:if="${#fields.hasErrors('rolesIds')}"
+                    th:errors="*{rolesIds}"
+                >
+                    Selecciona al menos un rol.
+                </p>
+            </section>
+
+            <section class="users-form-section">
+                <header class="users-form-section-header">
+                    <div>
+                        <p class="users-eyebrow">
+                            Estado
+                        </p>
+
+                        <h2>Acceso a la cuenta</h2>
+                    </div>
+                </header>
+
+                <div class="users-switch-list">
+
+                    <label class="users-switch-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{activo}"
+                        >
+
+                        <span>
+                            <strong>Cuenta activa</strong>
+
+                            <small>
+                                Permite que el usuario pueda
+                                iniciar sesión.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="users-switch-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{correoVerificado}"
+                        >
+
+                        <span>
+                            <strong>Correo verificado</strong>
+
+                            <small>
+                                Indica que el correo pertenece
+                                al usuario registrado.
+                            </small>
+                        </span>
+                    </label>
+
+                    <label class="users-switch-option">
+                        <input
+                            type="checkbox"
+                            th:field="*{bloqueado}"
+                        >
+
+                        <span>
+                            <strong>Cuenta bloqueada</strong>
+
+                            <small>
+                                Impide temporalmente que el usuario
+                                acceda a la plataforma.
+                            </small>
+                        </span>
+                    </label>
+
+                </div>
+            </section>
+
+            <div class="users-form-actions">
+                <a
+                    class="users-cancel-link"
+                    href="/admin/usuarios"
+                    th:href="@{/admin/usuarios}"
+                >
+                    Cancelar
+                </a>
+
+                <button
+                    type="submit"
+                    class="users-button users-button-primary"
+                    th:text="${esEdicion ? 'Guardar cambios' : 'Crear usuario'}"
+                >
+                    Crear usuario
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</main>
+
+</body>
+</html>

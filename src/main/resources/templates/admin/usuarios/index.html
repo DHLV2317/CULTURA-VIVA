@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Administrar usuarios | Santa Cultura Viva</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/admin-usuarios.css"
+        th:href="@{/css/admin-usuarios.css}"
+    >
+</head>
+
+<body class="users-page">
+
+<header class="users-header">
+    <div class="users-container users-header-inner">
+        <a
+            class="users-brand"
+            href="/panel"
+            th:href="@{/panel}"
+        >
+            <span class="users-brand-mark">
+                SCV
+            </span>
+
+            <span>
+                <strong>Santa Cultura Viva</strong>
+                <small>Administración de usuarios</small>
+            </span>
+        </a>
+
+        <div class="users-header-actions">
+            <a
+                class="users-header-link"
+                href="/panel"
+                th:href="@{/panel}"
+            >
+                Volver al panel
+            </a>
+
+            <a
+                class="users-button users-button-primary"
+                href="/admin/usuarios/nuevo"
+                th:href="@{/admin/usuarios/nuevo}"
+            >
+                Nuevo usuario
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="users-main">
+    <div class="users-container">
+
+        <section class="users-intro">
+            <div>
+                <p class="users-eyebrow">
+                    Gestión de accesos
+                </p>
+
+                <h1>Usuarios y roles</h1>
+
+                <p class="users-intro-text">
+                    Crea cuentas, asigna permisos y controla
+                    el acceso a la plataforma.
+                </p>
+            </div>
+
+            <span
+                class="users-count"
+                th:if="${usuarios != null}"
+                th:text="${#lists.size(usuarios) + ' usuario(s)'}"
+            >
+                0 usuarios
+            </span>
+        </section>
+
+        <div
+            class="users-message users-message-success"
+            th:if="${mensajeExito != null}"
+            th:text="${mensajeExito}"
+        >
+            Operación realizada correctamente.
+        </div>
+
+        <div
+            class="users-message users-message-error"
+            th:if="${mensajeError != null}"
+            th:text="${mensajeError}"
+        >
+            No fue posible completar la operación.
+        </div>
+
+        <section class="users-panel">
+
+            <div
+                class="users-empty"
+                th:if="${usuarios == null or #lists.isEmpty(usuarios)}"
+            >
+                <span class="users-empty-icon">
+                    +
+                </span>
+
+                <h2>Todavía no existen usuarios</h2>
+
+                <p>
+                    Crea la primera cuenta y asígnale uno
+                    de los roles disponibles.
+                </p>
+
+                <a
+                    class="users-button users-button-primary"
+                    href="/admin/usuarios/nuevo"
+                    th:href="@{/admin/usuarios/nuevo}"
+                >
+                    Crear usuario
+                </a>
+            </div>
+
+            <div
+                class="users-table-wrapper"
+                th:if="${usuarios != null and !#lists.isEmpty(usuarios)}"
+            >
+                <table class="users-table">
+                    <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Roles</th>
+                        <th>Estado</th>
+                        <th>Verificación</th>
+                        <th>Creación</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="usuario : ${usuarios}">
+
+                        <td>
+                            <div class="users-person">
+                                <span
+                                    class="users-avatar"
+                                    th:text="${#strings.substring(usuario.nombreSocial, 0, 1).toUpperCase()}"
+                                >
+                                    U
+                                </span>
+
+                                <div>
+                                    <strong th:text="${usuario.nombreSocial}">
+                                        Nombre social
+                                    </strong>
+
+                                    <small th:text="${usuario.correo}">
+                                        correo@ejemplo.com
+                                    </small>
+
+                                    <small
+                                        class="users-pronoun"
+                                        th:if="${usuario.pronombre != null}"
+                                        th:text="${usuario.pronombre}"
+                                    >
+                                        Pronombre
+                                    </small>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="users-role-list">
+                                <span
+                                    class="users-role"
+                                    th:each="rol : ${usuario.roles}"
+                                    th:text="${rol.etiqueta}"
+                                >
+                                    Rol
+                                </span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="users-status-list">
+                                <span
+                                    class="users-status users-status-active"
+                                    th:if="${usuario.activo and !usuario.bloqueado}"
+                                >
+                                    Activo
+                                </span>
+
+                                <span
+                                    class="users-status users-status-inactive"
+                                    th:if="${!usuario.activo}"
+                                >
+                                    Inactivo
+                                </span>
+
+                                <span
+                                    class="users-status users-status-blocked"
+                                    th:if="${usuario.bloqueado}"
+                                >
+                                    Bloqueado
+                                </span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span
+                                class="users-verification users-verification-ok"
+                                th:if="${usuario.correoVerificado}"
+                            >
+                                Verificado
+                            </span>
+
+                            <span
+                                class="users-verification users-verification-pending"
+                                th:unless="${usuario.correoVerificado}"
+                            >
+                                Pendiente
+                            </span>
+                        </td>
+
+                        <td>
+                            <span
+                                class="users-date"
+                                th:text="${usuario.fechaCreacion}"
+                            >
+                                2026-06-25
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="users-actions">
+
+                                <a
+                                    class="users-action-link"
+                                    th:href="@{/admin/usuarios/{id}/editar(id=${usuario.id})}"
+                                >
+                                    Editar
+                                </a>
+
+                                <form
+                                    method="post"
+                                    th:action="@{/admin/usuarios/{id}/estado(id=${usuario.id})}"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="users-action-button"
+                                        th:text="${usuario.activo ? 'Desactivar' : 'Activar'}"
+                                    >
+                                        Desactivar
+                                    </button>
+                                </form>
+
+                                <form
+                                    method="post"
+                                    th:action="@{/admin/usuarios/{id}/bloqueo(id=${usuario.id})}"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="users-action-button users-action-danger"
+                                        th:text="${usuario.bloqueado ? 'Desbloquear' : 'Bloquear'}"
+                                    >
+                                        Bloquear
+                                    </button>
+                                </form>
+
+                            </div>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </div>
+</main>
+
+</body>
+</html>
